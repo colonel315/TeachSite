@@ -20,6 +20,14 @@ $(document).ready(function() {
 	//Keeps up with the step the division is on (DMS, divide, multiply, subtract)
 	var step = 0;
 
+	//Keeps previous attributes of usersAns
+	var usersAns = $('#usersAns');
+	var usersAnsLeft = usersAns.css('left');
+	var usersAnsTop = usersAns.css('top');
+
+	//Keeps users answer in quotient
+	var QuotientKeeper = "";
+
 	var generateJSON = function() {
 		for(var i = 0; i < 5; i++) {
 			Divide[i] = [];
@@ -50,24 +58,32 @@ $(document).ready(function() {
 	$('#Dividend').text(Divide[currentQuestion].Dividend);
 
 	var checkAnswer = function() {
-		var usersAns = $('#usersAns');
 		var Quotient = $('#Quotient');
 		switch(step%3) {
 			case 0:
 				console.log("Divide[currentQuestion].Dividend", Divide[currentQuestion].Dividend);
 				if(usersAns.val() == HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend)) {
-					Quotient.text(Quotient.html()+HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend));
+					Quotient.text(Quotient.html() + HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend));
 
-					usersAns.css('top', '43%');
+					QuotientKeeper = usersAns.val();
+
+					if(step === 0) {
+						usersAns.css('top', parseInt(usersAnsTop) + (window.innerHeight * .2));
+					}
+					else {
+						usersAns.css('top', parseInt(usersAnsTop) + (window.innerHeight * .25));
+					}
+					usersAns.css('left', '34%');
+					step = ClearTextBox_StepAdd(step);
 				}
 				break;
 			case 1:
-				if(usersAns.val() == Quotient.html()*Divide[currentQuestion].Divisor) {
+				if(usersAns.val() == QuotientKeeper * Divide[currentQuestion].Divisor) {
 					$('<div/>', {
 						css: {
 							position: 'absolute',
 							left: '34%',
-							top: parseInt(usersAns.css('top'))+(window.innerHeight * 0.03)
+							top: parseInt(usersAns.css('top')) + (window.innerHeight * 0.03)
 						},
 						text: "________",
 						class: 'subtraction-bar'
@@ -77,8 +93,8 @@ $(document).ready(function() {
 					$('<div/>', {
 						css: {
 							position: 'absolute',
-							left: parseInt(usersAns.css('left'), 10)-(window.innerWidth * 0.03),
-							top: parseInt(usersAns.css('top'))+(window.innerHeight * 0.01)
+							left: parseInt(usersAns.css('left'), 10) - (window.innerWidth * 0.03),
+							top: parseInt(usersAns.css('top')) + (window.innerHeight * 0.01)
 						},
 						text: '-',
 						class: "subtraction-sign"
@@ -96,35 +112,54 @@ $(document).ready(function() {
 						.appendTo('body');
 
 					subtractValue = usersAns.val();
-				}
+					usersAnsLeft = usersAns.css('left');
+					usersAnsTop = usersAns.css('top');
 
-				usersAns.css('top', parseInt(usersAns.css('top'))+(window.innerHeight * .15));
+					usersAns.css('top', parseInt(usersAnsTop) + (window.innerHeight * .15));
+					step = ClearTextBox_StepAdd(step);
+				}
 				break;
 			case 2:
 				if(usersAns.val() == SubtractDividend(Divide[currentQuestion].Dividend, subtractValue)) {
-					//parseInt(Divide[currentQuestion].Dividend.toString().charAt(Divide[currentQuestion].Dividend.length()-1))
 					var lastDividend = Divide[currentQuestion].Dividend.toString();
-					lastDividend = lastDividend.charAt(lastDividend.length-1);
+					lastDividend = lastDividend.charAt(lastDividend.length - 1);
 					lastDividend = parseInt(lastDividend);
 
-					$('<div/>', {
-						css: {
-							position: 'absolute',
-							left: usersAns.css('left'),
-							top: usersAns.css('top')
-						},
-						text: usersAns.val()+lastDividend
-					})
-						.appendTo('body');
+					console.log('subtractValue = ', subtractValue);
+					Divide[currentQuestion].Dividend = Divide[currentQuestion].Dividend - subtractValue * 10;
 
-					Divide[currentQuestion].Dividend = Divide[currentQuestion].Dividend - subtractValue*10;
+					console.log('Divide[currentQuestion].Dividend = ', Divide[currentQuestion].Dividend);
+					if(step === 2) {
+						console.log("Got into if");
+						$('<div/>', {
+							css: {
+								position: 'absolute',
+								left: usersAns.css('left'),
+								top: usersAns.css('top')
+							},
+							text: usersAns.val() + lastDividend
+						})
+							.appendTo('body');
+					}
+					else {
+						console.log("Got into else");
+						$('<div/>', {
+							css: {
+								position: 'absolute',
+								left: usersAns.css('left'),
+								top: usersAns.css('top')
+							},
+							text: usersAns.html()+lastDividend
+						})
+							.appendTo('body');
+					}
 
 					usersAns.css('top', '22%');
-					usersAns.css('left', parseInt(usersAns.css('left'))+(window.innerWidth * .03));
+					usersAns.css('left', parseInt(usersAns.css('left')) + (window.innerWidth * .03));
+					step = ClearTextBox_StepAdd(step);
 				}
 				break;
 		}
-		step = ClearTextBox_StepAdd(step);
 	};
 
 	$(document).on({
