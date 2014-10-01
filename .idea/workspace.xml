@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="Almost there!">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Teach Site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,9 +28,11 @@
       <file leaf-file-name="MultiDigitDivision.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.576923" vertical-offset="802" max-vertical-offset="1360">
-              <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
-              <folding />
+            <state vertical-scroll-proportion="-6.423077" vertical-offset="802" max-vertical-offset="1360">
+              <caret line="57" column="85" selection-start-line="57" selection-start-column="85" selection-end-line="57" selection-end-column="85" />
+              <folding>
+                <element signature="n#style#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,8 +50,8 @@
       <file leaf-file-name="MultiDigitDivision.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8732877" vertical-offset="816" max-vertical-offset="3842">
-              <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.79280823" vertical-offset="3328" max-vertical-offset="4216">
+              <caret line="223" column="62" selection-start-line="223" selection-start-column="62" selection-end-line="223" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -366,7 +365,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -408,22 +409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2278">
-          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.576923" vertical-offset="802" max-vertical-offset="1360">
-          <caret line="71" column="48" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate Graphs/Coordinate Graphs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3321918" vertical-offset="401" max-vertical-offset="5848">
@@ -432,10 +417,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.423077" vertical-offset="802" max-vertical-offset="1360">
+          <caret line="57" column="85" selection-start-line="57" selection-start-column="85" selection-end-line="57" selection-end-column="85" />
+          <folding>
+            <element signature="n#style#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2278">
+          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/JQuery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33274958" vertical-offset="1187" max-vertical-offset="175338">
+          <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8732877" vertical-offset="816" max-vertical-offset="3842">
-          <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.79280823" vertical-offset="3328" max-vertical-offset="4216">
+          <caret line="223" column="62" selection-start-line="223" selection-start-column="62" selection-end-line="223" selection-end-column="62" />
           <folding />
         </state>
       </provider>

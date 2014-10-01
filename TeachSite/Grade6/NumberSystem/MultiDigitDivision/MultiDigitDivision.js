@@ -25,6 +25,9 @@ $(document).ready(function() {
 	var usersAnsLeft = usersAns.css('left');
 	var usersAnsTop = usersAns.css('top');
 
+	//need global for jquery selector $('#Correct')
+	var Correct = $('#Correct');
+
 	//Keeps users answer in quotient
 	var QuotientKeeper = "";
 
@@ -34,23 +37,16 @@ $(document).ready(function() {
 			Divide[i]["Dividend"] = "";
 			Divide[i]["Divisor"] = "";
 		}
-		var Divisor = Math.floor(Math.random()*90)+10;
-		var Dividend = Math.floor(Math.random()*900)+100;
+		var Divisor = "";
+		var Dividend = "";
 
-		Divide[0].Divisor = Divisor;
-		Divide[0].Dividend = Dividend;
+		for(i = 0; i < 5; i++) {
+			Divisor = Math.floor(Math.random()*90)+10;
+			Dividend = Math.floor(Math.random()*900)+100;
 
-		Divide[1].Divisor = Divisor;
-		Divide[1].Dividend = Dividend;
-
-		Divide[2].Divisor = Divisor;
-		Divide[2].Dividend = Dividend;
-
-		Divide[3].Divisor = Divisor;
-		Divide[3].Dividend = Dividend;
-
-		Divide[4].Divisor = Divisor;
-		Divide[4].Dividend = Dividend;
+			Divide[i].Dividend = Dividend;
+			Divide[i].Divisor = Divisor;
+		}
 	};
 
 	generateJSON();
@@ -58,21 +54,18 @@ $(document).ready(function() {
 	$('#Dividend').text(Divide[currentQuestion].Dividend);
 
 	gotCorrect = function(correct) {
-		setTimeout(function() {
-			Correct.css('display', 'none');
-		}, 2000);
-
-		if(correct && currentQuestion === 4) {
-			Correct.css('display', 'block');
-			Correct.css('color', 'blue');
-			Correct.text("You got it correct!")
-		}
-		else if(correct) {
+		if(correct) {
+			setTimeout(function() {
+				Correct.css('display', 'none');
+			}, 2000);
 			Correct.css('display', 'block');
 			Correct.css('color', 'blue');
 			Correct.text("You got it correct!")
 		}
 		else {
+			setTimeout(function() {
+				Correct.css('display', 'none');
+			}, 2000);
 			Correct.css('display', 'block');
 			Correct.css('color', 'orange');
 			Correct.text("Try again.");
@@ -81,7 +74,7 @@ $(document).ready(function() {
 
 	var checkAnswer = function() {
 		var Quotient = $('#Quotient');
-		var Correct = $('#Correct');
+
 		switch(step%3) {
 			case 0:
 				if(usersAns.val() == HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend)) {
@@ -102,7 +95,7 @@ $(document).ready(function() {
 					step = ClearTextBox_StepAdd(step);
 				}
 				else {
-					gotCorrect(false);
+				    gotCorrect(false);
 				}
 				break;
 			case 1:
@@ -114,7 +107,7 @@ $(document).ready(function() {
 							top: parseInt(usersAns.css('top')) + (window.innerHeight * 0.03)
 						},
 						text: "________",
-						class: 'subtraction-bar'
+						class: 'clearable'
 					})
 						.appendTo('body');
 
@@ -125,7 +118,7 @@ $(document).ready(function() {
 							top: parseInt(usersAns.css('top')) + (window.innerHeight * 0.01)
 						},
 						text: '-',
-						class: "subtraction-sign"
+						class: 'clearable'
 					})
 						.appendTo('body');
 
@@ -135,7 +128,8 @@ $(document).ready(function() {
 							left: usersAns.css('left'),
 							top: usersAns.css('top')
 						},
-						text: usersAns.val()
+						text: usersAns.val(),
+						class: 'clearable'
 					})
 						.appendTo('body');
 
@@ -160,7 +154,7 @@ $(document).ready(function() {
 
 					var newLastDividend = grabLastDividend(Divide[currentQuestion].Dividend);
 
-					if(Divide[currentQuestion].Dividend >= 100 && newLastDividend === lastDividend) {
+					if(Divide[currentQuestion].Dividend >= 100 || newLastDividend === lastDividend) {
 						console.log("inside if");
 						$('<div/>', {
 							css: {
@@ -168,7 +162,8 @@ $(document).ready(function() {
 								left: usersAns.css('left'),
 								top: usersAns.css('top')
 							},
-							text: usersAns.val() + lastDividend
+							text: usersAns.val() + lastDividend,
+							class: 'clearable'
 						})
 							.appendTo('body');
 					}
@@ -181,7 +176,8 @@ $(document).ready(function() {
 								left: usersAns.css('left'),
 								top: usersAns.css('top')
 							},
-							text: usersAns.val()
+							text: usersAns.val(),
+							class: 'clearable'
 						})
 							.appendTo('body');
 					}
@@ -198,14 +194,40 @@ $(document).ready(function() {
 				break;
 		}
 
-		if(Divide[currentQuestion].Dividend < Divide[currentQuestion].Divisor) {
+		if(Divide[currentQuestion].Dividend <= Divide[currentQuestion].Divisor) {
 			if(parseInt(Quotient.html())*10 <= Divide[currentQuestion].Dividend) {
 				Quotient.text(Quotient.html()+0);
 			}
 			usersAns.css('display', 'none');
 
 			gotCorrect(true);
+
+			if(currentQuestion === 4) {
+				Correct.css('display', 'block');
+				Correct.css('color', 'blue');
+				Correct.text("You got them all correct!")
+			}
+			else {
+				setTimeout(function() {
+					$('.clearable').empty();
+					Quotient.empty();
+					Divide.newQuestion();
+				}, 4000);
+			}
+
+			currentQuestion++;
 		}
+	};
+
+	Divide['newQuestion'] = function() {
+		$('#Divisor').text(Divide[currentQuestion].Divisor);
+		$('#Dividend').text(Divide[currentQuestion].Dividend);
+
+		usersAns.css('display', 'block');
+		usersAns.css('left', '34%');
+		usersAns.css('top', '22%');
+		usersAnsLeft = usersAns.css('left');
+		usersAnsTop = usersAns.css('top');
 	};
 
 	$(document).on({
