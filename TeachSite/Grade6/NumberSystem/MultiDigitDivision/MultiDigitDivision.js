@@ -102,7 +102,7 @@ $(document).ready(function() {
 			case 2:
 				if(usersAns.val() == SubtractDividend(Divide[currentQuestion].Dividend, subtractValue)) {
 					//parseInt(Divide[currentQuestion].Dividend.toString().charAt(Divide[currentQuestion].Dividend.length()-1))
-					lastDividend = Divide[currentQuestion].Dividend.toString();
+					var lastDividend = Divide[currentQuestion].Dividend.toString();
 					lastDividend = lastDividend.charAt(lastDividend.length-1);
 					lastDividend = parseInt(lastDividend);
 
