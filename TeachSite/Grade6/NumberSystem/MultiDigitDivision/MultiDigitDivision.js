@@ -57,8 +57,31 @@ $(document).ready(function() {
 	$('#Divisor').text(Divide[currentQuestion].Divisor);
 	$('#Dividend').text(Divide[currentQuestion].Dividend);
 
+	gotCorrect = function(correct) {
+		setTimeout(function() {
+			Correct.css('display', 'none');
+		}, 2000);
+
+		if(correct && currentQuestion === 4) {
+			Correct.css('display', 'block');
+			Correct.css('color', 'blue');
+			Correct.text("You got it correct!")
+		}
+		else if(correct) {
+			Correct.css('display', 'block');
+			Correct.css('color', 'blue');
+			Correct.text("You got it correct!")
+		}
+		else {
+			Correct.css('display', 'block');
+			Correct.css('color', 'orange');
+			Correct.text("Try again.");
+		}
+	};
+
 	var checkAnswer = function() {
 		var Quotient = $('#Quotient');
+		var Correct = $('#Correct');
 		switch(step%3) {
 			case 0:
 				if(usersAns.val() == HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend)) {
@@ -73,7 +96,13 @@ $(document).ready(function() {
 						usersAns.css('top', parseInt(usersAnsTop) + (window.innerHeight * .25));
 					}
 					usersAns.css('left', '34%');
+
+					gotCorrect(true);
+
 					step = ClearTextBox_StepAdd(step);
+				}
+				else {
+					gotCorrect(false);
 				}
 				break;
 			case 1:
@@ -110,12 +139,17 @@ $(document).ready(function() {
 					})
 						.appendTo('body');
 
+					gotCorrect(true);
+
 					subtractValue = usersAns.val();
 					usersAnsLeft = usersAns.css('left');
 					usersAnsTop = usersAns.css('top');
 
 					usersAns.css('top', parseInt(usersAnsTop) + (window.innerHeight * .15));
 					step = ClearTextBox_StepAdd(step);
+				}
+				else {
+					gotCorrect(false);
 				}
 				break;
 			case 2:
@@ -152,9 +186,14 @@ $(document).ready(function() {
 							.appendTo('body');
 					}
 
+					gotCorrect(true);
+
 					usersAns.css('top', '22%');
 					usersAns.css('left', parseInt(usersAns.css('left')) + (window.innerWidth * .03));
 					step = ClearTextBox_StepAdd(step);
+				}
+				else {
+					gotCorrect(false);
 				}
 				break;
 		}
@@ -164,6 +203,8 @@ $(document).ready(function() {
 				Quotient.text(Quotient.html()+0);
 			}
 			usersAns.css('display', 'none');
+
+			gotCorrect(true);
 		}
 	};
 
