@@ -1,24 +1,14 @@
+/**
+ * This program will generate questions that have to do with adding, subtracting, dividing, multiplying and converting units.
+ * Program will check students answers and display whether or not they got it correct or not.
+ */
+
 $(document).ready(function() {
 	/**
 	 * Constructs and empty JSON structor for questions
 	 * @type {{}}
 	 */
 	var Question = {};
-
-	/**
-	 * Questions 1-10 keep track of which answers are correct and not so that it can display whether the user was correct.
-	 * @type {boolean}
-	 */
-	var Question1 = false;
-	var Question2 = false;
-	var Question3 = false;
-	var Question4 = false;
-	var Question5 = false;
-	var Question6 = false;
-	var Question7 = false;
-	var Question8 = false;
-	var Question9 = false;
-	var Question10 = false;
 
 	/**
 	 * Generates JSON structure that will generate question and answers

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="Almost there!">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Equations.js" afterPath="$PROJECT_DIR$/TeachSite/Equations.js" />
+    <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Teach Site.iws" />
@@ -26,23 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Multiple-Digit-Division.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html">
+      <file leaf-file-name="Coordinate-Graphs.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.846154" vertical-offset="788" max-vertical-offset="1394">
-              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Equations.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TeachSite/Equations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7965812" vertical-offset="1727" max-vertical-offset="2312">
-              <caret line="129" column="34" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.7859589" vertical-offset="1411" max-vertical-offset="6817">
+              <caret line="110" column="31" selection-start-line="110" selection-start-column="31" selection-end-line="110" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -75,9 +64,10 @@
         <option value="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js" />
         <option value="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html" />
         <option value="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.css" />
-        <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js" />
         <option value="$PROJECT_DIR$/TeachSite/Equations.js" />
         <option value="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.js" />
+        <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js" />
+        <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js" />
       </list>
     </option>
   </component>
@@ -207,7 +197,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Comparing-and-Converting" />
+              <option name="myItemId" value="Coordinate-Graphs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -230,32 +220,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="NumberSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Teach Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dr. Wong project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TeachSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grade6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NumberSystem" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Multiple-Digit-Division" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -356,13 +320,18 @@
       <created>1412135936947</created>
       <updated>1412135936947</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added Comments">
+      <created>1412199364774</created>
+      <updated>1412199364774</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -377,7 +346,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -404,7 +372,8 @@
     <MESSAGE value="updated case 2 in switch." />
     <MESSAGE value="added var to lastDividend" />
     <MESSAGE value="Almost there!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost there!" />
+    <MESSAGE value="Added Comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -494,13 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3321918" vertical-offset="401" max-vertical-offset="5848">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="49" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/JQuery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33274958" vertical-offset="1187" max-vertical-offset="175338">
@@ -533,32 +495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="72.5" vertical-offset="1885" max-vertical-offset="3026">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7622378" vertical-offset="1621" max-vertical-offset="3978">
-          <caret line="121" column="40" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.846154" vertical-offset="788" max-vertical-offset="1394">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44615385" vertical-offset="2391" max-vertical-offset="4216">
@@ -569,8 +505,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Equations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7965812" vertical-offset="1727" max-vertical-offset="2312">
+        <state vertical-scroll-proportion="0.9434931" vertical-offset="1642" max-vertical-offset="2312">
           <caret line="129" column="34" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61284405" vertical-offset="788" max-vertical-offset="1394">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2977233" vertical-offset="0" max-vertical-offset="3808">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4587157" vertical-offset="1885" max-vertical-offset="3026">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1394">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7859589" vertical-offset="1411" max-vertical-offset="6817">
+          <caret line="110" column="31" selection-start-line="110" selection-start-column="31" selection-end-line="110" selection-end-column="31" />
           <folding />
         </state>
       </provider>

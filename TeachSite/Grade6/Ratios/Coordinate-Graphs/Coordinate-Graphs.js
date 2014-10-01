@@ -1,12 +1,30 @@
 /**
- * fixes: If student gets wrong can't change answer, create method to do so.
- * alert message for when student gets it wrong.
+ * Program generates a cartesian coordinate plane with different shapes on it and will generate questions for students to answer by
+ * clicking on the shape.
+ * Program will display whether the student is correct or not to let them know they are moving to the next question
  */
 $(document).ready(function() {
+	/**
+	 * Creates an empty JSON structure to store questions inside of for students to answer
+	 * @type {{}}
+	 */
 	var Question = {};
-	var problemNumber = 0; //Which number a student is on.
+
+	/**
+	 * Keeps track of what problem number the student is on so that way program can tell when student has finished.
+	 * @type {number}
+	 */
+	var problemNumber = 0;
+
+	/**
+	 * used throughout program in different spots so created a single variable to use.
+	 * @type {*|jQuery|HTMLElement}
+	 */
 	var Correct = $('#Correct');
 
+	/**
+	 * This function will generate questions and store them inside of the JSON structure Question.prompt.
+	 */
 	var generateJSON = function() {
 		for(var i = 0; i < 10; i++) {
 			Question[i] = [];
@@ -25,19 +43,41 @@ $(document).ready(function() {
 		Question[9].prompt = "Click on the shape that is on the point (0, 2)?";
 	};
 
+	/**
+	 * Calls generateJSON() to be able to print questions out.
+	 */
 	generateJSON();
+
+	/**
+	 * Prints out the first question of the page.
+	 */
 	$('#Question').text(Question[problemNumber].prompt);
 
+	/**
+	 * moves on to the next problem and prints it out.
+	 */
 	Question["newQuestion"] = function() {
 		problemNumber++;
 		$('#Question').text(Question[problemNumber].prompt);
 	};
 
+	/**
+	 * Displays whether the student is correct, got them all correct, or if they were wrong.
+	 * @param correct
+	 */
 	gotCorrect = function(correct) {
-		if(correct) {
+		if(correct && problemNumber === 9) {
 			Correct.css('display', 'block');
 			Correct.css('color', 'blue');
 			Correct.text("You got them all correct!")
+		}
+		else if(correct) {
+			setTimeout(function() {
+				Correct.css('display', 'none');
+			}, 2000);
+			Correct.css('display', 'block');
+			Correct.css('color', 'blue');
+			Correct.text("You got it correct!")
 		}
 		else {
 			setTimeout(function() {
@@ -48,8 +88,15 @@ $(document).ready(function() {
 			Correct.text("Try again.");
 		}
 	};
-	//Creates the coordinate graph with points.
+
+	/**
+	 * graph holds Raphael properties at the location with the ID of "FirstDiscription" to be able to draw there.
+	 */
 	var graph = Raphael("FirstDescription");
+
+	/**
+	 * Creates a blue rectangle border around the graph
+	 */
 	graph.rect(0, 0, 500, 500)
 		.animate({
 			stroke: "blue"
@@ -147,7 +194,8 @@ $(document).ready(function() {
 			if(problemNumber === 2) {
 				setTimeout(function() {
 					Question.newQuestion();
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else {
 				gotCorrect(false);
@@ -164,12 +212,14 @@ $(document).ready(function() {
 			if(problemNumber === 1) {
 				setTimeout(function() {
 					Question.newQuestion();
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else if(problemNumber === 8) {
 				setTimeout(function() {
 					Question.newQuestion();
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else {
 				gotCorrect(false);
@@ -186,12 +236,14 @@ $(document).ready(function() {
 			if(problemNumber === 4) {
 				setTimeout(function() {
 					Question.newQuestion();
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else if(problemNumber === 7) {
 				setTimeout(function() {
 					Question.newQuestion();
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else {
 				gotCorrect(false);
@@ -208,12 +260,14 @@ $(document).ready(function() {
 			if(problemNumber === 3) {
 				setTimeout(function() {
 					Question.newQuestion();
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else if(problemNumber === 9) {
 				setTimeout(function() {
 					gotCorrect(true);
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else {
 				gotCorrect(false);
@@ -230,7 +284,8 @@ $(document).ready(function() {
 			if(problemNumber === 0) {
 				setTimeout(function() {
 					Question.newQuestion();
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else {
 				gotCorrect(false);
@@ -247,12 +302,14 @@ $(document).ready(function() {
 			if(problemNumber === 5) {
 				setTimeout(function() {
 					Question.newQuestion();
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else if(problemNumber === 6) {
 				setTimeout(function() {
 					Question.newQuestion();
-				}, 1000);
+				}, 2000);
+				gotCorrect(true);
 			}
 			else {
 				gotCorrect(false);
