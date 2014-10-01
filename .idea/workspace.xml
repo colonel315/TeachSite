@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Equations.js" afterPath="$PROJECT_DIR$/TeachSite/Equations.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -49,8 +50,8 @@
       <file leaf-file-name="MultiDigitDivision.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30136988" vertical-offset="1592" max-vertical-offset="2448">
-              <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.24315068" vertical-offset="1881" max-vertical-offset="2465">
+              <caret line="119" column="106" selection-start-line="119" selection-start-column="106" selection-end-line="119" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -59,8 +60,8 @@
       <file leaf-file-name="Equations.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TeachSite/Equations.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1377">
-              <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="708" max-vertical-offset="1377">
+              <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -297,11 +298,15 @@
       <created>1412132084954</created>
       <updated>1412132084954</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added var to lastDividend">
+      <created>1412135936947</created>
+      <updated>1412135936947</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -343,7 +348,8 @@
     <MESSAGE value="added .idea folder to gitignore" />
     <MESSAGE value="modified gitignored" />
     <MESSAGE value="updated case 2 in switch." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated case 2 in switch." />
+    <MESSAGE value="added var to lastDividend" />
+    <option name="LAST_COMMIT_MESSAGE" value="added var to lastDividend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -405,16 +411,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Equations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1377">
-          <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="708" max-vertical-offset="1377">
+          <caret line="57" column="17" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30136988" vertical-offset="1592" max-vertical-offset="2448">
-          <caret line="104" column="38" selection-start-line="104" selection-start-column="38" selection-end-line="104" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.24315068" vertical-offset="1881" max-vertical-offset="2465">
+          <caret line="119" column="106" selection-start-line="119" selection-start-column="106" selection-end-line="119" selection-end-column="106" />
           <folding />
         </state>
       </provider>

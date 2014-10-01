@@ -55,7 +55,7 @@ var HighestDivide = function(divisor, dividend) {
 
 	var Dividend = dividend.toString();
 
-	for(var i = 2; i <= Dividend.length; i++) {
+	for(var i = 1; i <= Dividend.length; i++) {
 		tempDividend = Dividend.substring(0, i);
 		parseInt(tempDividend);
 		for(var j = divisor; j <= tempDividend; j += divisor) {

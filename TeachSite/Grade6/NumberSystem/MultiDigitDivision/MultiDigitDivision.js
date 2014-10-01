@@ -54,6 +54,7 @@ $(document).ready(function() {
 		var Quotient = $('#Quotient');
 		switch(step%3) {
 			case 0:
+				console.log("Divide[currentQuestion].Dividend", Divide[currentQuestion].Dividend);
 				if(usersAns.val() == HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend)) {
 					Quotient.text(Quotient.html()+HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend));
 
@@ -116,7 +117,7 @@ $(document).ready(function() {
 					})
 						.appendTo('body');
 
-					Divide[currentQuestion].Dividend = lastDividend - subtractValue;
+					Divide[currentQuestion].Dividend = Divide[currentQuestion].Dividend - subtractValue*10;
 
 					usersAns.css('top', '22%');
 					usersAns.css('left', parseInt(usersAns.css('left'))+(window.innerWidth * .03));
