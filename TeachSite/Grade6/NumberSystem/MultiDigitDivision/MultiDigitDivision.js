@@ -120,13 +120,14 @@ $(document).ready(function() {
 				break;
 			case 2:
 				if(usersAns.val() == SubtractDividend(Divide[currentQuestion].Dividend, subtractValue)) {
-					var lastDividend = Divide[currentQuestion].Dividend.toString();
-					lastDividend = lastDividend.charAt(lastDividend.length - 1);
-					lastDividend = parseInt(lastDividend);
+					var lastDividend = grabLastDividend(Divide[currentQuestion].Dividend);
 
 					Divide[currentQuestion].Dividend = Divide[currentQuestion].Dividend - subtractValue * 10;
 
-					if(step === 2) {
+					var newLastDividend = grabLastDividend(Divide[currentQuestion].Dividend);
+
+					if(Divide[currentQuestion].Dividend >= 100 && newLastDividend === lastDividend) {
+						console.log("inside if");
 						$('<div/>', {
 							css: {
 								position: 'absolute',
@@ -138,13 +139,15 @@ $(document).ready(function() {
 							.appendTo('body');
 					}
 					else {
+						console.log("inside else");
+						console.log("usersAns.html() = ", usersAns.val());
 						$('<div/>', {
 							css: {
 								position: 'absolute',
 								left: usersAns.css('left'),
 								top: usersAns.css('top')
 							},
-							text: usersAns.html()
+							text: usersAns.val()
 						})
 							.appendTo('body');
 					}
@@ -157,6 +160,9 @@ $(document).ready(function() {
 		}
 
 		if(Divide[currentQuestion].Dividend < Divide[currentQuestion].Divisor) {
+			if(parseInt(Quotient.html())*10 <= Divide[currentQuestion].Dividend) {
+				Quotient.text(Quotient.html()+0);
+			}
 			usersAns.css('display', 'none');
 		}
 	};

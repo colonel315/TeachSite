@@ -76,3 +76,8 @@ var SubtractDividend = function(dividend, subtractor) {
 		return dividend - subtractor;
 	}
 };
+var grabLastDividend = function(dividend) {
+	var lastDividend = dividend.toString();
+	lastDividend = lastDividend.charAt(lastDividend.length - 1);
+	return parseInt(lastDividend);
+};
