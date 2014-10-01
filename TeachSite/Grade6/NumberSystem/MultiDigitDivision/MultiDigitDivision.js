@@ -11,11 +11,14 @@ $(document).ready(function() {
 	//creates a JSON structure
 	var Divide = {};
 
+	//keeps up with the subtract value
+	var subtractValue = "";
+
 	//keeps track of the current question
 	var currentQuestion = 0;
 
 	//Keeps up with the step the division is on (DMS, divide, multiply, subtract)
-	var step = 1;
+	var step = 0;
 
 	var generateJSON = function() {
 		for(var i = 0; i < 5; i++) {
@@ -50,18 +53,14 @@ $(document).ready(function() {
 		var usersAns = $('#usersAns');
 		var Quotient = $('#Quotient');
 		switch(step%3) {
-			case 1:
+			case 0:
 				if(usersAns.val() == HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend)) {
-					Quotient.css('display', 'block');
-
 					Quotient.text(Quotient.html()+HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend));
 
 					usersAns.css('top', '43%');
-
-					step = ClearTextBox_StepAdd(step);
 				}
 				break;
-			case 2:
+			case 1:
 				if(usersAns.val() == Quotient.html()*Divide[currentQuestion].Divisor) {
 					$('<div/>', {
 						css: {
@@ -94,16 +93,37 @@ $(document).ready(function() {
 						text: usersAns.val()
 					})
 						.appendTo('body');
+
+					subtractValue = usersAns.val();
 				}
 
-
 				usersAns.css('top', parseInt(usersAns.css('top'))+(window.innerHeight * .15));
-
-				step = ClearTextBox_StepAdd(step);
 				break;
-			case 3:
+			case 2:
+				if(usersAns.val() == SubtractDividend(Divide[currentQuestion].Dividend, subtractValue)) {
+					//parseInt(Divide[currentQuestion].Dividend.toString().charAt(Divide[currentQuestion].Dividend.length()-1))
+					lastDividend = Divide[currentQuestion].Dividend.toString();
+					lastDividend = lastDividend.charAt(lastDividend.length-1);
+					lastDividend = parseInt(lastDividend);
+
+					$('<div/>', {
+						css: {
+							position: 'absolute',
+							left: usersAns.css('left'),
+							top: usersAns.css('top')
+						},
+						text: usersAns.val()+lastDividend
+					})
+						.appendTo('body');
+
+					Divide[currentQuestion].Dividend = lastDividend - subtractValue;
+
+					usersAns.css('top', '22%');
+					usersAns.css('left', parseInt(usersAns.css('left'))+(window.innerWidth * .03));
+				}
 				break;
 		}
+		step = ClearTextBox_StepAdd(step);
 	};
 
 	$(document).on({
