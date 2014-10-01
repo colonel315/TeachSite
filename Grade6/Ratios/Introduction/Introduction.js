@@ -55,7 +55,7 @@ var ArrayShuffle = function(Element1, Element2, Element3, Element4, Element5, El
  * @constructor
  */
 var Comparison = function(RatioSpot, DropSpot) {
-	return parseInt(RatioSpot.css('left'), 0) >= parseInt(DropSpot.css('left'), 10)-10 &&
+	return parseInt(RatioSpot.css('left'), 10) >= parseInt(DropSpot.css('left'), 10)-10 &&
 			parseInt(RatioSpot.css('left'), 10) <= parseInt(DropSpot.css('left'), 10)+parseInt(DropSpot.css('width'), 10) &&
 			parseInt(RatioSpot.css('top'), 10) >= parseInt(DropSpot.css('top'), 10)-10 &&
 			parseInt(RatioSpot.css('top'), 10) <= parseInt(DropSpot.css('top'), 10)+parseInt(DropSpot.css('height'), 10);

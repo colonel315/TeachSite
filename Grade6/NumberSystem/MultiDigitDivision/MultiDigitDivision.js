@@ -5,6 +5,23 @@ $(document).ready(function() {
 	//creates a JSON structure
 	var Divide = {};
 
+	/**
+	 * A simple divisor option
+	 * @type {string}
+	 */
+	var DivisorLine = {
+		text: "________",
+		position: {
+			top: "",
+			bottom: "",
+			left: "",
+			right: ""
+		},
+		setPosition: function(type, value){
+			self.position[type] = parseFloat(value);
+		}
+	};
+
 	//stores the answer
 	var Answer = "";
 
@@ -45,25 +62,11 @@ $(document).ready(function() {
 
 	var checkAnswer = function() {
 		var usersAns = $('#usersAns');
+		var Quotient = $('#Quotient');
 		switch(step%3) {
 			case 1:
 				if(usersAns.val() == HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend)) {
-					if(step === 1) {
-						jQuery('<div/>', {
-							id: 'Quotient',
-							text: usersAns.val(),
-							css: {
-								position: 'absolute',
-								left: "34%",
-								top: "22%"
-							}
-						})
-							.appendTo('body');
-					}
-					else {
-						var Quotient = $('#Quotient');
-						Quotient.text(Quotient.html()+HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend));
-					}
+					Quotient.text(Quotient.html()+HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend));
 
 					usersAns.css('top', '43%');
 
@@ -73,23 +76,28 @@ $(document).ready(function() {
 				}
 				break;
 			case 2:
-				if(usersAns.val() == Quotient.innerText()*Divide.Divisor) {
+				if(usersAns.val() == Quotient.html()*Divide[currentQuestion].Divisor) {
+//					divisorLine = new DivisorLine;
 					jQuery('<div/>', {
 						css: {
 							position: 'absolute',
 							left: '34%',
-							top: usersAns.css('top')+'10%'
+							top: usersAns.css('top')
 						},
-						text: "________"
+						text: "________",
+						class: 'subtraction-bar'
 					})
 						.appendTo('body');
+//					var old_top_position = jQuery(".divisor-line")[-1].css('top');
+//					var old_left_position = jQuery('.divisor-line')[-1].css('left');
 					jQuery('<div/>', {
 						css: {
 							position: 'absolute',
-							left: usersAns.css('left')-'5%',
+							left: parseInt(usersAns.css('left'), 10)-(window.innerWidth * 0.03),
 							top: usersAns.css('top')+'2%'
 						},
-						text: '-'
+						text: '-',
+						class: "subtraction-sign"
 					})
 						.appendTo('body');
 				}
