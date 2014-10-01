@@ -1,8 +1,16 @@
+/**
+ * This function finds the greatest common factor between any two numbers.
+ *
+ * @param Factor1
+ * @param Factor2
+ * @returns {number}
+ * @constructor
+ */
 GreatestCommonFactor = function(Factor1, Factor2) {
 	var greatestCommonFactor = 1;
 
 	if(Factor1 < Factor2) {
-		temp = Factor1;
+		var temp = Factor1;
 		Factor1 = Factor2;
 		Factor2 = temp;
 	}
@@ -15,10 +23,24 @@ GreatestCommonFactor = function(Factor1, Factor2) {
 
 	return greatestCommonFactor;
 };
-BetterDeal = function(Item1Value, Weight1, Measurement1, ItemName1, Item2Value, Weight2, Measurement2, ItemName2, Equal) {
-	var Price1 = 0;
-	var Price2 = 0;
 
+/**
+ * This function will find a better deal based off of the value of the item, the weight and the type of measurement then returns the
+ * product that is the better deal.
+ *
+ * @param Item1Value
+ * @param Weight1
+ * @param Measurement1
+ * @param ItemName1
+ * @param Item2Value
+ * @param Weight2
+ * @param Measurement2
+ * @param ItemName2
+ * @param Equal
+ * @returns {*}
+ * @constructor
+ */
+BetterDeal = function(Item1Value, Weight1, Measurement1, ItemName1, Item2Value, Weight2, Measurement2, ItemName2, Equal) {
 	if(Measurement1 === "pound" && Measurement2 === "ounce") {
 		Weight1*=16;
 	}
@@ -35,8 +57,8 @@ BetterDeal = function(Item1Value, Weight1, Measurement1, ItemName1, Item2Value, 
 		Weight2*=28.34952313;
 	}
 
-	Price1 = Weight1*Item1Value;
-	Price2 = Weight2*Item2Value;
+	var Price1 = Weight1*Item1Value;
+	var Price2 = Weight2*Item2Value;
 
 	if(Price1 > Price2) {
 		return ItemName1;
@@ -48,6 +70,17 @@ BetterDeal = function(Item1Value, Weight1, Measurement1, ItemName1, Item2Value, 
 		return Equal;
 	}
 };
+
+/**
+ * Takes in two numbers and finds the greatest number that it can divide into evenly for standard division algorithm.
+ * Starts at the first number and expands the substring until it gets to the length of the dividend.
+ * If quotient ever becomes greater than 0 then it will break out of loop and return the quotient.
+ *
+ * @param divisor
+ * @param dividend
+ * @returns {string}
+ * @constructor
+ */
 var HighestDivide = function(divisor, dividend) {
 	var Quotient = 0;
 
@@ -68,6 +101,15 @@ var HighestDivide = function(divisor, dividend) {
 
 	return Quotient.toString();
 };
+
+/**
+ * Another step for the standard algorithm for division. This takes in two values and subtracts them to return that value.
+ *
+ * @param dividend
+ * @param subtractor
+ * @returns {number}
+ * @constructor
+ */
 var SubtractDividend = function(dividend, subtractor) {
 	if(parseInt(dividend.toString().substring(0, 2)) >= subtractor) {
 		return parseInt(dividend.toString().substring(0, 2)) - subtractor;
@@ -76,6 +118,12 @@ var SubtractDividend = function(dividend, subtractor) {
 		return dividend - subtractor;
 	}
 };
+
+/**
+ * This function will take in a number and find the last character of that value.
+ * @param dividend
+ * @returns {Number}
+ */
 var grabLastDividend = function(dividend) {
 	var lastDividend = dividend.toString();
 	lastDividend = lastDividend.charAt(lastDividend.length - 1);
