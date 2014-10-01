@@ -109,6 +109,7 @@ $(document).ready(function() {
 		}
 	};
 
+	//Big doo doo head
 	$(document).on({
 		click: function() {
 			checkAnswer();
