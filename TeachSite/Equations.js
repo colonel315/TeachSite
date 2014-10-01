@@ -69,5 +69,10 @@ var HighestDivide = function(divisor, dividend) {
 	return Quotient.toString();
 };
 var SubtractDividend = function(dividend, subtractor) {
-	return parseInt(dividend.toString().substring(0, 2)) - subtractor;
+	if(parseInt(dividend.toString().substring(0, 2)) >= subtractor) {
+		return parseInt(dividend.toString().substring(0, 2)) - subtractor;
+	}
+	else {
+		return dividend - subtractor;
+	}
 };

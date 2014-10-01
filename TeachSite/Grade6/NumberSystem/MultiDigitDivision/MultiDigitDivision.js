@@ -61,7 +61,6 @@ $(document).ready(function() {
 		var Quotient = $('#Quotient');
 		switch(step%3) {
 			case 0:
-				console.log("Divide[currentQuestion].Dividend", Divide[currentQuestion].Dividend);
 				if(usersAns.val() == HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend)) {
 					Quotient.text(Quotient.html() + HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend));
 
@@ -125,12 +124,9 @@ $(document).ready(function() {
 					lastDividend = lastDividend.charAt(lastDividend.length - 1);
 					lastDividend = parseInt(lastDividend);
 
-					console.log('subtractValue = ', subtractValue);
 					Divide[currentQuestion].Dividend = Divide[currentQuestion].Dividend - subtractValue * 10;
 
-					console.log('Divide[currentQuestion].Dividend = ', Divide[currentQuestion].Dividend);
 					if(step === 2) {
-						console.log("Got into if");
 						$('<div/>', {
 							css: {
 								position: 'absolute',
@@ -142,14 +138,13 @@ $(document).ready(function() {
 							.appendTo('body');
 					}
 					else {
-						console.log("Got into else");
 						$('<div/>', {
 							css: {
 								position: 'absolute',
 								left: usersAns.css('left'),
 								top: usersAns.css('top')
 							},
-							text: usersAns.html()+lastDividend
+							text: usersAns.html()
 						})
 							.appendTo('body');
 					}
@@ -159,6 +154,10 @@ $(document).ready(function() {
 					step = ClearTextBox_StepAdd(step);
 				}
 				break;
+		}
+
+		if(Divide[currentQuestion].Dividend < Divide[currentQuestion].Divisor) {
+			usersAns.css('display', 'none');
 		}
 	};
 
