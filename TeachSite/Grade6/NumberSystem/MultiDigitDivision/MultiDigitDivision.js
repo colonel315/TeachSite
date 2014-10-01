@@ -1,29 +1,15 @@
+var ClearTextBox_StepAdd = function(step) {
+	document.getElementById('usersAns').value = "";
+
+	step++;
+	return step;
+};
 /**
  * Created by Trey on 9/28/2014.
  */
 $(document).ready(function() {
 	//creates a JSON structure
 	var Divide = {};
-
-	/**
-	 * A simple divisor option
-	 * @type {string}
-	 */
-	var DivisorLine = {
-		text: "________",
-		position: {
-			top: "",
-			bottom: "",
-			left: "",
-			right: ""
-		},
-		setPosition: function(type, value){
-			self.position[type] = parseFloat(value);
-		}
-	};
-
-	//stores the answer
-	var Answer = "";
 
 	//keeps track of the current question
 	var currentQuestion = 0;
@@ -66,43 +52,54 @@ $(document).ready(function() {
 		switch(step%3) {
 			case 1:
 				if(usersAns.val() == HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend)) {
+					Quotient.css('display', 'block');
+
 					Quotient.text(Quotient.html()+HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend));
 
 					usersAns.css('top', '43%');
 
-					document.getElementById('usersAns').value = "";
-
-					step++;
+					step = ClearTextBox_StepAdd(step);
 				}
 				break;
 			case 2:
 				if(usersAns.val() == Quotient.html()*Divide[currentQuestion].Divisor) {
-//					divisorLine = new DivisorLine;
-					jQuery('<div/>', {
+					$('<div/>', {
 						css: {
 							position: 'absolute',
 							left: '34%',
-							top: usersAns.css('top')
+							top: parseInt(usersAns.css('top'))+(window.innerHeight * 0.03)
 						},
 						text: "________",
 						class: 'subtraction-bar'
 					})
 						.appendTo('body');
-//					var old_top_position = jQuery(".divisor-line")[-1].css('top');
-//					var old_left_position = jQuery('.divisor-line')[-1].css('left');
-					jQuery('<div/>', {
+
+					$('<div/>', {
 						css: {
 							position: 'absolute',
 							left: parseInt(usersAns.css('left'), 10)-(window.innerWidth * 0.03),
-							top: usersAns.css('top')+'2%'
+							top: parseInt(usersAns.css('top'))+(window.innerHeight * 0.01)
 						},
 						text: '-',
 						class: "subtraction-sign"
 					})
 						.appendTo('body');
+
+					$('<div/>', {
+						css: {
+							position: 'absolute',
+							left: usersAns.css('left'),
+							top: usersAns.css('top')
+						},
+						text: usersAns.val()
+					})
+						.appendTo('body');
 				}
 
-				usersAns.css('top', usersAns.css('top')+'15%');
+
+				usersAns.css('top', parseInt(usersAns.css('top'))+(window.innerHeight * .15));
+
+				step = ClearTextBox_StepAdd(step);
 				break;
 			case 3:
 				break;
