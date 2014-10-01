@@ -2,91 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\.gitattributes" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Equations.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\General Layout.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\General Layout.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\General Layout.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Grade6.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Grade6.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\NumberSystem\Math with Fractions\Math with Fractions.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\NumberSystem\Math with Fractions\Math with Fractions.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\NumberSystem\Math with Fractions\Math with Fractions.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\NumberSystem\MultiDigitDivision\MultiDigitDivision.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\NumberSystem\MultiDigitDivision\MultiDigitDivision.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\NumberSystem\MultiDigitDivision\MultiDigitDivision.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\NumberSystem\NumberSystem.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\NumberSystem\NumberSystem.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\.idea\.name" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\.idea\Ratios.iml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\.idea\misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\.idea\modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\.idea\scopes\scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\.idea\vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\.idea\workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Comparing and Converting\Comparing and Converting.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Comparing and Converting\Comparing and Converting.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Comparing and Converting\Comparing and Converting.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Coordinate Graphs\Coordinate Graphs.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Coordinate Graphs\Coordinate Graphs.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Coordinate Graphs\Coordinate Graphs.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Equivalent and Comparing Ratios\Equivalent and Comparing Ratios.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Equivalent and Comparing Ratios\Equivalent and Comparing Ratios.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Equivalent and Comparing Ratios\Equivalent and Comparing Ratios.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Introduction\Introduction.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Introduction\Introduction.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Introduction\Introduction.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Ratios as Fractions\Ratios as Fractions.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Ratios as Fractions\Ratios as Fractions.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Ratios as Fractions\Ratios as Fractions.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Ratios.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Ratios.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Ratios.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Sale Prices\Sale Prices.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Sale Prices\Sale Prices.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Sale Prices\Sale Prices.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Simplify\Simplify.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Simplify\Simplify.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Simplify\Simplify.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Unit Prices and Conversions\Unit Prices and Conversions.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Unit Prices and Conversions\Unit Prices and Conversions.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Unit Prices and Conversions\Unit Prices and Conversions.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Unit Rates and Equivalent Rates\Unit Rates and Equivalent Rates.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Unit Rates and Equivalent Rates\Unit Rates and Equivalent Rates.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Grade6\Ratios\Unit Rates and Equivalent Rates\Unit Rates and Equivalent Rates.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Index.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\JQuery.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Raphael.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\Teach-Site" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\external\jquery\jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-icons_228ef1_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-icons_ef8c08_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-icons_ffd27a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\images\ui-icons_ffffff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\index.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\jquery-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\jquery-ui.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\jquery-ui.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\jquery-ui.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\jquery-ui.structure.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\jquery-ui.structure.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\jquery-ui.theme.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\jquery-ui-1.11.1\jquery-ui.theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\mathjs.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Teach Site.iws" />
@@ -113,8 +29,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26631853" vertical-offset="0" max-vertical-offset="383">
-              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.08732877" vertical-offset="0" max-vertical-offset="584">
+              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -289,13 +205,18 @@
       <created>1397267309449</created>
       <updated>1397267309449</updated>
     </task>
+    <task id="LOCAL-00001" summary="added .idea folder to gitignore">
+      <created>1412129324184</created>
+      <updated>1412129324184</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843137" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -355,8 +276,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26631853" vertical-offset="0" max-vertical-offset="383">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.08732877" vertical-offset="0" max-vertical-offset="584">
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
           <folding />
         </state>
       </provider>
