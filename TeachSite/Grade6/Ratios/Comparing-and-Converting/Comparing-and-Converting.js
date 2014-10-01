@@ -1,6 +1,14 @@
 $(document).ready(function() {
-	var Question = {};			//constructs an empty JSON structor for questions
-	var AmountCorrect = 0;
+	/**
+	 * Constructs and empty JSON structor for questions
+	 * @type {{}}
+	 */
+	var Question = {};
+
+	/**
+	 * Questions 1-10 keep track of which answers are correct and not so that it can display whether the user was correct.
+	 * @type {boolean}
+	 */
 	var Question1 = false;
 	var Question2 = false;
 	var Question3 = false;
@@ -12,6 +20,9 @@ $(document).ready(function() {
 	var Question9 = false;
 	var Question10 = false;
 
+	/**
+	 * Generates JSON structure that will generate question and answers
+	 */
 	var generateJSON = function() {
 		for(var i = 0; i < 10; i++) {
 			Question[i] = [];
@@ -95,83 +106,99 @@ $(document).ready(function() {
 		Weight2 = Math.round(Math.random()*2200)/100;
 
 		Question[9].prompt = Weight1+"kgs of oranges - "+Weight2+"lbs of apples = ";
-		Question[9].answer = Weight1*2.20462262 - Weight2; //2.20462262lbs = 1kg
-		Question[9].otherAnswer1 = Weight1 - Weight2/2.20462262; //1kg = 2.20462262lbs
+		Question[9].answer = Math.round((Weight1*2.20462262 - Weight2)*100)/100; //2.20462262lbs = 1kg
+		Question[9].otherAnswer1 = Math.round((Weight1 - Weight2/2.20462262)*100)/100; //1kg = 2.20462262lbs
 	};
 
+	/**
+	 * checks each answer to see if it is correct after some modifications and if it is correct will tell user that they are correct.
+	 */
 	var checkAnswer = function() {
 		for(var i = 1; i <= 10; i++) {
-			var UsersAnswer = "";
+			/**
+			 * variable to store the jQuery selector for no repetition or memory waste.
+			 * @type {*|jQuery}
+			 */
+			var UsersAnswer = $('#userAns'+i).val();
 
+			/**
+			 * Makes all of the users answers lower case to eliminate variability.
+			 */
 			UsersAnswer = UsersAnswer.toLowerCase();
+
+			/**
+			 * the next few steps replace spaces, 'ib', 'oz', 'g', 'kg', 's' with a blank line to eliminate variability of answers.
+			 */
 			UsersAnswer = UsersAnswer.replace(/\s/g, "");
 			UsersAnswer = UsersAnswer.replace(/ib/gi, ""); //gi = global case-insensitive.
 			UsersAnswer = UsersAnswer.replace(/oz/gi, "");
 			UsersAnswer = UsersAnswer.replace(/g/gi, "");
 			UsersAnswer = UsersAnswer.replace(/kg/gi, "");
 			UsersAnswer = UsersAnswer.replace(/s/gi, "");
+
+			/**
+			 * Changes UserAnswer into a string for comparison later.
+			 * @type {string}
+			 */
 			UsersAnswer = UsersAnswer.toString();
 
+			/**
+			 * Real answer is the current question's answer to know what to compare and eliminates repetition and memory waste
+			 * @type {*|Question.answer|string}
+			 */
 			var RealAnswer = Question[i-1].answer;
+
+			/**
+			 * calls toString to be able to manipulate RealAnswer as needed.
+			 * @type {string}
+			 */
 			RealAnswer = RealAnswer.toString();
 
-			var DisplayCorrect = "";
+			/**
+			 * Sets RealAnswer to lower case to eliminate variability of the real answer (in case of a mistake)
+			 * @type {string}
+			 */
+			RealAnswer = RealAnswer.toLowerCase();
 
-			if(UsersAnswer === RealAnswer) {
-				if(i == 1) {
-					Question1 = true;
-				}
-				else if(i == 2) {
-					Question2 = true;
-				}
-				else if(i == 3) {
-					Question3 = true;
-				}
-				else if(i == 4) {
-					Question4 = true;
-				}
-				else if(i == 5) {
-					Question5 = true;
-				}
-				else if(i == 6) {
-					Question6 = true;
-				}
-				else if(i == 7) {
-					Question7 = true;
-				}
-				else if(i == 8) {
-					Question8 = true;
-				}
-				else if(i == 9) {
-					Question9 = true;
-				}
-				else if(i == 10) {
-					Question10 = true;
-				}
+			/**
+			 * next few are string manipulations to make it match the UsersAnswer's replacing for answer accuracy
+			 * @type {string}
+			 */
+			RealAnswer = RealAnswer.replace(/\s/g, "");
+			RealAnswer = RealAnswer.replace(/ib/gi, ""); //gi = global case-insensitive.
+			RealAnswer = RealAnswer.replace(/oz/gi, "");
+			RealAnswer = RealAnswer.replace(/g/gi, "");
+			RealAnswer = RealAnswer.replace(/kg/gi, "");
+			RealAnswer = RealAnswer.replace(/s/gi, "");
 
-				AmountCorrect++;
+			/**
+			 * Display correct displays whether or not the answer is correct.
+			 * @type {*|jQuery|HTMLElement}
+			 */
+			var DisplayCorrect = $('#correct'+i);
 
-				DisplayCorrect = $('#correct'+i);
+			/**
+			 * if checks to see if UserAnswer is equal to RealAnswer. If it is prints out a green block with white letters that say "You got this right!"
+			 * else it will print out a blue block with white lettering that says "Try again, you got it wrong."
+			 */
+			if(UsersAnswer == RealAnswer) {
 				DisplayCorrect.css("display", "block");
 				DisplayCorrect.css("background-color", "green");
 				DisplayCorrect.css("color", "white");
 				DisplayCorrect.text("You got this right!");
 			}
 			else {
-				DisplayCorrect = $('#correct'+i);
 				DisplayCorrect.css("display", "block");
 				DisplayCorrect.css("background-color", "blue");
 				DisplayCorrect.css("color", "white");
 				DisplayCorrect.text("Try again, you got it wrong.");
 			}
-			Question.NewQuestion();
 		}
 	};
 
-	Question["NewQuestion"] = function() {
-
-	};
-
+	/**
+	 * calls the generateJSON class then prints out each of the questions on the page.
+	 */
 	generateJSON();
 	$("#FirstQuestion").text(Question[0].prompt);
 	$("#SecondQuestion").text(Question[1].prompt);
@@ -184,6 +211,10 @@ $(document).ready(function() {
 	$("#NinthQuestion").text(Question[8].prompt);
 	$("#TenthQuestion").text(Question[9].prompt);
 
+	/**
+	 * calls the checkAnswer function by either clicking the button valued at "answer"
+	 * or by hitting the enter key
+	 */
 	$(document).on({
 		click: function() {
 			checkAnswer();

@@ -2,42 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="Almost there!">
-      <change type="DELETED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\General Layout.js" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\Math with Fractions\Math with Fractions.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-with-Fractions/Math-with-Fractions.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\Math with Fractions\Math with Fractions.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-with-Fractions/Math-with-Fractions.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\Math with Fractions\Math with Fractions.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-with-Fractions/Math-with-Fractions.js" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\MultiDigitDivision\MultiDigitDivision.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\MultiDigitDivision\MultiDigitDivision.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\MultiDigitDivision\MultiDigitDivision.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.js" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\NumberSystem.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Number-System.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\NumberSystem.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Number-System.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Comparing and Converting\Comparing and Converting.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Comparing and Converting\Comparing and Converting.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Comparing and Converting\Comparing and Converting.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Coordinate Graphs\Coordinate Graphs.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Coordinate Graphs\Coordinate Graphs.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Coordinate Graphs\Coordinate Graphs.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Equivalent and Comparing Ratios\Equivalent and Comparing Ratios.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Equivalent and Comparing Ratios\Equivalent and Comparing Ratios.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Equivalent and Comparing Ratios\Equivalent and Comparing Ratios.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.js" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Ratios as Fractions\Ratios as Fractions.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Ratios as Fractions\Ratios as Fractions.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Ratios as Fractions\Ratios as Fractions.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.js" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Sale Prices\Sale Prices.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Sale Prices\Sale Prices.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Sale Prices\Sale Prices.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.js" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Unit Prices and Conversions\Unit Prices and Conversions.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Unit Prices and Conversions\Unit Prices and Conversions.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Unit Prices and Conversions\Unit Prices and Conversions.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.js" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Unit Rates and Equivalent Rates\Unit Rates and Equivalent Rates.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Unit Rates and Equivalent Rates\Unit Rates and Equivalent Rates.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\Ratios\Unit Rates and Equivalent Rates\Unit Rates and Equivalent Rates.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Grade6.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Grade6.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Index.html" afterPath="$PROJECT_DIR$/TeachSite/Index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js" />
     </list>
     <ignored path="Teach Site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,7 +24,38 @@
     <favorites_list name="Teach Site" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Comparing-and-Converting.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7622378" vertical-offset="1621" max-vertical-offset="3978">
+              <caret line="121" column="40" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Equations.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeachSite/Equations.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1496">
+              <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Comparing-and-Converting.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="72.5" vertical-offset="1885" max-vertical-offset="3026">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -87,6 +83,7 @@
         <option value="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/MultiDigitDivision/MultiDigitDivision.js" />
         <option value="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html" />
         <option value="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.css" />
+        <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js" />
       </list>
     </option>
   </component>
@@ -169,6 +166,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Grade6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Teach Site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dr. Wong project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeachSite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Grade6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ratios" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Teach Site" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dr. Wong project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TeachSite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Grade6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ratios" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Comparing-and-Converting" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -296,13 +341,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20238096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20238096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40939596" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -429,13 +474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Equations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="1496">
-          <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3321918" vertical-offset="401" max-vertical-offset="5848">
@@ -489,6 +527,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.15567766" vertical-offset="85" max-vertical-offset="1258">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Equations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="1496">
+          <caret line="82" column="2" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="72.5" vertical-offset="1885" max-vertical-offset="3026">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7622378" vertical-offset="1621" max-vertical-offset="3978">
+          <caret line="121" column="40" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="40" />
           <folding />
         </state>
       </provider>
