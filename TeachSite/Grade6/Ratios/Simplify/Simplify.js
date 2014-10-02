@@ -1,6 +1,11 @@
 /**
  * Created by Trey on 5/19/2014.
  */
+
+/**
+ * This code sets up to rows of Ratios, one unsimplified and one simplified. The user needs to match the unsimplified
+ * to the simplified Ratio. If it is a match it will bring the two ratios next to one another in the middle
+ */
 $(document).ready(function() {
 	var	Answers = {};
 	var Highlight1 = false;
@@ -22,7 +27,7 @@ $(document).ready(function() {
 	var Ratio12 = $('#Ratio12');
 
 	/**
-	 * Creates the JSON structure
+	 * Creates the JSON structure to store the questions inside of Answers[i].Ratios and Answers[i].SimplifiedRatios
 	 */
 	var generateJSON = function() {
 		for(var i = 0; i < 7; i++) {
@@ -54,7 +59,6 @@ $(document).ready(function() {
 		var randomNum = "";
 
 		for(i = 1; i <= 6; i++) {
-
 			randomNum = (Math.floor(Math.random()*tempRatios.length)+1)-1;
 
 			$('#Ratio'+i).text(tempRatios[randomNum]);
@@ -163,7 +167,7 @@ $(document).ready(function() {
 					"top": "90%"
 				}, 1000);
 			}
-			console.log(amountCorrect);
+
 			if(amountCorrect === 6) {
 				Correct.css('display', 'block');
 				Correct.css('top', '23%');

@@ -17,9 +17,22 @@ var Comparison = function(RatioFractionSpot, DropSpot) {
 			parseInt(RatioFractionSpot.css('top'), 10) <= parseInt(DropSpot.css('top'), 10)+parseInt(DropSpot.css('height'), 10);
 };
 $(document).ready(function() {
-	var Answers = {};			//constructs an empty JSON structor for questions
-	var amountCorrect = 0;      //keeps the amount of correct answers to see if all correct
+	/**
+	 * Constructs an empty JSON structure called answer to store questions inside of
+	 * @type {{}}
+	 */
+	var Answers = {};
 
+	/**
+	 * Keeps track of the ammount the user got correct
+	 * @type {number}
+	 */
+	var amountCorrect = 0;
+
+	/**
+	 * empty variables for later use
+	 * @type {string}
+	 */
 	var RatioSpot1 = "";
 	var RatioSpot2 = "";
 	var RatioSpot3 = "";
@@ -89,6 +102,8 @@ $(document).ready(function() {
 	 * If at least one wrong will reset position of elements and then tell student they had something wrong.
 	 */
 	var checkAnswer = function() {
+		var Ratios = "";
+		this.Fractions = "";
 		for(var i = 0; i < 6; i++) {
 			for(var j = 1; j <= 6; j++) {
 				Ratios = $('#RatioSpot' + j);
@@ -112,7 +127,7 @@ $(document).ready(function() {
 			}
 		}
 
-		Correct = $('#Correct');
+		var Correct = $('#Correct');
 
 		if(amountCorrect === 6) {
 			Correct.css('display', 'block');
