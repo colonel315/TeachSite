@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.html" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\Multiple-Digit-Division\Multiple-Digit-Division.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.css" />
-      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\Multiple-Digit-Division\Multiple-Digit-Division.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Grade6.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Grade6.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Index.html" afterPath="$PROJECT_DIR$/TeachSite/Index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-with-Fractions/Math-with-Fractions.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-with-Fractions/Math-with-Fractions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Number-System.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Number-System.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.js" />
-    </list>
+    <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="" />
     <ignored path="Teach Site.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -331,7 +309,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20238096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20238096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40939596" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
