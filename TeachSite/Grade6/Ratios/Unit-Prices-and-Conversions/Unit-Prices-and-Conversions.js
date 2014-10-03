@@ -1,17 +1,9 @@
 $(document).ready(function() {
 	var Question = {};			//constructs an empty JSON structor for questions
-	var AmountCorrect = 0;
-	var Question1 = false;
-	var Question2 = false;
-	var Question3 = false;
-	var Question4 = false;
-	var Question5 = false;
-	var Question6 = false;
-	var Question7 = false;
-	var Question8 = false;
-	var Question9 = false;
-	var Question10 = false;
 
+	/**
+	 * generates questions and answers into the JSON structure Question.
+	 */
 	var generateJSON = function() {
 		for(var i = 0; i < 10; i++) {
 			Question[i] = [];
@@ -95,6 +87,9 @@ $(document).ready(function() {
 		Question[9].answer = Math.round((Cost/(YardAmount/3))*100)/100;
 	};
 
+	/**
+	 * checks to see if the users answers are correct.
+	 */
 	var checkAnswer = function() {
 		for(var i = 1; i <= 10; i++) {
 			var UsersAnswer = "";
@@ -107,43 +102,13 @@ $(document).ready(function() {
 
 			var RealAnswer = Question[i-1].answer;
 			RealAnswer = RealAnswer.toString();
+			RealAnswer = RealAnswer.toLowerCase();
+			RealAnswer = RealAnswer.replace(/\s/g, "");
+			RealAnswer = RealAnswer.replace("$", "");
 
 			var DisplayCorrect = "";
 
 			if(UsersAnswer === RealAnswer) {
-				if(i == 1) {
-					Question1 = true;
-				}
-				else if(i == 2) {
-					Question2 = true;
-				}
-				else if(i == 3) {
-					Question3 = true;
-				}
-				else if(i == 4) {
-					Question4 = true;
-				}
-				else if(i == 5) {
-					Question5 = true;
-				}
-				else if(i == 6) {
-					Question6 = true;
-				}
-				else if(i == 7) {
-					Question7 = true;
-				}
-				else if(i == 8) {
-					Question8 = true;
-				}
-				else if(i == 9) {
-					Question9 = true;
-				}
-				else if(i == 10) {
-					Question10 = true;
-				}
-
-				AmountCorrect++;
-
 				DisplayCorrect = $('#correct'+i);
 				DisplayCorrect.css("display", "block");
 				DisplayCorrect.css("background-color", "green");
@@ -157,12 +122,7 @@ $(document).ready(function() {
 				DisplayCorrect.css("color", "white");
 				DisplayCorrect.text("Try again, you got it wrong.");
 			}
-			Question.NewQuestion();
 		}
-	};
-
-	Question["NewQuestion"] = function() {
-
 	};
 
 	generateJSON();

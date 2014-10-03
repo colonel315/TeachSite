@@ -2,12 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.html" />
+      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\Multiple-Digit-Division\Multiple-Digit-Division.css" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.css" />
+      <change type="MOVED" beforePath="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\TeachSite\Grade6\NumberSystem\Multiple-Digit-Division\Multiple-Digit-Division.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Comparing-and-Converting/Comparing-and-Converting.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Grade6.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Grade6.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Index.html" afterPath="$PROJECT_DIR$/TeachSite/Index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-with-Fractions/Math-with-Fractions.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-with-Fractions/Math-with-Fractions.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Number-System.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Number-System.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.html" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.js" />
     </list>
     <ignored path="Teach Site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,40 +44,7 @@
     <favorites_list name="Teach Site" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Simplify.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23247863" vertical-offset="0" max-vertical-offset="6545">
-              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Introduction.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2210" max-vertical-offset="14977">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Simplify.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="39.307693" vertical-offset="1022" max-vertical-offset="1581">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -95,8 +77,11 @@
         <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Coordinate-Graphs/Coordinate-Graphs.js" />
         <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Equivalent-and-Comparing-Ratios/Equivalent-and-Comparing-Ratios.js" />
         <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Ratios-as-Fractions/Ratios-as-Fractions.js" />
-        <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.js" />
         <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.js" />
+        <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.js" />
+        <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.js" />
+        <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.js" />
+        <option value="$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.js" />
       </list>
     </option>
   </component>
@@ -201,59 +186,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Ratios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Teach Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dr. Wong project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TeachSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grade6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ratios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simplify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Teach Site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dr. Wong project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TeachSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Grade6" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ratios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Introduction" />
+              <option name="myItemId" value="NumberSystem" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -276,6 +209,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="NumberSystem" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Math-With-Multi-Digit-Numbers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -388,13 +325,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20238096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20238096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40939596" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -443,7 +380,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6511">
           <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -463,56 +400,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
           <caret line="57" column="85" selection-start-line="57" selection-start-column="85" selection-end-line="57" selection-end-column="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.css">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2278">
           <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.js">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3445" max-vertical-offset="4216">
           <caret line="206" column="45" selection-start-line="206" selection-start-column="45" selection-end-line="206" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
           <caret line="57" column="85" selection-start-line="57" selection-start-column="85" selection-end-line="57" selection-end-column="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.css">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2278">
           <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.js">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3328" max-vertical-offset="4216">
           <caret line="223" column="62" selection-start-line="223" selection-start-column="62" selection-end-line="223" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1360">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.js">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2159">
           <caret line="105" column="22" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
@@ -547,7 +484,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.css">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.72649574" vertical-offset="306" max-vertical-offset="2278">
           <caret line="43" column="11" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
@@ -561,21 +498,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.js">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44615385" vertical-offset="2391" max-vertical-offset="4216">
           <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Equations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9434931" vertical-offset="1642" max-vertical-offset="2312">
-          <caret line="129" column="34" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Multiple-Digit-Division/Multiple-Digit-Division.html">
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Math-With-Multi-Digit-Numbers/Math-With-Multi-Digit-Numbers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61284405" vertical-offset="788" max-vertical-offset="1394">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
@@ -624,31 +554,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.02972028" vertical-offset="1853" max-vertical-offset="2431">
-          <caret line="108" column="117" selection-start-line="108" selection-start-column="117" selection-end-line="108" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.7124542" vertical-offset="935" max-vertical-offset="2227">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="39.307693" vertical-offset="1022" max-vertical-offset="1581">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="15011">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -656,11 +564,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23247863" vertical-offset="0" max-vertical-offset="6545">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.7965812" vertical-offset="6011" max-vertical-offset="6613">
+          <caret line="381" column="27" selection-start-line="381" selection-start-column="27" selection-end-line="381" selection-end-column="27" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Simplify/Simplify.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="16.423077" vertical-offset="427" max-vertical-offset="1581">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1921">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Introduction/Introduction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.743007" vertical-offset="2448" max-vertical-offset="14756">
+          <caret line="171" column="38" selection-start-line="171" selection-start-column="38" selection-end-line="171" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53504276" vertical-offset="1217" max-vertical-offset="2652">
+          <caret line="90" column="54" selection-start-line="90" selection-start-column="54" selection-end-line="90" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Prices-and-Conversions/Unit-Prices-and-Conversions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3026">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Sale-Prices/Sale-Prices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5751748" vertical-offset="1859" max-vertical-offset="2431">
+          <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/Ratios/Unit-Rates-and-Equivalent-Rates/Unit-Rates-and-Equivalent-Rates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2376069" vertical-offset="1863" max-vertical-offset="2448">
+          <caret line="67" column="118" selection-start-line="67" selection-start-column="118" selection-end-line="67" selection-end-column="118" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TeachSite/Equations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7965812" vertical-offset="1727" max-vertical-offset="2312">
+          <caret line="129" column="34" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

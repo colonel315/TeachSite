@@ -1,19 +1,15 @@
+/**
+ * generates questions for the user to answer. Then when user answers and submits them the program tells the user
+ * whether they are right or wrong.
+ */
 $(document).ready(function() {
 	var QuestionFirstHalf = {};			//constructs an empty JSON structor for questions first half
 	var QuestionSecondHalf = {};       //constructs and empty JSON structor for questions second half
 	var Question = {};
-	var AmountCorrect = 0;
-	var Question1 = false;
-	var Question2 = false;
-	var Question3 = false;
-	var Question4 = false;
-	var Question5 = false;
-	var Question6 = false;
-	var Question7 = false;
-	var Question8 = false;
-	var Question9 = false;
-	var Question10 = false;
 
+	/**
+	 * Generates questions and answers into the structure "Question," "QuestionFirstHalf," and "QuestionSecondHalf."
+	 */
 	var generateJSON = function() {
 		for(var i = 0; i < 5; i++) {
 			QuestionFirstHalf[i] = [];
@@ -68,11 +64,12 @@ $(document).ready(function() {
 		Question[9].answer = "5";
 	};
 
+	/**
+	 * Checks the user answers to see if the user was correct or not and then displays whether they are right or wrong
+	 */
 	var checkAnswer = function() {
 		for(var i = 1; i <= 10; i++) {
-			var UsersAnswer = "";
-
-			UsersAnswer = $('#userAns'+i).val(); //Changing the i into a string so that way I don't have to have many a if statements
+			var UsersAnswer = $('#userAns'+i).val(); //Changing the i into a string so that way I don't have to have many a if statements
 			UsersAnswer = UsersAnswer.toLowerCase();
 			UsersAnswer = UsersAnswer.replace("$", "");
 			UsersAnswer = UsersAnswer.replace(/\s/g, "");
@@ -82,46 +79,19 @@ $(document).ready(function() {
 
 			var RealAnswer = Question[i-1].answer;
 			RealAnswer = RealAnswer.toString();
+			RealAnswer = RealAnswer.toLowerCase();
+			RealAnswer = RealAnswer.replace("$", "");
+			RealAnswer = RealAnswer.replace(/\s/g, "");
 
 			if(i-1 === 0 || i-1 === 1 || i-1 === 2 || i-1 === 4) {
 				var otherRealAnswer = Question[i - 1].otherAnswer;
 				otherRealAnswer = otherRealAnswer.toString();
+				otherRealAnswer = otherRealAnswer.toLowerCase();
+				otherRealAnswer = otherRealAnswer.replace("$", "");
+				otherRealAnswer = otherRealAnswer.replace(/\s/g, "");
 			}
 
 			if(UsersAnswer === RealAnswer) {
-				if(i == 1) {
-					Question1 = true;
-				}
-				else if(i == 2) {
-					Question2 = true;
-				}
-				else if(i == 3) {
-					Question3 = true;
-				}
-				else if(i == 4) {
-					Question4 = true;
-				}
-				else if(i == 5) {
-					Question5 = true;
-				}
-				else if(i == 6) {
-					Question6 = true;
-				}
-				else if(i == 7) {
-					Question7 = true;
-				}
-				else if(i == 8) {
-					Question8 = true;
-				}
-				else if(i == 9) {
-					Question9 = true;
-				}
-				else if(i == 10) {
-					Question10 = true;
-				}
-
-				AmountCorrect++;
-
 				DisplayCorrect = $('#correct'+i);
 				DisplayCorrect.css("display", "block");
 				DisplayCorrect.css("background-color", "green");
@@ -129,39 +99,6 @@ $(document).ready(function() {
 				DisplayCorrect.text("You got this right!");
 			}
 			else if(UsersAnswer === otherRealAnswer) {
-				if(i == 1) {
-					Question1 = true;
-				}
-				else if(i == 2) {
-					Question2 = true;
-				}
-				else if(i == 3) {
-					Question3 = true;
-				}
-				else if(i == 4) {
-					Question4 = true;
-				}
-				else if(i == 5) {
-					Question5 = true;
-				}
-				else if(i == 6) {
-					Question6 = true;
-				}
-				else if(i == 7) {
-					Question7 = true;
-				}
-				else if(i == 8) {
-					Question8 = true;
-				}
-				else if(i == 9) {
-					Question9 = true;
-				}
-				else if(i == 10) {
-					Question10 = true;
-				}
-
-				AmountCorrect++;
-
 				DisplayCorrect = $('#correct'+i);
 				DisplayCorrect.css("display", "block");
 				DisplayCorrect.css("background-color", "green");
@@ -175,12 +112,7 @@ $(document).ready(function() {
 				DisplayCorrect.css("color", "white");
 				DisplayCorrect.text("Try again, you got it wrong.");
 			}
-			Question.NewQuestion();
 		}
-	};
-
-	Question["NewQuestion"] = function() {
-
 	};
 
 	generateJSON();

@@ -6,13 +6,66 @@
  * This code sets up to rows of Ratios, one unsimplified and one simplified. The user needs to match the unsimplified
  * to the simplified Ratio. If it is a match it will bring the two ratios next to one another in the middle
  */
+
+/**
+ * Animates the words to the middle of the screen side by side.
+ * @param topValue top value needed to know the percentage of how far away to be from the top.
+ * @param Ratio has the elemental selector needed to move which ratio
+ * @param SimplifiedRatio has the elemental selector needed to move with simplified ratio
+ * @constructor
+ */
+var Animation = function(topValue, Ratio, SimplifiedRatio) {
+	Ratio.animate({
+		"left": "40%",
+		"top": topValue
+	}, 1000);
+	SimplifiedRatio.animate({
+		"left": "50%",
+		"top": topValue
+	}, 1000);
+};
+
+/**
+ * prints out "Try again" 40% from the left side
+ * @param topValue Takes in a string value with a percentage that is how far from the top
+ */
+var gotWrong = function(topValue) {
+	var Correct = $('#Correct');
+	Correct.css('top', topValue);
+	Correct.css('left', '40%');
+	Correct.text("Try again!");
+};
 $(document).ready(function() {
+	/**
+	 * Creates an empty JSON structure to store questions into.
+	 * @type {{}}
+	 */
 	var	Answers = {};
+
+	/**
+	 * Booleans Highlight1 and Highlight2 lets the program know whether or not a ratio is selected.
+	 * @type {boolean}
+	 */
 	var Highlight1 = false;
 	var Highlight2 = false;
+
+	/**
+	 * Keeps track of which ratio was selected
+	 * @type {string}
+	 */
 	var seeIfCorrect1 = "";
 	var seeIfCorrect2 = "";
+
+	/**
+	 * Keeps track of how many questions are correct
+	 * @type {number}
+	 */
 	var amountCorrect = 0;
+
+	/**
+	 * Ratios 1-12 hold the jQuery selectors $('#Ratio1') through $('#Ratio12') for future use.
+	 * @type {*|jQuery|HTMLElement}
+	 */
 	var Ratio1 = $('#Ratio1');
 	var Ratio2 = $('#Ratio2');
 	var Ratio3 = $('#Ratio3');
@@ -108,64 +161,22 @@ $(document).ready(function() {
 
 		if(isCorrect) {
 			if(temp === 0) {
-				$(Ratio).animate({
-					"left": "40%",
-					"top": "40%"
-				}, 1000);
-				$(SimplifiedRatio).animate({
-					"left": "50%",
-					"top": "40%"
-				}, 1000);
+				Animation("40%", Ratio, SimplifiedRatio);
 			}
 			else if(temp === 1) {
-				$(Ratio).animate({
-					"left": "40%",
-					"top": "50%"
-				}, 1000);
-				$(SimplifiedRatio).animate({
-					"left": "50%",
-					"top": "50%"
-				}, 1000);
+				Animation("50%", Ratio, SimplifiedRatio);
 			}
 			else if(temp === 2) {
-				$(Ratio).animate({
-					"left": "40%",
-					"top": "60%"
-				}, 1000);
-				$(SimplifiedRatio).animate({
-					"left": "50%",
-					"top": "60%"
-				}, 1000);
+				Animation("60%", Ratio, SimplifiedRatio);
 			}
 			else if(temp === 3) {
-				$(Ratio).animate({
-					"left": "40%",
-					"top": "70%"
-				}, 1000);
-				$(SimplifiedRatio).animate({
-					"left": "50%",
-					"top": "70%"
-				}, 1000);
+				Animation("70%", Ratio, SimplifiedRatio);
 			}
 			else if(temp === 4) {
-				$(Ratio).animate({
-					"left": "40%",
-					"top": "80%"
-				}, 1000);
-				$(SimplifiedRatio).animate({
-					"left": "50%",
-					"top": "80%"
-				}, 1000);
+				Animation("80%", Ratio, SimplifiedRatio);
 			}
 			else if(temp === 5) {
-				$(Ratio).animate({
-					"left": "40%",
-					"top": "90%"
-				}, 1000);
-				$(SimplifiedRatio).animate({
-					"left": "50%",
-					"top": "90%"
-				}, 1000);
+				Animation("90%", Ratio, SimplifiedRatio);
 			}
 
 			if(amountCorrect === 6) {
@@ -177,8 +188,8 @@ $(document).ready(function() {
 			}
 		}
 		else {
-			tempIfCorrect1 = seeIfCorrect1;
-			tempIfCorrect2 = seeIfCorrect2;
+			var tempIfCorrect1 = seeIfCorrect1;
+			var tempIfCorrect2 = seeIfCorrect2;
 			setTimeout(function() {
 				Correct.css('display', 'none');
 				$(tempIfCorrect1).css('color', 'black');
@@ -188,34 +199,22 @@ $(document).ready(function() {
 			Correct.css('display', 'block');
 			Correct.css('color', 'orange');
 			if(temp === 0) {
-				Correct.css('top', '40%');
-				Correct.css('left', '40%');
-				Correct.text("Try again!");
+				gotWrong("40%");
 			}
 			if(temp === 1) {
-				Correct.css('top', '50%');
-				Correct.css('left', '40%');
-				Correct.text("Try again!");
+				gotWrong("50%");
 			}
 			if(temp === 2) {
-				Correct.css('top', '60%');
-				Correct.css('left', '40%');
-				Correct.text("Try again!");
+				gotWrong("60%");
 			}
 			if(temp === 3) {
-				Correct.css('top', '70%');
-				Correct.css('left', '40%');
-				Correct.text("Try again!");
+				gotWrong("70%");
 			}
 			if(temp === 4) {
-				Correct.css('top', '80%');
-				Correct.css('left', '40%');
-				Correct.text("Try again!");
+				gotWrong("70%");
 			}
 			if(temp === 5) {
-				Correct.css('top', '90%');
-				Correct.css('left', '40%');
-				Correct.text("Try again!");
+				gotWrong("90%");
 			}
 
 		}
@@ -224,6 +223,7 @@ $(document).ready(function() {
 		seeIfCorrect2 = "";
 	};
 
+	//if Highlight1 and Highlight2 are true then it will call the function checkAnswer
 	$('#body').on({
 		click: function() {
 			if(Highlight1 && Highlight2) {
@@ -231,6 +231,9 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	/*each of these when clicked will highlight blue, if one is already blue will transfer the blue to another ratio and make the previous
+	selected ratio black.*/
 	Ratio1.on({
 		click: function() {
 			if(Highlight1) {
@@ -240,7 +243,7 @@ $(document).ready(function() {
 				Highlight1 = true;
 			}
 			Ratio1.css("color", "blue");
-			seeIfCorrect1 = '#Ratio1'
+			seeIfCorrect1 = Ratio1;
 		}
 	});
 	Ratio2.on({
@@ -252,7 +255,7 @@ $(document).ready(function() {
 				Highlight1 = true;
 			}
 			Ratio2.css("color", "blue");
-			seeIfCorrect1 = '#Ratio2'
+			seeIfCorrect1 = Ratio2;
 		}
 	});
 	Ratio3.on({
@@ -264,7 +267,7 @@ $(document).ready(function() {
 				Highlight1 = true;
 			}
 			Ratio3.css("color", "blue");
-			seeIfCorrect1 = '#Ratio3'
+			seeIfCorrect1 = Ratio3;
 		}
 	});
 	Ratio4.on({
@@ -276,7 +279,7 @@ $(document).ready(function() {
 				Highlight1 = true;
 			}
 			Ratio4.css("color", "blue");
-			seeIfCorrect1 = '#Ratio4'
+			seeIfCorrect1 = Ratio4;
 		}
 	});
 	Ratio5.on({
@@ -288,7 +291,7 @@ $(document).ready(function() {
 				Highlight1 = true;
 			}
 			Ratio5.css("color", "blue");
-			seeIfCorrect1 = '#Ratio5'
+			seeIfCorrect1 = Ratio5;
 		}
 	});
 	Ratio6.on({
@@ -300,7 +303,7 @@ $(document).ready(function() {
 				Highlight1 = true;
 			}
 			Ratio6.css("color", "blue");
-			seeIfCorrect1 = '#Ratio6';
+			seeIfCorrect1 = Ratio6;
 		}
 	});
 	Ratio7.on({
@@ -312,7 +315,7 @@ $(document).ready(function() {
 				Highlight2 = true;
 			}
 			Ratio7.css("color", "blue");
-			seeIfCorrect2 = '#Ratio7'
+			seeIfCorrect2 = Ratio7;
 		}
 	});
 	Ratio8.on({
@@ -324,7 +327,7 @@ $(document).ready(function() {
 				Highlight2 = true;
 			}
 			Ratio8.css("color", "blue");
-			seeIfCorrect2 = '#Ratio8'
+			seeIfCorrect2 = Ratio8;
 		}
 	});
 	Ratio9.on({
@@ -336,7 +339,7 @@ $(document).ready(function() {
 				Highlight2 = true;
 			}
 			Ratio9.css("color", "blue");
-			seeIfCorrect2 = '#Ratio9'
+			seeIfCorrect2 = Ratio9;
 		}
 	});
 	Ratio10.on({
@@ -348,7 +351,7 @@ $(document).ready(function() {
 				Highlight2 = true;
 			}
 			Ratio10.css("color", "blue");
-			seeIfCorrect2 = '#Ratio10';
+			seeIfCorrect2 = Ratio10;
 		}
 	});
 	Ratio11.on({
@@ -360,7 +363,7 @@ $(document).ready(function() {
 				Highlight2 = true;
 			}
 			Ratio11.css("color", "blue");
-			seeIfCorrect2 = '#Ratio11';
+			seeIfCorrect2 = Ratio11;
 		}
 	});
 	Ratio12.on({
@@ -372,9 +375,10 @@ $(document).ready(function() {
 				Highlight2 = true;
 			}
 			Ratio12.css("color", "blue");
-			seeIfCorrect2 = '#Ratio12';
+			seeIfCorrect2 = Ratio12;
 		}
 	});
 
+	//generates the numbers
 	generateJSON();
 });

@@ -8,7 +8,7 @@
  */
 
 /**
- * Shuffles array to randomly place answers
+ * Shuffles answers to randomly place them
  * @param Element1
  * @param Element2
  * @param Element3
@@ -18,32 +18,19 @@
  * @constructor
  */
 var ArrayShuffle = function(Element1, Element2, Element3, Element4, Element5, Element6) {
-	RatioArray = ['#RatioSpot1', '#RatioSpot2', '#RatioSpot3', '#RatioSpot4', '#RatioSpot5', '#RatioSpot6'];
+	var RatioArray = ['#RatioSpot1', '#RatioSpot2', '#RatioSpot3', '#RatioSpot4', '#RatioSpot5', '#RatioSpot6'];
+	var ElementArray = [Element1, Element2, Element3, Element4, Element5, Element6];
 
-	var RandomNum = "";
+	var RandomNum1 = "";
+	var RandomNum2 = "";
 	for(var i = 0; i < 6; i++) {
-		RandomNum = (Math.floor(Math.random()*RatioArray.length)+1)-1;
+		RandomNum1 = (Math.floor(Math.random()*RatioArray.length)+1)-1;
+		RandomNum2 = (Math.floor(Math.random()*ElementArray.length)+1)-1;
 
-		if(i === 0) {
-			$(RatioArray[RandomNum]).text(Element1);
-		}
-		else if(i === 1) {
-			$(RatioArray[RandomNum]).text(Element2);
-		}
-		else if(i === 2) {
-			$(RatioArray[RandomNum]).text(Element3);
-		}
-		else if(i === 3) {
-			$(RatioArray[RandomNum]).text(Element4);
-		}
-		else if(i === 4) {
-			$(RatioArray[RandomNum]).text(Element5);
-		}
-		else {
-			$(RatioArray[RandomNum]).text(Element6);
-		}
+		$(RatioArray[RandomNum1]).text(ElementArray[RandomNum2]);
 
-		RatioArray.splice(RandomNum, 1);
+		RatioArray.splice(RandomNum1, 1);
+		ElementArray.splice(RandomNum2, 1);
 	}
 };
 

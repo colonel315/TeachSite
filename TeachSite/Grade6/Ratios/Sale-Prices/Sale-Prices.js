@@ -76,19 +76,19 @@ $(document).ready(function() {
 			 *
 			 * @type {*|jQuery}
 			 */
-			UsersAnswer = $('#userAns'+i).val();
+			var UsersAnswer = $('#userAns'+i).val();
 			UsersAnswer = UsersAnswer.replace("$", "");
 			UsersAnswer = UsersAnswer.toLowerCase();
 			UsersAnswer = UsersAnswer.replace(/\s/g, "");
 			UsersAnswer = UsersAnswer.toString();
 
-			RealAnswer = Question[i-1].answer;
+			var RealAnswer = Question[i-1].answer;
 			RealAnswer = RealAnswer.toString();
-			UsersAnswer = UsersAnswer.replace("$", "");
-			UsersAnswer = UsersAnswer.toLowerCase();
-			UsersAnswer = UsersAnswer.replace(/\s/g, "");
+			RealAnswer = RealAnswer.replace("$", "");
+			RealAnswer = RealAnswer.toLowerCase();
+			RealAnswer = RealAnswer.replace(/\s/g, "");
 
-			DisplayCorrect = $('#correct'+i);
+			var DisplayCorrect = $('#correct'+i);
 
 			if(UsersAnswer === RealAnswer) {
 				DisplayCorrect.css("display", "block");
