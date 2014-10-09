@@ -688,8 +688,11 @@ $(document).ready(function() {
 	 */
 	var checkAnswer = function() {
 		var Correct = $('#Correct');
-		if(CurrentQuestionSet === 2) {
-			alert("Great job,  you are done with this lesson!");
+		if(CurrentQuestionSet === 2 && Question1N && Question1D && Question2N && Question2D && Question3N && Question3D) {
+			Correct.css('display', 'block');
+			Correct.css('background', 'orange');
+			Correct.css('font-color', 'blue');
+			Correct.text("Great job, you got them all correct!");
 		}
 		else if(Question1N && Question1D && Question2N && Question2D && Question3N && Question3D && CurrentQuestionSet === 0) {
 			setTimeout(function() {
