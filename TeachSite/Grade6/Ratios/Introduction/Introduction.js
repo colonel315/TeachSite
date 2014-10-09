@@ -744,29 +744,22 @@ $(document).ready(function() {
 		Question3N = false;
 		Question3D = false;
 
-		console.log("Question1N = ", Question1N);
-		console.log("Question1D = ", Question1D);
-		console.log("Question2N = ", Question2N);
-		console.log("Question2D = ", Question2D);
-		console.log("Question3N = ", Question3N);
-		console.log("Question3D = ", Question3D);
-
 		var Question1 = $('#Question1');
 		var Question2 = $('#Question2');
 		var Question3 = $('#Question3');
 
 		switch(CurrentQuestionSet) {
 			case 1:
-				RatioArray = ArrayShuffle(question.ScienceFiction, question.MysteryNovels, question.Biographys, question.TotalBooks, question.MysteryNovels, question.MysteryNovels);
+				ArrayShuffle(question.ScienceFiction, question.MysteryNovels, question.Biographys, question.TotalBooks, question.MysteryNovels, question.MysteryNovels);
 				Question1.text("What is the ratio of science fiction novels to the mystery novels?");
 				Question2.text("What is the ratio of biography novels to the mystery novels?");
 				Question3.text("What is the ratio of mystery novels to the total amount of books?");
 				break;
 			case 2:
-				RatioArray = ArrayShuffle(question.RockCDs, question.CountryCDs, question.RapCDs, question.RockCDs, question.RapCDs, question.TotalCDs);
+				ArrayShuffle(question.RockCDs, question.CountryCDs, question.RapCDs, question.RockCDs, question.RapCDs, question.TotalCDs);
 				Question1.text("What is the ratio of rock CDs to country CDs?");
 				Question2.text("What is the ratio of rap CDs to rock CDs?");
-				Question3.text("What is the ratio of rap CDs to total CDs");
+				Question3.text("What is the ratio of rap CDs to total CDs?");
 				break;
 		}
 		$('#Description').text(Question[CurrentQuestionSet].prompt);
