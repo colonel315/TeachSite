@@ -5,12 +5,27 @@
  * Creates problem in the middle of the screen that creates two numbers that have decimal values (to the hundredth place) for the student to solve
  * using the standard algorithm
  */
+
+var setUpFormat = function(top1, top2, top3, top4, top5, left1, left2, left3, left4, left5, textVal) {
+	var answer = $('#answer');
+	var symbol = $('#symbol');
+	var bar = $('#bar');
+	var number1 = $('#number1');
+	var number2 = $('#number2');
+
+	answer.css('position', 'absolute').css('top', top1).css('left', left1);
+	symbol.css('position', 'absolute').css('top', top2).css('left', left2);
+	symbol.text(textVal);
+	bar.css('position', 'absolute').css('top', top3).css('left', left3);
+	number1.css('position', 'absolute').css('top', top4).css('left', left4);
+	number2.css('position', 'absolute').css('top', top5).css('left', left5);
+};
 $(document).ready(function() {
 	//creates an empty JSON structure
 	var ArithmeticProblem = {};
 
 	//keeps track of the current question
-	var CurrentQuestion = 6;
+	var CurrentQuestion = 0;
 
 	/**
 	 * This function creates questions and answers to the questions to print out and for the students to answer.
@@ -27,8 +42,8 @@ $(document).ready(function() {
 		var randomNumber2 = "";
 
 		for(i = 0; i < 8; i++) {
-			randomNumber1 = Math.floor((Math.random() * 9) * 10)/10 + 1;
-			randomNumber2 = Math.floor(((Math.random() * 90) * 100))/100 + 10;
+			randomNumber1 = math.round(math.random(1, 10), 1);
+			randomNumber2 = math.round(math.random(10, 100), 2);
 
 			ArithmeticProblem[i].Number1 = randomNumber1;
 			ArithmeticProblem[i].Number2 = randomNumber2;
@@ -52,55 +67,39 @@ $(document).ready(function() {
 	 * formats the page accordingly.
 	 */
 	var formatProblem = function() {
-		var answer = $('#answer');
-		var symbol = $('#symbol');
-		var bar = $('#bar');
-		var number1 = $('#number1');
-		var number2 = $('#number2');
 		var usersAns = $('#usersAns');
 		var table = $('#table');
+		var symbol = $('#symbol');
 
 		switch(ArithmeticProblem[CurrentQuestion].Operation) {
 			case "/":
-				answer.css('position', 'absolute').css('top', '35%').css('left', '42%');
-				symbol.css('position', 'absolute').css('top', '43%').css('left', '38%');
-				symbol.text("/");
-				bar.css('position', 'absolute').css('top', '29%').css('left', '40%');
-				number1.css('position', 'absolute').css('top', '47%').css('left', '32%');
-				number2.css('position', 'absolute').css('top', '47%').css('left', '42%');
+				if(ArithmeticProblem[CurrentQuestion].Number1%1 == 0) {
+					table.css('display', 'none');
+					usersAns.css('font-size', '40').css('left', '42%').css('top', '34%').css('width', '100px').css('height', '60px');
+				}
+				setUpFormat('35%', '43%', '29%', '47%', '47%', '42%', '38%', '40%', '32%', '42%', '/');
 
 				break;
 			case "*":
 				table.css('display', 'none');
-				answer.css('position', 'absolute').css('top', '63%').css('left', '42%');
-				symbol.css('position', 'absolute').css('top', '53%').css('left', '36%').css('font-size', '45px');
-				symbol.text("x");
-				bar.css('position', 'absolute').css('top', '45%').css('left', '39%');
-				number1.css('position', 'absolute').css('top', '52%').css('left', '44%');
-				number2.css('position', 'absolute').css('top', '43%').css('left', '42%');
+				symbol.css('font-size', '45px');
 				usersAns.css('position', 'absolute').css('top', '63%').css('left', '50%').css('width', '40px');
+				setUpFormat('63%', '53%', '45%', '52%', '43%', '42%', '36%', '39%', '44%', '42%', 'x');
 
 				break;
 			case "+":
 				table.css('display', 'none');
-				answer.css('position', 'absolute').css('top', '63%').css('left', '42%');
-				symbol.css('position', 'absolute').css('top', '53%').css('left', '36%').css('font-size', '45px');
-				symbol.text("+");
-				bar.css('position', 'absolute').css('top', '45%').css('left', '39%');
-				number1.css('position', 'absolute').css('top', '52%').css('left', '44%');
-				number2.css('position', 'absolute').css('top', '43%').css('left', '42%');
+				symbol.css('font-size', '45px');
 				usersAns.css('position', 'absolute').css('top', '63%').css('left', '50%').css('width', '40px');
+				setUpFormat('63%', '53%', '45%', '52%', '43%', '42%', '36%', '39%', '44%', '42%', '+');
 
 				break;
 			case "-":
 				table.css('display', 'none');
-				answer.css('position', 'absolute').css('top', '63%').css('left', '42%');
-				symbol.css('position', 'absolute').css('top', '53%').css('left', '36%').css('font-size', '45px');
-				symbol.text("-");
-				bar.css('position', 'absolute').css('top', '45%').css('left', '39%');
-				number1.css('position', 'absolute').css('top', '52%').css('left', '44%');
-				number2.css('position', 'absolute').css('top', '43%').css('left', '42%');
 				usersAns.css('position', 'absolute').css('top', '63%').css('left', '50%').css('width', '40px');
+				symbol.css('font-size', '45px');
+				setUpFormat('63%', '53%', '45%', '52%', '43%', '42%', '36%', '39%', '44%', '42%', '-');
+
 				break;
 		}
 	};
