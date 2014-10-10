@@ -155,7 +155,6 @@ $(document).ready(function() {
 					var newLastDividend = grabLastDividend(Divide[currentQuestion].Dividend);
 
 					if(Divide[currentQuestion].Dividend >= 100 || newLastDividend === lastDividend) {
-						console.log("inside if");
 						$('<div/>', {
 							css: {
 								position: 'absolute',
@@ -168,8 +167,6 @@ $(document).ready(function() {
 							.appendTo('body');
 					}
 					else {
-						console.log("inside else");
-						console.log("usersAns.html() = ", usersAns.val());
 						$('<div/>', {
 							css: {
 								position: 'absolute',

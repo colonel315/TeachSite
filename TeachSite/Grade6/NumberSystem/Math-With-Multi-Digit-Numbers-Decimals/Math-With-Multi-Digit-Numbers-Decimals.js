@@ -6,7 +6,22 @@
  * using the standard algorithm
  */
 
-var setUpFormat = function(top1, top2, top3, top4, top5, left1, left2, left3, left4, left5, textVal) {
+/**
+ * used the same methods multiple times.
+ *
+ * top and left values indicate the top and left positions on the screen.
+ * @param top1
+ * @param top2
+ * @param top3
+ * @param top4
+ * @param top5
+ * @param left1
+ * @param left2
+ * @param left3
+ * @param left4
+ * @param left5
+ */
+var setUpFormat = function(top1, top2, top3, top4, top5, left1, left2, left3, left4, left5) {
 	var answer = $('#answer');
 	var symbol = $('#symbol');
 	var bar = $('#bar');
@@ -15,10 +30,29 @@ var setUpFormat = function(top1, top2, top3, top4, top5, left1, left2, left3, le
 
 	answer.css('position', 'absolute').css('top', top1).css('left', left1);
 	symbol.css('position', 'absolute').css('top', top2).css('left', left2);
-	symbol.text(textVal);
 	bar.css('position', 'absolute').css('top', top3).css('left', left3);
 	number1.css('position', 'absolute').css('top', top4).css('left', left4);
 	number2.css('position', 'absolute').css('top', top5).css('left', left5);
+};
+/**
+ * This function creates a new html element when called.
+ *
+ * @param Element creates an html element like <div></div>
+ * @param leftPosition where to place it horizonally on screen
+ * @param topPosition where to place it vertically on screen
+ * @param textVal what text is going to be printed on screen
+ */
+var createHTMLElement = function(Element, leftPosition, topPosition, textVal) {
+	$(Element, {
+		css: {
+			position: 'absolute',
+			left: leftPosition,
+			top: topPosition
+		},
+		class: 'clearable',
+		text: textVal
+	})
+		.appendTo('body');
 };
 $(document).ready(function() {
 	//creates an empty JSON structure
@@ -64,7 +98,7 @@ $(document).ready(function() {
 	};
 
 	/**
-	 * formats the page accordingly.
+	 * formats the page accordingly to the operation.
 	 */
 	var formatProblem = function() {
 		var usersAns = $('#usersAns');
@@ -77,28 +111,24 @@ $(document).ready(function() {
 					table.css('display', 'none');
 					usersAns.css('font-size', '40').css('left', '42%').css('top', '34%').css('width', '100px').css('height', '60px');
 				}
-				setUpFormat('35%', '43%', '29%', '47%', '47%', '42%', '38%', '40%', '32%', '42%', '/');
-
+				setUpFormat('35%', '43%', '29%', '47%', '47%', '42%', '38%', '40%', '32%', '42%');
+				symbol.text('/');
 				break;
-			case "*":
+			case "*":case "+":case"-":
 				table.css('display', 'none');
 				symbol.css('font-size', '45px');
 				usersAns.css('position', 'absolute').css('top', '63%').css('left', '50%').css('width', '40px');
-				setUpFormat('63%', '53%', '45%', '52%', '43%', '42%', '36%', '39%', '44%', '42%', 'x');
+				setUpFormat('63%', '53%', '45%', '52%', '43%', '42%', '36%', '39%', '44%', '42%');
 
-				break;
-			case "+":
-				table.css('display', 'none');
-				symbol.css('font-size', '45px');
-				usersAns.css('position', 'absolute').css('top', '63%').css('left', '50%').css('width', '40px');
-				setUpFormat('63%', '53%', '45%', '52%', '43%', '42%', '36%', '39%', '44%', '42%', '+');
-
-				break;
-			case "-":
-				table.css('display', 'none');
-				usersAns.css('position', 'absolute').css('top', '63%').css('left', '50%').css('width', '40px');
-				symbol.css('font-size', '45px');
-				setUpFormat('63%', '53%', '45%', '52%', '43%', '42%', '36%', '39%', '44%', '42%', '-');
+				if(ArithmeticProblem[CurrentQuestion].Operation == "*") {
+					symbol.text('x');
+				}
+				else if(ArithmeticProblem[CurrentQuestion].Operation == "+") {
+					symbol.text('+');
+				}
+				else {
+					symbol.text('-');
+				}
 
 				break;
 		}
@@ -111,8 +141,26 @@ $(document).ready(function() {
 	$('#numberTable2').text(ArithmeticProblem[CurrentQuestion].Number2);
 	formatProblem();
 
+	/**
+	 * checks the users answer to make sure that it is correct every step of the way
+	 */
 	var checkAnswer = function() {
+		var table = $('#table');
+		var usersAns = $('#usersAns');
+		var usersAnsVal = usersAns.val();
+		switch(ArithmeticProblem[CurrentQuestion].Operation) {
+			case '/':
+				if(table.css('display') === 'table') {
+					if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number1*10) {
+						document.getElementById('usersAns').value = "";
+						createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
+						usersAns.css('top', '57%');
+					}
 
+				}
+
+				break;
+		}
 	};
 
 	$(document).on({
