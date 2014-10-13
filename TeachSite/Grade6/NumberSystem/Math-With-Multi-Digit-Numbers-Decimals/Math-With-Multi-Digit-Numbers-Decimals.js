@@ -22,17 +22,17 @@
  * @param left5
  */
 var setUpFormat = function(top1, top2, top3, top4, top5, left1, left2, left3, left4, left5) {
-	var answer = $('#answer');
-	var symbol = $('#symbol');
-	var bar = $('#bar');
-	var number1 = $('#number1');
-	var number2 = $('#number2');
+	this.answer = $('#answer');
+	this.symbol = $('#symbol');
+	this.bar = $('#bar');
+	this.number1 = $('#number1');
+	this.number2 = $('#number2');
 
-	answer.css('position', 'absolute').css('top', top1).css('left', left1);
-	symbol.css('position', 'absolute').css('top', top2).css('left', left2);
-	bar.css('position', 'absolute').css('top', top3).css('left', left3);
-	number1.css('position', 'absolute').css('top', top4).css('left', left4);
-	number2.css('position', 'absolute').css('top', top5).css('left', left5);
+	this.answer.css('position', 'absolute').css('top', top1).css('left', left1);
+	this.symbol.css('position', 'absolute').css('top', top2).css('left', left2);
+	this.bar.css('position', 'absolute').css('top', top3).css('left', left3);
+	this.number1.css('position', 'absolute').css('top', top4).css('left', left4);
+	this.number2.css('position', 'absolute').css('top', top5).css('left', left5);
 };
 /**
  * This function creates a new html element when called.
@@ -43,7 +43,7 @@ var setUpFormat = function(top1, top2, top3, top4, top5, left1, left2, left3, le
  * @param textVal what text is going to be printed on screen
  */
 var createHTMLElement = function(Element, leftPosition, topPosition, textVal) {
-	$(Element, {
+	this.$(Element, {
 		css: {
 			position: 'absolute',
 			left: leftPosition,
@@ -60,6 +60,9 @@ $(document).ready(function() {
 
 	//keeps track of the current question
 	var CurrentQuestion = 0;
+
+	//Cycle tells what part to do next
+	var Cycle = 0;
 
 	/**
 	 * This function creates questions and answers to the questions to print out and for the students to answer.
@@ -151,14 +154,26 @@ $(document).ready(function() {
 		switch(ArithmeticProblem[CurrentQuestion].Operation) {
 			case '/':
 				if(table.css('display') === 'table') {
-					if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number1*10) {
+					if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number1*10 && Cycle === 0) {
 						document.getElementById('usersAns').value = "";
 						createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
 						usersAns.css('top', '57%');
+						Cycle++;
 					}
-
+					else if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number2*10 && Cycle === 1) {
+						console.log("Made it into the second if statement");
+						document.getElementById('usersAns').value = "";
+						createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
+						Cycle = 0;
+					}
 				}
 
+
+				switch(Cycle%3) {
+					case 1:
+
+					break;
+				}
 				break;
 		}
 	};
