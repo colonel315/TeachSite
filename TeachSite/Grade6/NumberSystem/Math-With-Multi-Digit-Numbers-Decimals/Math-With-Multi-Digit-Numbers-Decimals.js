@@ -151,6 +151,9 @@ $(document).ready(function() {
 		var table = $('#table');
 		var usersAns = $('#usersAns');
 		var usersAnsVal = usersAns.val();
+		var number1 = $('#number1');
+		var number2 = $('#number2');
+
 		switch(ArithmeticProblem[CurrentQuestion].Operation) {
 			case '/':
 				if(table.css('display') === 'table') {
@@ -158,16 +161,19 @@ $(document).ready(function() {
 						document.getElementById('usersAns').value = "";
 						createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
 						usersAns.css('top', '57%');
+						number1.text(usersAnsVal);
 						Cycle++;
 					}
 					else if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number2*10 && Cycle === 1) {
-						console.log("Made it into the second if statement");
 						document.getElementById('usersAns').value = "";
 						createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
 						Cycle = 0;
+						number2.text(usersAnsVal);
 					}
 				}
+				else {
 
+				}
 
 				switch(Cycle%3) {
 					case 1:
