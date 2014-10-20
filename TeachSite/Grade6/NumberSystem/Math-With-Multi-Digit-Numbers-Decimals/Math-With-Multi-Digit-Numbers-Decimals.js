@@ -107,12 +107,16 @@ $(document).ready(function() {
 		var usersAns = $('#usersAns');
 		var table = $('#table');
 		var symbol = $('#symbol');
+		var Number2 = $('#number2');
 
 		switch(ArithmeticProblem[CurrentQuestion].Operation) {
 			case "/":
 				if(ArithmeticProblem[CurrentQuestion].Number1%1 == 0) {
-					table.css('display', 'none');
-					usersAns.css('font-size', '40').css('left', '42%').css('top', '34%').css('width', '100px').css('height', '60px');
+					$('.second-column').css('display', 'none');
+					$('#first-column-name').text("Original Number");
+					Number2.css('display', 'none');
+					usersAns.css('left', '42%').css('top', '49%');
+					Cycle = 2;
 				}
 				setUpFormat('35%', '43%', '29%', '47%', '47%', '42%', '38%', '40%', '32%', '42%');
 				symbol.text('/');
@@ -156,31 +160,52 @@ $(document).ready(function() {
 
 		switch(ArithmeticProblem[CurrentQuestion].Operation) {
 			case '/':
-				if(table.css('display') === 'table') {
-					if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number1*10 && Cycle === 0) {
-						document.getElementById('usersAns').value = "";
-						createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
-						usersAns.css('top', '57%');
-						number1.text(usersAnsVal);
-						Cycle++;
-					}
-					else if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number2*10 && Cycle === 1) {
-						document.getElementById('usersAns').value = "";
-						createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
-						Cycle = 0;
-						number2.text(usersAnsVal);
-					}
+				if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number1*10 && Cycle === 0) {
+					document.getElementById('usersAns').value = "";
+					createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
+					usersAns.css('top', '57%');
+					ArithmeticProblem[CurrentQuestion].Number1*=10;
+					Cycle++;
 				}
-				else {
-
+				else if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number2*10 && Cycle === 1) {
+					document.getElementById('usersAns').value = "";
+					createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
+					number2.css('display', 'none');
+					usersAns.css('left', '42%').css('top', '49%');
+					ArithmeticProblem[CurrentQuestion].Number2*=10;
+					Cycle++;
 				}
-
+				temp = ArithmeticProblem[CurrentQuestion].Number2;
+				temp = temp.toString().replace('.', '');
+				if(usersAnsVal == temp && Cycle == 2) {
+					document.getElementById('usersAns').value = "";
+					number2.css('display', 'block').text(usersAnsVal);
+					usersAns.css('left', '28%');
+					number1.css('display', 'none');
+					Cycle++;
+				}
+				temp = ArithmeticProblem[CurrentQuestion].Number1;
+				temp = temp.toString().replace('.', '');
+				if(usersAnsVal == temp && Cycle == 3) {
+					document.getElementById('usersAns').value = "";
+					number1.css('display', 'block').text(usersAnsVal);
+					usersAns.css('left', '42%').css('top', '39%');
+					Cycle = 0;
+				}
 				switch(Cycle%3) {
+					case 0:
+
+						break;
 					case 1:
 
-					break;
+						break;
+					case 2:
+
+						break;
+					case 3:
+
+						break;
 				}
-				break;
 		}
 	};
 
