@@ -1,11 +1,16 @@
 .Sign {
     font-size: 100px;
 }
+#correct {
+    position: absolute;
+    top: 74%;
+    left: 0%;
+}
 #usersAns {
     position: absolute;
     font-size: 20px;
     left: 13%;
-    top: 48%;
+    top: 47%;
     width: 100px;
     height: 30px;
 }

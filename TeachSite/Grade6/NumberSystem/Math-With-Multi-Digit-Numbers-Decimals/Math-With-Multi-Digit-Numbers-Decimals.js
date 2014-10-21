@@ -7,6 +7,19 @@
  */
 
 /**
+ * Clears out the text box and then increments cycle up by one
+ *
+ * @param Cycle
+ * @returns {*}
+ * @constructor
+ */
+var ClearTextBox_CycleAdd = function(Cycle) {
+	document.getElementById('usersAns').value = "";
+
+	Cycle++;
+	return Cycle;
+};
+/**
  * used the same methods multiple times.
  *
  * top and left values indicate the top and left positions on the screen.
@@ -64,6 +77,26 @@ $(document).ready(function() {
 	//Cycle tells what part to do next
 	var Cycle = 0;
 
+	//Keeps track of users answer
+	var Answer = "";
+
+	//keeps up with the subtract value, add value
+	var Value = "";
+
+	//Keeps previous attributes of usersAns
+	var usersAns = $('#usersAns');
+	var usersAnsLeft = usersAns.css('left');
+	var usersAnsTop = usersAns.css('top');
+
+	//keeps the div, mult, sub, add problems
+	var divProblemKeeper = [[]];
+	var multProblemKeeper = [[]];
+	var subProblemKeeper = [[]];
+	var addProblemKeeper = [[]];
+
+	//lets program know when to do switch statement
+	var doSwitch = false;
+
 	/**
 	 * This function creates questions and answers to the questions to print out and for the students to answer.
 	 */
@@ -87,16 +120,45 @@ $(document).ready(function() {
 
 			if(i < 2) {
 				ArithmeticProblem[i].Operation = "/";
+				divProblemKeeper[i] = [ArithmeticProblem[i].Number1, ArithmeticProblem[i].Number2];
 			}
 			else if(i < 4) {
 				ArithmeticProblem[i].Operation = "*";
+				multProblemKeeper[i] = [ArithmeticProblem[i].Number1, ArithmeticProblem[i].Number2];
 			}
 			else if(i < 6) {
 				ArithmeticProblem[i].Operation = "+";
+				addProblemKeeper[i] = [ArithmeticProblem[i].Number1, ArithmeticProblem[i].Number2];
 			}
 			else {
 				ArithmeticProblem[i].Operation = "-";
+				subProblemKeeper[i] = [ArithmeticProblem[i].Number1, ArithmeticProblem[i].Number2];
 			}
+		}
+	};
+
+	/**
+	 * displays whether the students got the part correct or not
+	 * @param correct
+	 */
+	gotCorrect = function(correct) {
+		var Correct = $('#correct');
+
+		if(correct) {
+			setTimeout(function() {
+				Correct.css('display', 'none');
+			}, 2000);
+			Correct.css('display', 'block');
+			Correct.css('color', 'blue');
+			Correct.text("You got it correct!")
+		}
+		else {
+			setTimeout(function() {
+				Correct.css('display', 'none');
+			}, 2000);
+			Correct.css('display', 'block');
+			Correct.css('color', 'orange');
+			Correct.text("Try again.");
 		}
 	};
 
@@ -104,7 +166,6 @@ $(document).ready(function() {
 	 * formats the page accordingly to the operation.
 	 */
 	var formatProblem = function() {
-		var usersAns = $('#usersAns');
 		var table = $('#table');
 		var symbol = $('#symbol');
 		var Number2 = $('#number2');
@@ -116,6 +177,9 @@ $(document).ready(function() {
 					$('#first-column-name').text("Original Number");
 					Number2.css('display', 'none');
 					usersAns.css('left', '42%').css('top', '49%');
+					divProblemKeeper[CurrentQuestion][1] = divProblemKeeper[CurrentQuestion][1].toString();
+					divProblemKeeper[CurrentQuestion][1] = divProblemKeeper[CurrentQuestion][1].replace(".", "");
+					divProblemKeeper[CurrentQuestion][1] = parseInt(divProblemKeeper[CurrentQuestion][1]);
 					Cycle = 2;
 				}
 				setUpFormat('35%', '43%', '29%', '47%', '47%', '42%', '38%', '40%', '32%', '42%');
@@ -153,59 +217,201 @@ $(document).ready(function() {
 	 */
 	var checkAnswer = function() {
 		var table = $('#table');
-		var usersAns = $('#usersAns');
 		var usersAnsVal = usersAns.val();
 		var number1 = $('#number1');
 		var number2 = $('#number2');
+		var answer = $('#answer');
 
 		switch(ArithmeticProblem[CurrentQuestion].Operation) {
 			case '/':
-				if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number1*10 && Cycle === 0) {
-					document.getElementById('usersAns').value = "";
-					createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
-					usersAns.css('top', '57%');
-					ArithmeticProblem[CurrentQuestion].Number1*=10;
-					Cycle++;
+				if(!doSwitch) {
+					if(usersAnsVal == divProblemKeeper[CurrentQuestion][0]*10 && Cycle === 0) {
+						createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10) - window.innerHeight * 0.02), usersAnsVal);
+						usersAns.css('top', '56%');
+						divProblemKeeper[CurrentQuestion][0] *= 10;
+						gotCorrect(true);
+						Cycle = ClearTextBox_CycleAdd(Cycle);
+					}
+					else if(usersAnsVal == math.round(divProblemKeeper[CurrentQuestion][1]*10, 1) && Cycle === 1) {
+						createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10) - window.innerHeight * 0.02), usersAnsVal);
+						number2.css('display', 'none');
+						usersAns.css('left', '42%').css('top', '49%');
+						divProblemKeeper[CurrentQuestion][1] = math.round(divProblemKeeper[CurrentQuestion][1]*10, 1);
+						divProblemKeeper[CurrentQuestion][1] = divProblemKeeper[CurrentQuestion][1].toString();
+						divProblemKeeper[CurrentQuestion][1] = divProblemKeeper[CurrentQuestion][1].replace(".", "");
+						divProblemKeeper[CurrentQuestion][1] = parseInt(divProblemKeeper[CurrentQuestion][1]);
+						console.log("divProblemKeeper[CurrentQuestion][1] = ", divProblemKeeper[CurrentQuestion][1]);
+						gotCorrect(true);
+						Cycle = ClearTextBox_CycleAdd(Cycle);
+					}
+					else if(usersAnsVal == divProblemKeeper[CurrentQuestion][1] && Cycle == 2) {
+						number2.css('display', 'block').text(usersAnsVal);
+						usersAns.css('left', '28%');
+						number1.css('display', 'none');
+						gotCorrect(true);
+						divProblemKeeper[CurrentQuestion][0] = divProblemKeeper[CurrentQuestion][0].toString();
+						divProblemKeeper[CurrentQuestion][0] = divProblemKeeper[CurrentQuestion][0].replace(".", "");
+						divProblemKeeper[CurrentQuestion][0] = parseInt(divProblemKeeper[CurrentQuestion][0]);
+						Cycle = ClearTextBox_CycleAdd(Cycle);
+					}
+					else if(usersAnsVal == divProblemKeeper[CurrentQuestion][0] && Cycle == 3) {
+						document.getElementById('usersAns').value = "";
+						number1.css('display', 'block').text(usersAnsVal);
+						usersAns.css('left', '42%').css('top', '39%');
+						usersAnsTop = usersAns.css('top');
+						usersAnsLeft = usersAns.css('left');
+						gotCorrect(true);
+						doSwitch = true;
+						Cycle = 0;
+						return;
+					}
+					else {
+						gotCorrect(false);
+					}
 				}
-				else if(usersAnsVal == ArithmeticProblem[CurrentQuestion].Number2*10 && Cycle === 1) {
-					document.getElementById('usersAns').value = "";
-					createHTMLElement('<div/>', usersAns.css('left'), (parseInt(usersAns.css('top'), 10)-window.innerHeight*0.02), usersAnsVal);
-					number2.css('display', 'none');
-					usersAns.css('left', '42%').css('top', '49%');
-					ArithmeticProblem[CurrentQuestion].Number2*=10;
-					Cycle++;
-				}
-				temp = ArithmeticProblem[CurrentQuestion].Number2;
-				temp = temp.toString().replace('.', '');
-				if(usersAnsVal == temp && Cycle == 2) {
-					document.getElementById('usersAns').value = "";
-					number2.css('display', 'block').text(usersAnsVal);
-					usersAns.css('left', '28%');
-					number1.css('display', 'none');
-					Cycle++;
-				}
-				temp = ArithmeticProblem[CurrentQuestion].Number1;
-				temp = temp.toString().replace('.', '');
-				if(usersAnsVal == temp && Cycle == 3) {
-					document.getElementById('usersAns').value = "";
-					number1.css('display', 'block').text(usersAnsVal);
-					usersAns.css('left', '42%').css('top', '39%');
-					Cycle = 0;
-				}
-				switch(Cycle%3) {
-					case 0:
+				if(doSwitch) {
+					switch(Cycle % 3) {
+						case 0:
+							if(usersAnsVal == HighestDivide(divProblemKeeper[CurrentQuestion][0], divProblemKeeper[CurrentQuestion][1])) {
+								answer.text(answer.html() + HighestDivide(divProblemKeeper[CurrentQuestion][0], divProblemKeeper[CurrentQuestion][1]));
 
-						break;
-					case 1:
+								Answer = usersAnsVal;
 
-						break;
-					case 2:
+								if(Cycle === 0) {
+									usersAns.css('top', parseInt(usersAnsTop) + (window.innerHeight * 0.2));
+								}
+								else {
+									usersAns.css('top', parseInt(usersAnsTop) + (window.innerHeight * 0.25));
+								}
+								usersAns.css('left', usersAnsLeft);
 
-						break;
-					case 3:
+								gotCorrect(true);
 
-						break;
+								Cycle = ClearTextBox_CycleAdd(Cycle);
+							}
+							else {
+								gotCorrect(false);
+							}
+							break;
+						case 1:
+							if(usersAnsVal == Answer * divProblemKeeper[CurrentQuestion][0]) {
+								$('<div/>', {
+									css: {
+										position: 'absolute',
+										left: '34%',
+										top: parseInt(usersAns.css('top')) + (window.innerHeight * 0.03)
+									},
+									text: "________",
+									class: 'clearable'
+								})
+									.appendTo('body');
+
+								$('<div/>', {
+									css: {
+										position: 'absolute',
+										left: parseInt(usersAns.css('left'), 10) - (window.innerWidth * 0.03),
+										top: parseInt(usersAns.css('top')) + (window.innerHeight * 0.01)
+									},
+									text: '-',
+									class: 'clearable'
+								})
+									.appendTo('body');
+
+								$('<div/>', {
+									css: {
+										position: 'absolute',
+										left: usersAns.css('left'),
+										top: usersAns.css('top')
+									},
+									text: usersAns.val(),
+									class: 'clearable'
+								})
+									.appendTo('body');
+
+								gotCorrect(true);
+
+								Value = usersAnsVal;
+								usersAnsLeft = usersAns.css('left');
+								usersAnsTop = usersAns.css('top');
+
+								usersAns.css('top', parseInt(usersAnsTop) + (window.innerHeight * .15));
+								Cycle = ClearTextBox_CycleAdd(Cycle);
+							}
+							else {
+								gotCorrect(false);
+							}
+							break;
+						case 2:
+							if(usersAnsVal == SubtractDividend(divProblemKeeper[CurrentQuestion][1], Value)) {
+								var lastDividend = grabLastDividend(divProblemKeeper[CurrentQuestion][1]);
+
+								divProblemKeeper[CurrentQuestion][1] = divProblemKeeper[CurrentQuestion][1] - Value * 100;
+								console.log("divProblemKeeper[CurrentQuestion][1] = ", divProblemKeeper[CurrentQuestion][1]);
+								var newLastDividend = grabLastDividend(divProblemKeeper[CurrentQuestion][1]);
+
+								if(divProblemKeeper[CurrentQuestion][1] >= 100 || newLastDividend === lastDividend) {
+									$('<div/>', {
+										css: {
+											position: 'absolute',
+											left: usersAns.css('left'),
+											top: usersAns.css('top')
+										},
+										text: usersAns.val() + lastDividend,
+										class: 'clearable'
+									})
+										.appendTo('body');
+								}
+								else {
+									$('<div/>', {
+										css: {
+											position: 'absolute',
+											left: usersAns.css('left'),
+											top: usersAns.css('top')
+										},
+										text: usersAns.val(),
+										class: 'clearable'
+									})
+										.appendTo('body');
+								}
+
+								gotCorrect(true);
+
+								usersAns.css('top', '39%');
+								usersAns.css('left', parseInt(usersAns.css('left')) + (window.innerWidth * .03));
+								Cycle = ClearTextBox_CycleAdd(Cycle);
+							}
+							else {
+								gotCorrect(false);
+							}
+							break;
+					}
+
+					if(divProblemKeeper[CurrentQuestion][1] <= divProblemKeeper[CurrentQuestion][0]) {
+						if(parseInt(answer.html())*10 <= divProblemKeeper[CurrentQuestion][0]) {
+							answer.text(answer.html()+0);
+						}
+						usersAns.css('display', 'none');
+
+						gotCorrect(true);
+
+						setTimeout(function() {
+							$('.clearable').empty();
+							answer.empty();
+							ArithmeticProblem.newQuestion();
+						}, 4000);
+
+						CurrentQuestion++;
+					}
 				}
+		}
+	};
+
+	ArithmeticProblem["newQuestion"] = function() {
+		$('#number1').text(ArithmeticProblem[CurrentQuestion].Number1);
+		$('#number2').text(ArithmeticProblem[CurrentQuestion].Number2);
+		if(ArithmeticProblem[CurrentQuestion].Operation == '/') {
+			$('#numberTable1').text(ArithmeticProblem[CurrentQuestion].Number1);
+			$('#numberTable2').text(ArithmeticProblem[CurrentQuestion].Number2);
 		}
 	};
 

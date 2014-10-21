@@ -53,6 +53,10 @@ $(document).ready(function() {
 	$('#Divisor').text(Divide[currentQuestion].Divisor);
 	$('#Dividend').text(Divide[currentQuestion].Dividend);
 
+	/**
+	 * displays whether the students got the part correct or not
+	 * @param correct
+	 */
 	gotCorrect = function(correct) {
 		if(correct) {
 			setTimeout(function() {
