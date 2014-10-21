@@ -114,18 +114,22 @@ var SubtractDividend = function(dividend, subtractor) {
 	if(parseInt(dividend.toString().substring(0, 2)) >= subtractor) {
 		return parseInt(dividend.toString().substring(0, 2)) - subtractor;
 	}
+	else if(parseInt(dividend.toString().substring(0, 3)) >= subtractor) {
+		return parseInt(dividend.toString().substring(0, 3)) - subtractor;
+	}
 	else {
 		return dividend - subtractor;
 	}
 };
 
 /**
- * This function will take in a number and find the last character of that value.
+ * This function will take in a number and find the wanted amount of last characters of that value.
  * @param dividend
+ * @param amountOfCharacters
  * @returns {Number}
  */
-var grabLastDividend = function(dividend) {
+var grabLastDividend = function(dividend, amountOfCharacters) {
 	var lastDividend = dividend.toString();
-	lastDividend = lastDividend.charAt(lastDividend.length - 1);
+	lastDividend = lastDividend.substring(lastDividend.length-amountOfCharacters, lastDividend.length);
 	return parseInt(lastDividend);
 };

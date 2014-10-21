@@ -272,6 +272,8 @@ $(document).ready(function() {
 				if(doSwitch) {
 					switch(Cycle % 3) {
 						case 0:
+							console.log("usersAnsVal = ", usersAnsVal);
+							console.log("HighestDivide(divProblemKeeper[CurrentQuestion][0], divProblemKeeper[CurrentQuestion][1]) = ", HighestDivide(divProblemKeeper[CurrentQuestion][0], divProblemKeeper[CurrentQuestion][1]));
 							if(usersAnsVal == HighestDivide(divProblemKeeper[CurrentQuestion][0], divProblemKeeper[CurrentQuestion][1])) {
 								answer.text(answer.html() + HighestDivide(divProblemKeeper[CurrentQuestion][0], divProblemKeeper[CurrentQuestion][1]));
 
@@ -342,14 +344,35 @@ $(document).ready(function() {
 							}
 							break;
 						case 2:
+							console.log("divProblemKeeper[CurrentQuestion][1] = ", divProblemKeeper[CurrentQuestion][1]);
+							console.log("Value = ", Value);
+							console.log("SubtractDividend(divProblemKeeper[CurrentQuestion][1], Value) = ", SubtractDividend(divProblemKeeper[CurrentQuestion][1], Value));
 							if(usersAnsVal == SubtractDividend(divProblemKeeper[CurrentQuestion][1], Value)) {
-								var lastDividend = grabLastDividend(divProblemKeeper[CurrentQuestion][1]);
+								var lastDividend = "";
+								var newLastDividend = "";
 
-								divProblemKeeper[CurrentQuestion][1] = divProblemKeeper[CurrentQuestion][1] - Value * 100;
-								console.log("divProblemKeeper[CurrentQuestion][1] = ", divProblemKeeper[CurrentQuestion][1]);
-								var newLastDividend = grabLastDividend(divProblemKeeper[CurrentQuestion][1]);
+								if(divProblemKeeper[CurrentQuestion][1] >= 1000 || Value >= 100) {
+									console.log("Inside if divProblemKeeper[CurrentQuestion][1] >= 1000 && Value >= 100");
+									lastDividend = grabLastDividend(divProblemKeeper[CurrentQuestion][1], 2);
 
+									divProblemKeeper[CurrentQuestion][1] = divProblemKeeper[CurrentQuestion][1] - Value * 100;
+
+									console.log("divProblemKeeper[CurrentQuestion][1] = ", divProblemKeeper[CurrentQuestion][1]);
+									newLastDividend = grabLastDividend(divProblemKeeper[CurrentQuestion][1], 2);
+								}
+								else {
+									console.log("inside else divProblemKeeper[CurrentQuestion][1] >= 1000 && Value >= 100");
+									lastDividend = grabLastDividend(divProblemKeeper[CurrentQuestion][1], 1);
+
+									divProblemKeeper[CurrentQuestion][1] = divProblemKeeper[CurrentQuestion][1] - Value * 10;
+
+									console.log("divProblemKeeper[CurrentQuestion][1] = ", divProblemKeeper[CurrentQuestion][1]);
+									newLastDividend = grabLastDividend(divProblemKeeper[CurrentQuestion][1], 1);
+								}
+								console.log("lastDividend = ", lastDividend);
+								console.log("newLastDividend = ", newLastDividend);
 								if(divProblemKeeper[CurrentQuestion][1] >= 100 || newLastDividend === lastDividend) {
+									console.log("In if statement");
 									$('<div/>', {
 										css: {
 											position: 'absolute',
@@ -386,22 +409,22 @@ $(document).ready(function() {
 							break;
 					}
 
-					if(divProblemKeeper[CurrentQuestion][1] <= divProblemKeeper[CurrentQuestion][0]) {
-						if(parseInt(answer.html())*10 <= divProblemKeeper[CurrentQuestion][0]) {
-							answer.text(answer.html()+0);
-						}
-						usersAns.css('display', 'none');
-
-						gotCorrect(true);
-
-						setTimeout(function() {
-							$('.clearable').empty();
-							answer.empty();
-							ArithmeticProblem.newQuestion();
-						}, 4000);
-
-						CurrentQuestion++;
-					}
+//					if(divProblemKeeper[CurrentQuestion][1] <= divProblemKeeper[CurrentQuestion][0]) {
+//						if(parseInt(answer.html())*10 <= divProblemKeeper[CurrentQuestion][0]) {
+//							answer.text(answer.html()+0);
+//						}
+//						usersAns.css('display', 'none');
+//
+//						gotCorrect(true);
+//
+//						setTimeout(function() {
+//							$('.clearable').empty();
+//							answer.empty();
+//							ArithmeticProblem.newQuestion();
+//						}, 4000);
+//
+//						CurrentQuestion++;
+//					}
 				}
 		}
 	};
