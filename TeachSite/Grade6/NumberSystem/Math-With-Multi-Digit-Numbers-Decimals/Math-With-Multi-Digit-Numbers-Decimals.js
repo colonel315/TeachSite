@@ -5,6 +5,9 @@ $(document).ready(function() {
 	//JSON object that stores answers and questions
 	var ArithmeticProblem = {};
 
+	//Keeps track of how many divs there are so that user can click on the prime factor
+	var divAmount = 1;
+
 	var generateJSON = function() {
 		for(var i = 0; i < 8; i++) {
 			ArithmeticProblem[i] = [];
@@ -71,7 +74,7 @@ $(document).ready(function() {
 		click: function() {
 			checkAnswer();
 		}
-	}, "#Submit");
+	});
 	document.addEventListener("keypress", function() {
 		if(event.keyCode == 13) {
 			checkAnswer();

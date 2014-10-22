@@ -1,7 +1,5 @@
-#usersAns {
+#usersAns1, #usersAns2 {
     position: absolute;
-    top: 35%;
-    left: 50%;
     height: 30px;
     width: 100px;
     border: 3px solid lightskyblue;
@@ -11,10 +9,16 @@
 a:hover {
     font-weight: bold;
 }
+div {
+    position: absolute;
+    top: 31%;
+    left: 42%;
+    font-size: 40px;
+}
 nav {
     z-index: 1;
 }
-nav, div, input {
+nav{
     position: relative;
     left: 20%;
 }
