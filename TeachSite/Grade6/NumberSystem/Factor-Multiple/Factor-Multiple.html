@@ -5,6 +5,7 @@
 		<title>Factors and Multiples</title>
 		<script src = "../../../JQuery.js" type = "text/javascript"></script>
 		<script src = "../../../Math.js" type = "text/javascript"></script>
+		<script src = "../../../Utility.js" type = "text/javascript"></script>
 		<link rel = "stylesheet" type = "text/css" href = "Factor-Multiple.css" />
 		<script src = "Factor-Multiple.js" type = "text/javascript"></script>
 	</head>
@@ -65,9 +66,12 @@
 
 		<hr/>
 
-		<div id="Factor-Multiple1"></div>
-		<input type = "button" id = "Submit" value = "answer" />
-		<input type = "text" id = "usersAns1" />
-		<input type = "text" id = "usersAns2" />
+		<div id = "Description"></div>
+		<div class = "Factor-Multiple1"></div>
+		<div class = "Factor-Multiple2"></div>
+		<div id = "Final-Answer">GCF = </div>
+		<input type = "text" id = "AnswerBox1" />
+		<input type = "button" value = "answer" id = "Submit" />
+		<div id = "Correct" style = "display: none;"></div>
 	</body>
 </html>

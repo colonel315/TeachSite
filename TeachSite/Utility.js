@@ -6,8 +6,8 @@
  * @returns {number}
  * @constructor
  */
-GreatestCommonFactor = function(Factor1, Factor2) {
-	var greatestCommonFactor = 1;
+var GreatestCommonFactor = function(Factor1, Factor2) {
+	var leastCommonFactor = 1;
 
 	if(Factor1 < Factor2) {
 		var temp = Factor1;
@@ -16,12 +16,12 @@ GreatestCommonFactor = function(Factor1, Factor2) {
 	}
 
 	for(var i = 2; i <= Factor1; i++) {
-		if(Factor1%i === 0 && Factor2%i === 0) {
-			greatestCommonFactor = i;
+		if(Factor1 % i === 0 && Factor2 % i === 0) {
+			leastCommonFactor = i;
 		}
 	}
 
-	return greatestCommonFactor;
+	return leastCommonFactor;
 };
 
 /**
@@ -40,25 +40,25 @@ GreatestCommonFactor = function(Factor1, Factor2) {
  * @returns {*}
  * @constructor
  */
-BetterDeal = function(Item1Value, Weight1, Measurement1, ItemName1, Item2Value, Weight2, Measurement2, ItemName2, Equal) {
+var BetterDeal = function(Item1Value, Weight1, Measurement1, ItemName1, Item2Value, Weight2, Measurement2, ItemName2, Equal) {
 	if(Measurement1 === "pound" && Measurement2 === "ounce") {
-		Weight1*=16;
+		Weight1 *= 16;
 	}
 	else if(Measurement1 === "kilogram" && Measurement2 === "ounce") {
-		Weight1*=35.27396195;
+		Weight1 *= 35.27396195;
 	}
 	else if(Measurement1 === "pound" && Measurement2 === "gram") {
-		Weight1*=453.59237;
+		Weight1 *= 453.59237;
 	}
 	else if(Measurement1 === "gram" && Measurement2 === "kilogram") {
-		Weight2*=1000;
+		Weight2 *= 1000;
 	}
 	else if(Measurement1 === "gram" && Measurement2 === "ounce") {
-		Weight2*=28.34952313;
+		Weight2 *= 28.34952313;
 	}
 
-	var Price1 = Weight1*Item1Value;
-	var Price2 = Weight2*Item2Value;
+	var Price1 = Weight1 * Item1Value;
+	var Price2 = Weight2 * Item2Value;
 
 	if(Price1 > Price2) {
 		return ItemName1;
@@ -130,6 +130,63 @@ var SubtractDividend = function(dividend, subtractor) {
  */
 var grabLastDividend = function(dividend, amountOfCharacters) {
 	var lastDividend = dividend.toString();
-	lastDividend = lastDividend.substring(lastDividend.length-amountOfCharacters, lastDividend.length);
+	lastDividend = lastDividend.substring(lastDividend.length - amountOfCharacters, lastDividend.length);
 	return parseInt(lastDividend);
+};
+
+/**
+ * Finds a factor
+ * @param product
+ * @param factor
+ * @returns {boolean}
+ */
+var isFactor = function(product, factor) {
+	return product % factor === 0;
+};
+
+/**
+ * Creates an HTML element
+ * @param Element
+ * @param leftPosition
+ * @param topPosition
+ * @param className
+ * @param idName
+ * @param textVal
+ * @param inputType
+ */
+var createHTMLElement = function(Element, leftPosition, topPosition, className, idName, textVal, inputType) {
+	$(Element, {
+		css: {
+			position: 'absolute',
+			left: leftPosition,
+			top: topPosition
+		},
+		class: className,
+		id: idName,
+		text: textVal,
+
+		type: inputType
+	})
+		.appendTo('body');
+};
+
+var findFactors = function(product) {
+	var Factors = [];
+	var index = 0;
+	for(var i = 1; i <= Math.sqrt(product); i++) {
+		if(isFactor(product, i)) {
+			Factors[index] = i;
+			Factors[index + 1] = product / i;
+			index += 2;
+		}
+	}
+
+	if(product%Math.sqrt(product) === 0) {
+		Factors = $.grep(Factors, function(Element) {
+			return Element != Math.sqrt(product);
+		});
+		Factors[Factors.length] = Math.sqrt(product);
+	}
+	console.log("Factors = ", Factors);
+	return Factors;
 };

@@ -35,37 +35,17 @@ var ClearTextBox_CycleAdd = function(Cycle) {
  * @param left5
  */
 var setUpFormat = function(top1, top2, top3, top4, top5, left1, left2, left3, left4, left5) {
-	this.answer = $('#answer');
-	this.symbol = $('#symbol');
-	this.bar = $('#bar');
-	this.number1 = $('#number1');
-	this.number2 = $('#number2');
+	var answer = $('#answer');
+	var symbol = $('#symbol');
+	var bar = $('#bar');
+	var number1 = $('#number1');
+	var number2 = $('#number2');
 
-	this.answer.css('position', 'absolute').css('top', top1).css('left', left1);
-	this.symbol.css('position', 'absolute').css('top', top2).css('left', left2);
-	this.bar.css('position', 'absolute').css('top', top3).css('left', left3);
-	this.number1.css('position', 'absolute').css('top', top4).css('left', left4);
-	this.number2.css('position', 'absolute').css('top', top5).css('left', left5);
-};
-/**
- * This function creates a new html element when called.
- *
- * @param Element creates an html element like <div></div>
- * @param leftPosition where to place it horizonally on screen
- * @param topPosition where to place it vertically on screen
- * @param textVal what text is going to be printed on screen
- */
-var createHTMLElement = function(Element, leftPosition, topPosition, textVal) {
-	this.$(Element, {
-		css: {
-			position: 'absolute',
-			left: leftPosition,
-			top: topPosition
-		},
-		class: 'clearable',
-		text: textVal
-	})
-		.appendTo('body');
+	answer.css('position', 'absolute').css('top', top1).css('left', left1);
+	symbol.css('position', 'absolute').css('top', top2).css('left', left2);
+	bar.css('position', 'absolute').css('top', top3).css('left', left3);
+	number1.css('position', 'absolute').css('top', top4).css('left', left4);
+	number2.css('position', 'absolute').css('top', top5).css('left', left5);
 };
 $(document).ready(function() {
 	//creates an empty JSON structure
