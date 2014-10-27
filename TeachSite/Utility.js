@@ -7,7 +7,7 @@
  * @constructor
  */
 var GreatestCommonFactor = function(Factor1, Factor2) {
-	var leastCommonFactor = 1;
+	var  GreatestCommonFactor = 1;
 
 	if(Factor1 < Factor2) {
 		var temp = Factor1;
@@ -15,15 +15,38 @@ var GreatestCommonFactor = function(Factor1, Factor2) {
 		Factor2 = temp;
 	}
 
-	for(var i = 2; i <= Factor1; i++) {
+	for(var i = Factor1; i >= 2; i--) {
 		if(Factor1 % i === 0 && Factor2 % i === 0) {
-			leastCommonFactor = i;
+			return i;
 		}
 	}
 
-	return leastCommonFactor;
+	return GreatestCommonFactor;
 };
 
+/**
+ * Finds the least common multiple between two numbers
+ * @param Product1
+ * @param Product2
+ * @returns {*}
+ * @constructor
+ */
+var LeastCommonMultiple = function(Product1, Product2) {
+	if(Product1 > Product2) {
+		var temp = Product1;
+		Product1 = Product2;
+		Product2 = temp;
+	}
+
+	for(var i = Product1; i <= Product1*Product2; i+=Product1) {
+		console.log("i = ", i);
+		for(var j = Product2; j <= i; j+=Product2) {
+			if(i%j === 0) {
+				return i;
+			}
+		}
+	}
+};
 /**
  * This function will find a better deal based off of the value of the item, the weight and the type of measurement then returns the
  * product that is the better deal.
@@ -95,11 +118,9 @@ var HighestDivide = function(divisor, dividend) {
 			Quotient++;
 		}
 		if(Quotient > 0) {
-			break;
+			return Quotient.toString();
 		}
 	}
-
-	return Quotient.toString();
 };
 
 /**
@@ -187,6 +208,5 @@ var findFactors = function(product) {
 		});
 		Factors[Factors.length] = Math.sqrt(product);
 	}
-	console.log("Factors = ", Factors);
 	return Factors;
 };

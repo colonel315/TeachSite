@@ -60,7 +60,6 @@ $(document).ready(function() {
 		var Final_Answer = $('#Final-Answer');
 		var Repeated = false;
 
-		console.log("userAnswerIndex = ", userAnswerIndex1);
 		if(currentQuestion <= 2 && isFactor(FactorNumbers[currentQuestion].Factor, AnswerBox1.val())) {
 			for(var i = 1; i <= amountOfDivs; i++) {
 				if(AnswerBox1.val() == $('#Factor' + i).html()) {
@@ -96,8 +95,6 @@ $(document).ready(function() {
 						$('#Factor'+i).remove();
 					}
 				}, 1000);
-				userAnswerIndex1 = 0;
-				amountOfDivs = 1;
 				while(userAnswers1.length > 0) {
 					userAnswers1.pop();
 				}
@@ -169,38 +166,48 @@ $(document).ready(function() {
 				}
 			}
 			else if(userAnswerIndex1 === RealAnswer1.length+RealAnswer2.length && GreatestCommonFactor(Commons[currentQuestion][0], Commons[currentQuestion][1]) == AnswerBox1.val()) {
-				Correct.css('color', 'blue').text("You found the LCM!").css('display', 'block');
+				Correct.css('color', 'blue').text("You found the GCF!").css('display', 'block');
 				document.getElementById('AnswerBox1').value = "";
-				userAnswerIndex1 = 0;
-				amountOfDivs = 1;
+
 				while(userAnswers1.length > 0) {
 					userAnswers1.pop();
 				}
 				setTimeout(function() {
-					for(i = 1; i <= amountOfDivs; i++) {
-						$('#Factor'+i).remove();
-					}
 					Correct.css('display', 'none');
 					Final_Answer.css('display', 'none');
 					newQuestion();
 				}, 1000);
 			}
 		}
+		else if(LeastCommonMultiple(Commons[currentQuestion][0], Commons[currentQuestion][1]) == AnswerBox1.val()) {
+			Correct.css('color', 'blue').text("You found the LCM!").css('display', 'block');
+			document.getElementById('AnswerBox1').value = "";
+
+			setTimeout(function() {
+				Correct.css('display', 'none');
+				newQuestion();
+			}, 1000);
+		}
 		else {
 			setTimeout(function() {
 				Correct.css('display', 'none');
 			}, 1000);
 			document.getElementById('AnswerBox1').value = "";
-			Correct.css('color', 'orange').css('display', 'block').text(AnswerBox1.val() + " is not a factor of " + FactorNumbers[currentQuestion].Factor);
+			Correct.css('color', 'orange').css('display', 'block').text("Try again!");
 		}
 	};
 
 	var newQuestion = function() {
-		console.log("currentQuestion = ", currentQuestion);
+		for(var i = 1; i <= amountOfDivs; i++) {
+			$('#Factor'+i).remove();
+		}
+		userAnswerIndex1 = 0;
+		amountOfDivs = 1;
 		currentQuestion++;
 		var Answer = $('.Answer');
 		var Factor_Multiple1 = $('.Factor-Multiple1');
 		var Factor_Multiple2 = $('.Factor-Multiple2');
+		console.log("currentQuestion = ", currentQuestion);
 
 		Answer.empty();
 		if(currentQuestion <= 2) {
@@ -215,14 +222,20 @@ $(document).ready(function() {
 			$('#AnswerBox1').css('left', '29%').css('top', '45%');
 			RealAnswer1 = findFactors(Commons[currentQuestion][0]);
 			RealAnswer2 = findFactors(Commons[currentQuestion][1]);
+
 		}
-		else {
-			$('#Description').text("Keep finding multiples for each number until you find a common multiple, then answer what the least common multiple");
-			Factor_Multiple1.css('left', '29%').text(Commons[currentQuestion][0]);
-			Factor_Multiple2.text(Commons[currentQuestion][1]);
-			$('#AnswerBox1').css('left', '29%').css('top', '45%');
+		else if(currentQuestion <= 8){
+			$('#Description').text("What is the Least Common Multiple?");
+			$('#Final-Answer').text("LCM = ").css('display', 'block').css('left', '41%');
+			Factor_Multiple1.css('left', '40%').text(Commons[currentQuestion][0]);
+			Factor_Multiple2.text(Commons[currentQuestion][1]).css('left', '61%');
+			$('#AnswerBox1').css('left', '54%').css('top', '49%');
 			RealAnswer1 = findFactors(Commons[currentQuestion][0]);
 			RealAnswer2 = findFactors(Commons[currentQuestion][1]);
+		}
+		else {
+			console.log("Got into if");
+			$('#Correct').css('color', 'blue').text("You solved all of the problems!").css('display', 'block');
 		}
 	};
 
