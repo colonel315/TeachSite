@@ -178,6 +178,13 @@ $(document).ready(function() {
 					newQuestion();
 				}, 1000);
 			}
+			else {
+				setTimeout(function() {
+					Correct.css('display', 'none');
+				}, 1000);
+				document.getElementById('AnswerBox1').value = "";
+				Correct.css('color', 'orange').css('display', 'block').text("Try again!");
+			}
 		}
 		else if(LeastCommonMultiple(Commons[currentQuestion][0], Commons[currentQuestion][1]) == AnswerBox1.val()) {
 			Correct.css('color', 'blue').text("You found the LCM!").css('display', 'block');

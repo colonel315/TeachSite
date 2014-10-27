@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e81b87e3-a5f5-4e7f-9e80-d67e074a6b3a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Factor-Multiple/Factor-Multiple.js" afterPath="$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Factor-Multiple/Factor-Multiple.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TeachSite/Utility.js" afterPath="$PROJECT_DIR$/TeachSite/Utility.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Teach Site.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +48,8 @@
       <file leaf-file-name="Factor-Multiple.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Factor-Multiple/Factor-Multiple.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6882662" vertical-offset="3602" max-vertical-offset="4437">
-              <caret line="237" column="90" selection-start-line="237" selection-start-column="90" selection-end-line="237" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.5394046" vertical-offset="2820" max-vertical-offset="4556">
+              <caret line="186" column="13" selection-start-line="186" selection-start-column="13" selection-end-line="186" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -307,7 +305,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3267974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -733,8 +731,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TeachSite/Grade6/NumberSystem/Factor-Multiple/Factor-Multiple.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6882662" vertical-offset="3602" max-vertical-offset="4437">
-          <caret line="237" column="90" selection-start-line="237" selection-start-column="90" selection-end-line="237" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.5394046" vertical-offset="2820" max-vertical-offset="4556">
+          <caret line="186" column="13" selection-start-line="186" selection-start-column="13" selection-end-line="186" selection-end-column="13" />
           <folding />
         </state>
       </provider>
