@@ -74,7 +74,7 @@ $(document).ready(function() {
 		click: function() {
 			checkAnswer();
 		}
-	});
+	}, "#Submit");
 	document.addEventListener("keypress", function() {
 		if(event.keyCode == 13) {
 			checkAnswer();
