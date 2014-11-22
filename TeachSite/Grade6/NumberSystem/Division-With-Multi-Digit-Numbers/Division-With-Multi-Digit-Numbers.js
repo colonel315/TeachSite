@@ -53,10 +53,6 @@ $(document).ready(function() {
 	$('#Divisor').text(Divide[currentQuestion].Divisor);
 	$('#Dividend').text(Divide[currentQuestion].Dividend);
 
-	/**
-	 * displays whether the students got the part correct or not
-	 * @param correct
-	 */
 	gotCorrect = function(correct) {
 		if(correct) {
 			setTimeout(function() {
@@ -159,6 +155,7 @@ $(document).ready(function() {
 					var newLastDividend = grabLastDividend(Divide[currentQuestion].Dividend);
 
 					if(Divide[currentQuestion].Dividend >= 100 || newLastDividend === lastDividend) {
+						console.log("inside if");
 						$('<div/>', {
 							css: {
 								position: 'absolute',
@@ -171,6 +168,8 @@ $(document).ready(function() {
 							.appendTo('body');
 					}
 					else {
+						console.log("inside else");
+						console.log("usersAns.html() = ", usersAns.val());
 						$('<div/>', {
 							css: {
 								position: 'absolute',

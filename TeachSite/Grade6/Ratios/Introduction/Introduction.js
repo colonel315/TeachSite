@@ -688,11 +688,8 @@ $(document).ready(function() {
 	 */
 	var checkAnswer = function() {
 		var Correct = $('#Correct');
-		if(CurrentQuestionSet === 2 && Question1N && Question1D && Question2N && Question2D && Question3N && Question3D) {
-			Correct.css('display', 'block');
-			Correct.css('background', 'orange');
-			Correct.css('font-color', 'blue');
-			Correct.text("Great job, you got them all correct!");
+		if(CurrentQuestionSet === 2) {
+			alert("Great job,  you are done with this lesson!");
 		}
 		else if(Question1N && Question1D && Question2N && Question2D && Question3N && Question3D && CurrentQuestionSet === 0) {
 			setTimeout(function() {
@@ -744,22 +741,29 @@ $(document).ready(function() {
 		Question3N = false;
 		Question3D = false;
 
+		console.log("Question1N = ", Question1N);
+		console.log("Question1D = ", Question1D);
+		console.log("Question2N = ", Question2N);
+		console.log("Question2D = ", Question2D);
+		console.log("Question3N = ", Question3N);
+		console.log("Question3D = ", Question3D);
+
 		var Question1 = $('#Question1');
 		var Question2 = $('#Question2');
 		var Question3 = $('#Question3');
 
 		switch(CurrentQuestionSet) {
 			case 1:
-				ArrayShuffle(question.ScienceFiction, question.MysteryNovels, question.Biographys, question.TotalBooks, question.MysteryNovels, question.MysteryNovels);
+				RatioArray = ArrayShuffle(question.ScienceFiction, question.MysteryNovels, question.Biographys, question.TotalBooks, question.MysteryNovels, question.MysteryNovels);
 				Question1.text("What is the ratio of science fiction novels to the mystery novels?");
 				Question2.text("What is the ratio of biography novels to the mystery novels?");
 				Question3.text("What is the ratio of mystery novels to the total amount of books?");
 				break;
 			case 2:
-				ArrayShuffle(question.RockCDs, question.CountryCDs, question.RapCDs, question.RockCDs, question.RapCDs, question.TotalCDs);
+				RatioArray = ArrayShuffle(question.RockCDs, question.CountryCDs, question.RapCDs, question.RockCDs, question.RapCDs, question.TotalCDs);
 				Question1.text("What is the ratio of rock CDs to country CDs?");
 				Question2.text("What is the ratio of rap CDs to rock CDs?");
-				Question3.text("What is the ratio of rap CDs to total CDs?");
+				Question3.text("What is the ratio of rap CDs to total CDs");
 				break;
 		}
 		$('#Description').text(Question[CurrentQuestionSet].prompt);

@@ -94,9 +94,8 @@ $(document).ready(function() {
 		var Divider = "";
 
 		for(i = 0; i < 6; i++) {
-			temp = (Math.floor(Math.random()*4)+2);
-			randomNumerator = (Math.floor(Math.random()*10)+1)*temp;
-			randomDenomenator = (Math.floor(Math.random()*10)+1)*temp;
+			randomNumerator = Math.floor(Math.random()*10)+1;
+			randomDenomenator = Math.floor(Math.random()*10)+1;
 			Divider = GreatestCommonFactor(randomNumerator, randomDenomenator);
 
 			Answers[i].Ratios = randomNumerator+":"+randomDenomenator;
@@ -182,7 +181,7 @@ $(document).ready(function() {
 
 			if(amountCorrect === 6) {
 				Correct.css('display', 'block');
-				Correct.css('top', '100%');
+				Correct.css('top', '23%');
 				Correct.css('left', '30%');
 				Correct.css('color', 'blue');
 				Correct.text("Great job you answered them all!");
