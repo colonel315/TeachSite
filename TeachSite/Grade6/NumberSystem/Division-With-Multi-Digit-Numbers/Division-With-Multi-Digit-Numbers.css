@@ -1,43 +1,48 @@
 .DivisionSign {
     font-size: 100px;
 }
+#video {
+    position: absolute;
+    left: 28%;
+    top: 9%;
+}
 #DivisionSign1 {
     position: absolute;
     left: 30%;
-    top: 30%;
+    top: 101%;
 }
 #DivisionSign2 {
     position: absolute;
     left: 32%;
-    top: 17%;
+    top: 87%;
 }
 #Divisor {
     position: absolute;
     left: 24%;
-    top: 34%;
+    top: 105%;
 }
 #Dividend {
     position: absolute;
     left: 34%;
-    top: 34%;
+    top: 106%;
 }
 #usersAns {
     position: absolute;
     font-size: 40px;
     left: 34%;
-    top: 22%;
+    top: 92%;
     width: 100px;
     height: 60px;
 }
 #Quotient {
     position: absolute;
     left: 34%;
-    top: 22%;
+    top: 92%;
 }
 #Correct {
     position: absolute;
-    top: 50%;
-    left: 65%;
+    top: 93%;
+    left: 68%;
 }
 h1 {
     position: relative;
