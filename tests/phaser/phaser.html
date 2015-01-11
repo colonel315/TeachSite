@@ -18,7 +18,7 @@
 			var line = [];
 			var click = false;
 
-			var count = 0;
+			var lineCount = 0;
 			var handlerCount = 0;
 			var originalHandlerCount;
 
@@ -41,18 +41,20 @@
 					graphLines[i / 50 + 14] = new Phaser.Line(0, i, 800, i);
 				}
 
-				count = 0;
+				var counter = 0;
 				for(i = 35; i < 750; i += 50) {
 					for(var j = 35; j < 550; j += 50) {
-						points[count] = game.add.button(i, j, 'transparent', CreateLine, this, 'over', 'out');
-						points[count].onInputOver.add(Over, this);
-						points[count].onInputOut.add(Out, this);
-						count++;
+						points[counter] = game.add.button(i, j, 'transparent', CreateLine, this, 'over', 'out');
+						points[counter].onInputOver.add(Over, this);
+						points[counter].onInputOut.add(Out, this);
+						counter++;
 					}
 				}
 
 				keyPressed[0] = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
 				keyPressed[0].onDown.add(FinishLine, this);
+				keyPressed[1] = game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE);
+				keyPressed[1].onDown.add(DeleteLine, this);
 			}
 
 			/**
@@ -63,32 +65,77 @@
 			function CreateLine(pointer) {
 				if(!click) {
 					originalHandlerCount = handlerCount;
-					console.log("handlerCount = ", handlerCount);
+
 					handler[handlerCount] = game.add.sprite(pointer.x, pointer.y, 'point'); //places point at clicked spot
-					console.log("handler[handlerCount] = ", handler[handlerCount]);
-					handlerCount++;
-					console.log("handlerCount = ", handlerCount);
-					handler[handlerCount] = handler[handlerCount-1]; //saves the first known clicked spot
 
 					handlerCount++;
-					console.log("handlerCount = ", handlerCount);
 
 					click = true;
 				}
 				else {
 					handler[handlerCount] = game.add.sprite(pointer.x, pointer.y, 'point'); //places points at clicked spots
 
-					line[count] = new Phaser.Line(handler[handlerCount-1].x + 15, handler[handlerCount-1].y + 15,
+					line[lineCount] = new Phaser.Line(handler[handlerCount-1].x + 15, handler[handlerCount-1].y + 15,
 							handler[handlerCount].x + 15, handler[handlerCount].y + 15); //draws lines between handlers
-					count++;
+					lineCount++;
 
 					handlerCount++;
 				}
 			}
 
+			/**
+			 * Finishes the line that CreateLine makes from user pressing enter
+			 * @constructor
+			 */
 			function FinishLine() {
-				line[count] = new Phaser.Line(handler[handlerCount - 1].x + 15, handler[handlerCount - 1].y + 15,
+				line[lineCount] = new Phaser.Line(handler[handlerCount - 1].x + 15, handler[handlerCount - 1].y + 15,
 							handler[originalHandlerCount].x + 15, handler[originalHandlerCount].y + 15);
+				lineCount++;
+				click = false;
+			}
+
+			/**
+			 * Deletes line upon user hitting Backspace
+			 * @constructor
+			 */
+			function DeleteLine() {
+				if(confirm("Do you want to delete lines?")) {
+					var amountDelete = prompt("How many lines would you like to delete (Deletes newer to older)?");
+					if(handlerCount > lineCount) {
+						for(var i = line.length - 1; i > line.length - 1 - amountDelete; i--) {
+							handler[i + 1].destroy();
+
+							handlerCount--;
+							lineCount--;
+						}
+
+						handler.splice(handler.length - amountDelete, amountDelete);
+
+						if(handler.length === 1) {
+							handler[0].destroy();
+							handler.splice(0, 1);
+						}
+
+						line.splice(line.length - amountDelete, amountDelete);
+					}
+					if(handlerCount === lineCount) {
+						for(i = line.length - 1; i > line.length - 1 - amountDelete; i--) {
+							if(i < line.length - 1) {
+								handler[i+1].destroy();
+								handlerCount--;
+							}
+							lineCount--;
+						}
+
+						handler.splice(handler.length - amountDelete + 1, amountDelete - 1);
+
+						if(handler.length === 1) {
+							handler[0].destroy();
+						}
+
+						line.splice(line.length - amountDelete, amountDelete);
+					}
+				}
 			}
 
 			/**
