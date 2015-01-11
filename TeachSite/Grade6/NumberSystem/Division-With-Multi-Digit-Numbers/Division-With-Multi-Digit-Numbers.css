@@ -3,46 +3,46 @@
 }
 #video {
     position: absolute;
-    left: 28%;
+    left: 62%;
     top: 9%;
 }
 #DivisionSign1 {
     position: absolute;
     left: 30%;
-    top: 101%;
+    top: 29%;
 }
 #DivisionSign2 {
     position: absolute;
     left: 32%;
-    top: 87%;
+    top: 15%;
 }
 #Divisor {
     position: absolute;
     left: 24%;
-    top: 105%;
+    top: 34%;
 }
 #Dividend {
     position: absolute;
     left: 34%;
-    top: 106%;
+    top: 34%;
 }
 #usersAns {
     position: absolute;
     font-size: 40px;
     left: 34%;
-    top: 92%;
+    top: 21%;
     width: 100px;
     height: 60px;
 }
 #Quotient {
     position: absolute;
     left: 34%;
-    top: 92%;
+    top: 21%;
 }
 #Correct {
     position: absolute;
-    top: 93%;
-    left: 68%;
+    top: 45%;
+    left: 1%;
 }
 h1 {
     position: relative;
