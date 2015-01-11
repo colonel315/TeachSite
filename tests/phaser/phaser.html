@@ -14,15 +14,15 @@
 			var points = [];
 			var point;
 
-			var handler1;
-			var handler2;
-			var originalHandler;
-
+			var handler = [];
 			var line = [];
-
 			var click = false;
 
 			var count = 0;
+			var handlerCount = 0;
+			var originalHandlerCount;
+
+			var keyPressed = [];
 
 			function Preload() {
 				//load images
@@ -51,7 +51,8 @@
 					}
 				}
 
-				count = 0;
+				keyPressed[0] = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+				keyPressed[0].onDown.add(FinishLine, this);
 			}
 
 			/**
@@ -61,27 +62,33 @@
 			 */
 			function CreateLine(pointer) {
 				if(!click) {
-					handler1 = game.add.sprite(pointer.x, pointer.y, 'point'); //places point at clicked spot
-					originalHandler = handler1; //saves the first known clicked spot
+					originalHandlerCount = handlerCount;
+					console.log("handlerCount = ", handlerCount);
+					handler[handlerCount] = game.add.sprite(pointer.x, pointer.y, 'point'); //places point at clicked spot
+					console.log("handler[handlerCount] = ", handler[handlerCount]);
+					handlerCount++;
+					console.log("handlerCount = ", handlerCount);
+					handler[handlerCount] = handler[handlerCount-1]; //saves the first known clicked spot
+
+					handlerCount++;
+					console.log("handlerCount = ", handlerCount);
 
 					click = true;
 				}
 				else {
-					handler2 = game.add.sprite(pointer.x, pointer.y, 'point'); //places points at clicked spots
+					handler[handlerCount] = game.add.sprite(pointer.x, pointer.y, 'point'); //places points at clicked spots
 
-					line[count] = new Phaser.Line(handler1.x + 15, handler1.y + 15, handler2.x + 15, handler2.y + 15); //draws lines between handlers
+					line[count] = new Phaser.Line(handler[handlerCount-1].x + 15, handler[handlerCount-1].y + 15,
+							handler[handlerCount].x + 15, handler[handlerCount].y + 15); //draws lines between handlers
 					count++;
 
-					handler1 = handler2; //keep previous point
-
-					if((count+1)%4 === 0) {
-						line[count] = new Phaser.Line(handler1.x + 15, handler1.y + 15, originalHandler.x + 15, originalHandler.y + 15); //close quadrilateral
-
-						count++;
-
-						click = false;
-					}
+					handlerCount++;
 				}
+			}
+
+			function FinishLine() {
+				line[count] = new Phaser.Line(handler[handlerCount - 1].x + 15, handler[handlerCount - 1].y + 15,
+							handler[originalHandlerCount].x + 15, handler[originalHandlerCount].y + 15);
 			}
 
 			/**
