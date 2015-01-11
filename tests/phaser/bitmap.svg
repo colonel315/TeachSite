@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2985"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   width="80"
+   height="40"
+   sodipodi:docname="bitmap.svg"
+   inkscape:export-filename="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\tests\phaser\bitmap.png"
+   inkscape:export-xdpi="180"
+   inkscape:export-ydpi="180">
+  <metadata
+     id="metadata2991">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2989" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1360"
+     inkscape:window-height="705"
+     id="namedview2987"
+     showgrid="false"
+     inkscape:zoom="2.59"
+     inkscape:cx="146.06707"
+     inkscape:cy="-14.387198"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2985" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#0000ff;fill-opacity:1;stroke:#ff0000;stroke-width:1.94799995;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     id="path3793"
+     sodipodi:cx="24.710424"
+     sodipodi:cy="20.888031"
+     sodipodi:rx="20.849421"
+     sodipodi:ry="17.181467"
+     d="m 45.559845,20.888031 a 20.849421,17.181467 0 1 1 -41.6988411,0 20.849421,17.181467 0 1 1 41.6988411,0 z"
+     transform="matrix(0.68423286,0,0,0.83030503,-1.9076844,7.6565631)"
+     inkscape:export-xdpi="89.550896"
+     inkscape:export-ydpi="89.550896"
+     inkscape:export-filename="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\tests\phaser\bitmap.png" />
+</svg>

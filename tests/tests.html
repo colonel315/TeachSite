@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script type = "text/JavaScript">
+			var Array = [1, 2, 3];
+
+			for(var i = 0; i < Array.length; i++) {
+				document.write(Array[i]+" ");
+			}
+
+			document.writeln("");
+
+			var randomNum = (Math.floor(Math.random*Array.length)+1)-1;
+
+			Array.splice(randomNum, 1);
+
+			for(i = 0; i < Array.length; i++) {
+				document.write(Array[i]+" ");
+			}
+
+			document.writeln("");
+
+			randomNum = (Math.floor(Math.random*Array.length)+1)-1;
+
+			Array.splice(randomNum, 1);
+
+			for(i = 0; i < Array.length; i++) {
+				document.write(Array[i]+" ");
+			}
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
