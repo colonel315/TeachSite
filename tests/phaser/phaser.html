@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<script>
-			var game = new Phaser.Game(800, 600, Phaser.Auto, 'phaser-example', {preload: Preload, create: Create, render: Render});
+			var game = new Phaser.Game(800, 635, Phaser.Auto, 'phaser-example', {preload: Preload, create: Create, render: Render});
 
 			var graphLines = [];
 			var points = [];
@@ -42,8 +42,28 @@
 				}
 
 				var counter = 0;
-				for(i = 35; i < 750; i += 50) {
-					for(var j = 35; j < 550; j += 50) {
+
+				points[counter] = game.add.button(-15, -15, 'transparent', CreateLine, this, 'over', 'out');
+				points[counter].onInputOver.add(Over, this);
+				points[counter].onInputOut.add(Out, this);
+				counter++;
+
+				for(i = 35; i < 800; i += 50) {
+					points[counter] = game.add.button(i, -15, 'transparent', CreateLine, this, 'over', 'out');
+					points[counter].onInputOver.add(Over, this);
+					points[counter].onInputOut.add(Out, this);
+					counter++;
+
+					if(i <= 600) {
+						points[counter] = game.add.button(-15, i, 'transparent', CreateLine, this, 'over', 'out');
+						points[counter].onInputOver.add(Over, this);
+						points[counter].onInputOut.add(Out, this);
+						counter++;
+					}
+				}
+
+				for(i = 35; i <= 800; i += 50) {
+					for(var j = 35; j <= 600; j += 50) {
 						points[counter] = game.add.button(i, j, 'transparent', CreateLine, this, 'over', 'out');
 						points[counter].onInputOver.add(Over, this);
 						points[counter].onInputOut.add(Out, this);
@@ -55,6 +75,8 @@
 				keyPressed[0].onDown.add(FinishLine, this);
 				keyPressed[1] = game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE);
 				keyPressed[1].onDown.add(DeleteLine, this);
+
+				game.add.text(0, 610, "Press Enter to complete your polygon, Backspace to delete lines (Newer to older)", {font: '22px Arial'});
 			}
 
 			/**
@@ -101,7 +123,12 @@
 			function DeleteLine() {
 				if(confirm("Do you want to delete lines?")) {
 					var amountDelete = prompt("How many lines would you like to delete (Deletes newer to older)?");
-					if(handlerCount > lineCount) {
+
+					if(amountDelete > line.length) {
+						alert("You only have " + line.length + " lines, you can't remove lines that are not there.");
+						new DeleteLine();
+					}
+					else if(handlerCount > lineCount) {
 						for(var i = line.length - 1; i > line.length - 1 - amountDelete; i--) {
 							handler[i + 1].destroy();
 
@@ -118,7 +145,7 @@
 
 						line.splice(line.length - amountDelete, amountDelete);
 					}
-					if(handlerCount === lineCount) {
+					else if(handlerCount === lineCount) {
 						for(i = line.length - 1; i > line.length - 1 - amountDelete; i--) {
 							if(i < line.length - 1) {
 								handler[i+1].destroy();
