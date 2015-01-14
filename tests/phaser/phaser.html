@@ -4,196 +4,23 @@
 		<meta charset = "UTF-8">
 		<title></title>
 		<script src = "../../phaser/build/phaser.js" type = "text/javascript"></script>
-		<script src = "../../TeachSite/JQuery.js" type = "text/javascript"></script>
+		<script src = "phaser.js" type = "text/javascript"></script>
+		<style type = "text/css">
+			body {
+				margin: 0;
+			}
+		</style>
 	</head>
 	<body>
 		<script>
-			var game = new Phaser.Game(800, 635, Phaser.Auto, 'phaser-example', {preload: Preload, create: Create, render: Render});
+			(function() {
+				var game = new Phaser.Game(1300, 685, Phaser.AUTO, 'game');
 
-			var graphLines = [];
-			var points = [];
-			var point;
+				game.state.add('Preload', Grid.Preloader);
+				game.state.add('Game', Grid.Game);
 
-			var handler = [];
-			var line = [];
-			var click = false;
-
-			var lineCount = 0;
-			var handlerCount = 0;
-			var originalHandlerCount;
-
-			var keyPressed = [];
-
-			function Preload() {
-				//load images
-				game.load.image('point', 'bitmap.png');
-				game.load.image('transparent', 'transparentPoint.png');
-			}
-
-			function Create() {
-				game.stage.backgroundColor = '#FF0000';
-
-				//create lines of graph
-				for(var i = 50; i < 800; i += 50) {
-					graphLines[i / 50 - 1] = new Phaser.Line(i, 0, i, 600);
-				}
-				for(i = 50; i < 600; i += 50) {
-					graphLines[i / 50 + 14] = new Phaser.Line(0, i, 800, i);
-				}
-
-				var counter = 0;
-
-				points[counter] = game.add.button(-15, -15, 'transparent', CreateLine, this, 'over', 'out');
-				points[counter].onInputOver.add(Over, this);
-				points[counter].onInputOut.add(Out, this);
-				counter++;
-
-				for(i = 35; i < 800; i += 50) {
-					points[counter] = game.add.button(i, -15, 'transparent', CreateLine, this, 'over', 'out');
-					points[counter].onInputOver.add(Over, this);
-					points[counter].onInputOut.add(Out, this);
-					counter++;
-
-					if(i <= 600) {
-						points[counter] = game.add.button(-15, i, 'transparent', CreateLine, this, 'over', 'out');
-						points[counter].onInputOver.add(Over, this);
-						points[counter].onInputOut.add(Out, this);
-						counter++;
-					}
-				}
-
-				for(i = 35; i <= 800; i += 50) {
-					for(var j = 35; j <= 600; j += 50) {
-						points[counter] = game.add.button(i, j, 'transparent', CreateLine, this, 'over', 'out');
-						points[counter].onInputOver.add(Over, this);
-						points[counter].onInputOut.add(Out, this);
-						counter++;
-					}
-				}
-
-				keyPressed[0] = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-				keyPressed[0].onDown.add(FinishLine, this);
-				keyPressed[1] = game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE);
-				keyPressed[1].onDown.add(DeleteLine, this);
-
-				game.add.text(0, 610, "Press Enter to complete your polygon, Backspace to delete lines (Newer to older)", {font: '22px Arial'});
-			}
-
-			/**
-			 * Creates lines based on clicked points. When 4 are clicked will automatically close the quadrilateral.
-			 * @param pointer
-			 * @constructor
-			 */
-			function CreateLine(pointer) {
-				if(!click) {
-					originalHandlerCount = handlerCount;
-
-					handler[handlerCount] = game.add.sprite(pointer.x, pointer.y, 'point'); //places point at clicked spot
-
-					handlerCount++;
-
-					click = true;
-				}
-				else {
-					handler[handlerCount] = game.add.sprite(pointer.x, pointer.y, 'point'); //places points at clicked spots
-
-					line[lineCount] = new Phaser.Line(handler[handlerCount-1].x + 15, handler[handlerCount-1].y + 15,
-							handler[handlerCount].x + 15, handler[handlerCount].y + 15); //draws lines between handlers
-					lineCount++;
-
-					handlerCount++;
-				}
-			}
-
-			/**
-			 * Finishes the line that CreateLine makes from user pressing enter
-			 * @constructor
-			 */
-			function FinishLine() {
-				line[lineCount] = new Phaser.Line(handler[handlerCount - 1].x + 15, handler[handlerCount - 1].y + 15,
-							handler[originalHandlerCount].x + 15, handler[originalHandlerCount].y + 15);
-				lineCount++;
-				click = false;
-			}
-
-			/**
-			 * Deletes line upon user hitting Backspace
-			 * @constructor
-			 */
-			function DeleteLine() {
-				if(confirm("Do you want to delete lines?")) {
-					var amountDelete = prompt("How many lines would you like to delete (Deletes newer to older)?");
-
-					if(amountDelete > line.length) {
-						alert("You only have " + line.length + " lines, you can't remove lines that are not there.");
-						new DeleteLine();
-					}
-					else if(handlerCount > lineCount) {
-						for(var i = line.length - 1; i > line.length - 1 - amountDelete; i--) {
-							handler[i + 1].destroy();
-
-							handlerCount--;
-							lineCount--;
-						}
-
-						handler.splice(handler.length - amountDelete, amountDelete);
-
-						if(handler.length === 1) {
-							handler[0].destroy();
-							handler.splice(0, 1);
-						}
-
-						line.splice(line.length - amountDelete, amountDelete);
-					}
-					else if(handlerCount === lineCount) {
-						for(i = line.length - 1; i > line.length - 1 - amountDelete; i--) {
-							if(i < line.length - 1) {
-								handler[i+1].destroy();
-								handlerCount--;
-							}
-							lineCount--;
-						}
-
-						handler.splice(handler.length - amountDelete + 1, amountDelete - 1);
-
-						if(handler.length === 1) {
-							handler[0].destroy();
-						}
-
-						line.splice(line.length - amountDelete, amountDelete);
-					}
-				}
-			}
-
-			/**
-			 * creates point image at hovered over point on graph.
-			 * @param pointTransparent
-			 * @constructor
-			 */
-			function Over(pointTransparent) {
-				point = game.add.sprite(pointTransparent.x, pointTransparent.y, 'point');
-			}
-
-			/**
-			 * destroys point when mouse moves out
-			 * @constructor
-			 */
-			function Out() {
-				point.destroy();
-			}
-
-			/**
-			 * Renders the lines as they are created.
-			 * @constructor
-			 */
-			function Render() {
-				for(var i = 0; i < graphLines.length; i++) {
-					game.debug.geom(graphLines[i], "#000000");
-				}
-				for(i = 0; i < line.length; i++) {
-					game.debug.geom(line[i], "#FFFFFF");
-				}
-			}
+				game.state.start('Preload');
+			})();
 		</script>
 	</body>
 </html>

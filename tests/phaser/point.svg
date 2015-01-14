@@ -12,9 +12,9 @@
    id="svg2985"
    version="1.1"
    inkscape:version="0.48.5 r10040"
-   width="80"
-   height="40"
-   sodipodi:docname="bitmap.svg"
+   width="64"
+   height="64"
+   sodipodi:docname="point.svg"
    inkscape:export-filename="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\tests\phaser\bitmap.png"
    inkscape:export-xdpi="180"
    inkscape:export-ydpi="180">
@@ -41,16 +41,16 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1360"
-     inkscape:window-height="705"
+     inkscape:window-width="667"
+     inkscape:window-height="689"
      id="namedview2987"
      showgrid="false"
-     inkscape:zoom="2.59"
-     inkscape:cx="146.06707"
-     inkscape:cy="-14.387198"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
+     inkscape:zoom="4.4370951"
+     inkscape:cx="22.653007"
+     inkscape:cy="50.113688"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
      inkscape:current-layer="svg2985" />
   <path
      sodipodi:type="arc"
@@ -61,8 +61,8 @@
      sodipodi:rx="20.849421"
      sodipodi:ry="17.181467"
      d="m 45.559845,20.888031 a 20.849421,17.181467 0 1 1 -41.6988411,0 20.849421,17.181467 0 1 1 41.6988411,0 z"
-     transform="matrix(0.68423286,0,0,0.83030503,-1.9076844,7.6565631)"
+     transform="matrix(0.22807762,0,0,0.27676834,27.720105,49.811854)"
      inkscape:export-xdpi="89.550896"
      inkscape:export-ydpi="89.550896"
-     inkscape:export-filename="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\tests\phaser\bitmap.png" />
+     inkscape:export-filename="C:\Users\Trey\SkyDrive\Documents\Dr. Wong project\tests\phaser\point.png" />
 </svg>
