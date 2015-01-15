@@ -1,11 +1,9 @@
 /**
  * Created by Trey on 1/13/2015.
  *
- * Notes:
- * if         45 <= this._player.angle <= 135                                           then the head is facing right.
- * if         136 <= this._player.angle <= 179 || -180 <= this._player.angle <= -147    then the head is facing down
- * if         -146 <= this._player.angle <= -58                                         then the head is facing left
- * if         -57 <= this._player.angle <= 44                                           then the head is facing up
+ * To do:
+ *
+ * Find a way to dynamically change questions, check to see if reflection, rotation and translation is all correct.
  */
 
 var Grid = {};
