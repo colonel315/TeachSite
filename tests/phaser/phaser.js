@@ -57,6 +57,12 @@ Grid.Game = function(game) {
 
 	//  Will flag if key is down
 	Grid._keyDown = null;
+
+	//  Will keep track of how far user is from the edge of a graph
+	Grid._distanceTop = 0;
+	Grid._distanceBottom = 0;
+	Grid._distanceRight = 0;
+	Grid._distanceLeft = 0;
 };
 
 Grid.Game.prototype = {
@@ -72,7 +78,10 @@ Grid.Game.prototype = {
 		this._player = this.add.sprite(Grid.GRID_WIDTH / 2 - 5, Grid.GRID_HEIGHT / 2 + 35, 'player');
 		this._player.anchor.setTo(0.5, 1);
 
-		//this.physics.enable(this._player, Phaser.Physics.ARCADE);
+		Grid._distanceRight = (Grid.GRID_WIDTH - (this._player.x + 5));
+		Grid._distanceLeft = (Grid.GRID_WIDTH - Grid._distanceRight);
+		Grid._distanceBottom = (Grid.GRID_HEIGHT - (this._player.y - 35));
+		Grid._distanceTop = (Grid.GRID_HEIGHT - Grid._distanceBottom);
 
 		this._transparentPointGroup = this.add.group();
 
@@ -100,6 +109,18 @@ Grid.Game.prototype = {
 			this._player.x = point.x + 15;
 			this._player.y = point.y;
 		}
+
+		Grid._distanceRight = (Grid.GRID_WIDTH - (this._player.x + 5));
+		Grid._distanceLeft = (Grid.GRID_WIDTH - Grid._distanceRight);
+
+		if(Grid._headUp) {  // if head is facing up then take 35 away
+			Grid._distanceBottom = (Grid.GRID_HEIGHT - (this._player.y - 35));
+		}
+		else {  //  else add 15
+			Grid._distanceBottom = (Grid.GRID_HEIGHT - (this._player.y + 15));
+		}
+
+		Grid._distanceTop = (Grid.GRID_HEIGHT - Grid._distanceBottom);
 	},
 
 	update: function() {
@@ -114,14 +135,23 @@ Grid.Game.prototype = {
 					this._player.y -= 50;   //  move character up 50 pixels
 
 					Grid._headUp = false;   //  head is not up anymore
+
+					Grid._distanceBottom = (Grid.GRID_HEIGHT - (this._player.y + 15));
 				}
 				else {  //  if head is down
 					this._player.y += 50;   //  move character down 50 pixels
 
 					Grid._headUp = true;    //  head is now up
+
+					Grid._distanceBottom = (Grid.GRID_HEIGHT - (this._player.y - 35));
 				}
 
 				Grid._keyDown = false;  //  key is not down anymore
+
+				Grid._distanceRight = (Grid.GRID_WIDTH - (this._player.x + 5));
+				Grid._distanceLeft = (Grid.GRID_WIDTH - Grid._distanceRight);
+
+				Grid._distanceTop = (Grid.GRID_HEIGHT - Grid._distanceBottom);
 			}
 		}
 	}
@@ -129,11 +159,13 @@ Grid.Game.prototype = {
 
 Grid.Question = {
 	generateQuestion: function(game) {
-		Grid._questionType = 0;
+		Grid._questionType = Math.round(Math.random());
+
+		var randomNum = Math.random();
 
 		if(Grid._questionType) {    // if true will be reflection question
-			if(Math.random() >= 0.5) {  // If true will ask student to reflect character across y axis
-				if(Math.random() >= 0.5) {  //  if true will ask across y axis
+			if(randomNum >= 0.5) {  // If true will ask student to reflect character across y axis
+				if(randomNum >= 0.5) {  //  if true will ask across y axis
 					game.add.text(10, 610, "Reflect the character across the y axis");
 				}
 				else {  // else will say horizontally
@@ -141,7 +173,7 @@ Grid.Question = {
 				}
 			}
 			else {  //  else will tell student to reflect across x axis
-				if(Math.random() >= 0.5) {  //  if true will say x axis
+				if(randomNum >= 0.5) {  //  if true will say x axis
 					game.add.text(10, 610, "Reflect the character across the x axis");
 				}
 				else {  //  else will say vertically
@@ -150,21 +182,83 @@ Grid.Question = {
 			}
 		}
 		else {  //  else will be translation question
-			var distanceRight = Grid.GRID_WIDTH - (game._player.x + 5);
-			var distanceLeft = Grid.GRID_WIDTH - distanceRight;
+			//Helps decide what kind of question it will be.
+			var distances = [Grid._distanceTop / 50, Grid._distanceBottom / 50, Grid._distanceRight / 50, Grid._distanceLeft / 50];
 
-			var distanceBottom;
-			if(Grid._headUp) {
-				distanceBottom = Grid.GRID_HEIGHT - (game._player.y - 35);
-			}
-			else {
-				distanceBottom = Grid.GRID_HEIGHT - (game._player.y + 15);
-				console.log("distanceBottom = ", distanceBottom);
+			var translationDirection;
+			while(true) {
+				translationDirection = Grid.Equation.getRandom(0, distances.length-1);
+
+				if(distances[translationDirection] > 0) {   //  Checks to see if moving is possible
+					if(translationDirection === 0) {        //  If true will ask user to translate/move up
+						if(randomNum >= 0.5) {              //  Ask user to translate
+							game.add.text(10, 610, "Translate the character " +
+													Grid.Equation.getRandom(1, distances[translationDirection]) +
+													" spaces up");
+						}
+						else {                              //  Ask user to move
+							game.add.text(10, 610, "Move the character " +
+													Grid.Equation.getRandom(1, distances[translationDirection]) +
+													" spaces up");
+						}
+					}
+					if(translationDirection === 1) {        //  If true will ask user to translate/move down
+						if(randomNum >= 0.5) {              //  Ask user to translate
+							game.add.text(10, 610, "Translate the character " +
+													Grid.Equation.getRandom(1, distances[translationDirection]) +
+													" spaces down");
+						}
+						else {                              //  Ask user to move
+							game.add.text(10, 610, "Move the character " +
+													Grid.Equation.getRandom(1, distances[translationDirection]) +
+													" spaces down");
+						}
+					}
+					if(translationDirection === 2) {        //  If true will ask user to translate/move right
+						if(randomNum >= 0.5) {              //  Ask user to translate
+							game.add.text(10, 610, "Translate the character " +
+													Grid.Equation.getRandom(1, distances[translationDirection]) +
+													" spaces right");
+						}
+						else {                              //  Ask user to move
+							game.add.text(10, 610, "Move the character " +
+													Grid.Equation.getRandom(1, distances[translationDirection]) +
+													" spaces right");
+						}
+					}
+					if(translationDirection === 3) {        //  If true will ask user to translate/move left
+						if(randomNum >= 0.5) {              //  Ask user to translate
+							game.add.text(10, 610, "Translate the character " +
+													Grid.Equation.getRandom(1, distances[translationDirection]) +
+													" spaces left");
+						}
+						else {                              //  Ask user to move
+							game.add.text(10, 610, "Move the character " +
+													Grid.Equation.getRandom(1, distances[translationDirection]) +
+													" spaces left");
+						}
+					}
+
+					break;
+				}
 			}
 		}
 	},
 
 	checkQuestion: function(game) {
 
+	}
+};
+
+Grid.Equation = {
+	/**
+	 * Will be used to provide a random distance, and a random array number for translation question.
+	 * @param min
+	 * @param max
+	 * @returns {number}
+	 */
+	getRandom: function(min, max) {
+		console.log("got in getRandomDistance");
+		return Math.round(Math.random() * (max - min) + min);
 	}
 };
