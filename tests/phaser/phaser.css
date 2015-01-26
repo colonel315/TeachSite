@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+}
+#gotCorrect {
+    position: absolute;
+    display: none;
+    left: 805px;
+    top: 350px;
+    font-size: 40px;
+}
