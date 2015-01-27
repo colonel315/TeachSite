@@ -89,6 +89,7 @@ Grid.Game.prototype = {
 		Grid._keyDown = false;
 		Grid._headUp = true;
 		Grid._startingUp = true;
+		Grid._question = this.add.text(10, 610, "");
 
 		this._player = this.add.sprite(Grid.GRID_WIDTH / 2 - 5, Grid.GRID_HEIGHT / 2 + 35, 'player');
 		this._player.anchor.setTo(0.5, 1);
@@ -113,9 +114,9 @@ Grid.Game.prototype = {
 		this._reflectKey = this.input.keyboard.addKey(Phaser.Keyboard.R);
 
 		this._checkKey = this.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-		this._checkKey.onDown.add(this.checkQuestion, this);
+		this._checkKey.onDown.add(Grid.Question.checkQuestion, this);
 
-		Grid.Question.generateQuestion(this);
+		Grid.Question.generateQuestion();
 	},
 
 	moveCharacter: function(point) {
@@ -174,67 +175,24 @@ Grid.Game.prototype = {
 		}
 	},
 
-	checkQuestion: function() {
-		switch(Grid._questionType) {
-			case 0:
-				if(Grid._flip) {    //  user should reflect over y axis
-					if(Grid._startingUp != Grid._headUp && !Grid._headUp && Grid._startingY === 300 &&
-						(this._player.y + 15) === 300 && Grid._startingX === 400 && (this._player.x + 5) === 400) {
+	/**
+	 * When character gets reflected across access need to know new starting position.
+	 */
+	resetCharacterAttributes: function() {
+		Grid._startingX = this._player.x + 5;
 
-						setTimeout(function(){
-							Grid.Utilities.fadeText();
-						});
-
-						Grid._startingUp = Grid._headUp;
-
-						Grid._questionNumber++;
-						Grid.Question.generateQuestion(this);
-					}
-					else if(Grid._startingUp != Grid._headUp && Grid._headUp && Grid._startingY === 300 &&
-						(this._player.y - 35) === 300 && Grid._startingX === 400 && (this._player.x + 5) === 400) {
-
-						setTimeout(function(){
-							Grid.Utilities.fadeText();
-						});
-
-						Grid._startingUp = Grid._headUp;
-
-						Grid._questionNumber++;
-						Grid.Question.generateQuestion(this);
-					}
-
-					var distanceFromYAxis;
-					if(Grid._startingY < 300) {
-						distanceFromYAxis = Grid.GRID_HEIGHT - Grid._startingY;
-					}
-					else if(Grid._startingY < 300) {
-
-					}
-				}
-				else {              //  user should reflect over x axis
-					if(Grid._startingX === 400 && (this._player.x + 5) === 400 && Grid._startingY === 300 && (this._player.y - 35) === 300) {
-
-						setTimeout(function(){
-							Grid.Utilities.fadeText();
-						});
-
-						Grid._questionNumber++;
-						Grid.Question.generateQuestion(this);
-					}
-				}
+		if(Grid._headUp) {
+			Grid._startingY = this._player.y - 35;
+		}
+		else {
+			Grid._startingY = this._player.y + 15;
 		}
 	}
 };
 
 Grid.Question = {
-	generateQuestion: function(game) {
+	generateQuestion: function() {
 		//Grid._questionType = Math.round(Math.random());
-
-		//console.log("before if(Grid._question != null)");
-		if(Grid._question != null) {
-			console.log("inside of if(Grid._question != null)");
-			Grid._question.destroy();
-		}
 
 		Grid._questionType = 0;
 
@@ -244,33 +202,26 @@ Grid.Question = {
 			case 0:     //  Reflection question
 				if(randomNum >= 0.5) {  // If true will ask student to reflect character across y axis
 					if(randomNum >= 0.5) {  //  if true will ask across y axis
-						Grid._question = game.add.text(10, 610, "Reflect the character across the y axis");
+						Grid._question.text = "Reflect the character across the y axis";
 					}
 					else {  // else will say horizontally
-						Grid._question = game.add.text(10, 610, "Reflect the character vertically");
+						Grid._question.text = "Reflect the character vertically";
 					}
 
 					Grid._flip = true;
 				}
 				else {  //  else will tell student to reflect across x axis
 					if(randomNum >= 0.5) {  //  if true will say x axis
-						Grid._question = game.add.text(10, 610, "Reflect the character across the x axis");
+						Grid._question.text = "Reflect the character across the x axis";
 					}
 					else {  //  else will say vertically
-						Grid._question = game.add.text(10, 610, "Reflect the character horizontally");
+						Grid._question.text = "Reflect the character horizontally";
 					}
 
 					Grid._flip = false;
 				}
 
-				Grid._startingX = game._player.x + 5;
-
-				if(Grid._headUp) {
-					Grid._startingY = game._player.y - 35;
-				}
-				else {
-					Grid._startingY = game._player.y + 15;
-				}
+				Grid.Game.resetCharacterAttributes();
 
 				break;
 
@@ -288,34 +239,34 @@ Grid.Question = {
 
 						if(translationDirection === 0) {        //  If true will ask user to translate/move up
 							if(randomNum >= 0.5) {              //  Ask user to translate
-								Grid._question = game.add.text(10, 610, "Translate the character up " + Grid._distanceToTranslate);
+								Grid._question.text = "Translate the character up " + Grid._distanceToTranslate;
 							}
 							else {                              //  Ask user to move
-								Grid._question = game.add.text(10, 610, "Move the character up " + Grid._distanceToTranslate);
+								Grid._question.text = "Move the character up " + Grid._distanceToTranslate;
 							}
 						}
 						if(translationDirection === 1) {        //  If true will ask user to translate/move down
 							if(randomNum >= 0.5) {              //  Ask user to translate
-								Grid._question = game.add.text(10, 610, "Translate the character down " + Grid._distanceToTranslate);
+								Grid._question.text = "Translate the character down " + Grid._distanceToTranslate;
 							}
 							else {                              //  Ask user to move
-								Grid._question = game.add.text(10, 610, "Move the character down " + Grid._distanceToTranslate);
+								Grid._question.text = "Move the character down " + Grid._distanceToTranslate;
 							}
 						}
 						if(translationDirection === 2) {        //  If true will ask user to translate/move right
 							if(randomNum >= 0.5) {              //  Ask user to translate
-								Grid._question = game.add.text(10, 610, "Translate the character right " + Grid._distanceToTranslate);
+								Grid._question.text = "Translate the character right " + Grid._distanceToTranslate;
 							}
 							else {                              //  Ask user to move
-								Grid._question = game.add.text(10, 610, "Move the character right " + Grid._distanceToTranslate);
+								Grid._question.text = "Move the character right " + Grid._distanceToTranslate;
 							}
 						}
 						if(translationDirection === 3) {        //  If true will ask user to translate/move left
 							if(randomNum >= 0.5) {              //  Ask user to translate
-								Grid._question = game.add.text(10, 610, "Translate the character left " + Grid._distanceToTranslate);
+								Grid._question.text = "Translate the character left " + Grid._distanceToTranslate;
 							}
 							else {                              //  Ask user to move
-								Grid._question = game.add.text(10, 610, "Move the character left " + Grid._distanceToTranslate);
+								Grid._question.text = "Move the character left " + Grid._distanceToTranslate;
 							}
 						}
 
@@ -324,6 +275,50 @@ Grid.Question = {
 				}
 
 				break;
+		}
+	},
+
+	checkQuestion: function(game) {
+		switch(Grid._questionType) {
+			case 0:
+				if(Grid._flip) {    //  user should reflect over y axis
+					if(Grid._startingUp != Grid._headUp && !Grid._headUp && Grid._startingY === 300 &&
+						(game._player.y + 15) === 300 && Grid._startingX === 400 && (game._player.x + 5) === 400) {
+
+						Grid.Utilities.fadeText();
+
+						Grid._startingUp = Grid._headUp;
+
+						setTimeout(function() {
+							this.generateQuestion();
+						}, 3500);
+					}
+					else if(Grid._startingUp != Grid._headUp && Grid._headUp && Grid._startingY === 300 &&
+						(game._player.y - 35) === 300 && Grid._startingX === 400 && (game._player.x + 5) === 400) {
+
+						Grid.Utilities.fadeText();
+
+						Grid._startingUp = Grid._headUp;
+
+						setTimeout(function() {
+							this.generateQuestion();
+						}, 3500);
+					}
+
+					var distanceFromYAxis;
+					if(Grid._startingY < 300) {
+						distanceFromYAxis = Grid.GRID_HEIGHT - Grid._startingY;
+					}
+				}
+				else {              //  user should reflect over x axis
+					if(Grid._startingX === 400 && (game._player.x + 5) === 400 && Grid._startingY === 300 && (game._player.y - 35) === 300) {
+						Grid.Utilities.fadeText();
+
+						setTimeout(function() {
+							this.generateQuestion();
+						}, 3500);
+					}
+				}
 		}
 	}
 };
@@ -352,3 +347,18 @@ Grid.Utilities = {
 		gotCorrect.fadeOut(3000);
 	}
 };
+
+function resizeGame(game) {
+	//var width = $(window).width();
+	//var height = $(window).height();
+
+	game.width = $(window).width();
+	game.height = $(window).height();
+
+	//game.stage.bounds.width = width;
+	//game.stage.bounds.height = height;
+
+	//if (game.renderType === Phaser.WEBGL) {
+	//	game.renderer.resize(width, height);
+	//}
+}
