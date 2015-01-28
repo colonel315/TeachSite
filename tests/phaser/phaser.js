@@ -114,9 +114,9 @@ Grid.Game.prototype = {
 		this._reflectKey = this.input.keyboard.addKey(Phaser.Keyboard.R);
 
 		this._checkKey = this.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-		this._checkKey.onDown.add(Grid.Question.checkQuestion, this);
+		this._checkKey.onDown.add(this.checkQuestion, this);
 
-		Grid.Question.generateQuestion();
+		Grid.Question.generateQuestion(this);
 	},
 
 	moveCharacter: function(point) {
@@ -175,10 +175,51 @@ Grid.Game.prototype = {
 		}
 	},
 
-	/**
-	 * When character gets reflected across access need to know new starting position.
-	 */
-	resetCharacterAttributes: function() {
+	checkQuestion: function() {
+		switch(Grid._questionType) {
+			case 0:
+				if(Grid._flip) {    //  user should reflect over y axis
+					if(Grid._startingUp != Grid._headUp && !Grid._headUp && Grid._startingY === 300 &&
+						(this._player.y + 15) === 300 && Grid._startingX === 400 && (this._player.x + 5) === 400) {
+
+						Grid.Utilities.fadeText();
+
+						Grid._startingUp = Grid._headUp;
+
+						setTimeout(function() {
+							Grid.Question.generateQuestion(this);
+						}, 3500);
+					}
+					else if(Grid._startingUp != Grid._headUp && Grid._headUp && Grid._startingY === 300 &&
+						(this._player.y - 35) === 300 && Grid._startingX === 400 && (this._player.x + 5) === 400) {
+
+						Grid.Utilities.fadeText();
+
+						Grid._startingUp = Grid._headUp;
+
+						setTimeout(function() {
+							Grid.Question.generateQuestion(this);
+						}, 3500);
+					}
+
+					var distanceFromYAxis;
+					if(Grid._startingY < 300) {
+						distanceFromYAxis = Grid.GRID_HEIGHT - Grid._startingY;
+					}
+				}
+				else {              //  user should reflect over x axis
+					if(Grid._startingX === 400 && (this._player.x + 5) === 400 && Grid._startingY === 300 &&
+						(this._player.y - 35) === 300) {
+						Grid.Utilities.fadeText();
+
+						setTimeout(function() {
+							Grid.Question.generateQuestion(this);
+						}, 3500);
+					}
+				}
+		}
+
+		//  Need to know the new starting position
 		Grid._startingX = this._player.x + 5;
 
 		if(Grid._headUp) {
@@ -220,8 +261,6 @@ Grid.Question = {
 
 					Grid._flip = false;
 				}
-
-				Grid.Game.resetCharacterAttributes();
 
 				break;
 
@@ -275,50 +314,6 @@ Grid.Question = {
 				}
 
 				break;
-		}
-	},
-
-	checkQuestion: function(game) {
-		switch(Grid._questionType) {
-			case 0:
-				if(Grid._flip) {    //  user should reflect over y axis
-					if(Grid._startingUp != Grid._headUp && !Grid._headUp && Grid._startingY === 300 &&
-						(game._player.y + 15) === 300 && Grid._startingX === 400 && (game._player.x + 5) === 400) {
-
-						Grid.Utilities.fadeText();
-
-						Grid._startingUp = Grid._headUp;
-
-						setTimeout(function() {
-							this.generateQuestion();
-						}, 3500);
-					}
-					else if(Grid._startingUp != Grid._headUp && Grid._headUp && Grid._startingY === 300 &&
-						(game._player.y - 35) === 300 && Grid._startingX === 400 && (game._player.x + 5) === 400) {
-
-						Grid.Utilities.fadeText();
-
-						Grid._startingUp = Grid._headUp;
-
-						setTimeout(function() {
-							this.generateQuestion();
-						}, 3500);
-					}
-
-					var distanceFromYAxis;
-					if(Grid._startingY < 300) {
-						distanceFromYAxis = Grid.GRID_HEIGHT - Grid._startingY;
-					}
-				}
-				else {              //  user should reflect over x axis
-					if(Grid._startingX === 400 && (game._player.x + 5) === 400 && Grid._startingY === 300 && (game._player.y - 35) === 300) {
-						Grid.Utilities.fadeText();
-
-						setTimeout(function() {
-							this.generateQuestion();
-						}, 3500);
-					}
-				}
 		}
 	}
 };
