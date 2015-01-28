@@ -182,9 +182,14 @@ Grid.Game.prototype = {
 					if(Grid._startingUp != Grid._headUp && !Grid._headUp && Grid._startingY === 300 &&
 						(this._player.y + 15) === 300 && Grid._startingX === 400 && (this._player.x + 5) === 400) {
 
-						Grid.Utilities.fadeText();
-
 						Grid._startingUp = Grid._headUp;
+
+						sweetAlert({
+							title: "Great job!",
+							text: "Young grasshopper!",
+							type: "success",
+							timer: 3000
+						});
 
 						setTimeout(function() {
 							Grid.Question.generateQuestion(this);
@@ -193,9 +198,14 @@ Grid.Game.prototype = {
 					else if(Grid._startingUp != Grid._headUp && Grid._headUp && Grid._startingY === 300 &&
 						(this._player.y - 35) === 300 && Grid._startingX === 400 && (this._player.x + 5) === 400) {
 
-						Grid.Utilities.fadeText();
-
 						Grid._startingUp = Grid._headUp;
+
+						sweetAlert({
+							title: "Great job!",
+							text: "Young grasshopper!",
+							type: "success",
+							timer: 3000
+						});
 
 						setTimeout(function() {
 							Grid.Question.generateQuestion(this);
@@ -210,7 +220,13 @@ Grid.Game.prototype = {
 				else {              //  user should reflect over x axis
 					if(Grid._startingX === 400 && (this._player.x + 5) === 400 && Grid._startingY === 300 &&
 						(this._player.y - 35) === 300) {
-						Grid.Utilities.fadeText();
+
+						sweetAlert({
+							title: "Great job!",
+							text: "Young grasshopper!",
+							type: "success",
+							timer: 3000
+						});
 
 						setTimeout(function() {
 							Grid.Question.generateQuestion(this);
@@ -328,18 +344,6 @@ Grid.Utilities = {
 	getRandom: function(min, max) {
 		console.log("got in getRandomDistance");
 		return Math.round(Math.random() * (max - min) + min);
-	},
-
-	/**
-	 * Fades the text in x amount of time
-	 * @param game
-	 */
-	fadeText: function() {
-		var gotCorrect = $('#gotCorrect');
-
-		gotCorrect.css('display', 'block');
-
-		gotCorrect.fadeOut(3000);
 	}
 };
 
