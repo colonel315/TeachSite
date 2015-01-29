@@ -22,9 +22,9 @@ Grid.Preloader = function(game) {
 Grid.Preloader.prototype = {
 	preload: function() {
 		//  Load any needed images
-		this.load.image('player', 'teach-character.png');
+		this.load.image('player', 'TeachCharacter.png');
 		this.load.image('background', 'coordinateGrid.png');
-		this.load.image('transparentPoint', 'transparent-point.png');
+		this.load.image('transparentPoint', 'transparentPoint.png');
 	},
 
 	create: function() {

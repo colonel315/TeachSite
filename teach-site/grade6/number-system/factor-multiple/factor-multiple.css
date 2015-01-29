@@ -1,0 +1,74 @@
+#AnswerBox1 {
+    position: absolute;
+    height: 30px;
+    width: 100px;
+    top: 45%;
+    left: 47%;
+    border: 3px solid lightskyblue;
+    font-size: 20px;
+    color: orange;
+}
+#Final-Answer {
+    position: absolute;
+    top: 48%;
+    left: 36%;
+    font-size: 40px;
+    display: none;
+}
+.Answer {
+    position: absolute;
+    font-size: 40px;
+}
+#Description {
+    font-size: 20px;
+}
+#Correct {
+    font-size: 30px;
+}
+a:hover {
+    font-weight: bold;
+}
+.Factor-Multiple1 {
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    font-size: 40px;
+}
+.Factor-Multiple2 {
+    position: absolute;
+    top: 37%;
+    left: 73%;
+    font-size: 40px;
+}
+hr {
+    background: linear-gradient(45deg, #0023ff, #30f639 70%);
+    background: -moz-linear-gradient(45deg, #0023ff, #30f639 70%);
+    background: -webkit-linear-gradient(45deg, #0023ff, #30f639 70%);
+    background: -o-linear-gradient(45deg, #0023ff, #30f639 70%);
+    height: 5px;
+}
+.bs-example {
+    margin: 20px;
+}
+#myNavBar {
+    background: blue;
+}
+.first-child {
+    background: blueviolet !important;
+}
+.navbar-inverse .navbar-brand {
+    color: #00FFFF;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #ffffff;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+    background: blue;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+    background-color: #f68400;
+}

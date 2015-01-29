@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head lang = "en">
+		<meta charset="UTF-8">
+		<title>Equivalent and Comparing Ratios</title>
+		<!--<script src = "http://code.jquery.com/jquery-latest.min.js"-->
+		<!--type = "text/javascript"></script>-->
+		<script src = "../../../jquery.js" type = "text/javascript"></script>
+		<link rel = "stylesheet" type = "text/css" href = "../../../../bootstrap-3.3.2-dist/css/bootstrap.css" />
+		<link rel = "stylesheet" type = "text/css" href = "../../../../bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
+		<script src = "../../../../bootstrap-3.3.2-dist/js/bootstrap.js" type = "text/javascript"></script>
+		<link rel = "stylesheet" type = "text/css" href = "unit-prices-and-conversions.css" />
+		<script src = "unit-prices-and-conversions.js" type = "text/javascript"></script>
+	</head>
+	<body>
+		<div class="bs-example">
+			<nav id="myNavBar" class="navbar navbar-default navbar-inverse" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+						        data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Learn Math</a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="../../../index.html">Home</a></li>
+							<li class="dropdown">
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle">6th Grade<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#" class="first-child">Ratios</a></li>
+									<li><a href="../introduction/introduction.html" class="second-child">Introduction</a></li>
+									<li><a href="../simplify/simplify.html" class="second-child">Simplifying Ratios</a></li>
+									<li><a href="../ratios-as-fractions/ratios-as-fractions.html" class="second-child">Ratios as Fractions</a></li>
+									<li><a href = "../unit-rates-and-equivalent-rates/unit-rates-and-equivalent-rates.html">Unit Rates and Equivalent Rates</a></li>
+									<li><a href = "../coordinate-graphs/coordinate-graphs.html">Coordinate Graphs</a></li>
+									<li><a href = "../equivalent-and-comparing-ratios/equivalent-and-comparing-ratios.html">Equivalent and Comparing Ratios</a></li>
+									<li><a href = "unit-prices-and-conversions.html">Unit Prices and Conversions</a></li>
+									<li><a href = "../sale-prices/sale-prices.html">Sale Prices</a></li>
+									<li><a href = "../comparing-and-converting/comparing-and-converting.html">Comparing and Converting</a></li>
+									<li><a href="#" class="first-child">The Number System</a></li>
+									<li><a href = "../../number-system/math-with-fractions/math-with-fractions.html">Math with Fractions</a></li>
+									<li><a href = "../../number-system/division-with-multi-digit-numbers/division-with-multi-digit-numbers.html">Multi Digit Division</a></li>
+									<li><a href = "../../number-system/math-with-multi-digit-numbers-decimals/math-with-multi-digit-numbers-decimals.html">Math with decimals</a></li>
+									<li><a href = "../../number-system/factor-multiple/factor-multiple.html">Factors and Multiples</a></li>
+									<li><a href = "../../number-system/understanding-integers/understanding-integers.html">Understanding Integers</a></li>
+									<li><a href = "../../number-system/translation-reflection/translation-reflection.html">Translation Reflection</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div>
+			</nav>
+		</div>
+
+		<h1 style = "color: blue">Unit Prices and Conversions</h1>
+
+		<hr/>
+
+		<table>
+			<caption> Fruit Cost </caption>
+			<tbody>
+				<tr>
+					<td> Pineapples </td>
+					<td id = "PineappleValue"></td>
+				</tr>
+				<tr>
+					<td> Apples </td>
+					<td id = "AppleValue"></td>
+				</tr>
+				<tr>
+					<td> Oranges </td>
+					<td id = "OrangeValue"></td>
+				</tr>
+				<tr>
+					<td> Grapes </td>
+					<td id = "GrapeValue"></td>
+				</tr>
+				<tr>
+					<td> Strawberry </td>
+					<td id = "StrawberryValue"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div id = "FirstQuestion"></div>
+		<input type = "text" id = "userAns1"/>
+		<div id = "correct1"></div>
+		<br />
+
+		<div id = "SecondQuestion"></div>
+		<input type = "text" id = "userAns2"/>
+		<div id = "correct2"></div>
+		<br />
+
+		<table>
+			<caption> Gas Cost </caption>
+			<tbody>
+				<tr>
+					<td> Minithon </td>
+					<td id = "MinithonsValue"></td>
+				</tr>
+				<tr>
+					<td> Speedy </td>
+					<td id = "SpeedysValue"></td>
+				</tr>
+				<tr>
+					<td> Sheller </td>
+					<td id = "ShellersValue"></td>
+				</tr>
+				<tr>
+					<td> Vals </td>
+					<td id = "ValsValue"></td>
+				</tr>
+				<tr>
+					<td> Prank </td>
+					<td id = "PranksValue"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div id = "ThirdQuestion"></div>
+		<input type = "text" id = "userAns3"/>
+		<div id = "correct3"></div>
+		<br />
+
+		<div id = "FourthQuestion"></div>
+		<input type = "text" id = "userAns4"/>
+		<div id = "correct4"></div>
+		<br />
+
+		<div id = "FifthQuestion"></div>
+		<input type = "text" id = "userAns5"/>
+		<div id = "correct5"></div>
+		<br />
+
+		<div id = "SecondDescription"></div>
+		<br/>
+
+		<div id = "SixthQuestion"></div>
+		<input type = "text" id = "userAns6"/>
+		<div id = "correct6"></div>
+		<br />
+
+		<div id = "SeventhQuestion"></div>
+		<input type = "text" id = "userAns7"/>
+		<div id = "correct7"></div>
+		<br />
+
+		<div id = "EigthQuestion"></div>
+		<input type = "text" id = "userAns8"/>
+		<div id = "correct8"></div>
+		<br />
+
+		<div id = "NinthQuestion"></div>
+		<input type = "text" id = "userAns9"/>
+		<div id = "correct9"></div>
+		<br />
+
+		<div id = "TenthQuestion"></div>
+		<input type = "text" id = "userAns10"/>
+		<div id = "correct10"></div>
+		<br />
+
+		<input type = "button" value = "answer" id = "check"/>
+	</body>
+</html>

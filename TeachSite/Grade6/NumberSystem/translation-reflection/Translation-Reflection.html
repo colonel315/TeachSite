@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head lang = "en">
+		<meta charset = "UTF-8">
+		<title>Translation Reflection</title>
+
+		<link rel = "stylesheet" type = "text/css" href = "../../../../sweetalert-master/lib/sweet-alert.css" />
+		<script src = "../../../../sweetalert-master/lib/sweet-alert.js" type = "text/javascript"></script>
+
+		<script src = "../../../../phaser/build/phaser.js" type = "text/javascript"></script>
+
+		<script src = "../../../jquery.js" type = "text/javascript"></script>
+
+		<link rel = "stylesheet" type = "text/css" href = "../../../../bootstrap-3.3.2-dist/css/bootstrap.css" />
+		<link rel = "stylesheet" type = "text/css" href = "../../../../bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
+		<script src = "../../../../bootstrap-3.3.2-dist/js/bootstrap.js" type = "text/javascript"></script>
+
+		<link rel = "stylesheet" type = "text/css" href = "Translation-Reflection.css" />
+		<script src = "Translation-Reflection.js" type = "text/javascript"></script>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<div class="bs-example">
+			<nav id="myNavBar" class="navbar navbar-default navbar-inverse" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+						        data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Learn Math</a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="../../../index.html">Home</a></li>
+							<li class="dropdown">
+								<a href="#" data-toggle="dropdown" class="dropdown-toggle">6th Grade<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#" class="first-child">Ratios</a></li>
+									<li><a href="../../ratios/introduction/introduction.html" class="second-child">Introduction</a></li>
+									<li><a href="../../ratios/simplify/simplify.html" class="second-child">Simplifying Ratios</a></li>
+									<li><a href="../../ratios/ratios-as-fractions/ratios-as-fractions.html" class="second-child">Ratios as Fractions</a></li>
+									<li><a href = "../../ratios/Unit-Rates-and-Equivalent-Rates/unit-rates-and-equivalent-rates.html">Unit Rates and Equivalent Rates</a></li>
+									<li><a href = "../../ratios/coordinate-graphs/coordinate-graphs.html">Coordinate Graphs</a></li>
+									<li><a href = "../../ratios/equivalent-and-comparing-ratios/equivalent-and-comparing-ratios.html">Equivalent and Comparing Ratios</a></li>
+									<li><a href = "../../ratios/unit-prices-and-conversions/unit-prices-and-conversions.html">Unit Prices and Conversions</a></li>
+									<li><a href = "../../ratios/sale-prices/sale-prices.html">Sale Prices</a></li>
+									<li><a href = "../../ratios/comparing-and-converting/comparing-and-converting.html">Comparing and Converting</a></li>
+									<li><a href="#" class="first-child">The Number System</a></li>
+									<li><a href = "../Math-with-Fractions/Math-with-Fractions.html">Math with Fractions</a></li>
+									<li><a href = "../Division-With-Multi-Digit-Numbers/Division-With-Multi-Digit-Numbers.html">Multi Digit Division</a></li>
+									<li><a href = "../Math-With-Multi-Digit-Numbers-Decimals/Math-With-Multi-Digit-Numbers-Decimals.html">Math with decimals</a></li>
+									<li><a href = "../Factor-Multiple/Factor-Multiple.html">Factors and Multiples</a></li>
+									<li><a href = "../understanding-integers/understanding-integers.html">Understanding Integers</a></li>
+									<li><a href = "Translation-Reflection.html">Translation Reflection</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div>
+			</nav>
+		</div>
+
+		<h1 style = "color: blue">Translation Reflection</h1>
+
+		<hr />
+
+		<div id = "game"></div>
+		<script>
+			(function() {
+				var game = new Phaser.Game(1300, 650, Phaser.AUTO, 'game');
+
+				game.state.add('Preload', Grid.Preloader);
+				game.state.add('Game', Grid.Game);
+
+				game.state.start('Preload');
+			})();
+		</script>
+	</body>
+</html>

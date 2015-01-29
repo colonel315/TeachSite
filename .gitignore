@@ -3,7 +3,7 @@ project
 Survey.docx
 Teach
 /*.iml
-TeachSite/jquery-ui-1.11.1
+teach-site/jquery-ui-1.11.1
 Survey Results.xlsx
 bootstrap
 *.mp4
