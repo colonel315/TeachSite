@@ -9,17 +9,18 @@
 		<script src = "../../TeachSite/JQuery.js" type = "text/javascript"></script>
 		<script src = "phaser.js" type = "text/javascript"></script>
 
+		<style>
+			body {
+				margin: 0;
+			}
+		</style>
 	</head>
 	<body>
 		<div id = "game"></div>
 
 		<script>
 			(function() {
-				var game = new Phaser.Game(1300, 685, Phaser.AUTO, 'game');
-
-				$(window).resize(function() {
-					window.resizeGame(game);
-				});
+				var game = new Phaser.Game(1300, 650, Phaser.AUTO, 'game');
 
 				game.state.add('Preload', Grid.Preloader);
 				game.state.add('Game', Grid.Game);

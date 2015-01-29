@@ -67,16 +67,20 @@ Grid.Game = function(game) {
 	Grid._distanceRight = 0;
 	Grid._distanceLeft = 0;
 
-	//  Needed to check if user is correct about distance translated
+	//  Needed to check if user is correct about distance translated and direction translated
+	Grid._translationDirection = null;
 	Grid._distanceToTranslate = 0;
 
-	//  Needed to check if reflection is correct
+	//  Needed to check if users answer is correct
 	Grid._startingX = 0;
 	Grid._startingY = 0;
 	Grid._startingUp = null;
 
-	//  Flag to know if reflecting over X or Y axis False = x, True = y
+	//  Flag to know if reflecting over X or Y axis False = y, True = x
 	Grid._flip = null;
+
+	//  Flag to know if user got answer correct
+	Grid._gotCorrect = null;
 };
 
 Grid.Game.prototype = {
@@ -86,18 +90,21 @@ Grid.Game.prototype = {
 
 		this.add.sprite(0, 0, 'background');
 
-		Grid._keyDown = false;
-		Grid._headUp = true;
-		Grid._startingUp = true;
-		Grid._question = this.add.text(10, 610, "");
-
 		this._player = this.add.sprite(Grid.GRID_WIDTH / 2 - 5, Grid.GRID_HEIGHT / 2 + 35, 'player');
 		this._player.anchor.setTo(0.5, 1);
 
+		//setting default values
+		Grid._startingX = this._player.x + 5;
+		Grid._startingY = this._player.y - 35;
 		Grid._distanceRight = (Grid.GRID_WIDTH - (this._player.x + 5));
 		Grid._distanceLeft = (Grid.GRID_WIDTH - Grid._distanceRight);
 		Grid._distanceBottom = (Grid.GRID_HEIGHT - (this._player.y - 35));
 		Grid._distanceTop = (Grid.GRID_HEIGHT - Grid._distanceBottom);
+		Grid._keyDown = false;
+		Grid._headUp = true;
+		Grid._startingUp = true;
+		Grid._gotCorrect = false;
+		Grid._question = this.add.text(10, 610, "");
 
 		this._transparentPointGroup = this.add.group();
 
@@ -120,12 +127,12 @@ Grid.Game.prototype = {
 	},
 
 	moveCharacter: function(point) {
+		this._player.x = point.x + 10;
+
 		if(Grid._headUp) {
-			this._player.x = point.x + 10;
 			this._player.y = point.y + 50;
 		}
 		else {
-			this._player.x = point.x + 15;
 			this._player.y = point.y;
 		}
 
@@ -178,60 +185,167 @@ Grid.Game.prototype = {
 	checkQuestion: function() {
 		switch(Grid._questionType) {
 			case 0:
-				if(Grid._flip) {    //  user should reflect over y axis
-					if(Grid._startingUp != Grid._headUp && !Grid._headUp && Grid._startingY === 300 &&
-						(this._player.y + 15) === 300 && Grid._startingX === 400 && (this._player.x + 5) === 400) {
+				var distanceFromAxis;
 
-						Grid._startingUp = Grid._headUp;
+				if(Grid._flip) {    //  user should reflect vertically axis
+					if(Grid._headUp) {
+						if(Grid._headUp != Grid._startingUp && Grid._startingY === (this._player.y - 35) &&
+							Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
 
-						sweetAlert({
-							title: "Great job!",
-							text: "Young grasshopper!",
-							type: "success",
-							timer: 3000
-						});
+							break; //  No need to continue through
+						}
 
-						setTimeout(function() {
-							Grid.Question.generateQuestion(this);
-						}, 3500);
+						distanceFromAxis = Math.abs(Grid.GRID_HEIGHT / 2 - Grid._startingY);
+
+						if(Grid._headUp != Grid._startingUp && Grid._startingY < 300 &&
+							(Grid._startingY + distanceFromAxis * 2) === (this._player.y - 35) &&
+							Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else if(Grid._headUp != Grid._startingUp && Grid._startingY > 300 &&
+							(Grid._startingY - distanceFromAxis * 2) === (this._player.y - 35) &&
+							Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else {
+							this.correctChangeQuestion(false);
+						}
 					}
-					else if(Grid._startingUp != Grid._headUp && Grid._headUp && Grid._startingY === 300 &&
-						(this._player.y - 35) === 300 && Grid._startingX === 400 && (this._player.x + 5) === 400) {
+					else {
+						if(Grid._headUp != Grid._startingUp && Grid._startingY === (this._player.y + 15) &&
+							Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
 
-						Grid._startingUp = Grid._headUp;
+							break; //  No need to continue through
+						}
 
-						sweetAlert({
-							title: "Great job!",
-							text: "Young grasshopper!",
-							type: "success",
-							timer: 3000
-						});
+						distanceFromAxis = Math.abs(Grid.GRID_HEIGHT / 2 - Grid._startingY);
 
-						setTimeout(function() {
-							Grid.Question.generateQuestion(this);
-						}, 3500);
-					}
-
-					var distanceFromYAxis;
-					if(Grid._startingY < 300) {
-						distanceFromYAxis = Grid.GRID_HEIGHT - Grid._startingY;
+						if(Grid._headUp != Grid._startingUp && Grid._startingY < 300 &&
+							(Grid._startingY + distanceFromAxis * 2) === (this._player.y + 15) &&
+							Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else if(Grid._headUp != Grid._startingUp && Grid._startingY > 300 &&
+							(Grid._startingY - distanceFromAxis * 2) === (this._player.y + 15) &&
+							Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else {
+							this.correctChangeQuestion(false);
+						}
 					}
 				}
-				else {              //  user should reflect over x axis
-					if(Grid._startingX === 400 && (this._player.x + 5) === 400 && Grid._startingY === 300 &&
-						(this._player.y - 35) === 300) {
+				else {              //  user should reflect horizontally axis
+					if(Grid._headUp) {
+						if(Grid._headUp === Grid._startingUp && Grid._startingY === (this._player.y - 35) &&
+							Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
 
-						sweetAlert({
-							title: "Great job!",
-							text: "Young grasshopper!",
-							type: "success",
-							timer: 3000
-						});
+							break; //  No need to continue through
+						}
 
-						setTimeout(function() {
-							Grid.Question.generateQuestion(this);
-						}, 3500);
+						distanceFromAxis = Math.abs(Grid.GRID_WIDTH / 2 - Grid._startingX);
+
+						if(Grid._headUp === Grid._startingUp && Grid._startingY === (this._player.y - 35) &&
+							Grid._startingX < 400 && (Grid._startingX + distanceFromAxis * 2) === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else if(Grid._headUp === Grid._startingUp && Grid._startingY === (this._player.y - 35) &&
+							Grid._startingX > 400 && (Grid._startingX - distanceFromAxis * 2) === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else {
+							this.correctChangeQuestion(false);
+						}
 					}
+					else {
+						if(Grid._headUp === Grid._startingUp && Grid._startingY === (this._player.y + 15) &&
+							Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+
+							break; //  No need to continue through
+						}
+
+						distanceFromAxis = Math.abs(Grid.GRID_WIDTH / 2 - Grid._startingX);
+
+						if(Grid._headUp === Grid._startingUp && Grid._startingY === (this._player.y + 15) &&
+							Grid._startingX < 400 && (Grid._startingX + distanceFromAxis * 2) === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else if(Grid._headUp === Grid._startingUp && Grid._startingY === (this._player.y + 15) &&
+							Grid._startingX > 400 && (Grid._startingX - distanceFromAxis * 2) === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else {
+							this.correctChangeQuestion(false);
+						}
+					}
+				}
+				break;
+			case 1:     //  User was asked to translate
+				switch(Grid._translationDirection) {
+					case 0:
+						//  User is translating up
+						//  Need to check for the case of user head is up or down
+						if(Math.abs(Grid._startingY - Grid._distanceToTranslate * 50) === (this._player.y - 35) && Grid._headUp
+							&& Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else if(Math.abs(Grid._startingY - Grid._distanceToTranslate * 50) === (this._player.y + 15) && !Grid._headUp
+								&& Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else {
+							this.correctChangeQuestion(false);
+						}
+						break;
+					case 1:
+						//  User is translating down
+						//  Need to check for the case of user head is up or down
+						if(Math.abs(Grid._startingY + Grid._distanceToTranslate * 50) === (this._player.y - 35) && Grid._headUp
+							&& Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else if(Math.abs(Grid._startingY + Grid._distanceToTranslate * 50) === (this._player.y + 15) && !Grid._headUp
+								&& Grid._startingX === (this._player.x + 5)) {
+							this.correctChangeQuestion(true);
+						}
+						else {
+							this.correctChangeQuestion(false);
+						}
+						break;
+					case 2:
+						//  User is translating right
+						//  Need to check for the case of user head is up or down
+						if(Math.abs(Grid._startingX + Grid._distanceToTranslate * 50) === (this._player.x + 5) && Grid._headUp &&
+							Grid._startingY === (this._player.y - 35)) {
+							this.correctChangeQuestion(true);
+						}
+						else if(Math.abs(Grid._startingX + Grid._distanceToTranslate * 50) === (this._player.x + 5) && !Grid._headUp &&
+							Grid._startingY === (this._player.y + 15)) {
+							this.correctChangeQuestion(true);
+						}
+						else {
+							this.correctChangeQuestion(false);
+						}
+						break;
+					case 3:
+						//  User is translating left
+						//  Need to check for the case of user head is up or down
+						if(Math.abs(Grid._startingX - Grid._distanceToTranslate * 50) === (this._player.x + 5) && Grid._headUp &&
+							Grid._startingY === (this._player.y - 35)) {
+							this.correctChangeQuestion(true);
+						}
+						else if(Math.abs(Grid._startingX - Grid._distanceToTranslate * 50) === (this._player.x + 5) && !Grid._headUp &&
+							Grid._startingY === (this._player.y + 15)) {
+							this.correctChangeQuestion(true);
+						}
+						else {
+							this.correctChangeQuestion(false);
+						}
+						break;
 				}
 		}
 
@@ -244,22 +358,47 @@ Grid.Game.prototype = {
 		else {
 			Grid._startingY = this._player.y + 15;
 		}
+	},
+
+	correctChangeQuestion: function(gotCorrect) {
+		if(gotCorrect) {
+			sweetAlert({
+				title: "Great job,",
+				text: "young grasshopper!",
+				type: "success",
+				timer: 3000
+			});
+		}
+		else {
+			sweetAlert({
+				title: "Try again,",
+				text:  "young grasshopper!",
+				type: "error",
+				timer: 3000
+			})
+		}
+
+		if(Grid._startingUp != Grid._headUp) {
+			Grid._startingUp = Grid._headUp;
+		}
+
+		setTimeout(function() {
+			Grid.Question.generateQuestion(this);
+		}, 3500);
 	}
 };
 
 Grid.Question = {
 	generateQuestion: function() {
-		//Grid._questionType = Math.round(Math.random());
-
-		Grid._questionType = 0;
+		Grid._questionType = Math.round(Math.random());
 
 		var randomNum = Math.random();
 
 		switch(Grid._questionType) {
 			case 0:     //  Reflection question
-				if(randomNum >= 0.5) {  // If true will ask student to reflect character across y axis
-					if(randomNum >= 0.5) {  //  if true will ask across y axis
-						Grid._question.text = "Reflect the character across the y axis";
+				if(randomNum >= 0.5) {  // If true will ask student to reflect character across x axis
+					if(randomNum >= 0.5) {  //  if true will ask across x axis
+						Grid._question.text = "Reflect the character across the x axis";
 					}
 					else {  // else will say horizontally
 						Grid._question.text = "Reflect the character vertically";
@@ -267,9 +406,9 @@ Grid.Question = {
 
 					Grid._flip = true;
 				}
-				else {  //  else will tell student to reflect across x axis
-					if(randomNum >= 0.5) {  //  if true will say x axis
-						Grid._question.text = "Reflect the character across the x axis";
+				else {  //  else will tell student to reflect across y axis
+					if(randomNum >= 0.5) {  //  if true will say y axis
+						Grid._question.text = "Reflect the character across the y axis";
 					}
 					else {  //  else will say vertically
 						Grid._question.text = "Reflect the character horizontally";
@@ -279,20 +418,17 @@ Grid.Question = {
 				}
 
 				break;
-
 			case 1:     //  translation question
 				//Helps decide what kind of question it will be.
 				var distances = [Grid._distanceTop / 50, Grid._distanceBottom / 50, Grid._distanceRight / 50, Grid._distanceLeft / 50];
 
-				var translationDirection;
-
 				while(true) {
-					translationDirection = Grid.Utilities.getRandom(0, distances.length-1);
+					Grid._translationDirection = Grid.Utilities.getRandom(0, distances.length-1);
 
-					if(distances[translationDirection] > 0) {   //  Checks to see if moving is possible
-						Grid._distanceToTranslate = Grid.Utilities.getRandom(1, distances[translationDirection]);
+					if(distances[Grid._translationDirection] > 0) {   //  Checks to see if moving is possible
+						Grid._distanceToTranslate = Grid.Utilities.getRandom(1, distances[Grid._translationDirection]);
 
-						if(translationDirection === 0) {        //  If true will ask user to translate/move up
+						if(Grid._translationDirection === 0) {        //  If true will ask user to translate/move up
 							if(randomNum >= 0.5) {              //  Ask user to translate
 								Grid._question.text = "Translate the character up " + Grid._distanceToTranslate;
 							}
@@ -300,7 +436,7 @@ Grid.Question = {
 								Grid._question.text = "Move the character up " + Grid._distanceToTranslate;
 							}
 						}
-						if(translationDirection === 1) {        //  If true will ask user to translate/move down
+						else if(Grid._translationDirection === 1) {        //  If true will ask user to translate/move down
 							if(randomNum >= 0.5) {              //  Ask user to translate
 								Grid._question.text = "Translate the character down " + Grid._distanceToTranslate;
 							}
@@ -308,7 +444,7 @@ Grid.Question = {
 								Grid._question.text = "Move the character down " + Grid._distanceToTranslate;
 							}
 						}
-						if(translationDirection === 2) {        //  If true will ask user to translate/move right
+						else if(Grid._translationDirection === 2) {        //  If true will ask user to translate/move right
 							if(randomNum >= 0.5) {              //  Ask user to translate
 								Grid._question.text = "Translate the character right " + Grid._distanceToTranslate;
 							}
@@ -316,7 +452,7 @@ Grid.Question = {
 								Grid._question.text = "Move the character right " + Grid._distanceToTranslate;
 							}
 						}
-						if(translationDirection === 3) {        //  If true will ask user to translate/move left
+						else if(Grid._translationDirection === 3) {        //  If true will ask user to translate/move left
 							if(randomNum >= 0.5) {              //  Ask user to translate
 								Grid._question.text = "Translate the character left " + Grid._distanceToTranslate;
 							}
@@ -324,11 +460,9 @@ Grid.Question = {
 								Grid._question.text = "Move the character left " + Grid._distanceToTranslate;
 							}
 						}
-
 						break;
 					}
 				}
-
 				break;
 		}
 	}
@@ -342,22 +476,6 @@ Grid.Utilities = {
 	 * @returns {number}
 	 */
 	getRandom: function(min, max) {
-		console.log("got in getRandomDistance");
 		return Math.round(Math.random() * (max - min) + min);
 	}
 };
-
-function resizeGame(game) {
-	//var width = $(window).width();
-	//var height = $(window).height();
-
-	game.width = $(window).width();
-	game.height = $(window).height();
-
-	//game.stage.bounds.width = width;
-	//game.stage.bounds.height = height;
-
-	//if (game.renderType === Phaser.WEBGL) {
-	//	game.renderer.resize(width, height);
-	//}
-}
