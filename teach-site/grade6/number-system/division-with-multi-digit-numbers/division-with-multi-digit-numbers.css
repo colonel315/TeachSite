@@ -4,30 +4,33 @@
 .clearable {
     font-size: 40px;
 }
+.font {
+    font-size: 40px;
+}
 #video {
     position: absolute;
     left: 62%;
-    top: 9%;
+    top: 14%;
 }
 #DivisionSign1 {
     position: absolute;
     left: 30%;
-    top: 33%;
+    top: 29%;
 }
 #DivisionSign2 {
     position: absolute;
     left: 32%;
-    top: 25%;
+    top: 16%;
 }
 #Divisor {
     position: absolute;
     left: 24%;
-    top: 34%;
+    top: 36%;
 }
 #Dividend {
     position: absolute;
     left: 34%;
-    top: 34%;
+    top: 36%;
 }
 #usersAns {
     position: absolute;
@@ -46,17 +49,6 @@
     position: absolute;
     top: 45%;
     left: 1%;
-}
-h1 {
-    position: relative;
-    left: 1%;
-}
-hr {
-    background: linear-gradient(45deg, #0023ff, #30f639 70%);
-    background: -moz-linear-gradient(45deg, #0023ff, #30f639 70%);
-    background: -webkit-linear-gradient(45deg, #0023ff, #30f639 70%);
-    background: -o-linear-gradient(45deg, #0023ff, #30f639 70%);
-    height: 5px;
 }
 .bs-example {
     margin: 20px;

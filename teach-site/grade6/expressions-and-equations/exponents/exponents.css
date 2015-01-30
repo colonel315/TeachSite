@@ -4,8 +4,28 @@
 #myNavBar {
     background: blue;
 }
+#question {
+    padding: 50px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    background: #f2f2f2;
+    border-radius: 20px;
+    margin-bottom: 18px;
+}
 .first-child {
     background: blueviolet !important;
+}
+.label {
+    font-size: 150%;
+}
+.input-lg {
+    width: 200px;
+    margin-top: 18px;
+}
+.btn {
+    background: #8f30e2;
+    color: #26e6e6;
 }
 .navbar-inverse .navbar-brand {
     color: #00FFFF;

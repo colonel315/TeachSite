@@ -40,13 +40,6 @@ a:hover {
     left: 73%;
     font-size: 40px;
 }
-hr {
-    background: linear-gradient(45deg, #0023ff, #30f639 70%);
-    background: -moz-linear-gradient(45deg, #0023ff, #30f639 70%);
-    background: -webkit-linear-gradient(45deg, #0023ff, #30f639 70%);
-    background: -o-linear-gradient(45deg, #0023ff, #30f639 70%);
-    height: 5px;
-}
 .bs-example {
     margin: 20px;
 }

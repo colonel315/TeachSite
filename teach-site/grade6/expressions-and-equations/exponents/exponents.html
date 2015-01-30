@@ -2,15 +2,13 @@
 <html>
 	<head lang = "en">
 		<meta charset="UTF-8">
-		<title>change this</title>
-		<!--<script src = "http://code.jquery.com/jquery-latest.min.js"-->
-		<!--type = "text/javascript"></script>-->
+		<title>Exponents</title>
 		<script src = "../../../jquery.js" type = "text/javascript"></script>
 		<link rel = "stylesheet" type = "text/css" href = "../../../../bootstrap-3.3.2-dist/css/bootstrap.css" />
 		<link rel = "stylesheet" type = "text/css" href = "../../../../bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
 		<script src = "../../../../bootstrap-3.3.2-dist/js/bootstrap.js" type = "text/javascript"></script>
-		<link rel = "stylesheet" type = "text/css" href = "absolute-value-number-line.css" />
-		<script src = "absolute-value-number-line.js" type = "text/javascript"></script>
+		<link rel = "stylesheet" type = "text/css" href = "exponents.css" />
+		<script src = "exponents.js" type = "text/javascript"></script>
 	</head>
 	<body>
 		<div class="bs-example">
@@ -45,12 +43,14 @@
 									<li><a href = "../../ratios/sale-prices/sale-prices.html">Sale Prices</a></li>
 									<li><a href = "../../ratios/comparing-and-converting/comparing-and-converting.html">Comparing and Converting</a></li>
 									<li><a href="#" class="first-child">The Number System</a></li>
-									<li><a href = "../math-with-fractions/math-with-fractions.html">Math with Fractions</a></li>
-									<li><a href = "../division-with-multi-digit-numbers/division-with-multi-digit-numbers.html">Multi Digit Division</a></li>
-									<li><a href = "../math-with-multi-digit-numbers-decimals/math-with-multi-digit-numbers-decimals.html">Math with decimals</a></li>
-									<li><a href = "../factor-multiple/factor-multiple.html">Factors and Multiples</a></li>
-									<li><a href = "../understanding-integers/understanding-integers.html">Understanding Integers</a></li>
-									<li><a href = "../translation-reflection/translation-reflection.html">Translation Reflection</a></li>
+									<li><a href = "../../number-system/math-with-fractions/math-with-fractions.html">Math with Fractions</a></li>
+									<li><a href = "../../number-system/division-with-multi-digit-numbers/division-with-multi-digit-numbers.html">Multi Digit Division</a></li>
+									<li><a href = "../../number-system/math-with-multi-digit-numbers-decimals/math-with-multi-digit-numbers-decimals.html">Math with decimals</a></li>
+									<li><a href = "../../number-system/factor-multiple/factor-multiple.html">Factors and Multiples</a></li>
+									<li><a href = "../../number-system/understanding-integers/understanding-integers.html">Understanding Integers</a></li>
+									<li><a href = "../../number-system/translation-reflection/translation-reflection.html">Translation Reflection</a></li>
+									<li><a href="#" class="first-child">Expressions and Equations</a></li>
+									<li><a href="exponents.html">Exponents</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -59,10 +59,25 @@
 			</nav>
 		</div>
 
-		<h1 style = "color: blue">Absolute Values and Number Lines</h1>
+		<h1 class="h1 container">Exponents</h1>
 
 		<hr/>
 
+		<div class="container">
+			<div id="question"></div>
 
+			<form role="form">
+				<div class="row">
+					<div class="form-group">
+						<label class="label label-default">Answer</label>
+						<input type="text" class="form-control input-lg" id="userAns"/>
+					</div>
+				</div>
+
+				<div class="row">
+					<button type="submit" class="btn" id="submit">Submit</button>
+				</div>
+			</form>
+		</div>
 	</body>
 </html>
