@@ -1,70 +1,98 @@
 /**
  * Created by Trey on 1/29/2015.
  */
+var Exponents = {};
+
+
+Exponents.Utilities = {
+	/**
+	 * generates a random number
+	 * @param min
+	 * @param max
+	 * @returns {number}
+	 */
+	randomNumber: function(min, max) {
+		return Math.round(Math.random() * (max - min) + min);
+	}
+};
+
+Exponents.Questions = function() {
+	//  contains random number
+	this._randomNum = 0;
+
+	//  contains how many of a random number there is
+	this._exponent = 0;
+
+	//  question types, 0: expression, 1: solve for variable, 2: solve
+	this._questionType = 0;
+};
+
 $(document).ready(function() {
-	var Exponents = {};
-
-	Exponents.Questions = function() {
-		//  contains random number
-		this._randomNum = 0;
-
-		//  contains how many of a random number there is
-		this._numberCount = 0;
-
-		//  question types, 0: expression, 1: solve for variable, 2: solve
-		this._questionType = 0;
-	};
-
 	Exponents.Questions = {
 		/**
 		 * generates questions
 		 */
 		generateQuestion: function() {
-			this._questionType = 0;
+			this._questionType = 2;
+
+			this._randomNum = Exponents.Utilities.randomNumber(2, 10);
+
+			var question = $('#question');
 
 			switch(this._questionType) {
 				case 0:
 					var expression = "";
 
-					this._randomNum = Exponents.Utilities.randomNumber(2, 10);
+					this._exponent = Exponents.Utilities.randomNumber(1, 5);
 
-					var amountToRepeat = Exponents.Utilities.randomNumber(1, 5);
-
-					for(var i = 0; i < amountToRepeat; i++) {
-						if(i < amountToRepeat - 1) {
+					for(var i = 0; i < this._exponent; i++) {
+						if(i < this._exponent - 1) {
 							expression += this._randomNum + " + ";
 						}
 						else {
 							expression += this._randomNum;
 						}
-						this._numberCount++;
+
 					}
 
-					$('#question').text("Express the following as an exponent: " + expression);
+					question.text("Express the following as an exponent: " + expression + " (Use ^ for exponents)");
 					break;
 				case 1:
+					this._exponent = Exponents.Utilities.randomNumber(0, 5);
+
+					question.html("Solve for x: " + this._randomNum + "<sup>" + this._exponent + "</sup> = x");
 					break;
 				case 2:
+					this._exponent = Exponents.Utilities.randomNumber(0, 5);
+
+					question.html("Solve: " + this._randomNum + "<sup>" + this._exponent + "</sup>");
 					break;
 			}
 		},
 
 		/**
-		 * checks the answer the user inputed
+		 * checks the answer the user input
 		 */
 		checkAnswer: function() {
+			var userAns = $('#userAns');
+
 			switch(this._questionType) {
 				case 0:
-					console.log("$('#userAns').val() = ", $('#userAns').val());
-					console.log("this._randomNum+"^"+this._numberCount = ", this._randomNum+"^"+this._numberCount);
-					if($('#userAns').val() == this._randomNum+"^"+this._numberCount) {
-						console.log("inside of if");
+					if(userAns.val() == this._randomNum + "^" + this._exponent) {
 						this.gotCorrect(true);
+					}
+					else {
+						this.gotCorrect(false);
 					}
 					break;
 				case 1:
-					break;
 				case 2:
+					if(userAns.val() == Math.pow(this._randomNum, this._exponent)) {
+						this.gotCorrect(true);
+					}
+					else {
+						this.gotCorrect(false);
+					}
 					break;
 			}
 		},
@@ -78,32 +106,23 @@ $(document).ready(function() {
 					title: "You did",
 					text: "fantastic!",
 					type: "success",
-					timer: 2000
+					timer: 3000
 				});
 			}
 			else {
 				sweetAlert({
-					title: "You did",
-					text: "fantastic!",
+					title: "Try again",
+					text: "you will get it!",
 					type: "error",
-					timer: 2000
+					timer: 3000
 				});
 			}
 
-			this._numberCount = 0;
-			this.generateQuestion();
-		}
-	};
-
-	Exponents.Utilities = {
-		/**
-		 * generates a random number
-		 * @param min
-		 * @param max
-		 * @returns {number}
-		 */
-		randomNumber: function(min, max) {
-			return Math.round(Math.random() * (max - min) + min);
+			setTimeout(function() {
+				$(userAns).val("");
+				Exponents.Questions._numberCount = 0;
+				Exponents.Questions.generateQuestion();
+			}, 3500);
 		}
 	};
 
@@ -115,15 +134,12 @@ $(document).ready(function() {
 	 */
 	$(document).on({
 		click: function() {
-			console.log("inside on click");
 			Exponents.Questions.checkAnswer();
 		}
 	}, "#submit");
 
 	document.addEventListener('keypress', function(event) {
-		console.log("inside key event");
 		if(event.keyCode == 13) {
-			console.log("inside key event");
 			Exponents.Questions.checkAnswer();
 		}
 	});

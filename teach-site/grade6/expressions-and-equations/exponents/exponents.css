@@ -20,8 +20,8 @@
     font-size: 150%;
 }
 .input-lg {
-    width: 200px;
     margin-top: 18px;
+    text-align: center;
 }
 .btn {
     background: #8f30e2;
