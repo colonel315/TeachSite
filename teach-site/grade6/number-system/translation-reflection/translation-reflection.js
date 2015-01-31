@@ -23,7 +23,7 @@ Grid.Preloader.prototype = {
 	preload: function() {
 		//  Load any needed images
 		this.load.image('player', 'teach-character.png');
-		this.load.image('background', 'coordinateGrid.png');
+		this.load.image('background', 'coordinate-grid.png');
 		this.load.image('transparentPoint', 'transparent-point.png');
 	},
 
