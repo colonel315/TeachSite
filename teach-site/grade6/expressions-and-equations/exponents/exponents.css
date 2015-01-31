@@ -1,0 +1,45 @@
+.bs-example {
+    margin: 20px;
+}
+#myNavBar {
+    background: blue;
+}
+#question {
+    padding: 50px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    background: #f2f2f2;
+    border-radius: 20px;
+    margin-bottom: 18px;
+}
+.first-child {
+    background: blueviolet !important;
+}
+.label {
+    font-size: 150%;
+}
+.input-lg {
+    margin-top: 18px;
+    text-align: center;
+}
+.btn {
+    background: #8f30e2;
+    color: #26e6e6;
+}
+.navbar-inverse .navbar-brand {
+    color: #00FFFF;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: #ffffff;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+    background: blue;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+    background-color: #f68400;
+}
