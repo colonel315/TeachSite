@@ -1,8 +1,8 @@
-.bs-example {
-    margin: 20px;
-}
 #myNavBar {
     background: blue;
+}
+.dropdown-menu {
+    padding: 0;
 }
 .first-child {
     background: blueviolet !important;
@@ -22,4 +22,8 @@
 }
 .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
     background-color: #f68400;
+}
+.font {
+    font-size: 40px;
+    margin: 5px;
 }
