@@ -2,7 +2,8 @@
  * Created by Trey on 10/22/2014.
  */
 /**
- * This function will test to see if the students have a grasp of factors, finding the GCF, and th LCM, all using prime factorization
+ * This function will test to see if the students have a grasp of factors, finding the GCF, and th LCM, all using prime
+ * factorization
  */
 $(document).ready(function() {
 	//stores single number to find factors
@@ -92,7 +93,7 @@ $(document).ready(function() {
 					Correct.css('display', 'none');
 					newQuestion();
 					for(i = 1; i <= amountOfDivs; i++) {
-						$('#Factor'+i).remove();
+						$('#Factor' + i).remove();
 					}
 				}, 1000);
 				while(userAnswers1.length > 0) {
@@ -133,8 +134,8 @@ $(document).ready(function() {
 					AnswerBox1.css('left', '69%').css('top', '44%');
 				}
 			}
-			else if(isFactor(Commons[currentQuestion][1], AnswerBox1.val()) && userAnswerIndex1 != RealAnswer1.length+RealAnswer2.length) {
-				for(i = RealAnswer1.length+1; i <= amountOfDivs; i++) {
+			else if(isFactor(Commons[currentQuestion][1], AnswerBox1.val()) && userAnswerIndex1 != RealAnswer1.length + RealAnswer2.length) {
+				for(i = RealAnswer1.length + 1; i <= amountOfDivs; i++) {
 					if(AnswerBox1.val() == $('#Factor' + i).html()) {
 						Repeated = true;
 					}
@@ -160,12 +161,12 @@ $(document).ready(function() {
 				Correct.css('color', 'blue').css('display', 'block').text("Great job!");
 				document.getElementById('AnswerBox1').value = "";
 
-				if(userAnswerIndex1 == RealAnswer1.length+RealAnswer2.length) {
+				if(userAnswerIndex1 == RealAnswer1.length + RealAnswer2.length) {
 					AnswerBox1.css('left', '50%').css('top', '49%');
 					Final_Answer.css('display', 'block');
 				}
 			}
-			else if(userAnswerIndex1 === RealAnswer1.length+RealAnswer2.length && GreatestCommonFactor(Commons[currentQuestion][0], Commons[currentQuestion][1]) == AnswerBox1.val()) {
+			else if(userAnswerIndex1 === RealAnswer1.length + RealAnswer2.length && GreatestCommonFactor(Commons[currentQuestion][0], Commons[currentQuestion][1]) == AnswerBox1.val()) {
 				Correct.css('color', 'blue').text("You found the GCF!").css('display', 'block');
 				document.getElementById('AnswerBox1').value = "";
 
@@ -206,7 +207,7 @@ $(document).ready(function() {
 
 	var newQuestion = function() {
 		for(var i = 1; i <= amountOfDivs; i++) {
-			$('#Factor'+i).remove();
+			$('#Factor' + i).remove();
 		}
 		userAnswerIndex1 = 0;
 		amountOfDivs = 1;
@@ -222,7 +223,7 @@ $(document).ready(function() {
 			RealAnswer1 = findFactors(FactorNumbers[currentQuestion].Factor);
 			$('#AnswerBox1').css('left', '47%').css('top', '45%');
 		}
-		else if(currentQuestion <= 5){
+		else if(currentQuestion <= 5) {
 			$('#Description').text("Find all of the factors for each number, then answer what the greatest common factor is");
 			Factor_Multiple1.css('left', '29%').text(Commons[currentQuestion][0]);
 			Factor_Multiple2.text(Commons[currentQuestion][1]);
@@ -231,7 +232,7 @@ $(document).ready(function() {
 			RealAnswer2 = findFactors(Commons[currentQuestion][1]);
 
 		}
-		else if(currentQuestion <= 8){
+		else if(currentQuestion <= 8) {
 			$('#Description').text("What is the Least Common Multiple?");
 			$('#Final-Answer').text("LCM = ").css('display', 'block').css('left', '41%');
 			Factor_Multiple1.css('left', '40%').text(Commons[currentQuestion][0]);

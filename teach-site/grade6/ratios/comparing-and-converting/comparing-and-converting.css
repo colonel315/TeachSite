@@ -1,15 +1,18 @@
 #round {
     font-size: 20px;
 }
+
 table {
     display: inline-block;
 }
+
 #FruitTable {
     position: relative;
     font-size: 20px;
     border: dodgerblue solid 2px;
     left: 25%
 }
+
 #ConversionTable {
     position: relative;
     font-size: 20px;

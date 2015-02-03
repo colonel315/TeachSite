@@ -41,8 +41,8 @@ $(document).ready(function() {
 		var Dividend = "";
 
 		for(i = 0; i < 5; i++) {
-			Divisor = Math.floor(Math.random()*90)+10;
-			Dividend = Math.floor(Math.random()*900)+100;
+			Divisor = Math.floor(Math.random() * 90) + 10;
+			Dividend = Math.floor(Math.random() * 900) + 100;
 
 			Divide[i].Dividend = Dividend;
 			Divide[i].Divisor = Divisor;
@@ -75,7 +75,7 @@ $(document).ready(function() {
 	var checkAnswer = function() {
 		var Quotient = $('#Quotient');
 
-		switch(step%3) {
+		switch(step % 3) {
 			case 0:
 				if(usersAns.val() == HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend)) {
 					Quotient.text(Quotient.html() + HighestDivide(Divide[currentQuestion].Divisor, Divide[currentQuestion].Dividend));
@@ -95,7 +95,7 @@ $(document).ready(function() {
 					step = ClearTextBox_StepAdd(step);
 				}
 				else {
-				    gotCorrect(false);
+					gotCorrect(false);
 				}
 				break;
 			case 1:
@@ -195,8 +195,8 @@ $(document).ready(function() {
 		}
 
 		if(Divide[currentQuestion].Dividend <= Divide[currentQuestion].Divisor) {
-			if(parseInt(Quotient.html())*10 <= Divide[currentQuestion].Dividend) {
-				Quotient.text(Quotient.html()+0);
+			if(parseInt(Quotient.html()) * 10 <= Divide[currentQuestion].Dividend) {
+				Quotient.text(Quotient.html() + 0);
 			}
 			usersAns.css('display', 'none');
 

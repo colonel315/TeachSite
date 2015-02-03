@@ -1,7 +1,7 @@
 /**
- * Program generates a cartesian coordinate plane with different shapes on it and will generate questions for students to answer by
- * clicking on the shape.
- * Program will display whether the student is correct or not to let them know they are moving to the next question
+ * Program generates a cartesian coordinate plane with different shapes on it and will generate questions for students
+ * to answer by clicking on the shape. Program will display whether the student is correct or not to let them know they
+ * are moving to the next question
  */
 $(document).ready(function() {
 	/**
@@ -106,9 +106,9 @@ $(document).ready(function() {
 	 * Creates the coordinate plane to shapes on.
 	 */
 	graph.path("M 50, 0 L 50, 500 M 100, 0 L 100, 500 M 150, 0 L 150, 500 M 200, 0 L 200, 500 " +
-		"M 300, 0 L 300, 500 M 350, 0 L 350, 500 M 400, 0 L 400, 500 M 450, 0 L 450, 500 M 0 50 L 500, 50 " +
-		"M 0, 100 L 500, 100 M 0, 150 L 500, 150 M 0, 200 L 500, 200 M 0, 300 L 500, 300 " +
-		"M 0, 350 L 500, 350 M 0, 400 L 500, 400 M 0, 450 L 500, 450")
+	"M 300, 0 L 300, 500 M 350, 0 L 350, 500 M 400, 0 L 400, 500 M 450, 0 L 450, 500 M 0 50 L 500, 50 " +
+	"M 0, 100 L 500, 100 M 0, 150 L 500, 150 M 0, 200 L 500, 200 M 0, 300 L 500, 300 " +
+	"M 0, 350 L 500, 350 M 0, 400 L 500, 400 M 0, 450 L 500, 450")
 		.animate({
 			stroke: "orange",
 			"stroke-width": "3"
@@ -196,8 +196,8 @@ $(document).ready(function() {
 		});
 
 	/**
-	 * creates a triangle that when clicked if the answer is correct will go through the gotCorrect function and print out
-	 * that the student answered correctly, otherwise wil answer that student did not get it correct.
+	 * creates a triangle that when clicked if the answer is correct will go through the gotCorrect function and print
+	 * out that the student answered correctly, otherwise wil answer that student did not get it correct.
 	 */
 	var Triangle = graph.path("M 100, 235 L 115, 265, 85, 265 Z")
 		.animate({
@@ -218,8 +218,8 @@ $(document).ready(function() {
 		});
 
 	/**
-	 * creates a Diamond that when clicked if the answer is correct will go through the gotCorrect function and print out
-	 * that the student answered correctly, otherwise wil answer that student did not get it correct.
+	 * creates a Diamond that when clicked if the answer is correct will go through the gotCorrect function and print
+	 * out that the student answered correctly, otherwise wil answer that student did not get it correct.
 	 */
 	var Diamond = graph.path("M 315, 50 L 325, 65, 335, 50, 325, 35 Z")
 		.animate({
@@ -302,8 +302,8 @@ $(document).ready(function() {
 		});
 
 	/**
-	 * creates a Rhombus that when clicked if the answer is correct will go through the gotCorrect function and print out
-	 * that the student answered correctly, otherwise wil answer that student did not get it correct.
+	 * creates a Rhombus that when clicked if the answer is correct will go through the gotCorrect function and print
+	 * out that the student answered correctly, otherwise wil answer that student did not get it correct.
 	 */
 	var Rhombus = graph.path("M 440, 440 L 460, 440, 470, 460, 430, 460 Z")
 		.animate({
@@ -324,8 +324,8 @@ $(document).ready(function() {
 		});
 
 	/**
-	 * creates a Parallelogram that when clicked if the answer is correct will go through the gotCorrect function and print out
-	 * that the student answered correctly, otherwise wil answer that student did not get it correct.
+	 * creates a Parallelogram that when clicked if the answer is correct will go through the gotCorrect function and
+	 * print out that the student answered correctly, otherwise wil answer that student did not get it correct.
 	 */
 	var Parallelogram = graph.path("M 90, 90 L 120, 90, 110, 110, 80, 110 Z")
 		.animate({
@@ -425,7 +425,7 @@ $(document).ready(function() {
 	/**
 	 *Creates a Square
 	 */
-	key.rect( 100, 140, 20, 20)
+	key.rect(100, 140, 20, 20)
 		.animate({
 			stroke: "blue",
 			"stroke-width": 3,

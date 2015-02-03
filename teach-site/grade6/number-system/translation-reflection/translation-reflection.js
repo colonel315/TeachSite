@@ -294,7 +294,7 @@ Grid.Game.prototype = {
 							this.correctChangeQuestion(true);
 						}
 						else if(Math.abs(Grid._startingY - Grid._distanceToTranslate * 50) === (this._player.y + 15) && !Grid._headUp
-								&& Grid._startingX === (this._player.x + 5)) {
+							&& Grid._startingX === (this._player.x + 5)) {
 							this.correctChangeQuestion(true);
 						}
 						else {
@@ -309,7 +309,7 @@ Grid.Game.prototype = {
 							this.correctChangeQuestion(true);
 						}
 						else if(Math.abs(Grid._startingY + Grid._distanceToTranslate * 50) === (this._player.y + 15) && !Grid._headUp
-								&& Grid._startingX === (this._player.x + 5)) {
+							&& Grid._startingX === (this._player.x + 5)) {
 							this.correctChangeQuestion(true);
 						}
 						else {
@@ -372,7 +372,7 @@ Grid.Game.prototype = {
 		else {
 			sweetAlert({
 				title: "Try again,",
-				text:  "young grasshopper!",
+				text: "young grasshopper!",
 				type: "error",
 				timer: 3000
 			})
@@ -423,7 +423,7 @@ Grid.Question = {
 				var distances = [Grid._distanceTop / 50, Grid._distanceBottom / 50, Grid._distanceRight / 50, Grid._distanceLeft / 50];
 
 				while(true) {
-					Grid._translationDirection = Grid.Utilities.getRandom(0, distances.length-1);
+					Grid._translationDirection = Grid.Utilities.getRandom(0, distances.length - 1);
 
 					if(distances[Grid._translationDirection] > 0) {   //  Checks to see if moving is possible
 						Grid._distanceToTranslate = Grid.Utilities.getRandom(1, distances[Grid._translationDirection]);

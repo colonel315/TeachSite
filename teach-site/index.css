@@ -1,8 +1,9 @@
 #welcome {
-	background-color: blue;
-	color: white;
-	width: 600px;
+    background-color: blue;
+    color: white;
+    width: 600px;
 }
+
 #text {
-	font-family: Georgia, serif, Arial, Helvetica;
+    font-family: Georgia, serif, Arial, Helvetica;
 }

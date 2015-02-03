@@ -10,9 +10,9 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
-  "repository" : {
-    "type" : "git",
-    "url" : "http://github.com/lipis/bootstrap-sweetalert"
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/lipis/bootstrap-sweetalert"
   },
   "dependencies": {
     "bootstrap": "~3"

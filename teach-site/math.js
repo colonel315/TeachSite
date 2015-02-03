@@ -37,54 +37,69 @@
 })(this, function() {
 	return /******/ (function(modules) { // webpackBootstrap
 		/******/ 	// The module cache
-		/******/ 	var installedModules = {};
+		/******/
+		var installedModules = {};
 		/******/
 		/******/ 	// The require function
-		/******/ 	function __webpack_require__(moduleId) {
+		/******/
+		function __webpack_require__(moduleId) {
 			/******/
 			/******/ 		// Check if module is in cache
-			/******/ 		if(installedModules[moduleId])
-			/******/ 			return installedModules[moduleId].exports;
+			/******/
+			if(installedModules[moduleId])
+			/******/            return installedModules[moduleId].exports;
 			/******/
 			/******/ 		// Create a new module (and put it into the cache)
-			/******/ 		var module = installedModules[moduleId] = {
-				/******/ 			exports: {},
-				/******/ 			id: moduleId,
-				/******/ 			loaded: false
-				/******/ 		};
+			/******/
+			var module = installedModules[moduleId] = {
+				/******/            exports: {},
+				/******/            id: moduleId,
+				/******/            loaded: false
+				/******/
+			};
 			/******/
 			/******/ 		// Execute the module function
-			/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+			/******/
+			modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 			/******/
 			/******/ 		// Flag the module as loaded
-			/******/ 		module.loaded = true;
+			/******/
+			module.loaded = true;
 			/******/
 			/******/ 		// Return the exports of the module
-			/******/ 		return module.exports;
-			/******/ 	}
+			/******/
+			return module.exports;
+			/******/
+		}
+
 		/******/
 		/******/
 		/******/ 	// expose the modules object (__webpack_modules__)
-		/******/ 	__webpack_require__.m = modules;
+		/******/
+		__webpack_require__.m = modules;
 		/******/
 		/******/ 	// expose the module cache
-		/******/ 	__webpack_require__.c = installedModules;
+		/******/
+		__webpack_require__.c = installedModules;
 		/******/
 		/******/ 	// __webpack_public_path__
-		/******/ 	__webpack_require__.p = "";
+		/******/
+		__webpack_require__.p = "";
 		/******/
 		/******/ 	// Load entry module and return exports
-		/******/ 	return __webpack_require__(0);
-		/******/ })
+		/******/
+		return __webpack_require__(0);
+		/******/
+	})
 		/************************************************************************/
-		/******/ ([
+		/******/([
 		/* 0 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			module.exports = __webpack_require__(1);
 
-
-			/***/ },
+			/***/
+		},
 		/* 1 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -105,11 +120,11 @@
 			 *                              The number of significant digits for BigNumbers.
 			 *                              Not applicable for Numbers.
 			 */
-			function create (config) {
+			function create(config) {
 				// simple test for ES5 support
-				if (typeof Object.create !== 'function') {
+				if(typeof Object.create !== 'function') {
 					throw new Error('ES5 not supported by this JavaScript engine. ' +
-						'Please load the es5-shim and es5-sham library for compatibility.');
+					'Please load the es5-shim and es5-sham library for compatibility.');
 				}
 
 				// create namespace
@@ -144,11 +159,11 @@
 				 * @return {Object} Returns the current configuration
 				 */
 				math.config = function(options) {
-					if (options) {
+					if(options) {
 						// merge options
 						object.deepExtend(_config, options);
 
-						if (options.precision) {
+						if(options.precision) {
 							math.type.BigNumber.config({
 								precision: options.precision
 							});
@@ -159,27 +174,27 @@
 						__webpack_require__(2)(math, _config);
 
 						// TODO: remove deprecated setting some day (deprecated since version 0.17.0)
-						if (options.number && options.number.defaultType) {
+						if(options.number && options.number.defaultType) {
 							throw new Error('setting `number.defaultType` is deprecated. Use `number` instead.')
 						}
 
 						// TODO: remove deprecated setting some day (deprecated since version 0.17.0)
-						if (options.number && options.number.precision) {
+						if(options.number && options.number.precision) {
 							throw new Error('setting `number.precision` is deprecated. Use `precision` instead.')
 						}
 
 						// TODO: remove deprecated setting some day (deprecated since version 0.17.0)
-						if (options.matrix && options.matrix.defaultType) {
+						if(options.matrix && options.matrix.defaultType) {
 							throw new Error('setting `matrix.defaultType` is deprecated. Use `matrix` instead.')
 						}
 
 						// TODO: remove deprecated setting some day (deprecated since version 0.15.0)
-						if (options.matrix && options.matrix['default']) {
+						if(options.matrix && options.matrix['default']) {
 							throw new Error('setting `matrix.default` is deprecated. Use `matrix` instead.')
 						}
 
 						// TODO: remove deprecated setting some day (deprecated since version 0.20.0)
-						if (options.decimals) {
+						if(options.decimals) {
 							throw new Error('setting `decimals` is deprecated. Use `precision` instead.')
 						}
 					}
@@ -206,7 +221,7 @@
 				var BigNumber = __webpack_require__(139).constructor();
 
 				// extend BigNumber with a function clone
-				if (typeof BigNumber.prototype.clone !== 'function') {
+				if(typeof BigNumber.prototype.clone !== 'function') {
 					/**
 					 * Clone a bignumber
 					 * @return {BigNumber} clone
@@ -217,7 +232,7 @@
 				}
 
 				// extend BigNumber with a function convert
-				if (typeof BigNumber.convert !== 'function') {
+				if(typeof BigNumber.convert !== 'function') {
 					/**
 					 * Try to convert a Number in to a BigNumber.
 					 * If the number has 15 or mor significant digits, the Number cannot be
@@ -226,7 +241,7 @@
 					 * @return {BigNumber | Number} bignumber
 					 */
 					BigNumber.convert = function(number) {
-						if (digits(number) > 15) {
+						if(digits(number) > 15) {
 							return number;
 						}
 						else {
@@ -392,7 +407,7 @@
 				__webpack_require__(135)(math, _config);
 
 				// TODO: deprecated since version 0.25.0, remove some day.
-				math.ifElse = function () {
+				math.ifElse = function() {
 					throw new Error('Function ifElse is deprecated. Use the conditional operator instead.');
 				};
 
@@ -426,22 +441,22 @@
 			// create a default instance of math.js
 			var math = create();
 
-			if (typeof window !== 'undefined') {
-				window.mathjs = math; // TODO: deprecate the mathjs namespace some day (replaced with 'math' since version 0.25.0)
+			if(typeof window !== 'undefined') {
+				window.mathjs = math; // TODO: deprecate the mathjs namespace some day (replaced with 'math' since
+			                          // version 0.25.0)
 			}
 
 			// export the default instance
 			module.exports = math;
 
-
-
-			/***/ },
+			/***/
+		},
 		/* 2 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var bignumber = __webpack_require__(136);
 				var Complex = __webpack_require__(6);
 				var BigNumber = math.type.BigNumber;
@@ -475,7 +490,7 @@
 					var num = x;
 					var sign = -1;
 
-					for (var k = 3; !y.equals(yPrev); k += 2) {
+					for(var k = 3; !y.equals(yPrev); k += 2) {
 						num = num.times(x2);
 
 						yPrev = y;
@@ -521,37 +536,40 @@
 
 				var big = config.number === 'bignumber';
 
-				// TODO: in case of support for defineProperty, we can lazy evaluate the BigNumber constants by creating them as properties (calculation of PI is slow for example)
-				math.pi          = big ? bigPi()  : Math.PI;
-				math.tau         = big ? bigTau() : Math.PI * 2;
-				math.e           = big ? bigE()   : Math.E;
-				math.phi         = big ? bigPhi() : 1.61803398874989484820458683436563811772030917980576286213545; // golden ratio, (1+sqrt(5))/2
+				// TODO: in case of support for defineProperty, we can lazy evaluate the BigNumber constants by
+				// creating them as properties (calculation of PI is slow for example)
+				math.pi = big ? bigPi() : Math.PI;
+				math.tau = big ? bigTau() : Math.PI * 2;
+				math.e = big ? bigE() : Math.E;
+				math.phi = big ? bigPhi() : 1.61803398874989484820458683436563811772030917980576286213545; // golden
+			                                                                                               // ratio,
+			                                                                                               // (1+sqrt(5))/2
 
-				math.i           = new Complex(0, 1);
+				math.i = new Complex(0, 1);
 
 				math['Infinity'] = Infinity;
-				math['NaN']      = NaN;
-				math['true']     = true;
-				math['false']    = false;
-				math['null']     = null;
+				math['NaN'] = NaN;
+				math['true'] = true;
+				math['false'] = false;
+				math['null'] = null;
 				math['uninitialized'] = __webpack_require__(137).UNINITIALIZED;
 
 				// uppercase constants (for compatibility with built-in Math)
-				math.E           = math.e;
-				math.LN2         = big ? new BigNumber(2).ln()                        : Math.LN2;
-				math.LN10        = big ? new BigNumber(10).ln()                       : Math.LN10;
-				math.LOG2E       = big ? new BigNumber(1).div(new BigNumber(2).ln())  : Math.LOG2E;
-				math.LOG10E      = big ? new BigNumber(1).div(new BigNumber(10).ln()) : Math.LOG10E;
-				math.PI          = math.pi;
-				math.SQRT1_2     = big ? new BigNumber(0.5).sqrt()                    : Math.SQRT1_2;
-				math.SQRT2       = big ? new BigNumber(2).sqrt()                      : Math.SQRT2;
+				math.E = math.e;
+				math.LN2 = big ? new BigNumber(2).ln() : Math.LN2;
+				math.LN10 = big ? new BigNumber(10).ln() : Math.LN10;
+				math.LOG2E = big ? new BigNumber(1).div(new BigNumber(2).ln()) : Math.LOG2E;
+				math.LOG10E = big ? new BigNumber(1).div(new BigNumber(10).ln()) : Math.LOG10E;
+				math.PI = math.pi;
+				math.SQRT1_2 = big ? new BigNumber(0.5).sqrt() : Math.SQRT1_2;
+				math.SQRT2 = big ? new BigNumber(2).sqrt() : Math.SQRT2;
 
 				// meta information
 				math.version = __webpack_require__(138);
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 3 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -572,33 +590,33 @@
 				var type = typeof x;
 
 				// immutable primitive types
-				if (type === 'number' || type === 'string' || type === 'boolean' ||
+				if(type === 'number' || type === 'string' || type === 'boolean' ||
 					x === null || x === undefined) {
 					return x;
 				}
 
 				// use clone function of the object when available
-				if (typeof x.clone === 'function') {
+				if(typeof x.clone === 'function') {
 					return x.clone();
 				}
 
 				// array
-				if (Array.isArray(x)) {
-					return x.map(function (value) {
+				if(Array.isArray(x)) {
+					return x.map(function(value) {
 						return clone(value);
 					});
 				}
 
-				if (x instanceof Number)  return new Number(x.valueOf());
-				if (x instanceof String)  return new String(x.valueOf());
-				if (x instanceof Boolean) return new Boolean(x.valueOf());
-				if (x instanceof Date)    return new Date(x.valueOf());
-				if (x instanceof RegExp)  throw new TypeError('Cannot clone ' + x);  // TODO: clone a RegExp
+				if(x instanceof Number)  return new Number(x.valueOf());
+				if(x instanceof String)  return new String(x.valueOf());
+				if(x instanceof Boolean) return new Boolean(x.valueOf());
+				if(x instanceof Date)    return new Date(x.valueOf());
+				if(x instanceof RegExp)  throw new TypeError('Cannot clone ' + x);  // TODO: clone a RegExp
 
 				// object
 				var m = {};
-				for (var key in x) {
-					if (x.hasOwnProperty(key)) {
+				for(var key in x) {
+					if(x.hasOwnProperty(key)) {
 						m[key] = clone(x[key]);
 					}
 				}
@@ -612,8 +630,8 @@
 			 * @return {Object} a
 			 */
 			exports.extend = function(a, b) {
-				for (var prop in b) {
-					if (b.hasOwnProperty(prop)) {
+				for(var prop in b) {
+					if(b.hasOwnProperty(prop)) {
 						a[prop] = b[prop];
 					}
 				}
@@ -626,27 +644,29 @@
 			 * @param {Object} b
 			 * @returns {Object}
 			 */
-			exports.deepExtend = function deepExtend (a, b) {
+			exports.deepExtend = function deepExtend(a, b) {
 				// TODO: add support for Arrays to deepExtend
-				if (Array.isArray(b)) {
+				if(Array.isArray(b)) {
 					throw new TypeError('Arrays are not supported by deepExtend');
 				}
 
-				for (var prop in b) {
-					if (b.hasOwnProperty(prop)) {
-						if (b[prop] && b[prop].constructor === Object) {
-							if (a[prop] === undefined) {
+				for(var prop in b) {
+					if(b.hasOwnProperty(prop)) {
+						if(b[prop] && b[prop].constructor === Object) {
+							if(a[prop] === undefined) {
 								a[prop] = {};
 							}
-							if (a[prop].constructor === Object) {
+							if(a[prop].constructor === Object) {
 								deepExtend(a[prop], b[prop]);
 							}
 							else {
 								a[prop] = b[prop];
 							}
-						} else if (Array.isArray(b[prop])) {
+						}
+						else if(Array.isArray(b[prop])) {
 							throw new TypeError('Arrays are not supported by deepExtend');
-						} else {
+						}
+						else {
 							a[prop] = b[prop];
 						}
 					}
@@ -660,38 +680,38 @@
 			 * @param {Array | Object} b
 			 * @returns {boolean}
 			 */
-			exports.deepEqual = function deepEqual (a, b) {
+			exports.deepEqual = function deepEqual(a, b) {
 				var prop, i, len;
-				if (Array.isArray(a)) {
-					if (!Array.isArray(b)) {
+				if(Array.isArray(a)) {
+					if(!Array.isArray(b)) {
 						return false;
 					}
 
-					if (a.length != b.length) {
+					if(a.length != b.length) {
 						return false;
 					}
 
-					for (i = 0, len = a.length; i < len; i++) {
-						if (!exports.deepEqual(a[i], b[i])) {
+					for(i = 0, len = a.length; i < len; i++) {
+						if(!exports.deepEqual(a[i], b[i])) {
 							return false;
 						}
 					}
 					return true;
 				}
-				else if (a instanceof Object) {
-					if (Array.isArray(b) || !(b instanceof Object)) {
+				else if(a instanceof Object) {
+					if(Array.isArray(b) || !(b instanceof Object)) {
 						return false;
 					}
 
-					for (prop in a) {
+					for(prop in a) {
 						//noinspection JSUnfilteredForInLoop
-						if (!exports.deepEqual(a[prop], b[prop])) {
+						if(!exports.deepEqual(a[prop], b[prop])) {
 							return false;
 						}
 					}
-					for (prop in b) {
+					for(prop in b) {
 						//noinspection JSUnfilteredForInLoop
-						if (!exports.deepEqual(a[prop], b[prop])) {
+						if(!exports.deepEqual(a[prop], b[prop])) {
 							return false;
 						}
 					}
@@ -702,8 +722,8 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 4 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -734,10 +754,10 @@
 			 * @returns {*}
 			 */
 			exports.sign = function(x) {
-				if (x > 0) {
+				if(x > 0) {
 					return 1;
 				}
-				else if (x < 0) {
+				else if(x < 0) {
 					return -1;
 				}
 				else {
@@ -810,19 +830,19 @@
 			 * @return {String} str The formatted value
 			 */
 			exports.format = function(value, options) {
-				if (typeof options === 'function') {
+				if(typeof options === 'function') {
 					// handle format(value, fn)
 					return options(value);
 				}
 
 				// handle special cases
-				if (value === Infinity) {
+				if(value === Infinity) {
 					return 'Infinity';
 				}
-				else if (value === -Infinity) {
+				else if(value === -Infinity) {
 					return '-Infinity';
 				}
-				else if (isNaN(value)) {
+				else if(isNaN(value)) {
 					return 'NaN';
 				}
 
@@ -830,23 +850,23 @@
 				var notation = 'auto';
 				var precision = undefined;
 
-				if (options) {
+				if(options) {
 					// determine notation from options
-					if (options.notation) {
+					if(options.notation) {
 						notation = options.notation;
 					}
 
 					// determine precision from options
-					if (exports.isNumber(options)) {
+					if(exports.isNumber(options)) {
 						precision = options;
 					}
-					else if (options.precision) {
+					else if(options.precision) {
 						precision = options.precision;
 					}
 				}
 
 				// handle the various notations
-				switch (notation) {
+				switch(notation) {
 					case 'fixed':
 						return exports.toFixed(value, precision);
 
@@ -858,22 +878,22 @@
 						// TODO: implement support for upper and lower to be BigNumbers themselves
 						var lower = 1e-3;
 						var upper = 1e5;
-						if (options && options.exponential) {
-							if (options.exponential.lower !== undefined) {
+						if(options && options.exponential) {
+							if(options.exponential.lower !== undefined) {
 								lower = options.exponential.lower;
 							}
-							if (options.exponential.upper !== undefined) {
+							if(options.exponential.upper !== undefined) {
 								upper = options.exponential.upper;
 							}
 						}
 
 						// handle special case zero
-						if (value === 0) return '0';
+						if(value === 0) return '0';
 
 						// determine whether or not to output exponential notation
 						var str;
 						var abs = Math.abs(value);
-						if (abs >= lower && abs < upper) {
+						if(abs >= lower && abs < upper) {
 							// normal number notation
 							// Note: IE7 does not allow value.toPrecision(undefined)
 							var valueStr = precision ?
@@ -887,7 +907,7 @@
 						}
 
 						// remove trailing zeros after the decimal point
-						return str.replace(/((\.\d*?)(0+))($|e)/, function () {
+						return str.replace(/((\.\d*?)(0+))($|e)/, function() {
 							var digits = arguments[2];
 							var e = arguments[4];
 							return (digits !== '.') ? digits + e : e;
@@ -895,7 +915,7 @@
 
 					default:
 						throw new Error('Unknown notation "' + notation + '". ' +
-							'Choose "auto", "exponential", or "fixed".');
+						'Choose "auto", "exponential", or "fixed".');
 				}
 			};
 
@@ -908,7 +928,7 @@
 			 * @returns {string} str
 			 */
 			exports.toExponential = function(value, precision) {
-				if (precision !== undefined) {
+				if(precision !== undefined) {
 					return value.toExponential(Math.min(precision - 1, 20));
 				}
 				else {
@@ -941,7 +961,7 @@
 				return value
 					.toExponential()
 					.replace(/e.*$/, '')          // remove exponential notation
-					.replace( /^0\.?0*|\./, '')   // remove decimal point and leading zeros
+					.replace(/^0\.?0*|\./, '')   // remove decimal point and leading zeros
 					.length
 			};
 
@@ -961,19 +981,19 @@
 			 */
 			exports.nearlyEqual = function(x, y, epsilon) {
 				// if epsilon is null or undefined, test whether x and y are exactly equal
-				if (epsilon == null) return x == y;
+				if(epsilon == null) return x == y;
 
 				// use "==" operator, handles infinities
-				if (x == y) return true;
+				if(x == y) return true;
 
 				// NaN
-				if (isNaN(x) || isNaN(y)) return false;
+				if(isNaN(x) || isNaN(y)) return false;
 
 				// at this point x and y should be finite
 				if(isFinite(x) && isFinite(y)) {
 					// check numbers are very close, needed when comparing numbers near zero
 					var diff = Math.abs(x - y);
-					if (diff < exports.DBL_EPSILON) {
+					if(diff < exports.DBL_EPSILON) {
 						return true;
 					}
 					else {
@@ -986,8 +1006,8 @@
 				return false;
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 5 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -1000,8 +1020,8 @@
 
 			// TODO: implement an InvalidValueError?
 
-
-			/***/ },
+			/***/
+		},
 		/* 6 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -1035,11 +1055,11 @@
 			 * @param {Number} [im]     The imaginary part of the complex value
 			 */
 			function Complex(re, im) {
-				if (!(this instanceof Complex)) {
+				if(!(this instanceof Complex)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
-				switch (arguments.length) {
+				switch(arguments.length) {
 					case 0:
 						this.re = 0;
 						this.im = 0;
@@ -1047,13 +1067,14 @@
 
 					case 1:
 						var arg = arguments[0];
-						if (typeof arg === 'object') {
+						if(typeof arg === 'object') {
 							if('re' in arg && 'im' in arg) {
 								var construct = new Complex(arg.re, arg.im); // pass on input validation
 								this.re = construct.re;
 								this.im = construct.im;
 								break;
-							} else if ('r' in arg && 'phi' in arg) {
+							}
+							else if('r' in arg && 'phi' in arg) {
 								var construct = Complex.fromPolar(arg.r, arg.phi);
 								this.re = construct.re;
 								this.im = construct.im;
@@ -1063,7 +1084,7 @@
 						throw new SyntaxError('Object with the re and im or r and phi properties expected.');
 
 					case 2:
-						if (!isNumber(re) || !isNumber(im)) {
+						if(!isNumber(re) || !isNumber(im)) {
 							throw new TypeError('Two numbers expected in Complex constructor');
 						}
 						this.re = re;
@@ -1080,7 +1101,7 @@
 			 * @param {*} value
 			 * @return {Boolean} isComplex
 			 */
-			Complex.isComplex = function (value) {
+			Complex.isComplex = function(value) {
 				return (value instanceof Complex);
 			};
 
@@ -1088,16 +1109,16 @@
 			var text, index, c;
 
 			function skipWhitespace() {
-				while (c == ' ' || c == '\t') {
+				while(c == ' ' || c == '\t') {
 					next();
 				}
 			}
 
-			function isDigitDot (c) {
+			function isDigitDot(c) {
 				return ((c >= '0' && c <= '9') || c == '.');
 			}
 
-			function isDigit (c) {
+			function isDigit(c) {
 				return ((c >= '0' && c <= '9'));
 			}
 
@@ -1111,68 +1132,68 @@
 				c = text.charAt(index);
 			}
 
-			function parseNumber () {
+			function parseNumber() {
 				var number = '';
 				var oldIndex;
 				oldIndex = index;
 
-				if (c == '+') {
+				if(c == '+') {
 					next();
 				}
-				else if (c == '-') {
+				else if(c == '-') {
 					number += c;
 					next();
 				}
 
-				if (!isDigitDot(c)) {
+				if(!isDigitDot(c)) {
 					// a + or - must be followed by a digit
 					revert(oldIndex);
 					return null;
 				}
 
 				// get number, can have a single dot
-				if (c == '.') {
+				if(c == '.') {
 					number += c;
 					next();
-					if (!isDigit(c)) {
+					if(!isDigit(c)) {
 						// this is no legal number, it is just a dot
 						revert(oldIndex);
 						return null;
 					}
 				}
 				else {
-					while (isDigit(c)) {
+					while(isDigit(c)) {
 						number += c;
 						next();
 					}
-					if (c == '.') {
+					if(c == '.') {
 						number += c;
 						next();
 					}
 				}
-				while (isDigit(c)) {
+				while(isDigit(c)) {
 					number += c;
 					next();
 				}
 
 				// check for exponential notation like "2.3e-4" or "1.23e50"
-				if (c == 'E' || c == 'e') {
+				if(c == 'E' || c == 'e') {
 					number += c;
 					next();
 
-					if (c == '+' || c == '-') {
+					if(c == '+' || c == '-') {
 						number += c;
 						next();
 					}
 
 					// Scientific notation MUST be followed by an exponent
-					if (!isDigit(c)) {
+					if(!isDigit(c)) {
 						// this is no legal number, exponent is missing.
 						revert(oldIndex);
 						return null;
 					}
 
-					while (isDigit(c)) {
+					while(isDigit(c)) {
 						number += c;
 						next();
 					}
@@ -1181,14 +1202,14 @@
 				return number;
 			}
 
-			function parseComplex () {
+			function parseComplex() {
 				// check for 'i', '-i', '+i'
 				var cnext = text.charAt(index + 1);
-				if (c == 'I' || c == 'i') {
+				if(c == 'I' || c == 'i') {
 					next();
 					return '1';
 				}
-				else if ((c == '+' || c == '-') && (cnext == 'I' || cnext == 'i')) {
+				else if((c == '+' || c == '-') && (cnext == 'I' || cnext == 'i')) {
 					var number = (c == '+') ? '1' : '-1';
 					next();
 					next();
@@ -1205,24 +1226,24 @@
 			 * @param {String} str
 			 * @returns {Complex | null} complex
 			 */
-			Complex.parse = function (str) {
+			Complex.parse = function(str) {
 				text = str;
 				index = -1;
 				c = '';
 
-				if (!isString(text)) {
+				if(!isString(text)) {
 					return null;
 				}
 
 				next();
 				skipWhitespace();
 				var first = parseNumber();
-				if (first) {
-					if (c == 'I' || c == 'i') {
+				if(first) {
+					if(c == 'I' || c == 'i') {
 						// pure imaginary number
 						next();
 						skipWhitespace();
-						if (c) {
+						if(c) {
 							// garbage at the end. not good.
 							return null;
 						}
@@ -1233,10 +1254,10 @@
 						// complex and real part
 						skipWhitespace();
 						var separator = c;
-						if (separator != '+' && separator != '-') {
+						if(separator != '+' && separator != '-') {
 							// pure real number
 							skipWhitespace();
-							if (c) {
+							if(c) {
 								// garbage at the end. not good.
 								return null;
 							}
@@ -1248,8 +1269,8 @@
 							next();
 							skipWhitespace();
 							var second = parseNumber();
-							if (second) {
-								if (c != 'I' && c != 'i') {
+							if(second) {
+								if(c != 'I' && c != 'i') {
 									// 'i' missing at the end of the complex number
 									return null;
 								}
@@ -1257,15 +1278,15 @@
 							}
 							else {
 								second = parseComplex();
-								if (!second) {
+								if(!second) {
 									// imaginary number missing after separator
 									return null;
 								}
 							}
 
-							if (separator == '-') {
-								if (second[0] == '-') {
-									second =  '+' + second.substring(1);
+							if(separator == '-') {
+								if(second[0] == '-') {
+									second = '+' + second.substring(1);
 								}
 								else {
 									second = '-' + second;
@@ -1274,7 +1295,7 @@
 
 							next();
 							skipWhitespace();
-							if (c) {
+							if(c) {
 								// garbage at the end. not good.
 								return null;
 							}
@@ -1286,9 +1307,9 @@
 				else {
 					// check for 'i', '-i', '+i'
 					first = parseComplex();
-					if (first) {
+					if(first) {
 						skipWhitespace();
-						if (c) {
+						if(c) {
 							// garbage at the end. not good.
 							return null;
 						}
@@ -1311,8 +1332,8 @@
 			 * @param {*} args...
 			 * @return {Complex}
 			 */
-			Complex.fromPolar = function (args) {
-				switch (arguments.length) {
+			Complex.fromPolar = function(args) {
+				switch(arguments.length) {
 					case 1:
 						var arg = arguments[0];
 						if(typeof arg === 'object') {
@@ -1324,7 +1345,7 @@
 						var r = arguments[0],
 							phi = arguments[1];
 						if(isNumber(r)) {
-							if (isUnit(phi) && phi.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							if(isUnit(phi) && phi.hasBase(Unit.BASE_UNITS.ANGLE)) {
 								// convert unit to a number in radians
 								phi = phi.toNumber('rad');
 							}
@@ -1334,7 +1355,8 @@
 							}
 
 							throw new TypeError('Phi is not a number nor an angle unit.');
-						} else {
+						}
+						else {
 							throw new TypeError('Radius r is not a number.');
 						}
 
@@ -1359,7 +1381,7 @@
 			 * Create a copy of the complex value
 			 * @return {Complex} clone
 			 */
-			Complex.prototype.clone = function () {
+			Complex.prototype.clone = function() {
 				return new Complex(this.re, this.im);
 			};
 
@@ -1370,7 +1392,7 @@
 			 * @param {Complex} other
 			 * @return {boolean} isEqual
 			 */
-			Complex.prototype.equals = function (other) {
+			Complex.prototype.equals = function(other) {
 				return (this.re === other.re) && (this.im === other.im);
 			};
 
@@ -1383,21 +1405,21 @@
 			 *                                                options.
 			 * @return {String} str
 			 */
-			Complex.prototype.format = function (options) {
+			Complex.prototype.format = function(options) {
 				var str = '',
 					strRe = number.format(this.re, options),
 					strIm = number.format(this.im, options);
 
-				if (this.im == 0) {
+				if(this.im == 0) {
 					// real value
 					str = strRe;
 				}
-				else if (this.re == 0) {
+				else if(this.re == 0) {
 					// purely complex value
-					if (this.im == 1) {
+					if(this.im == 1) {
 						str = 'i';
 					}
-					else if (this.im == -1) {
+					else if(this.im == -1) {
 						str = '-i';
 					}
 					else {
@@ -1406,8 +1428,8 @@
 				}
 				else {
 					// complex value
-					if (this.im > 0) {
-						if (this.im == 1) {
+					if(this.im > 0) {
+						if(this.im == 1) {
 							str = strRe + ' + i';
 						}
 						else {
@@ -1415,7 +1437,7 @@
 						}
 					}
 					else {
-						if (this.im == -1) {
+						if(this.im == -1) {
 							str = strRe + ' - i';
 						}
 						else {
@@ -1431,7 +1453,7 @@
 			 * Get a string representation of the complex number.
 			 * @return {String} str
 			 */
-			Complex.prototype.toString = function () {
+			Complex.prototype.toString = function() {
 				return this.format();
 			};
 
@@ -1444,8 +1466,8 @@
 			// exports
 			module.exports = Complex;
 
-
-			/***/ },
+			/***/
+		},
 		/* 7 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -1486,23 +1508,23 @@
 			 * @param {Number} [step] step size, default value is 1
 			 */
 			function Range(start, end, step) {
-				if (!(this instanceof Range)) {
+				if(!(this instanceof Range)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
-				if (start != null && !number.isNumber(start)) {
+				if(start != null && !number.isNumber(start)) {
 					throw new TypeError('Parameter start must be a number');
 				}
-				if (end != null && !number.isNumber(end)) {
+				if(end != null && !number.isNumber(end)) {
 					throw new TypeError('Parameter end must be a number');
 				}
-				if (step != null && !number.isNumber(step)) {
+				if(step != null && !number.isNumber(step)) {
 					throw new TypeError('Parameter step must be a number');
 				}
 
 				this.start = (start != null) ? parseFloat(start) : 0;
-				this.end   = (end != null) ? parseFloat(end) : 0;
-				this.step  = (step != null) ? parseFloat(step) : 1;
+				this.end = (end != null) ? parseFloat(end) : 0;
+				this.step = (step != null) ? parseFloat(step) : 1;
 			}
 
 			/**
@@ -1513,27 +1535,30 @@
 			 * @param {String} str
 			 * @return {Range | null} range
 			 */
-			Range.parse = function (str) {
-				if (!string.isString(str)) {
+			Range.parse = function(str) {
+				if(!string.isString(str)) {
 					return null;
 				}
 
 				var args = str.split(':');
-				var nums = args.map(function (arg) {
+				var nums = args.map(function(arg) {
 					return parseFloat(arg);
 				});
 
-				var invalid = nums.some(function (num) {
+				var invalid = nums.some(function(num) {
 					return isNaN(num);
 				});
 				if(invalid) {
 					return null;
 				}
 
-				switch (nums.length) {
-					case 2: return new Range(nums[0], nums[1]);
-					case 3: return new Range(nums[0], nums[2], nums[1]);
-					default: return null;
+				switch(nums.length) {
+					case 2:
+						return new Range(nums[0], nums[1]);
+					case 3:
+						return new Range(nums[0], nums[2], nums[1]);
+					default:
+						return null;
 				}
 			};
 
@@ -1541,7 +1566,7 @@
 			 * Create a clone of the range
 			 * @return {Range} clone
 			 */
-			Range.prototype.clone = function () {
+			Range.prototype.clone = function() {
 				return new Range(this.start, this.end, this.step);
 			};
 
@@ -1550,7 +1575,7 @@
 			 * @param {*} object
 			 * @return {Boolean} isRange
 			 */
-			Range.isRange = function (object) {
+			Range.isRange = function(object) {
 				return (object instanceof Range);
 			};
 
@@ -1559,21 +1584,21 @@
 			 * Returns an array containing one number, the number of elements in the range.
 			 * @returns {Number[]} size
 			 */
-			Range.prototype.size = function () {
+			Range.prototype.size = function() {
 				var len = 0,
 					start = this.start,
 					step = this.step,
 					end = this.end,
 					diff = end - start;
 
-				if (number.sign(step) == number.sign(diff)) {
+				if(number.sign(step) == number.sign(diff)) {
 					len = Math.ceil((diff) / step);
 				}
-				else if (diff == 0) {
+				else if(diff == 0) {
 					len = 0;
 				}
 
-				if (isNaN(len)) {
+				if(isNaN(len)) {
 					len = 0;
 				}
 				return [len];
@@ -1583,11 +1608,11 @@
 			 * Calculate the minimum value in the range
 			 * @return {Number | undefined} min
 			 */
-			Range.prototype.min = function () {
+			Range.prototype.min = function() {
 				var size = this.size()[0];
 
-				if (size > 0) {
-					if (this.step > 0) {
+				if(size > 0) {
+					if(this.step > 0) {
 						// positive step
 						return this.start;
 					}
@@ -1605,11 +1630,11 @@
 			 * Calculate the maximum value in the range
 			 * @return {Number | undefined} max
 			 */
-			Range.prototype.max = function () {
+			Range.prototype.max = function() {
 				var size = this.size()[0];
 
-				if (size > 0) {
-					if (this.step > 0) {
+				if(size > 0) {
+					if(this.step > 0) {
 						// positive step
 						return this.start + (size - 1) * this.step;
 					}
@@ -1623,28 +1648,27 @@
 				}
 			};
 
-
 			/**
 			 * Execute a callback function for each value in the range.
 			 * @param {function} callback   The callback method is invoked with three
 			 *                              parameters: the value of the element, the index
 			 *                              of the element, and the Matrix being traversed.
 			 */
-			Range.prototype.forEach = function (callback) {
+			Range.prototype.forEach = function(callback) {
 				var x = this.start;
 				var step = this.step;
 				var end = this.end;
 				var i = 0;
 
-				if (step > 0) {
-					while (x < end) {
+				if(step > 0) {
+					while(x < end) {
 						callback(x, i, this);
 						x += step;
 						i++;
 					}
 				}
-				else if (step < 0) {
-					while (x > end) {
+				else if(step < 0) {
+					while(x > end) {
 						callback(x, i, this);
 						x += step;
 						i++;
@@ -1660,9 +1684,9 @@
 			 *                              of the element, and the Matrix being traversed.
 			 * @returns {Array} array
 			 */
-			Range.prototype.map = function (callback) {
+			Range.prototype.map = function(callback) {
 				var array = [];
-				this.forEach(function (value, index, obj) {
+				this.forEach(function(value, index, obj) {
 					array[index] = callback(value, index, obj);
 				});
 				return array;
@@ -1672,9 +1696,9 @@
 			 * Create an Array with a copy of the Ranges data
 			 * @returns {Array} array
 			 */
-			Range.prototype.toArray = function () {
+			Range.prototype.toArray = function() {
 				var array = [];
-				this.forEach(function (value, index) {
+				this.forEach(function(value, index) {
 					array[index] = value;
 				});
 				return array;
@@ -1684,7 +1708,7 @@
 			 * Get the primitive value of the Range, a one dimensional array
 			 * @returns {Array} array
 			 */
-			Range.prototype.valueOf = function () {
+			Range.prototype.valueOf = function() {
 				// TODO: implement a caching mechanism for range.valueOf()
 				return this.toArray();
 			};
@@ -1698,10 +1722,10 @@
 			 *                                                options.
 			 * @returns {String} str
 			 */
-			Range.prototype.format = function (options) {
+			Range.prototype.format = function(options) {
 				var str = number.format(this.start, options);
 
-				if (this.step != 1) {
+				if(this.step != 1) {
 					str += ':' + number.format(this.step, options);
 				}
 				str += ':' + number.format(this.end, options);
@@ -1712,15 +1736,15 @@
 			 * Get a string representation of the range.
 			 * @returns {String}
 			 */
-			Range.prototype.toString = function () {
+			Range.prototype.toString = function() {
 				return this.format();
 			};
 
 			// exports
 			module.exports = Range;
 
-
-			/***/ },
+			/***/
+		},
 		/* 8 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -1756,31 +1780,31 @@
 			 * @param {...*} ranges
 			 */
 			function Index(ranges) {
-				if (!(this instanceof Index)) {
+				if(!(this instanceof Index)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				this._ranges = [];
 				this._isScalar = true;
 
-				for (var i = 0, ii = arguments.length; i < ii; i++) {
+				for(var i = 0, ii = arguments.length; i < ii; i++) {
 					var arg = arguments[i];
 
-					if (arg instanceof Range) {
+					if(arg instanceof Range) {
 						this._ranges.push(arg);
 						this._isScalar = false;
 					}
-					else if (isArray(arg)) {
+					else if(isArray(arg)) {
 						this._ranges.push(_createRange(arg));
 						this._isScalar = false;
 					}
-					else if (isNumber(arg)) {
+					else if(isNumber(arg)) {
 						this._ranges.push(_createRange([arg, arg + 1]));
 					}
 					// TODO: implement support for wildcard '*'
 					else {
 						var primitive = arg.valueOf(); // for example turn a Matrix into an Array
-						if (isArray(primitive)) {
+						if(isArray(primitive)) {
 							this._ranges.push(_createRange(primitive));
 							this._isScalar = false;
 						}
@@ -1803,13 +1827,13 @@
 
 				// test whether all arguments are integers
 				var num = arg.length;
-				for (var i = 0; i < num; i++) {
-					if (!isNumber(arg[i]) || !isInteger(arg[i])) {
+				for(var i = 0; i < num; i++) {
+					if(!isNumber(arg[i]) || !isInteger(arg[i])) {
 						throw new TypeError('Index parameters must be integer numbers');
 					}
 				}
 
-				switch (arg.length) {
+				switch(arg.length) {
 					case 2:
 						return new Range(arg[0], arg[1]); // start, end
 					case 3:
@@ -1824,7 +1848,7 @@
 			 * Create a clone of the index
 			 * @return {Index} clone
 			 */
-			Index.prototype.clone = function () {
+			Index.prototype.clone = function() {
 				var index = new Index();
 				index._ranges = util.object.clone(this._ranges);
 				index._isScalar = this._isScalar;
@@ -1836,7 +1860,7 @@
 			 * @param {*} object
 			 * @return {Boolean} isIndex
 			 */
-			Index.isIndex = function (object) {
+			Index.isIndex = function(object) {
 				return (object instanceof Index);
 			};
 
@@ -1846,7 +1870,7 @@
 			 * @return {Index} index
 			 * @private
 			 */
-			Index.create = function (ranges) {
+			Index.create = function(ranges) {
 				var index = new Index();
 				Index.apply(index, ranges);
 				return index;
@@ -1856,10 +1880,10 @@
 			 * Retrieve the size of the index, the number of elements for each dimension.
 			 * @returns {Number[]} size
 			 */
-			Index.prototype.size = function () {
+			Index.prototype.size = function() {
 				var size = [];
 
-				for (var i = 0, ii = this._ranges.length; i < ii; i++) {
+				for(var i = 0, ii = this._ranges.length; i < ii; i++) {
 					var range = this._ranges[i];
 
 					size[i] = range.size()[0];
@@ -1872,10 +1896,10 @@
 			 * Get the maximum value for each of the indexes ranges.
 			 * @returns {Number[]} max
 			 */
-			Index.prototype.max = function () {
+			Index.prototype.max = function() {
 				var values = [];
 
-				for (var i = 0, ii = this._ranges.length; i < ii; i++) {
+				for(var i = 0, ii = this._ranges.length; i < ii; i++) {
 					var range = this._ranges[i];
 					values[i] = range.max();
 				}
@@ -1887,10 +1911,10 @@
 			 * Get the minimum value for each of the indexes ranges.
 			 * @returns {Number[]} min
 			 */
-			Index.prototype.min = function () {
+			Index.prototype.min = function() {
 				var values = [];
 
-				for (var i = 0, ii = this._ranges.length; i < ii; i++) {
+				for(var i = 0, ii = this._ranges.length; i < ii; i++) {
 					var range = this._ranges[i];
 
 					values[i] = range.min();
@@ -1905,8 +1929,8 @@
 			 *                              argument, the dimension as second, and the
 			 *                              index object as third.
 			 */
-			Index.prototype.forEach = function (callback) {
-				for (var i = 0, ii = this._ranges.length; i < ii; i++) {
+			Index.prototype.forEach = function(callback) {
+				for(var i = 0, ii = this._ranges.length; i < ii; i++) {
 					callback(this._ranges[i], i, this);
 				}
 			};
@@ -1927,7 +1951,7 @@
 			 * not for ranges resolving into a single value.
 			 * @return {boolean} isScalar
 			 */
-			Index.prototype.isScalar = function () {
+			Index.prototype.isScalar = function() {
 				return this._isScalar;
 			};
 
@@ -1936,23 +1960,23 @@
 			 * For example new Index([0,3], [2,7]) returns [[0,1,2], [2,3,4,5,6]]
 			 * @returns {Array} array
 			 */
-			Index.prototype.toArray = function () {
+			Index.prototype.toArray = function() {
 				var array = [];
-				for (var i = 0, ii = this._ranges.length; i < ii; i++) {
+				for(var i = 0, ii = this._ranges.length; i < ii; i++) {
 					var range = this._ranges[i],
 						row = [],
 						x = range.start,
 						end = range.end,
 						step = range.step;
 
-					if (step > 0) {
-						while (x < end) {
+					if(step > 0) {
+						while(x < end) {
 							row.push(x);
 							x += step;
 						}
 					}
-					else if (step < 0) {
-						while (x > end) {
+					else if(step < 0) {
+						while(x > end) {
 							row.push(x);
 							x += step;
 						}
@@ -1975,13 +1999,13 @@
 			 * Get the string representation of the index, for example '[2:6]' or '[0:2:10, 4:7]'
 			 * @returns {String} str
 			 */
-			Index.prototype.toString = function () {
+			Index.prototype.toString = function() {
 				var strings = [];
 
-				for (var i = 0, ii = this._ranges.length; i < ii; i++) {
+				for(var i = 0, ii = this._ranges.length; i < ii; i++) {
 					var range = this._ranges[i];
 					var str = number.format(range.start);
-					if (range.step != 1) {
+					if(range.step != 1) {
 						str += ':' + number.format(range.step);
 					}
 					str += ':' + number.format(range.end);
@@ -1994,8 +2018,8 @@
 			// exports
 			module.exports = Index;
 
-
-			/***/ },
+			/***/
+		},
 		/* 9 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -2036,20 +2060,20 @@
 			 * @param {Array | Matrix} [data]    A multi dimensional array
 			 */
 			function Matrix(data) {
-				if (!(this instanceof Matrix)) {
+				if(!(this instanceof Matrix)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
-				if (data instanceof Matrix) {
+				if(data instanceof Matrix) {
 					// clone data from a Matrix
 					this._data = data.clone()._data;
 				}
-				else if (isArray(data)) {
+				else if(isArray(data)) {
 					// use array
 					// replace nested Matrices with Arrays
 					this._data = preprocess(data);
 				}
-				else if (data != null) {
+				else if(data != null) {
 					// unsupported type
 					throw new TypeError('Unsupported type of data (' + util.types.type(data) + ')');
 				}
@@ -2067,7 +2091,7 @@
 			 * @param {*} object
 			 * @return {Boolean} isMatrix
 			 */
-			Matrix.isMatrix = function (object) {
+			Matrix.isMatrix = function(object) {
 				return (object instanceof Matrix);
 			};
 
@@ -2084,8 +2108,8 @@
 			 *                                  the matrix is resized. If not provided,
 			 *                                  new matrix elements will be filled with zeros.
 			 */
-			Matrix.prototype.subset = function (index, replacement, defaultValue) {
-				switch (arguments.length) {
+			Matrix.prototype.subset = function(index, replacement, defaultValue) {
+				switch(arguments.length) {
 					case 1:
 						return _get(this, index);
 
@@ -2104,16 +2128,16 @@
 			 * @param {Number[]} index   Zero-based index
 			 * @return {*} value
 			 */
-			Matrix.prototype.get = function (index) {
-				if (!isArray(index)) {
+			Matrix.prototype.get = function(index) {
+				if(!isArray(index)) {
 					throw new TypeError('Array expected');
 				}
-				if (index.length != this._size.length) {
+				if(index.length != this._size.length) {
 					throw new DimensionError(index.length, this._size.length);
 				}
 
 				var data = this._data;
-				for (var i = 0, ii = index.length; i < ii; i++) {
+				for(var i = 0, ii = index.length; i < ii; i++) {
 					var index_i = index[i];
 					validateIndex(index_i, data.length);
 					data = data[index_i];
@@ -2131,26 +2155,26 @@
 			 *                                  new matrix elements will be left undefined.
 			 * @return {Matrix} self
 			 */
-			Matrix.prototype.set = function (index, value, defaultValue) {
+			Matrix.prototype.set = function(index, value, defaultValue) {
 				var i, ii;
 
 				// validate input type and dimensions
-				if (!isArray(index)) {
+				if(!isArray(index)) {
 					throw new Error('Array expected');
 				}
-				if (index.length < this._size.length) {
+				if(index.length < this._size.length) {
 					throw new DimensionError(index.length, this._size.length, '<');
 				}
 
 				// enlarge matrix when needed
-				var size = index.map(function (i) {
+				var size = index.map(function(i) {
 					return i + 1;
 				});
 				_fit(this, size, defaultValue);
 
 				// traverse over the dimensions
 				var data = this._data;
-				for (i = 0, ii = index.length - 1; i < ii; i++) {
+				for(i = 0, ii = index.length - 1; i < ii; i++) {
 					var index_i = index[i];
 					validateIndex(index_i, data.length);
 					data = data[index_i];
@@ -2170,27 +2194,27 @@
 			 * @param {Index} index   Zero-based index
 			 * @private
 			 */
-			function _get (matrix, index) {
-				if (!(index instanceof Index)) {
+			function _get(matrix, index) {
+				if(!(index instanceof Index)) {
 					throw new TypeError('Invalid index');
 				}
 
 				var isScalar = index.isScalar();
-				if (isScalar) {
+				if(isScalar) {
 					// return a scalar
 					return matrix.get(index.min());
 				}
 				else {
 					// validate dimensions
 					var size = index.size();
-					if (size.length != matrix._size.length) {
+					if(size.length != matrix._size.length) {
 						throw new DimensionError(size.length, matrix._size.length);
 					}
 
 					// validate if any of the ranges in the index is out of range
 					var min = index.min();
 					var max = index.max();
-					for (var i = 0, ii = matrix._size.length; i < ii; i++) {
+					for(var i = 0, ii = matrix._size.length; i < ii; i++) {
 						validateIndex(min[i], matrix._size[i]);
 						validateIndex(max[i], matrix._size[i]);
 					}
@@ -2211,17 +2235,17 @@
 			 * @return {Array} submatrix
 			 * @private
 			 */
-			function _getSubmatrix (data, index, dims, dim) {
+			function _getSubmatrix(data, index, dims, dim) {
 				var last = (dim == dims - 1);
 				var range = index.range(dim);
 
-				if (last) {
-					return range.map(function (i) {
+				if(last) {
+					return range.map(function(i) {
 						return data[i];
 					});
 				}
 				else {
-					return range.map(function (i) {
+					return range.map(function(i) {
 						var child = data[i];
 						return _getSubmatrix(child, index, dims, dim + 1);
 					});
@@ -2239,8 +2263,8 @@
 			 * @return {Matrix} matrix
 			 * @private
 			 */
-			function _set (matrix, index, submatrix, defaultValue) {
-				if (!(index instanceof Index)) {
+			function _set(matrix, index, submatrix, defaultValue) {
+				if(!(index instanceof Index)) {
 					throw new TypeError('Invalid index');
 				}
 
@@ -2250,7 +2274,7 @@
 
 				// calculate the size of the submatrix, and convert it into an Array if needed
 				var sSize;
-				if (submatrix instanceof Matrix) {
+				if(submatrix instanceof Matrix) {
 					sSize = submatrix.size();
 					submatrix = submatrix.valueOf();
 				}
@@ -2258,11 +2282,11 @@
 					sSize = array.size(submatrix);
 				}
 
-				if (isScalar) {
+				if(isScalar) {
 					// set a scalar
 
 					// check whether submatrix is a scalar
-					if (sSize.length != 0) {
+					if(sSize.length != 0) {
 						throw new TypeError('Scalar expected');
 					}
 
@@ -2272,18 +2296,18 @@
 					// set a submatrix
 
 					// validate dimensions
-					if (iSize.length < matrix._size.length) {
+					if(iSize.length < matrix._size.length) {
 						throw new DimensionError(iSize.length, matrix._size.length, '<');
 					}
 
-					if (sSize.length < iSize.length) {
+					if(sSize.length < iSize.length) {
 						// calculate number of missing outer dimensions
 						var i = 0;
 						var outer = 0;
-						while (iSize[i] === 1 && sSize[i] === 1) {
+						while(iSize[i] === 1 && sSize[i] === 1) {
 							i++;
 						}
-						while (iSize[i] === 1) {
+						while(iSize[i] === 1) {
 							outer++;
 							i++;
 						}
@@ -2293,12 +2317,12 @@
 					}
 
 					// check whether the size of the submatrix matches the index size
-					if (!object.deepEqual(iSize, sSize)) {
+					if(!object.deepEqual(iSize, sSize)) {
 						throw new DimensionError(iSize, sSize, '>');
 					}
 
 					// enlarge matrix when needed
-					var size = index.max().map(function (i) {
+					var size = index.max().map(function(i) {
 						return i + 1;
 					});
 					_fit(matrix, size, defaultValue);
@@ -2306,7 +2330,7 @@
 					// insert the sub matrix
 					var dims = iSize.length,
 						dim = 0;
-					_setSubmatrix (matrix._data, index, submatrix, dims, dim);
+					_setSubmatrix(matrix._data, index, submatrix, dims, dim);
 				}
 
 				return matrix;
@@ -2321,18 +2345,18 @@
 			 * @param {number} dim
 			 * @private
 			 */
-			function _setSubmatrix (data, index, submatrix, dims, dim) {
+			function _setSubmatrix(data, index, submatrix, dims, dim) {
 				var last = (dim == dims - 1),
 					range = index.range(dim);
 
-				if (last) {
-					range.forEach(function (dataIndex, subIndex) {
+				if(last) {
+					range.forEach(function(dataIndex, subIndex) {
 						validateIndex(dataIndex);
 						data[dataIndex] = submatrix[subIndex];
 					});
 				}
 				else {
-					range.forEach(function (dataIndex, subIndex) {
+					range.forEach(function(dataIndex, subIndex) {
 						validateIndex(dataIndex);
 						_setSubmatrix(data[dataIndex], index, submatrix[subIndex], dims, dim + 1);
 					});
@@ -2347,7 +2371,7 @@
 			 *                                  be filled with zeros.
 			 * @return {Matrix} self            The matrix itself is returned
 			 */
-			Matrix.prototype.resize = function (size, defaultValue) {
+			Matrix.prototype.resize = function(size, defaultValue) {
 				this._size = object.clone(size);
 				this._data = array.resize(this._data, this._size, defaultValue);
 
@@ -2368,20 +2392,20 @@
 					changed = false;
 
 				// add dimensions when needed
-				while (newSize.length < size.length) {
+				while(newSize.length < size.length) {
 					newSize.push(0);
 					changed = true;
 				}
 
 				// enlarge size when needed
-				for (var i = 0, ii = size.length; i < ii; i++) {
-					if (size[i] > newSize[i]) {
+				for(var i = 0, ii = size.length; i < ii; i++) {
+					if(size[i] > newSize[i]) {
 						newSize[i] = size[i];
 						changed = true;
 					}
 				}
 
-				if (changed) {
+				if(changed) {
 					// resize only when size is changed
 					matrix.resize(newSize, defaultValue);
 				}
@@ -2391,7 +2415,7 @@
 			 * Create a clone of the matrix
 			 * @return {Matrix} clone
 			 */
-			Matrix.prototype.clone = function () {
+			Matrix.prototype.clone = function() {
 				var matrix = new Matrix();
 				matrix._data = object.clone(this._data);
 				matrix._size = object.clone(this._size);
@@ -2414,13 +2438,13 @@
 			 *                              of the element, and the Matrix being traversed.
 			 * @return {Matrix} matrix
 			 */
-			Matrix.prototype.map = function (callback) {
+			Matrix.prototype.map = function(callback) {
 				var me = this;
 				var matrix = new Matrix();
 				var index = [];
-				var recurse = function (value, dim) {
-					if (isArray(value)) {
-						return value.map(function (child, i) {
+				var recurse = function(value, dim) {
+					if(isArray(value)) {
+						return value.map(function(child, i) {
 							index[dim] = i;
 							return recurse(child, dim + 1);
 						});
@@ -2441,12 +2465,12 @@
 			 *                              parameters: the value of the element, the index
 			 *                              of the element, and the Matrix being traversed.
 			 */
-			Matrix.prototype.forEach = function (callback) {
+			Matrix.prototype.forEach = function(callback) {
 				var me = this;
 				var index = [];
-				var recurse = function (value, dim) {
-					if (isArray(value)) {
-						value.forEach(function (child, i) {
+				var recurse = function(value, dim) {
+					if(isArray(value)) {
+						value.forEach(function(child, i) {
 							index[dim] = i;
 							recurse(child, dim + 1);
 						});
@@ -2462,7 +2486,7 @@
 			 * Create an Array with a copy of the data of the Matrix
 			 * @returns {Array} array
 			 */
-			Matrix.prototype.toArray = function () {
+			Matrix.prototype.toArray = function() {
 				return object.clone(this._data);
 			};
 
@@ -2470,7 +2494,7 @@
 			 * Get the primitive value of the Matrix: a multidimensional array
 			 * @returns {Array} array
 			 */
-			Matrix.prototype.valueOf = function () {
+			Matrix.prototype.valueOf = function() {
 				return this._data;
 			};
 
@@ -2482,7 +2506,7 @@
 			 *                                                options.
 			 * @returns {String} str
 			 */
-			Matrix.prototype.format = function (options) {
+			Matrix.prototype.format = function(options) {
 				return string.format(this._data, options);
 			};
 
@@ -2490,7 +2514,7 @@
 			 * Get a string representation of the matrix
 			 * @returns {String} str
 			 */
-			Matrix.prototype.toString = function () {
+			Matrix.prototype.toString = function() {
 				return string.format(this._data);
 			};
 
@@ -2501,12 +2525,12 @@
 			 * @return {Array} data
 			 */
 			function preprocess(data) {
-				for (var i = 0, ii = data.length; i < ii; i++) {
+				for(var i = 0, ii = data.length; i < ii; i++) {
 					var elem = data[i];
-					if (isArray(elem)) {
+					if(isArray(elem)) {
 						data[i] = preprocess(elem);
 					}
-					else if (elem instanceof Matrix) {
+					else if(elem instanceof Matrix) {
 						data[i] = preprocess(elem._data);
 					}
 				}
@@ -2517,8 +2541,8 @@
 			// exports
 			module.exports = Matrix;
 
-
-			/***/ },
+			/***/
+		},
 		/* 10 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -2548,21 +2572,21 @@
 			 * @param {String} [name]   A unit name like "cm" or "inch". Can include a prefix
 			 */
 			function Unit(value, name) {
-				if (!(this instanceof Unit)) {
+				if(!(this instanceof Unit)) {
 					throw new Error('Constructor must be called with the new operator');
 				}
 
-				if (value != undefined && !isNumber(value)) {
+				if(value != undefined && !isNumber(value)) {
 					throw new TypeError('First parameter in Unit constructor must be a number');
 				}
-				if (name != undefined && (!isString(name) || name == '')) {
+				if(name != undefined && (!isString(name) || name == '')) {
 					throw new TypeError('Second parameter in Unit constructor must be a string');
 				}
 
-				if (name != undefined) {
+				if(name != undefined) {
 					// find the unit and prefix from the string
 					var res = _findUnit(name);
-					if (!res) {
+					if(!res) {
 						throw new SyntaxError('Unknown unit "' + name + '"');
 					}
 					this.unit = res.unit;
@@ -2583,16 +2607,16 @@
 			var text, index, c;
 
 			function skipWhitespace() {
-				while (c == ' ' || c == '\t') {
+				while(c == ' ' || c == '\t') {
 					next();
 				}
 			}
 
-			function isDigitDot (c) {
+			function isDigitDot(c) {
 				return ((c >= '0' && c <= '9') || c == '.');
 			}
 
-			function isDigit (c) {
+			function isDigit(c) {
 				return ((c >= '0' && c <= '9'));
 			}
 
@@ -2606,68 +2630,68 @@
 				c = text.charAt(index);
 			}
 
-			function parseNumber () {
+			function parseNumber() {
 				var number = '';
 				var oldIndex;
 				oldIndex = index;
 
-				if (c == '+') {
+				if(c == '+') {
 					next();
 				}
-				else if (c == '-') {
+				else if(c == '-') {
 					number += c;
 					next();
 				}
 
-				if (!isDigitDot(c)) {
+				if(!isDigitDot(c)) {
 					// a + or - must be followed by a digit
 					revert(oldIndex);
 					return null;
 				}
 
 				// get number, can have a single dot
-				if (c == '.') {
+				if(c == '.') {
 					number += c;
 					next();
-					if (!isDigit(c)) {
+					if(!isDigit(c)) {
 						// this is no legal number, it is just a dot
 						revert(oldIndex);
 						return null;
 					}
 				}
 				else {
-					while (isDigit(c)) {
+					while(isDigit(c)) {
 						number += c;
 						next();
 					}
-					if (c == '.') {
+					if(c == '.') {
 						number += c;
 						next();
 					}
 				}
-				while (isDigit(c)) {
+				while(isDigit(c)) {
 					number += c;
 					next();
 				}
 
 				// check for exponential notation like "2.3e-4" or "1.23e50"
-				if (c == 'E' || c == 'e') {
+				if(c == 'E' || c == 'e') {
 					number += c;
 					next();
 
-					if (c == '+' || c == '-') {
+					if(c == '+' || c == '-') {
 						number += c;
 						next();
 					}
 
 					// Scientific notation MUST be followed by an exponent
-					if (!isDigit(c)) {
+					if(!isDigit(c)) {
 						// this is no legal number, exponent is missing.
 						revert(oldIndex);
 						return null;
 					}
 
-					while (isDigit(c)) {
+					while(isDigit(c)) {
 						number += c;
 						next();
 					}
@@ -2680,7 +2704,7 @@
 				var unitName = '';
 
 				skipWhitespace();
-				while (c && c != ' ' && c != '\t') {
+				while(c && c != ' ' && c != '\t') {
 					unitName += c;
 					next();
 				}
@@ -2699,7 +2723,7 @@
 				index = -1;
 				c = '';
 
-				if (!isString(text)) {
+				if(!isString(text)) {
 					return null;
 				}
 
@@ -2707,22 +2731,23 @@
 				skipWhitespace();
 				var value = parseNumber();
 				var name;
-				if (value) {
+				if(value) {
 					name = parseUnit();
 
 					next();
 					skipWhitespace();
-					if (c) {
+					if(c) {
 						// garbage at the end. not good.
 						return null;
 					}
 
-					if (value && name) {
+					if(value && name) {
 						try {
 							// constructor will throw an error when unit is not found
 							return new Unit(Number(value), name);
 						}
-						catch (err) {}
+						catch(err) {
+						}
 					}
 				}
 				else {
@@ -2730,17 +2755,18 @@
 
 					next();
 					skipWhitespace();
-					if (c) {
+					if(c) {
 						// garbage at the end. not good.
 						return null;
 					}
 
-					if (name) {
+					if(name) {
 						try {
 							// constructor will throw an error when unit is not found
 							return new Unit(null, name);
 						}
-						catch (err) {}
+						catch(err) {
+						}
 					}
 				}
 
@@ -2760,11 +2786,11 @@
 			 * create a copy of this unit
 			 * @return {Unit} clone
 			 */
-			Unit.prototype.clone = function () {
+			Unit.prototype.clone = function() {
 				var clone = new Unit();
 
-				for (var p in this) {
-					if (this.hasOwnProperty(p)) {
+				for(var p in this) {
+					if(this.hasOwnProperty(p)) {
 						clone[p] = this[p];
 					}
 				}
@@ -2789,8 +2815,8 @@
 			 * @return {Number} unnormalized value
 			 * @private
 			 */
-			Unit.prototype._unnormalize = function (value, prefixValue) {
-				if (prefixValue == undefined) {
+			Unit.prototype._unnormalize = function(value, prefixValue) {
+				if(prefixValue == undefined) {
 					return value / this.unit.value / this.prefix.value - this.unit.offset;
 				}
 				else {
@@ -2806,14 +2832,14 @@
 			 * @private
 			 */
 			function _findUnit(str) {
-				for (var name in UNITS) {
-					if (UNITS.hasOwnProperty(name)) {
-						if (string.endsWith(str, name) ) {
+				for(var name in UNITS) {
+					if(UNITS.hasOwnProperty(name)) {
+						if(string.endsWith(str, name)) {
 							var unit = UNITS[name];
 							var prefixLen = (str.length - name.length);
 							var prefixName = str.substring(0, prefixLen);
 							var prefix = unit.prefixes[prefixName];
-							if (prefix !== undefined) {
+							if(prefix !== undefined) {
 								// store unit, prefix, and value
 								return {
 									unit: unit,
@@ -2834,7 +2860,7 @@
 			 *                        The unit can have prefix, like "cm"
 			 * @return {Boolean}      true if the given string is a unit
 			 */
-			Unit.isValuelessUnit = function (name) {
+			Unit.isValuelessUnit = function(name) {
 				return (_findUnit(name) != null);
 			};
 
@@ -2869,12 +2895,12 @@
 			 * @param {String | Unit} valuelessUnit   A unit without value. Can have prefix, like "cm"
 			 * @returns {Unit} unit having fixed, specified unit
 			 */
-			Unit.prototype.to = function (valuelessUnit) {
+			Unit.prototype.to = function(valuelessUnit) {
 				var other;
-				if (isString(valuelessUnit)) {
+				if(isString(valuelessUnit)) {
 					other = new Unit(null, valuelessUnit);
 
-					if (!this.equalBase(other)) {
+					if(!this.equalBase(other)) {
 						throw new Error('Units do not match');
 					}
 
@@ -2882,11 +2908,11 @@
 					other.fixPrefix = true;
 					return other;
 				}
-				else if (valuelessUnit instanceof Unit) {
-					if (!this.equalBase(valuelessUnit)) {
+				else if(valuelessUnit instanceof Unit) {
+					if(!this.equalBase(valuelessUnit)) {
 						throw new Error('Units do not match');
 					}
-					if (valuelessUnit.value !== null) {
+					if(valuelessUnit.value !== null) {
 						throw new Error('Cannot convert to a unit with a value');
 					}
 
@@ -2905,11 +2931,10 @@
 			 * @param {String | Unit} valuelessUnit    For example 'cm' or 'inch'
 			 * @return {Number} value
 			 */
-			Unit.prototype.toNumber = function (valuelessUnit) {
+			Unit.prototype.toNumber = function(valuelessUnit) {
 				var other = this.to(valuelessUnit);
 				return other._unnormalize(other.value, other.prefix.value);
 			};
-
 
 			/**
 			 * Get a string representation of the unit.
@@ -2937,7 +2962,7 @@
 				var value,
 					str;
 
-				if (this.value !== null && !this.fixPrefix) {
+				if(this.value !== null && !this.fixPrefix) {
 					var bestPrefix = this._bestPrefix();
 					value = this._unnormalize(this.value, bestPrefix.value);
 					str = number.format(value, options) + ' ';
@@ -2957,7 +2982,7 @@
 			 * @returns {Object} prefix
 			 * @private
 			 */
-			Unit.prototype._bestPrefix = function () {
+			Unit.prototype._bestPrefix = function() {
 				// find the best prefix value (resulting in the value of which
 				// the absolute value of the log10 is closest to zero,
 				// though with a little offset of 1.2 for nicer values: you get a
@@ -2965,17 +2990,17 @@
 				var absValue = Math.abs(this.value / this.unit.value);
 				var bestPrefix = PREFIX_NONE;
 				var bestDiff = Math.abs(
-						Math.log(absValue / bestPrefix.value) / Math.LN10 - 1.2);
+					Math.log(absValue / bestPrefix.value) / Math.LN10 - 1.2);
 
 				var prefixes = this.unit.prefixes;
-				for (var p in prefixes) {
-					if (prefixes.hasOwnProperty(p)) {
+				for(var p in prefixes) {
+					if(prefixes.hasOwnProperty(p)) {
 						var prefix = prefixes[p];
-						if (prefix.scientific) {
+						if(prefix.scientific) {
 							var diff = Math.abs(
-									Math.log(absValue / prefix.value) / Math.LN10 - 1.2);
+								Math.log(absValue / prefix.value) / Math.LN10 - 1.2);
 
-							if (diff < bestDiff) {
+							if(diff < bestDiff) {
 								bestPrefix = prefix;
 								bestDiff = diff;
 							}
@@ -3176,16 +3201,28 @@
 				li: {name: 'li', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.201168, offset: 0},
 				rd: {name: 'rd', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 5.029210, offset: 0},
 				ch: {name: 'ch', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 20.1168, offset: 0},
-				mil: {name: 'mil', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.0000254, offset: 0}, // 1/1000 inch
+				mil: {name: 'mil', base: BASE_UNITS.LENGTH, prefixes: PREFIXES.NONE, value: 0.0000254, offset: 0}, // 1/1000
+			                                                                                                       // inch
 
 				// Surface
 				m2: {name: 'm2', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.SQUARED, value: 1, offset: 0},
-				sqin: {name: 'sqin', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 0.00064516, offset: 0}, // 645.16 mm2
-				sqft: {name: 'sqft', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 0.09290304, offset: 0}, // 0.09290304 m2
-				sqyd: {name: 'sqyd', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 0.83612736, offset: 0}, // 0.83612736 m2
-				sqmi: {name: 'sqmi', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 2589988.110336, offset: 0}, // 2.589988110336 km2
-				sqrd: {name: 'sqrd', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 25.29295, offset: 0}, // 25.29295 m2
-				sqch: {name: 'sqch', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 404.6873, offset: 0}, // 404.6873 m2
+				sqin: {name: 'sqin', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 0.00064516, offset: 0}, // 645.16
+			                                                                                                           // mm2
+				sqft: {name: 'sqft', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 0.09290304, offset: 0}, // 0.09290304
+			                                                                                                           // m2
+				sqyd: {name: 'sqyd', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 0.83612736, offset: 0}, // 0.83612736
+			                                                                                                           // m2
+				sqmi: {
+					name: 'sqmi',
+					base: BASE_UNITS.SURFACE,
+					prefixes: PREFIXES.NONE,
+					value: 2589988.110336,
+					offset: 0
+				}, // 2.589988110336 km2
+				sqrd: {name: 'sqrd', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 25.29295, offset: 0}, // 25.29295
+			                                                                                                         // m2
+				sqch: {name: 'sqch', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 404.6873, offset: 0}, // 404.6873
+			                                                                                                         // m2
 				sqmil: {name: 'sqmil', base: BASE_UNITS.SURFACE, prefixes: PREFIXES.NONE, value: 6.4516e-10, offset: 0}, // 6.4516 * 10^-10 m2
 
 				// Volume
@@ -3194,39 +3231,135 @@
 				l: {name: 'l', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.SHORT, value: 0.001, offset: 0}, // litre
 				litre: {name: 'litre', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.LONG, value: 0.001, offset: 0},
 				cuin: {name: 'cuin', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 1.6387064e-5, offset: 0}, // 1.6387064e-5 m3
-				cuft: {name: 'cuft', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.028316846592, offset: 0}, // 28.316 846 592 L
-				cuyd: {name: 'cuyd', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.764554857984, offset: 0}, // 764.554 857 984 L
-				teaspoon: {name: 'teaspoon', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.000005, offset: 0}, // 5 mL
-				tablespoon: {name: 'tablespoon', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.000015, offset: 0}, // 15 mL
-				//{name: 'cup', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.000240, offset: 0}, // 240 mL  // not possible, we have already another cup
-				drop: {name: 'drop', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 5e-8, offset: 0},  // 0.05 mL = 5e-8 m3
-				gtt: {name: 'gtt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 5e-8, offset: 0},  // 0.05 mL = 5e-8 m3
+				cuft: {
+					name: 'cuft',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.028316846592,
+					offset: 0
+				}, // 28.316 846 592 L
+				cuyd: {
+					name: 'cuyd',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.764554857984,
+					offset: 0
+				}, // 764.554 857 984 L
+				teaspoon: {
+					name: 'teaspoon',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.000005,
+					offset: 0
+				}, // 5 mL
+				tablespoon: {
+					name: 'tablespoon',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.000015,
+					offset: 0
+				}, // 15 mL
+				//{name: 'cup', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.000240, offset: 0}, // 240
+				// mL  // not possible, we have already another cup
+				drop: {name: 'drop', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 5e-8, offset: 0},  // 0.05
+			                                                                                                     // mL
+			                                                                                                     // =
+			                                                                                                     // 5e-8
+			                                                                                                     // m3
+				gtt: {name: 'gtt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 5e-8, offset: 0},  // 0.05
+			                                                                                                   // mL =
+			                                                                                                   // 5e-8
+			                                                                                                   // m3
 
 				// Liquid volume
-				minim: {name: 'minim', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00000006161152, offset: 0}, // 0.06161152 mL
-				fluiddram: {name: 'fluiddram', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0000036966911, offset: 0},  // 3.696691 mL
-				fluidounce: {name: 'fluidounce', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00002957353, offset: 0}, // 29.57353 mL
+				minim: {
+					name: 'minim',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.00000006161152,
+					offset: 0
+				}, // 0.06161152 mL
+				fluiddram: {
+					name: 'fluiddram',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.0000036966911,
+					offset: 0
+				},  // 3.696691 mL
+				fluidounce: {
+					name: 'fluidounce',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.00002957353,
+					offset: 0
+				}, // 29.57353 mL
 				gill: {name: 'gill', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0001182941, offset: 0}, // 118.2941 mL
 				cc: {name: 'cc', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 1e-6, offset: 0}, // 1e-6 L
-				cup: {name: 'cup', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0002365882, offset: 0}, // 236.5882 mL
+				cup: {name: 'cup', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0002365882, offset: 0}, // 236.5882
+			                                                                                                          // mL
 				pint: {name: 'pint', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0004731765, offset: 0}, // 473.1765 mL
-				quart: {name: 'quart', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0009463529, offset: 0}, // 946.3529 mL
-				gallon: {name: 'gallon', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.003785412, offset: 0}, // 3.785412 L
-				beerbarrel: {name: 'beerbarrel', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1173478, offset: 0}, // 117.3478 L
-				oilbarrel: {name: 'oilbarrel', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1589873, offset: 0}, // 158.9873 L
-				hogshead: {name: 'hogshead', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.2384810, offset: 0}, // 238.4810 L
+				quart: {
+					name: 'quart',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.0009463529,
+					offset: 0
+				}, // 946.3529 mL
+				gallon: {
+					name: 'gallon',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.003785412,
+					offset: 0
+				}, // 3.785412 L
+				beerbarrel: {
+					name: 'beerbarrel',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.1173478,
+					offset: 0
+				}, // 117.3478 L
+				oilbarrel: {
+					name: 'oilbarrel',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.1589873,
+					offset: 0
+				}, // 158.9873 L
+				hogshead: {
+					name: 'hogshead',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.2384810,
+					offset: 0
+				}, // 238.4810 L
 
-				//{name: 'min', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00000006161152, offset: 0}, // 0.06161152 mL // min is already in use as minute
-				fldr: {name: 'fldr', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0000036966911, offset: 0},  // 3.696691 mL
+				//{name: 'min', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00000006161152, offset: 0},
+				// // 0.06161152 mL // min is already in use as minute
+				fldr: {
+					name: 'fldr',
+					base: BASE_UNITS.VOLUME,
+					prefixes: PREFIXES.NONE,
+					value: 0.0000036966911,
+					offset: 0
+				},  // 3.696691 mL
 				floz: {name: 'floz', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.00002957353, offset: 0}, // 29.57353 mL
-				gi: {name: 'gi', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0001182941, offset: 0}, // 118.2941 mL
-				cp: {name: 'cp', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0002365882, offset: 0}, // 236.5882 mL
-				pt: {name: 'pt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0004731765, offset: 0}, // 473.1765 mL
-				qt: {name: 'qt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0009463529, offset: 0}, // 946.3529 mL
-				gal: {name: 'gal', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.003785412, offset: 0}, // 3.785412 L
-				bbl: {name: 'bbl', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1173478, offset: 0}, // 117.3478 L
-				obl: {name: 'obl', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1589873, offset: 0}, // 158.9873 L
-				//{name: 'hogshead', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.2384810, offset: 0}, // 238.4810 L // TODO: hh?
+				gi: {name: 'gi', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0001182941, offset: 0}, // 118.2941
+			                                                                                                        // mL
+				cp: {name: 'cp', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0002365882, offset: 0}, // 236.5882
+			                                                                                                        // mL
+				pt: {name: 'pt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0004731765, offset: 0}, // 473.1765
+			                                                                                                        // mL
+				qt: {name: 'qt', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.0009463529, offset: 0}, // 946.3529
+			                                                                                                        // mL
+				gal: {name: 'gal', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.003785412, offset: 0}, // 3.785412
+			                                                                                                         // L
+				bbl: {name: 'bbl', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1173478, offset: 0}, // 117.3478
+			                                                                                                       // L
+				obl: {name: 'obl', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.1589873, offset: 0}, // 158.9873
+				                                                                                                   // L
+				//{name: 'hogshead', base: BASE_UNITS.VOLUME, prefixes: PREFIXES.NONE, value: 0.2384810, offset: 0}, //
+				// 238.4810 L // TODO: hh?
 
 				// Mass
 				g: {name: 'g', base: BASE_UNITS.MASS, prefixes: PREFIXES.SHORT, value: 0.001, offset: 0},
@@ -3236,10 +3369,34 @@
 				tonne: {name: 'tonne', base: BASE_UNITS.MASS, prefixes: PREFIXES.SHORT, value: 1000, offset: 0},
 
 				grain: {name: 'grain', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 64.79891e-6, offset: 0},
-				dram: {name: 'dram', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 1.7718451953125e-3, offset: 0},
-				ounce: {name: 'ounce', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 28.349523125e-3, offset: 0},
-				poundmass: {name: 'poundmass', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 453.59237e-3, offset: 0},
-				hundredweight: {name: 'hundredweight', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 45.359237, offset: 0},
+				dram: {
+					name: 'dram',
+					base: BASE_UNITS.MASS,
+					prefixes: PREFIXES.NONE,
+					value: 1.7718451953125e-3,
+					offset: 0
+				},
+				ounce: {
+					name: 'ounce',
+					base: BASE_UNITS.MASS,
+					prefixes: PREFIXES.NONE,
+					value: 28.349523125e-3,
+					offset: 0
+				},
+				poundmass: {
+					name: 'poundmass',
+					base: BASE_UNITS.MASS,
+					prefixes: PREFIXES.NONE,
+					value: 453.59237e-3,
+					offset: 0
+				},
+				hundredweight: {
+					name: 'hundredweight',
+					base: BASE_UNITS.MASS,
+					prefixes: PREFIXES.NONE,
+					value: 45.359237,
+					offset: 0
+				},
 				stick: {name: 'stick', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 115e-3, offset: 0},
 
 				gr: {name: 'gr', base: BASE_UNITS.MASS, prefixes: PREFIXES.NONE, value: 64.79891e-6, offset: 0},
@@ -3261,11 +3418,29 @@
 				// Angle
 				rad: {name: 'rad', base: BASE_UNITS.ANGLE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
 				// deg = rad / (2*pi) * 360 = rad / 0.017453292519943295769236907684888
-				deg: {name: 'deg', base: BASE_UNITS.ANGLE, prefixes: PREFIXES.NONE, value: 0.017453292519943295769236907684888, offset: 0},
+				deg: {
+					name: 'deg',
+					base: BASE_UNITS.ANGLE,
+					prefixes: PREFIXES.NONE,
+					value: 0.017453292519943295769236907684888,
+					offset: 0
+				},
 				// grad = rad / (2*pi) * 400  = rad / 0.015707963267948966192313216916399
-				grad: {name: 'grad', base: BASE_UNITS.ANGLE, prefixes: PREFIXES.NONE, value: 0.015707963267948966192313216916399, offset: 0},
+				grad: {
+					name: 'grad',
+					base: BASE_UNITS.ANGLE,
+					prefixes: PREFIXES.NONE,
+					value: 0.015707963267948966192313216916399,
+					offset: 0
+				},
 				// cycle = rad / (2*pi) = rad / 6.2831853071795864769252867665793
-				cycle: {name: 'cycle', base: BASE_UNITS.ANGLE, prefixes: PREFIXES.NONE, value: 6.2831853071795864769252867665793, offset: 0},
+				cycle: {
+					name: 'cycle',
+					base: BASE_UNITS.ANGLE,
+					prefixes: PREFIXES.NONE,
+					value: 6.2831853071795864769252867665793,
+					offset: 0
+				},
 
 				// Electric current
 				A: {name: 'A', base: BASE_UNITS.CURRENT, prefixes: PREFIXES.SHORT, value: 1, offset: 0},
@@ -3277,20 +3452,56 @@
 				// K(R) = Â°R / 1.8
 				K: {name: 'K', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
 				degC: {name: 'degC', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 273.15},
-				degF: {name: 'degF', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 459.67},
-				degR: {name: 'degR', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 0},
+				degF: {
+					name: 'degF',
+					base: BASE_UNITS.TEMPERATURE,
+					prefixes: PREFIXES.NONE,
+					value: 1 / 1.8,
+					offset: 459.67
+				},
+				degR: {name: 'degR', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1 / 1.8, offset: 0},
 				kelvin: {name: 'kelvin', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
-				celsius: {name: 'celsius', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1, offset: 273.15},
-				fahrenheit: {name: 'fahrenheit', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 459.67},
-				rankine: {name: 'rankine', base: BASE_UNITS.TEMPERATURE, prefixes: PREFIXES.NONE, value: 1/1.8, offset: 0},
+				celsius: {
+					name: 'celsius',
+					base: BASE_UNITS.TEMPERATURE,
+					prefixes: PREFIXES.NONE,
+					value: 1,
+					offset: 273.15
+				},
+				fahrenheit: {
+					name: 'fahrenheit',
+					base: BASE_UNITS.TEMPERATURE,
+					prefixes: PREFIXES.NONE,
+					value: 1 / 1.8,
+					offset: 459.67
+				},
+				rankine: {
+					name: 'rankine',
+					base: BASE_UNITS.TEMPERATURE,
+					prefixes: PREFIXES.NONE,
+					value: 1 / 1.8,
+					offset: 0
+				},
 
 				// amount of substance
 				mol: {name: 'mol', base: BASE_UNITS.AMOUNT_OF_SUBSTANCE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
-				mole: {name: 'mole', base: BASE_UNITS.AMOUNT_OF_SUBSTANCE, prefixes: PREFIXES.NONE, value: 1, offset: 0},
+				mole: {
+					name: 'mole',
+					base: BASE_UNITS.AMOUNT_OF_SUBSTANCE,
+					prefixes: PREFIXES.NONE,
+					value: 1,
+					offset: 0
+				},
 
 				// luminous intensity
 				cd: {name: 'cd', base: BASE_UNITS.LUMINOUS_INTENSITY, prefixes: PREFIXES.NONE, value: 1, offset: 0},
-				candela: {name: 'candela', base: BASE_UNITS.LUMINOUS_INTENSITY, prefixes: PREFIXES.NONE, value: 1, offset: 0},
+				candela: {
+					name: 'candela',
+					base: BASE_UNITS.LUMINOUS_INTENSITY,
+					prefixes: PREFIXES.NONE,
+					value: 1,
+					offset: 0
+				},
 				// TODO: units STERADIAN
 				//{name: 'sr', base: BASE_UNITS.STERADIAN, prefixes: PREFIXES.NONE, value: 1, offset: 0},
 				//{name: 'steradian', base: BASE_UNITS.STERADIAN, prefixes: PREFIXES.NONE, value: 1, offset: 0},
@@ -3299,7 +3510,13 @@
 				N: {name: 'N', base: BASE_UNITS.FORCE, prefixes: PREFIXES.SHORT, value: 1, offset: 0},
 				newton: {name: 'newton', base: BASE_UNITS.FORCE, prefixes: PREFIXES.LONG, value: 1, offset: 0},
 				lbf: {name: 'lbf', base: BASE_UNITS.FORCE, prefixes: PREFIXES.NONE, value: 4.4482216152605, offset: 0},
-				poundforce: {name: 'poundforce', base: BASE_UNITS.FORCE, prefixes: PREFIXES.NONE, value: 4.4482216152605, offset: 0},
+				poundforce: {
+					name: 'poundforce',
+					base: BASE_UNITS.FORCE,
+					prefixes: PREFIXES.NONE,
+					value: 4.4482216152605,
+					offset: 0
+				},
 
 				// Binary
 				b: {name: 'b', base: BASE_UNITS.BIT, prefixes: PREFIXES.BINARY_SHORT, value: 1, offset: 0},
@@ -3360,9 +3577,9 @@
 				moles: 'mole'
 			};
 
-			for (var name in PLURALS) {
+			for(var name in PLURALS) {
 				/* istanbul ignore next (we cannot really test next statement) */
-				if (PLURALS.hasOwnProperty(name)) {
+				if(PLURALS.hasOwnProperty(name)) {
 					var unit = UNITS[PLURALS[name]];
 					var plural = Object.create(unit);
 					plural.name = name;
@@ -3377,19 +3594,17 @@
 			UNITS.lb = UNITS.lbm;
 			UNITS.lbs = UNITS.lbm;
 
-
 			Unit.PREFIXES = PREFIXES;
 			Unit.BASE_UNITS = BASE_UNITS;
 			Unit.UNITS = UNITS;
 
 			// end of unit aliases
 
-
 			// exports
 			module.exports = Unit;
 
-
-			/***/ },
+			/***/
+		},
 		/* 11 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -3410,8 +3625,8 @@
 			 *                      {String[]} seealso
 			 * @constructor
 			 */
-			function Help (math, doc) {
-				if (!(this instanceof Help)) {
+			function Help(math, doc) {
+				if(!(this instanceof Help)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
@@ -3426,7 +3641,7 @@
 			 * @param {*} value
 			 * @return {Boolean} isHelp
 			 */
-			Help.isHelp = function (value) {
+			Help.isHelp = function(value) {
 				return (value instanceof Help);
 			};
 
@@ -3435,42 +3650,42 @@
 			 * @return {String} readableDoc
 			 * @private
 			 */
-			Help.prototype.toString = function () {
+			Help.prototype.toString = function() {
 				var doc = this.doc || {};
 				var desc = '\n';
 
-				if (doc.name) {
+				if(doc.name) {
 					desc += 'Name: ' + doc.name + '\n\n';
 				}
-				if (doc.category) {
+				if(doc.category) {
 					desc += 'Category: ' + doc.category + '\n\n';
 				}
-				if (doc.description) {
+				if(doc.description) {
 					desc += 'Description:\n    ' + doc.description + '\n\n';
 				}
-				if (doc.syntax) {
+				if(doc.syntax) {
 					desc += 'Syntax:\n    ' + doc.syntax.join('\n    ') + '\n\n';
 				}
-				if (doc.examples) {
+				if(doc.examples) {
 					var parser = this.math.parser();
 					desc += 'Examples:\n';
-					for (var i = 0; i < doc.examples.length; i++) {
+					for(var i = 0; i < doc.examples.length; i++) {
 						var expr = doc.examples[i];
 						var res;
 						try {
 							res = parser.eval(expr);
 						}
-						catch (e) {
+						catch(e) {
 							res = e;
 						}
 						desc += '    ' + expr + '\n';
-						if (res && !(res instanceof Help)) {
+						if(res && !(res instanceof Help)) {
 							desc += '        ' + string.format(res, {precision: 14}) + '\n';
 						}
 					}
 					desc += '\n';
 				}
-				if (doc.seealso) {
+				if(doc.seealso) {
 					desc += 'See also: ' + doc.seealso.join(', ') + '\n';
 				}
 
@@ -3482,7 +3697,7 @@
 			/**
 			 * Export the help object to JSON
 			 */
-			Help.prototype.toJSON = function () {
+			Help.prototype.toJSON = function() {
 				return object.clone(this.doc);
 			};
 
@@ -3494,8 +3709,8 @@
 			// exports
 			module.exports = Help;
 
-
-			/***/ },
+			/***/
+		},
 		/* 12 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -3507,7 +3722,7 @@
 			 * @constructor
 			 */
 			function ResultSet(entries) {
-				if (!(this instanceof ResultSet)) {
+				if(!(this instanceof ResultSet)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
@@ -3518,7 +3733,7 @@
 			 * Returns the array with results hold by this ResultSet
 			 * @returns {Array} entries
 			 */
-			ResultSet.prototype.valueOf = function () {
+			ResultSet.prototype.valueOf = function() {
 				return this.entries;
 			};
 
@@ -3526,14 +3741,14 @@
 			 * Returns the stringified results of the ResultSet
 			 * @returns {String} string
 			 */
-			ResultSet.prototype.toString = function () {
+			ResultSet.prototype.toString = function() {
 				return '[' + this.entries.join(', ') + ']';
 			};
 
 			module.exports = ResultSet;
 
-
-			/***/ },
+			/***/
+		},
 		/* 13 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -3562,18 +3777,18 @@
 			 * @returns {Array} array
 			 */
 			exports.argsToArray = function(args) {
-				if (args.length == 0) {
+				if(args.length == 0) {
 					// fn()
 					return [];
 				}
-				else if (args.length == 1) {
+				else if(args.length == 1) {
 					// fn(n)
 					// fn([m, n, p, ...])
 					var array = args[0];
-					if (array instanceof Matrix) {
+					if(array instanceof Matrix) {
 						array = array.valueOf();
 					}
-					if (!isArray(array)) {
+					if(!isArray(array)) {
 						array = [array];
 					}
 					return array;
@@ -3583,7 +3798,6 @@
 					return util.array.argsToArray(args);
 				}
 			};
-
 
 			/**
 			 * Test whether a value is a collection: an Array or Matrix
@@ -3605,8 +3819,8 @@
 			 * @return {Array | Matrix} res
 			 */
 			exports.deepMap = function deepMap(array, callback) {
-				if (array && (typeof array.map === 'function')) {
-					return array.map(function (x) {
+				if(array && (typeof array.map === 'function')) {
+					return array.map(function(x) {
 						return deepMap(x, callback);
 					});
 				}
@@ -3629,20 +3843,20 @@
 			exports.deepMap2 = function deepMap2(array1, array2, callback) {
 				var res, len, i;
 
-				if (isArray(array1)) {
-					if (isArray(array2)) {
+				if(isArray(array1)) {
+					if(isArray(array2)) {
 						// callback(array, array)
-						if (array1.length != array2.length) {
+						if(array1.length != array2.length) {
 							throw new DimensionError(array1.length, array2.length);
 						}
 
 						res = [];
 						len = array1.length;
-						for (i = 0; i < len; i++) {
+						for(i = 0; i < len; i++) {
 							res[i] = deepMap2(array1[i], array2[i], callback);
 						}
 					}
-					else if (array2 instanceof Matrix) {
+					else if(array2 instanceof Matrix) {
 						// callback(array, matrix)
 						res = deepMap2(array1, array2.valueOf(), callback);
 						return new Matrix(res);
@@ -3651,13 +3865,13 @@
 						// callback(array, object)
 						res = [];
 						len = array1.length;
-						for (i = 0; i < len; i++) {
+						for(i = 0; i < len; i++) {
 							res[i] = deepMap2(array1[i], array2, callback);
 						}
 					}
 				}
-				else if (array1 instanceof Matrix) {
-					if (array2 instanceof Matrix) {
+				else if(array1 instanceof Matrix) {
+					if(array2 instanceof Matrix) {
 						// callback(matrix, matrix)
 						res = deepMap2(array1.valueOf(), array2.valueOf(), callback);
 						return new Matrix(res);
@@ -3670,15 +3884,15 @@
 					}
 				}
 				else {
-					if (isArray(array2)) {
+					if(isArray(array2)) {
 						// callback(object, array)
 						res = [];
 						len = array2.length;
-						for (i = 0; i < len; i++) {
+						for(i = 0; i < len; i++) {
 							res[i] = deepMap2(array1, array2[i], callback);
 						}
 					}
-					else if (array2 instanceof Matrix) {
+					else if(array2 instanceof Matrix) {
 						// callback(object, matrix)
 						res = deepMap2(array1, array2.valueOf(), callback);
 						return new Matrix(res);
@@ -3703,18 +3917,19 @@
 			 */
 			exports.reduce = function(mat, dim, callback) {
 				var size = isArray(mat) ? array.size(mat) : mat.size();
-				if (dim < 0) {
+				if(dim < 0) {
 					// TODO: would be more clear when throwing a DimensionError here
 					throw new IndexError(dim);
 				}
-				if (dim >= size.length) {
+				if(dim >= size.length) {
 					// TODO: would be more clear when throwing a DimensionError here
 					throw new IndexError(dim, size.length);
 				}
 
-				if (mat instanceof Matrix) {
+				if(mat instanceof Matrix) {
 					return new Matrix(_reduce(mat.valueOf(), dim, callback));
-				}else {
+				}
+				else {
 					return _reduce(mat, dim, callback);
 				}
 			};
@@ -3727,28 +3942,30 @@
 			 * @returns {Array} ret
 			 * @private
 			 */
-			function _reduce(mat, dim, callback){
+			function _reduce(mat, dim, callback) {
 				var i, ret, val, tran;
 
-				if(dim<=0){
-					if( !isArray(mat[0]) ){
+				if(dim <= 0) {
+					if(!isArray(mat[0])) {
 						val = mat[0];
-						for(i=1; i<mat.length; i++){
+						for(i = 1; i < mat.length; i++) {
 							val = callback(val, mat[i]);
 						}
 						return val;
-					}else{
+					}
+					else {
 						tran = _switch(mat);
 						ret = [];
-						for(i=0; i<tran.length; i++){
-							ret[i] = _reduce(tran[i], dim-1, callback);
+						for(i = 0; i < tran.length; i++) {
+							ret[i] = _reduce(tran[i], dim - 1, callback);
 						}
 						return ret
 					}
-				}else{
+				}
+				else {
 					ret = [];
-					for(i=0; i<mat.length; i++){
-						ret[i] = _reduce(mat[i], dim-1, callback);
+					for(i = 0; i < mat.length; i++) {
+						ret[i] = _reduce(mat[i], dim - 1, callback);
 					}
 					return ret;
 				}
@@ -3760,14 +3977,14 @@
 			 * @returns {Array} ret
 			 * @private
 			 */
-			function _switch(mat){
+			function _switch(mat) {
 				var I = mat.length;
 				var J = mat[0].length;
 				var i, j;
 				var ret = [];
-				for( j=0; j<J; j++) {
+				for(j = 0; j < J; j++) {
 					var tmp = [];
-					for( i=0; i<I; i++) {
+					for(i = 0; i < I; i++) {
 						tmp.push(mat[i][j]);
 					}
 					ret.push(tmp);
@@ -3782,15 +3999,15 @@
 			 * @param {function} callback     The callback method is invoked with one
 			 *                                parameter: the current element in the array
 			 */
-			exports.deepForEach = function deepForEach (array, callback) {
-				if (array instanceof Matrix) {
+			exports.deepForEach = function deepForEach(array, callback) {
+				if(array instanceof Matrix) {
 					array = array.valueOf();
 				}
 
-				for (var i = 0, ii = array.length; i < ii; i++) {
+				for(var i = 0, ii = array.length; i < ii; i++) {
 					var value = array[i];
 
-					if (isArray(value)) {
+					if(isArray(value)) {
 						deepForEach(value, callback);
 					}
 					else {
@@ -3799,8 +4016,8 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 14 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -3866,23 +4083,23 @@
 			 * @return {Node | Node[]} node
 			 * @throws {Error}
 			 */
-			function parse (expr, options) {
-				if (arguments.length != 1 && arguments.length != 2) {
+			function parse(expr, options) {
+				if(arguments.length != 1 && arguments.length != 2) {
 					throw new ArgumentsError('parse', arguments.length, 1, 2);
 				}
 
 				// pass extra nodes
 				extra_nodes = (options && options.nodes) ? options.nodes : {};
 
-				if (isString(expr)) {
+				if(isString(expr)) {
 					// parse a single expression
 					expression = expr;
 					return parseStart();
 				}
-				else if (isArray(expr) || expr instanceof Matrix) {
+				else if(isArray(expr) || expr instanceof Matrix) {
 					// parse an array or matrix with expressions
-					return collection.deepMap(expr, function (elem) {
-						if (!isString(elem)) throw new TypeError('String expected');
+					return collection.deepMap(expr, function(elem) {
+						if(!isString(elem)) throw new TypeError('String expected');
 
 						expression = elem;
 						return parseStart();
@@ -3896,11 +4113,11 @@
 
 			// token types enumeration
 			var TOKENTYPE = {
-				NULL : 0,
-				DELIMITER : 1,
-				NUMBER : 2,
-				SYMBOL : 3,
-				UNKNOWN : 4
+				NULL: 0,
+				DELIMITER: 1,
+				NUMBER: 2,
+				SYMBOL: 3,
+				UNKNOWN: 4
 			};
 
 			// map with all delimiters
@@ -3950,7 +4167,8 @@
 			var token = '';                   // current token
 			var token_type = TOKENTYPE.NULL;  // type of the token
 			var nesting_level = 0;            // level of nesting inside parameters, used to ignore newline characters
-			var conditional_level = null;     // when a conditional is being parsed, the level of the conditional is stored here
+			var conditional_level = null;     // when a conditional is being parsed, the level of the conditional is
+		                                      // stored here
 
 			/**
 			 * Get the first character from the expression.
@@ -3996,27 +4214,27 @@
 
 				// skip over whitespaces
 				// space, tab, and newline when inside parameters
-				while (c == ' ' || c == '\t' || (c == '\n' && nesting_level)) {
+				while(c == ' ' || c == '\t' || (c == '\n' && nesting_level)) {
 					// TODO: also take '\r' carriage return as newline? Or does that give problems on mac?
 					next();
 				}
 
 				// skip comment
-				if (c == '#') {
-					while (c != '\n' && c != '') {
+				if(c == '#') {
+					while(c != '\n' && c != '') {
 						next();
 					}
 				}
 
 				// check for end of expression
-				if (c == '') {
+				if(c == '') {
 					// token is still empty
 					token_type = TOKENTYPE.DELIMITER;
 					return;
 				}
 
 				// check for new line character
-				if (c == '\n' && !nesting_level) {
+				if(c == '\n' && !nesting_level) {
 					token_type = TOKENTYPE.DELIMITER;
 					token = c;
 					next();
@@ -4025,7 +4243,7 @@
 
 				// check for delimiters consisting of 2 characters
 				var c2 = c + nextPreview();
-				if (c2.length == 2 && DELIMITERS[c2]) {
+				if(c2.length == 2 && DELIMITERS[c2]) {
 					token_type = TOKENTYPE.DELIMITER;
 					token = c2;
 					next();
@@ -4034,7 +4252,7 @@
 				}
 
 				// check for delimiters consisting of 1 character
-				if (DELIMITERS[c]) {
+				if(DELIMITERS[c]) {
 					token_type = TOKENTYPE.DELIMITER;
 					token = c;
 					next();
@@ -4042,51 +4260,51 @@
 				}
 
 				// check for a number
-				if (isDigitDot(c)) {
+				if(isDigitDot(c)) {
 					token_type = TOKENTYPE.NUMBER;
 
 					// get number, can have a single dot
-					if (c == '.') {
+					if(c == '.') {
 						token += c;
 						next();
 
-						if (!isDigit(c)) {
+						if(!isDigit(c)) {
 							// this is no legal number, it is just a dot
 							token_type = TOKENTYPE.UNKNOWN;
 						}
 					}
 					else {
-						while (isDigit(c)) {
+						while(isDigit(c)) {
 							token += c;
 							next();
 						}
-						if (c == '.') {
+						if(c == '.') {
 							token += c;
 							next();
 						}
 					}
-					while (isDigit(c)) {
+					while(isDigit(c)) {
 						token += c;
 						next();
 					}
 
 					// check for exponential notation like "2.3e-4" or "1.23e50"
-					if (c == 'E' || c == 'e') {
+					if(c == 'E' || c == 'e') {
 						token += c;
 						next();
 
-						if (c == '+' || c == '-') {
+						if(c == '+' || c == '-') {
 							token += c;
 							next();
 						}
 
 						// Scientific notation MUST be followed by an exponent
-						if (!isDigit(c)) {
+						if(!isDigit(c)) {
 							// this is no legal number, exponent is missing.
 							token_type = TOKENTYPE.UNKNOWN;
 						}
 
-						while (isDigit(c)) {
+						while(isDigit(c)) {
 							token += c;
 							next();
 						}
@@ -4096,13 +4314,13 @@
 				}
 
 				// check for variables, functions, named operators
-				if (isAlpha(c)) {
-					while (isAlpha(c) || isDigit(c)) {
+				if(isAlpha(c)) {
+					while(isAlpha(c) || isDigit(c)) {
 						token += c;
 						next();
 					}
 
-					if (NAMED_DELIMITERS[token]) {
+					if(NAMED_DELIMITERS[token]) {
 						token_type = TOKENTYPE.DELIMITER;
 					}
 					else {
@@ -4114,7 +4332,7 @@
 
 				// something unknown is found, wrong characters -> a syntax error
 				token_type = TOKENTYPE.UNKNOWN;
-				while (c != '') {
+				while(c != '') {
 					token += c;
 					next();
 				}
@@ -4124,11 +4342,11 @@
 			/**
 			 * Get next token and skip newline tokens
 			 */
-			function getTokenSkipNewline () {
+			function getTokenSkipNewline() {
 				do {
 					getToken();
 				}
-				while (token == '\n');
+				while(token == '\n');
 			}
 
 			/**
@@ -4154,10 +4372,10 @@
 			 * @return {Boolean}
 			 * @private
 			 */
-			function isAlpha (c) {
+			function isAlpha(c) {
 				return ((c >= 'a' && c <= 'z') ||
-					(c >= 'A' && c <= 'Z') ||
-					c == '_');
+				(c >= 'A' && c <= 'Z') ||
+				c == '_');
 			}
 
 			/**
@@ -4166,9 +4384,9 @@
 			 * @return {Boolean}
 			 * @private
 			 */
-			function isDigitDot (c) {
+			function isDigitDot(c) {
 				return ((c >= '0' && c <= '9') ||
-					c == '.');
+				c == '.');
 			}
 
 			/**
@@ -4177,7 +4395,7 @@
 			 * @return {Boolean}
 			 * @private
 			 */
-			function isDigit (c) {
+			function isDigit(c) {
 				return ((c >= '0' && c <= '9'));
 			}
 
@@ -4186,7 +4404,7 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseStart () {
+			function parseStart() {
 				// get the first character in expression
 				first();
 
@@ -4196,8 +4414,8 @@
 
 				// check for garbage at the end of the expression
 				// an expression ends with a empty character '' and token_type DELIMITER
-				if (token != '') {
-					if (token_type == TOKENTYPE.DELIMITER) {
+				if(token != '') {
+					if(token_type == TOKENTYPE.DELIMITER) {
 						// user entered a not existing operator like "//"
 
 						// TODO: give hints for aliases, for example with "<>" give as hint " did you mean != ?"
@@ -4218,30 +4436,30 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseBlock () {
+			function parseBlock() {
 				var node, block, visible;
 
-				if (token == '') {
+				if(token == '') {
 					// empty expression
 					return new ConstantNode('undefined', 'undefined');
 				}
 
-				if (token != '\n' && token != ';') {
+				if(token != '\n' && token != ';') {
 					node = parseFunctionAssignment();
 				}
 
-				while (token == '\n' || token == ';') {
-					if (!block) {
+				while(token == '\n' || token == ';') {
+					if(!block) {
 						// initialize the block
 						block = new BlockNode();
-						if (node) {
+						if(node) {
 							visible = (token != ';');
 							block.add(node, visible);
 						}
 					}
 
 					getToken();
-					if (token != '\n' && token != ';' && token != '') {
+					if(token != '\n' && token != ';' && token != '') {
 						node = parseFunctionAssignment();
 
 						visible = (token != ';');
@@ -4249,7 +4467,7 @@
 					}
 				}
 
-				if (block) {
+				if(block) {
 					return block;
 				}
 
@@ -4261,11 +4479,12 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseFunctionAssignment () {
-				// TODO: function assignment using keyword 'function' is deprecated since version 0.18.0, cleanup some day
-				if (token_type == TOKENTYPE.SYMBOL && token == 'function') {
+			function parseFunctionAssignment() {
+				// TODO: function assignment using keyword 'function' is deprecated since version 0.18.0, cleanup some
+				// day
+				if(token_type == TOKENTYPE.SYMBOL && token == 'function') {
 					throw createSyntaxError('Deprecated keyword "function". ' +
-						'Functions can now be assigned without it, like "f(x) = x^2".');
+					'Functions can now be assigned without it, like "f(x) = x^2".');
 				}
 
 				return parseAssignment();
@@ -4277,33 +4496,33 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseAssignment () {
+			function parseAssignment() {
 				var name, args, expr, valid;
 
 				var node = parseConditional();
 
-				if (token == '=') {
-					if (node instanceof SymbolNode) {
+				if(token == '=') {
+					if(node instanceof SymbolNode) {
 						// parse a variable assignment like 'a = 2/3'
 						name = node.name;
 						getTokenSkipNewline();
 						expr = parseAssignment();
 						return new AssignmentNode(name, expr);
 					}
-					else if (node instanceof IndexNode) {
+					else if(node instanceof IndexNode) {
 						// parse a matrix subset assignment like 'A[1,2] = 4'
 						getTokenSkipNewline();
 						expr = parseAssignment();
 						return new UpdateNode(node, expr);
 					}
-					else if (node instanceof FunctionNode) {
+					else if(node instanceof FunctionNode) {
 						// parse function assignment like 'f(x) = x^2'
 						valid = true;
 						args = [];
 
 						name = node.symbol.name;
-						node.params.forEach(function (param, index) {
-							if (param instanceof SymbolNode) {
+						node.params.forEach(function(param, index) {
+							if(param instanceof SymbolNode) {
 								args[index] = param.name;
 							}
 							else {
@@ -4311,7 +4530,7 @@
 							}
 						});
 
-						if (valid) {
+						if(valid) {
 							getTokenSkipNewline();
 							expr = parseAssignment();
 							return new FunctionAssignmentNode(name, args, expr);
@@ -4334,10 +4553,10 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseConditional () {
+			function parseConditional() {
 				var node = parseRelational();
 
-				while (token == '?') {
+				while(token == '?') {
 					// set a conditional level, the range operator will be ignored as long
 					// as conditional_level == nesting_level.
 					var prev = conditional_level;
@@ -4347,7 +4566,7 @@
 					var condition = node;
 					var trueExpr = parseRelational();
 
-					if (token != ':') throw createSyntaxError('False part of conditional expression expected');
+					if(token != ':') throw createSyntaxError('False part of conditional expression expected');
 
 					conditional_level = null;
 					getTokenSkipNewline();
@@ -4430,7 +4649,7 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseRelational () {
+			function parseRelational() {
 				var node, operators, name, fn, params;
 
 				node = parseConversion();
@@ -4443,7 +4662,7 @@
 					'<=': 'smallerEq',
 					'>=': 'largerEq'
 				};
-				while (token in operators) {
+				while(token in operators) {
 					name = token;
 					fn = operators[name];
 
@@ -4460,17 +4679,17 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseConversion () {
+			function parseConversion() {
 				var node, operators, name, fn, params;
 
 				node = parseRange();
 
 				operators = {
-					'to' : 'to',
-					'in' : 'to'   // alias of 'to'
+					'to': 'to',
+					'in': 'to'   // alias of 'to'
 				};
 
-				while (token in operators) {
+				while(token in operators) {
 					name = token;
 					fn = operators[name];
 
@@ -4487,10 +4706,10 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseRange () {
+			function parseRange() {
 				var node, params = [];
 
-				if (token == ':') {
+				if(token == ':') {
 					// implicit start=1 (one-based)
 					node = new ConstantNode('1', 'number');
 				}
@@ -4499,15 +4718,15 @@
 					node = parseAddSubtract();
 				}
 
-				if (token == ':' && (conditional_level !== nesting_level)) {
+				if(token == ':' && (conditional_level !== nesting_level)) {
 					// we ignore the range operator when a conditional operator is being processed on the same level
 					params.push(node);
 
 					// parse step and end
-					while (token == ':') {
+					while(token == ':') {
 						getTokenSkipNewline();
 
-						if (token == ')' || token == ']' || token == ',' || token == '') {
+						if(token == ')' || token == ']' || token == ',' || token == '') {
 							// implicit end
 							params.push(new SymbolNode('end'));
 						}
@@ -4518,7 +4737,7 @@
 					}
 
 					// swap step and end
-					if (params.length == 3) {
+					if(params.length == 3) {
 						var step = params[2];
 						params[2] = params[1];
 						params[1] = step;
@@ -4534,7 +4753,7 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseAddSubtract ()  {
+			function parseAddSubtract() {
 				var node, operators, name, fn, params;
 
 				node = parseMultiplyDivide();
@@ -4543,7 +4762,7 @@
 					'+': 'add',
 					'-': 'subtract'
 				};
-				while (token in operators) {
+				while(token in operators) {
 					name = token;
 					fn = operators[name];
 
@@ -4560,7 +4779,7 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseMultiplyDivide () {
+			function parseMultiplyDivide() {
 				var node, operators, name, fn, params;
 
 				node = parseUnary();
@@ -4574,8 +4793,8 @@
 					'mod': 'mod'
 				};
 
-				if (token in operators) {
-					while (token in operators) {
+				if(token in operators) {
+					while(token in operators) {
 						name = token;
 						fn = operators[name];
 
@@ -4586,7 +4805,7 @@
 				}
 
 				// parse implicit multiplication
-				if ((token_type == TOKENTYPE.SYMBOL) ||
+				if((token_type == TOKENTYPE.SYMBOL) ||
 					(token == 'in' && (node instanceof ConstantNode)) ||
 					(token_type == TOKENTYPE.NUMBER && !(node instanceof ConstantNode)) ||
 					(token == '(' || token == '[')) {
@@ -4606,10 +4825,10 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseUnary () {
+			function parseUnary() {
 				var name, fn, params;
 
-				if (token == '-' || token == '+') {
+				if(token == '-' || token == '+') {
 					name = token;
 					fn = name == '+' ? 'unaryPlus' : 'unaryMinus';
 
@@ -4628,12 +4847,12 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parsePow () {
+			function parsePow() {
 				var node, name, fn, params;
 
 				node = parseLeftHandOperators();
 
-				if (token == '^' || token == '.^') {
+				if(token == '^' || token == '.^') {
 					name = token;
 					fn = (name == '^') ? 'pow' : 'dotPow';
 
@@ -4650,7 +4869,7 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseLeftHandOperators ()  {
+			function parseLeftHandOperators() {
 				var node, operators, name, fn, params;
 
 				node = parseCustomNodes();
@@ -4660,7 +4879,7 @@
 					'\'': 'transpose'
 				};
 
-				while (token in operators) {
+				while(token in operators) {
 					name = token;
 					fn = operators[name];
 
@@ -4701,32 +4920,32 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseCustomNodes () {
+			function parseCustomNodes() {
 				var params = [], handler;
 
-				if (token_type == TOKENTYPE.SYMBOL && extra_nodes[token]) {
+				if(token_type == TOKENTYPE.SYMBOL && extra_nodes[token]) {
 					handler = extra_nodes[token];
 
 					getToken();
 
 					// parse parameters
-					if (token == '(') {
+					if(token == '(') {
 						params = [];
 
 						openParams();
 						getToken();
 
-						if (token != ')') {
+						if(token != ')') {
 							params.push(parseConditional());
 
 							// parse a list with parameters
-							while (token == ',') {
+							while(token == ',') {
 								getToken();
 								params.push(parseConditional());
 							}
 						}
 
-						if (token != ')') {
+						if(token != ')') {
 							throw createSyntaxError('Parenthesis ) expected');
 						}
 						closeParams();
@@ -4746,10 +4965,10 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseSymbol () {
+			function parseSymbol() {
 				var node, name;
 
-				if (token_type == TOKENTYPE.SYMBOL ||
+				if(token_type == TOKENTYPE.SYMBOL ||
 					(token_type == TOKENTYPE.DELIMITER && token in NAMED_DELIMITERS)) {
 					name = token;
 
@@ -4775,26 +4994,26 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseFunctions (symbol) {
+			function parseFunctions(symbol) {
 				var params;
 
-				if (token == '(') {
+				if(token == '(') {
 					params = [];
 
 					openParams();
 					getToken();
 
-					if (token != ')') {
+					if(token != ')') {
 						params.push(parseConditional());
 
 						// parse a list with parameters
-						while (token == ',') {
+						while(token == ',') {
 							getToken();
 							params.push(parseConditional());
 						}
 					}
 
-					if (token != ')') {
+					if(token != ')') {
 						throw createSyntaxError('Parenthesis ) expected');
 					}
 					closeParams();
@@ -4814,26 +5033,26 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseIndex (node) {
+			function parseIndex(node) {
 				var params;
 
-				while (token == '[') {
+				while(token == '[') {
 					params = [];
 
 					openParams();
 					getToken();
 
-					if (token != ']') {
+					if(token != ']') {
 						params.push(parseConditional());
 
 						// parse a list with parameters
-						while (token == ',') {
+						while(token == ',') {
 							getToken();
 							params.push(parseConditional());
 						}
 					}
 
-					if (token != ']') {
+					if(token != ']') {
 						throw createSyntaxError('Parenthesis ] expected');
 					}
 					closeParams();
@@ -4851,21 +5070,21 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseString () {
+			function parseString() {
 				var node, str, tPrev;
 
-				if (token == '"') {
+				if(token == '"') {
 					// string "..."
 					str = '';
 					tPrev = '';
-					while (c != '' && (c != '\"' || tPrev == '\\')) { // also handle escape character
+					while(c != '' && (c != '\"' || tPrev == '\\')) { // also handle escape character
 						str += c;
 						tPrev = c;
 						next();
 					}
 
 					getToken();
-					if (token != '"') {
+					if(token != '"') {
 						throw createSyntaxError('End of string " expected');
 					}
 					getToken();
@@ -4887,32 +5106,32 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseMatrix () {
+			function parseMatrix() {
 				var array, params, rows, cols;
 
-				if (token == '[') {
+				if(token == '[') {
 					// matrix [...]
 					openParams();
 					getToken();
 
-					if (token != ']') {
+					if(token != ']') {
 						// this is a non-empty matrix
 						var row = parseRow();
 
-						if (token == ';') {
+						if(token == ';') {
 							// 2 dimensional array
 							rows = 1;
 							params = [row];
 
 							// the rows of the matrix are separated by dot-comma's
-							while (token == ';') {
+							while(token == ';') {
 								getToken();
 
 								params[rows] = parseRow();
 								rows++;
 							}
 
-							if (token != ']') {
+							if(token != ']') {
 								throw createSyntaxError('End of matrix ] expected');
 							}
 							closeParams();
@@ -4920,10 +5139,10 @@
 
 							// check if the number of columns matches in all rows
 							cols = params[0].nodes.length;
-							for (var r = 1; r < rows; r++) {
-								if (params[r].nodes.length != cols) {
+							for(var r = 1; r < rows; r++) {
+								if(params[r].nodes.length != cols) {
 									throw createError('Column dimensions mismatch ' +
-										'(' + params[r].nodes.length + ' != ' + cols + ')');
+									'(' + params[r].nodes.length + ' != ' + cols + ')');
 								}
 							}
 
@@ -4931,7 +5150,7 @@
 						}
 						else {
 							// 1 dimensional vector
-							if (token != ']') {
+							if(token != ']') {
 								throw createSyntaxError('End of matrix ] expected');
 							}
 							closeParams();
@@ -4957,11 +5176,11 @@
 			 * Parse a single comma-separated row from a matrix, like 'a, b, c'
 			 * @return {ArrayNode} node
 			 */
-			function parseRow () {
+			function parseRow() {
 				var params = [parseAssignment()];
 				var len = 1;
 
-				while (token == ',') {
+				while(token == ',') {
 					getToken();
 
 					// parse expression
@@ -4977,10 +5196,10 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseNumber () {
+			function parseNumber() {
 				var number;
 
-				if (token_type == TOKENTYPE.NUMBER) {
+				if(token_type == TOKENTYPE.NUMBER) {
 					// this is a number
 					number = token;
 					getToken();
@@ -4996,18 +5215,18 @@
 			 * @return {Node} node
 			 * @private
 			 */
-			function parseParentheses () {
+			function parseParentheses() {
 				var node;
 
 				// check if it is a parenthesized expression
-				if (token == '(') {
+				if(token == '(') {
 					// parentheses (...)
 					openParams();
 					getToken();
 
 					node = parseAssignment(); // start again
 
-					if (token != ')') {
+					if(token != ')') {
 						throw createSyntaxError('Parenthesis ) expected');
 					}
 					closeParams();
@@ -5024,11 +5243,12 @@
 			 * @return {Node} res
 			 * @private
 			 */
-			function parseEnd () {
-				if (token == '') {
+			function parseEnd() {
+				if(token == '') {
 					// syntax error or unexpected end of expression
 					throw createSyntaxError('Unexpected end of expression');
-				} else {
+				}
+				else {
 					throw createSyntaxError('Value expected');
 				}
 			}
@@ -5049,7 +5269,7 @@
 			 * Returns the column (position) where the last token starts
 			 * @private
 			 */
-			function col () {
+			function col() {
 				return index - token.length + 1;
 			}
 
@@ -5059,7 +5279,7 @@
 			 * @return {SyntaxError} instantiated error
 			 * @private
 			 */
-			function createSyntaxError (message) {
+			function createSyntaxError(message) {
 				var c = col();
 				var error = new SyntaxError(message + ' (char ' + c + ')');
 				error['char'] = c;
@@ -5073,7 +5293,7 @@
 			 * @return {Error} instantiated error
 			 * @private
 			 */
-			function createError (message) {
+			function createError(message) {
 				var c = col();
 				var error = new Error(message + ' (char ' + c + ')');
 				error['char'] = c;
@@ -5083,8 +5303,8 @@
 
 			module.exports = parse;
 
-
-			/***/ },
+			/***/
+		},
 		/* 15 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5142,12 +5362,12 @@
 			 * @param {Object} math     Link to the math.js namespace
 			 */
 			function Parser(math) {
-				if (!(this instanceof Parser)) {
+				if(!(this instanceof Parser)) {
 					throw new SyntaxError(
 						'Constructor must be called with the new operator');
 				}
 
-				if (!(math instanceof Object)) {
+				if(!(math instanceof Object)) {
 					throw new TypeError('Object expected as parameter math');
 				}
 
@@ -5163,7 +5383,7 @@
 			 * @return {Node} node
 			 * @throws {Error}
 			 */
-			Parser.prototype.parse = function (expr) {
+			Parser.prototype.parse = function(expr) {
 				throw new Error('Parser.parse is deprecated. Use math.parse instead.');
 			};
 
@@ -5174,7 +5394,7 @@
 			 * @return {{eval: function}} code
 			 * @throws {Error}
 			 */
-			Parser.prototype.compile = function (expr) {
+			Parser.prototype.compile = function(expr) {
 				throw new Error('Parser.compile is deprecated. Use math.compile instead.');
 			};
 
@@ -5184,7 +5404,7 @@
 			 * @return {*} result     The result, or undefined when the expression was empty
 			 * @throws {Error}
 			 */
-			Parser.prototype.eval = function (expr) {
+			Parser.prototype.eval = function(expr) {
 				// TODO: validate arguments
 				return _parse(expr)
 					.compile(this.math)
@@ -5197,7 +5417,7 @@
 			 * @param {String} name
 			 * @return {* | undefined} value
 			 */
-			Parser.prototype.get = function (name) {
+			Parser.prototype.get = function(name) {
 				// TODO: validate arguments
 				return this.scope[name];
 			};
@@ -5207,7 +5427,7 @@
 			 * @param {String} name
 			 * @param {* | undefined} value
 			 */
-			Parser.prototype.set = function (name, value) {
+			Parser.prototype.set = function(name, value) {
 				// TODO: validate arguments
 				return this.scope[name] = value;
 			};
@@ -5216,7 +5436,7 @@
 			 * Remove a variable from the parsers scope
 			 * @param {String} name
 			 */
-			Parser.prototype.remove = function (name) {
+			Parser.prototype.remove = function(name) {
 				// TODO: validate arguments
 				delete this.scope[name];
 			};
@@ -5224,9 +5444,9 @@
 			/**
 			 * Clear the scope with variables and functions
 			 */
-			Parser.prototype.clear = function () {
-				for (var name in this.scope) {
-					if (this.scope.hasOwnProperty(name)) {
+			Parser.prototype.clear = function() {
+				for(var name in this.scope) {
+					if(this.scope.hasOwnProperty(name)) {
 						delete this.scope[name];
 					}
 				}
@@ -5234,8 +5454,8 @@
 
 			module.exports = Parser;
 
-
-			/***/ },
+			/***/
+		},
 		/* 16 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5255,8 +5475,8 @@
 			exports.SymbolNode = __webpack_require__(155);
 			exports.UpdateNode = __webpack_require__(156);
 
-
-			/***/ },
+			/***/
+		},
 		/* 17 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5337,8 +5557,8 @@
 			exports.unit = __webpack_require__(227);
 
 			// functions - epxression
-			exports['eval'] =  __webpack_require__(228);
-			exports.help =  __webpack_require__(229);
+			exports['eval'] = __webpack_require__(228);
+			exports.help = __webpack_require__(229);
 
 			// functions - matrix
 			exports['concat'] = __webpack_require__(230);
@@ -5397,18 +5617,19 @@
 			exports.to = __webpack_require__(274);
 
 			// functions - utils
-			exports.clone =  __webpack_require__(275);
-			exports.map =  __webpack_require__(276);
-			exports.filter =  __webpack_require__(277);
-			exports.forEach =  __webpack_require__(278);
-			exports.format =  __webpack_require__(279);
-			// exports.print =  require('./function/utils/print'); // TODO: add documentation for print as soon as the parser supports objects.
-			exports['import'] =  __webpack_require__(280);
-			exports.sort =  __webpack_require__(281);
-			exports['typeof'] =  __webpack_require__(282);
+			exports.clone = __webpack_require__(275);
+			exports.map = __webpack_require__(276);
+			exports.filter = __webpack_require__(277);
+			exports.forEach = __webpack_require__(278);
+			exports.format = __webpack_require__(279);
+			// exports.print =  require('./function/utils/print'); // TODO: add documentation for print as soon as the
+			// parser supports objects.
+			exports['import'] = __webpack_require__(280);
+			exports.sort = __webpack_require__(281);
+			exports['typeof'] = __webpack_require__(282);
 
-
-			/***/ },
+			/***/
+		},
 		/* 18 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5427,32 +5648,32 @@
 			 * from one-based to zero based
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
-				math.concat.transform = function () {
+			module.exports = function(math) {
+				math.concat.transform = function() {
 					// copy arguments into an array
 					var args = argsToArray(arguments);
 
 					// change last argument from one-based to zero-based
 					var lastIndex = args.length - 1;
 					var last = args[lastIndex];
-					if (isNumber(last)) {
+					if(isNumber(last)) {
 						args[lastIndex] = last - 1;
 					}
-					else if (last instanceof BigNumber) {
+					else if(last instanceof BigNumber) {
 						args[lastIndex] = last.minus(1);
 					}
 
 					try {
 						return math.concat.apply(math, args);
 					}
-					catch (err) {
+					catch(err) {
 						throw errorTransform(err);
 					}
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 19 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5471,17 +5692,17 @@
 			 * so you can do something like 'filter([3, -2, 5], x > 0)'.
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var _filter = math.filter;
 
-				_filter.transform = function (args, math, scope) {
-					if (args.length !== 2) {
+				_filter.transform = function(args, math, scope) {
+					if(args.length !== 2) {
 						throw new ArgumentsError('filter', arguments.length, 2);
 					}
 
 					var x = args[0].compile(math).eval(scope);
 					var test;
-					if (args[1] instanceof SymbolNode) {
+					if(args[1] instanceof SymbolNode) {
 						// a function pointer, like filter([3, -2, 5], myTestFunction);
 						test = args[1].compile(math).eval(scope);
 					}
@@ -5494,16 +5715,16 @@
 							.find({
 								type: SymbolNode
 							})
-							.filter(function (symbol) {
+							.filter(function(symbol) {
 								return !(symbol.name in math) && !(symbol.name in _scope);
 							})[0];
 
 						// create a test function for this equation
 						var sub = Object.create(_scope);
 						var eq = args[1].compile(math);
-						if (symbol) {
+						if(symbol) {
 							var name = symbol.name;
-							test = function (x) {
+							test = function(x) {
 								sub[name] = x;
 								return eq.eval(sub);
 							}
@@ -5519,8 +5740,8 @@
 				math.filter.transform.rawArgs = true;
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 20 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5540,19 +5761,19 @@
 			 * This transform creates a one-based index instead of a zero-based index
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
-				math.forEach.transform = function (x, callback) {
-					if (arguments.length != 2) {
+			module.exports = function(math) {
+				math.forEach.transform = function(x, callback) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('forEach', arguments.length, 2);
 					}
 
 					var arrayIn = x instanceof Matrix ? x.valueOf() : x;
-					if (Array.isArray(arrayIn)) {
+					if(Array.isArray(arrayIn)) {
 						var index = [];
 
-						var recurse = function (value, dim) {
-							if (Array.isArray(value)) {
-								return value.map(function (child, i) {
+						var recurse = function(value, dim) {
+							if(Array.isArray(value)) {
+								return value.map(function(child, i) {
 									index[dim] = i + 1; // one-based index!
 									return recurse(child, dim + 1);
 								});
@@ -5563,14 +5784,15 @@
 						};
 
 						recurse(arrayIn, 0);
-					} else {
+					}
+					else {
 						throw new math.error.UnsupportedTypeError('forEach', math['typeof'](x));
 					}
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 21 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5590,21 +5812,21 @@
 			 * This transform creates a one-based index instead of a zero-based index
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
-				math.index.transform = function () {
+			module.exports = function(math) {
+				math.index.transform = function() {
 					var args = [];
-					for (var i = 0, ii = arguments.length; i < ii; i++) {
+					for(var i = 0, ii = arguments.length; i < ii; i++) {
 						var arg = arguments[i];
 
 						// change from one-based to zero based, and convert BigNumber to number
-						if (arg instanceof Range) {
+						if(arg instanceof Range) {
 							arg.start--;
 							arg.end -= (arg.step > 0 ? 0 : 2);
 						}
-						else if (isNumber(arg)) {
+						else if(isNumber(arg)) {
 							arg--;
 						}
-						else if (arg instanceof BigNumber) {
+						else if(arg instanceof BigNumber) {
 							arg = arg.toNumber() - 1;
 						}
 						else {
@@ -5620,8 +5842,8 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 22 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5641,20 +5863,20 @@
 			 * This transform creates a one-based index instead of a zero-based index
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
-				math.map.transform = function (x, callback) {
-					if (arguments.length != 2) {
+			module.exports = function(math) {
+				math.map.transform = function(x, callback) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('map', arguments.length, 2);
 					}
 
 					var asMatrix = x instanceof Matrix;
 					var arrayIn = asMatrix ? x.valueOf() : x;
-					if (Array.isArray(arrayIn)) {
+					if(Array.isArray(arrayIn)) {
 						var index = [];
 
-						var recurse = function (value, dim) {
-							if (Array.isArray(value)) {
-								return value.map(function (child, i) {
+						var recurse = function(value, dim) {
+							if(Array.isArray(value)) {
+								return value.map(function(child, i) {
 									index[dim] = i + 1; // one-based index!
 									return recurse(child, dim + 1);
 								});
@@ -5666,14 +5888,15 @@
 
 						var res = recurse(arrayIn, 0);
 						return asMatrix ? new Matrix(res) : res;
-					} else {
+					}
+					else {
 						throw new math.error.UnsupportedTypeError('map', math['typeof'](x));
 					}
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 23 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5693,17 +5916,17 @@
 			 * from one-based to zero based
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
-				math.max.transform = function () {
+			module.exports = function(math) {
+				math.max.transform = function() {
 					var args = argsToArray(arguments);
 
 					// change last argument dim from one-based to zero-based
-					if (args.length == 2 && isCollection(args[0])) {
+					if(args.length == 2 && isCollection(args[0])) {
 						var dim = args[1];
-						if (isNumber(dim)) {
+						if(isNumber(dim)) {
 							args[1] = dim - 1;
 						}
-						else if (dim instanceof BigNumber) {
+						else if(dim instanceof BigNumber) {
 							args[1] = dim.minus(1);
 						}
 					}
@@ -5711,14 +5934,14 @@
 					try {
 						return math.max.apply(math, args);
 					}
-					catch (err) {
+					catch(err) {
 						throw errorTransform(err);
 					}
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 24 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5738,17 +5961,17 @@
 			 * from one-based to zero based
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
-				math.mean.transform = function () {
+			module.exports = function(math) {
+				math.mean.transform = function() {
 					var args = argsToArray(arguments);
 
 					// change last argument dim from one-based to zero-based
-					if (args.length == 2 && isCollection(args[0])) {
+					if(args.length == 2 && isCollection(args[0])) {
 						var dim = args[1];
-						if (isNumber(dim)) {
+						if(isNumber(dim)) {
 							args[1] = dim - 1;
 						}
-						else if (dim instanceof BigNumber) {
+						else if(dim instanceof BigNumber) {
 							args[1] = dim.minus(1);
 						}
 					}
@@ -5756,14 +5979,14 @@
 					try {
 						return math.mean.apply(math, args);
 					}
-					catch (err) {
+					catch(err) {
 						throw errorTransform(err);
 					}
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 25 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5783,17 +6006,17 @@
 			 * from one-based to zero based
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
-				math.min.transform = function () {
+			module.exports = function(math) {
+				math.min.transform = function() {
 					var args = argsToArray(arguments);
 
 					// change last argument dim from one-based to zero-based
-					if (args.length == 2 && isCollection(args[0])) {
+					if(args.length == 2 && isCollection(args[0])) {
 						var dim = args[1];
-						if (isNumber(dim)) {
+						if(isNumber(dim)) {
 							args[1] = dim - 1;
 						}
-						else if (dim instanceof BigNumber) {
+						else if(dim instanceof BigNumber) {
 							args[1] = dim.minus(1);
 						}
 					}
@@ -5801,14 +6024,14 @@
 					try {
 						return math.min.apply(math, args);
 					}
-					catch (err) {
+					catch(err) {
 						throw errorTransform(err);
 					}
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 26 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5824,13 +6047,13 @@
 			 * This transform creates a range which includes the end value
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
-				math.range.transform = function () {
+			module.exports = function(math) {
+				math.range.transform = function() {
 					var args = argsToArray(arguments);
 
 					var lastIndex = args.length - 1;
 					var last = args[lastIndex];
-					if (!isBoolean(last)) {
+					if(!isBoolean(last)) {
 						args.push(true); // append a parameter includeEnd=true
 					}
 
@@ -5838,8 +6061,8 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 27 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -5856,25 +6079,25 @@
 			 * This transform creates a range which includes the end value
 			 * @param {Object} math
 			 */
-			module.exports = function (math) {
-				math.subset.transform = function () {
+			module.exports = function(math) {
+				math.subset.transform = function() {
 					try {
 						return math.subset.apply(math, argsToArray(arguments));
 					}
-					catch (err) {
+					catch(err) {
 						throw errorTransform(err);
 					}
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 28 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var string = __webpack_require__(160);
 
 				/**
@@ -5895,12 +6118,12 @@
 				 *
 				 * @param {*} [value]
 				 */
-				function Selector (value) {
-					if (!(this instanceof Selector)) {
+				function Selector(value) {
+					if(!(this instanceof Selector)) {
 						throw new SyntaxError('Constructor must be called with the new operator');
 					}
 
-					if (value instanceof Selector) {
+					if(value instanceof Selector) {
 						this.value = value.value;
 					}
 					else {
@@ -5913,7 +6136,7 @@
 				 * Does the same as method valueOf()
 				 * @returns {*} value
 				 */
-				Selector.prototype.done = function () {
+				Selector.prototype.done = function() {
 					return this.value;
 				};
 
@@ -5922,7 +6145,7 @@
 				 * Does the same as method done()
 				 * @returns {*} value
 				 */
-				Selector.prototype.valueOf = function () {
+				Selector.prototype.valueOf = function() {
 					return this.value;
 				};
 
@@ -5930,7 +6153,7 @@
 				 * Get a string representation of the value in the selector
 				 * @returns {String}
 				 */
-				Selector.prototype.toString = function () {
+				Selector.prototype.toString = function() {
 					return string.format(this.value);
 				};
 
@@ -5941,9 +6164,9 @@
 				 */
 				function createProxy(name, value) {
 					var slice = Array.prototype.slice;
-					if (typeof value === 'function') {
+					if(typeof value === 'function') {
 						// a function
-						Selector.prototype[name] = function () {
+						Selector.prototype[name] = function() {
 							var args = [this.value].concat(slice.call(arguments, 0));
 							return new Selector(value.apply(this, args));
 						}
@@ -5959,8 +6182,8 @@
 				/**
 				 * initialise the Chain prototype with all functions and constants in math
 				 */
-				for (var prop in math) {
-					if (math.hasOwnProperty(prop)) {
+				for(var prop in math) {
+					if(math.hasOwnProperty(prop)) {
 						createProxy(prop, math[prop]);
 					}
 				}
@@ -5968,14 +6191,14 @@
 				return Selector;
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 29 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 					_parse = __webpack_require__(14),
 
@@ -6018,18 +6241,18 @@
 				 *            An object with the compiled expression
 				 * @throws {Error}
 				 */
-				math.compile = function compile (expr) {
-					if (arguments.length != 1) {
+				math.compile = function compile(expr) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('compile', arguments.length, 1);
 					}
 
-					if (isString(expr)) {
+					if(isString(expr)) {
 						// evaluate a single expression
 						return _parse(expr).compile(math);
 					}
-					else if (isCollection(expr)) {
+					else if(isCollection(expr)) {
 						// evaluate an array or matrix with expressions
-						return collection.deepMap(expr, function (elem) {
+						return collection.deepMap(expr, function(elem) {
 							return _parse(elem).compile(math);
 						});
 					}
@@ -6040,14 +6263,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 30 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 					_parse = __webpack_require__(14),
 
@@ -6085,23 +6308,23 @@
 				 * @return {*} The result of the expression
 				 * @throws {Error}
 				 */
-				math.eval = function _eval (expr, scope) {
-					if (arguments.length != 1 && arguments.length != 2) {
+				math.eval = function _eval(expr, scope) {
+					if(arguments.length != 1 && arguments.length != 2) {
 						throw new math.error.ArgumentsError('eval', arguments.length, 1, 2);
 					}
 
 					// instantiate a scope
 					scope = scope || {};
 
-					if (isString(expr)) {
+					if(isString(expr)) {
 						// evaluate a single expression
 						return _parse(expr)
 							.compile(math)
 							.eval(scope);
 					}
-					else if (isCollection(expr)) {
+					else if(isCollection(expr)) {
 						// evaluate an array or matrix with expressions
-						return collection.deepMap(expr, function (elem) {
+						return collection.deepMap(expr, function(elem) {
 							return _parse(elem)
 								.compile(math).eval(scope);
 						});
@@ -6113,14 +6336,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 31 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Help = __webpack_require__(11);
 
 				/**
@@ -6142,20 +6365,20 @@
 				 * @return {Help} A help object
 				 */
 				math.help = function help(search) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new SyntaxError('Wrong number of arguments in function help ' +
-							'(' + arguments.length + ' provided, 1 expected)');
+						'(' + arguments.length + ' provided, 1 expected)');
 					}
 
 					var text = null;
-					if ((search instanceof String) || (typeof(search) === 'string')) {
+					if((search instanceof String) || (typeof(search) === 'string')) {
 						text = search;
 					}
 					else {
 						var prop;
-						for (prop in math) {
+						for(prop in math) {
 							// search in functions and constants
-							if (math.hasOwnProperty(prop) && (search === math[prop])) {
+							if(math.hasOwnProperty(prop) && (search === math[prop])) {
 								text = prop;
 								break;
 							}
@@ -6177,21 +6400,21 @@
 					}
 
 					var doc = math.expression.docs[text];
-					if (!text || !doc) {
+					if(!text || !doc) {
 						throw new Error('No documentation found on "' + text + '"');
 					}
 					return new Help(math, doc);
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 32 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var _parse = __webpack_require__(14);
 
 				/**
@@ -6226,20 +6449,20 @@
 				 * @return {Node | Node[]} node
 				 * @throws {Error}
 				 */
-				math.parse = function parse (expr, options) {
+				math.parse = function parse(expr, options) {
 					return _parse.apply(_parse, arguments);
 				}
 
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 33 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -6277,27 +6500,27 @@
 				 *            Absolute value of `x`
 				 */
 				math.abs = function abs(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('abs', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return Math.abs(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return Math.sqrt(x.re * x.re + x.im * x.im);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return x.abs();
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, abs);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return Math.abs(x);
 					}
 
@@ -6305,14 +6528,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 34 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -6354,57 +6577,59 @@
 				 *
 				 *    subtract
 				 *
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null} x First value to add
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null} y Second value to add
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null} x First
+				 *     value to add
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null} y Second
+				 *     value to add
 				 * @return {Number | BigNumber | Complex | Unit | String | Array | Matrix} Sum of `x` and `y`
 				 */
 				math.add = function add(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('add', arguments.length, 2);
 					}
 
-					if (isNumber(x)) {
-						if (isNumber(y)) {
+					if(isNumber(x)) {
+						if(isNumber(y)) {
 							// number + number
 							return x + y;
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							// number + complex
 							return new Complex(
-									x + y.re,
+								x + y.re,
 								y.im
 							)
 						}
 					}
 
-					if (isComplex(x)) {
-						if (isComplex(y)) {
+					if(isComplex(x)) {
+						if(isComplex(y)) {
 							// complex + complex
 							return new Complex(
-									x.re + y.re,
-									x.im + y.im
+								x.re + y.re,
+								x.im + y.im
 							);
 						}
-						else if (isNumber(y)) {
+						else if(isNumber(y)) {
 							// complex + number
 							return new Complex(
-									x.re + y,
+								x.re + y,
 								x.im
 							)
 						}
 					}
 
-					if (isUnit(x)) {
-						if (isUnit(y)) {
-							if (x.value == null) {
+					if(isUnit(x)) {
+						if(isUnit(y)) {
+							if(x.value == null) {
 								throw new Error('Parameter x contains a unit with undefined value');
 							}
 
-							if (y.value == null) {
+							if(y.value == null) {
 								throw new Error('Parameter y contains a unit with undefined value');
 							}
 
-							if (!x.equalBase(y)) {
+							if(!x.equalBase(y)) {
 								throw new Error('Units do not match');
 							}
 
@@ -6415,32 +6640,32 @@
 						}
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return x.plus(y);
 						}
 
 						// downgrade to Number
 						return add(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.plus(y)
 						}
 
@@ -6448,18 +6673,18 @@
 						return add(x, y.toNumber());
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, add);
 					}
 
-					if (isString(x) || isString(y)) {
+					if(isString(x) || isString(y)) {
 						return x + y;
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return add(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return add(x, +y);
 					}
 
@@ -6467,14 +6692,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 35 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -6483,7 +6708,7 @@
 
 					isNumber = util.number.isNumber,
 					isBoolean = util['boolean'].isBoolean,
-					isCollection =collection.isCollection,
+					isCollection = collection.isCollection,
 					isComplex = Complex.isComplex;
 
 				/**
@@ -6515,30 +6740,30 @@
 				 * @return {Number | BigNumber | Complex | Array | Matrix} Rounded value
 				 */
 				math.ceil = function ceil(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('ceil', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return Math.ceil(x);
 					}
 
-					if (isComplex(x)) {
-						return new Complex (
+					if(isComplex(x)) {
+						return new Complex(
 							Math.ceil(x.re),
 							Math.ceil(x.im)
 						);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return x.ceil();
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, ceil);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return Math.ceil(x);
 					}
 
@@ -6546,14 +6771,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 36 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -6586,31 +6811,32 @@
 				 *
 				 *    multiply, square, pow
 				 *
-				 * @param  {Number | BigNumber | Boolean | Complex | Array | Matrix | null} x  Number for which to calculate the cube
+				 * @param  {Number | BigNumber | Boolean | Complex | Array | Matrix | null} x  Number for which to
+				 *     calculate the cube
 				 * @return {Number | BigNumber | Complex | Array | Matrix} Cube of x
 				 */
 				math.cube = function cube(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('cube', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return x * x * x;
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return math.multiply(math.multiply(x, x), x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return x.times(x).times(x);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, cube);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return cube(+x);
 					}
 
@@ -6618,8 +6844,8 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 37 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -6672,58 +6898,58 @@
 				 * @return {Number | BigNumber | Complex | Unit | Array | Matrix}                      Quotient, `x / y`
 				 */
 				math.divide = function divide(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('divide', arguments.length, 2);
 					}
 
-					if (isNumber(x)) {
-						if (isNumber(y)) {
+					if(isNumber(x)) {
+						if(isNumber(y)) {
 							// number / number
 							return x / y;
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							// number / complex
 							return _divideComplex(new Complex(x, 0), y);
 						}
 					}
 
-					if (isComplex(x)) {
-						if (isComplex(y)) {
+					if(isComplex(x)) {
+						if(isComplex(y)) {
 							// complex / complex
 							return _divideComplex(x, y);
 						}
-						else if (isNumber(y)) {
+						else if(isNumber(y)) {
 							// complex / number
 							return _divideComplex(x, new Complex(y, 0));
 						}
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return x.div(y);
 						}
 
 						// downgrade to Number
 						return divide(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.div(y)
 						}
 
@@ -6731,16 +6957,16 @@
 						return divide(x, y.toNumber());
 					}
 
-					if (isUnit(x)) {
-						if (isNumber(y)) {
+					if(isUnit(x)) {
+						if(isNumber(y)) {
 							var res = x.clone();
 							res.value /= y;
 							return res;
 						}
 					}
 
-					if (isCollection(x)) {
-						if (isCollection(y)) {
+					if(isCollection(x)) {
+						if(isCollection(y)) {
 							// TODO: implement matrix right division using pseudo inverse
 							// http://www.mathworks.nl/help/matlab/ref/mrdivide.html
 							// http://www.gnu.org/software/octave/doc/interpreter/Arithmetic-Ops.html
@@ -6753,15 +6979,15 @@
 						}
 					}
 
-					if (isCollection(y)) {
+					if(isCollection(y)) {
 						// TODO: implement matrix right division using pseudo inverse
 						return math.multiply(x, math.inv(y));
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return divide(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return divide(x, +y);
 					}
 
@@ -6775,12 +7001,12 @@
 				 * @return {Complex} res
 				 * @private
 				 */
-				function _divideComplex (x, y) {
+				function _divideComplex(x, y) {
 					var den = y.re * y.re + y.im * y.im;
-					if (den != 0) {
+					if(den != 0) {
 						return new Complex(
-								(x.re * y.re + x.im * y.im) / den,
-								(x.im * y.re - x.re * y.im) / den
+							(x.re * y.re + x.im * y.im) / den,
+							(x.im * y.re - x.re * y.im) / den
 						);
 					}
 					else {
@@ -6793,14 +7019,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 38 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var collection = __webpack_require__(13);
 
 				/**
@@ -6830,7 +7056,7 @@
 				 * @return {Number | BigNumber | Complex | Unit | Array | Matrix}                    Quotient, `x ./ y`
 				 */
 				math.dotDivide = function dotDivide(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('dotDivide', arguments.length, 2);
 					}
 
@@ -6838,19 +7064,19 @@
 				};
 
 				// TODO: deprecated since version 0.23.0, clean up some day
-				math.edivide = function () {
+				math.edivide = function() {
 					throw new Error('Function edivide is renamed to dotDivide');
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 39 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 					collection = __webpack_require__(13);
 
@@ -6878,10 +7104,11 @@
 				 *
 				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} x Left hand value
 				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} y Right hand value
-				 * @return {Number | BigNumber | Complex | Unit | Array | Matrix}                    Multiplication of `x` and `y`
+				 * @return {Number | BigNumber | Complex | Unit | Array | Matrix}                    Multiplication of
+				 *     `x` and `y`
 				 */
 				math.dotMultiply = function dotMultiply(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('dotMultiply', arguments.length, 2);
 					}
 
@@ -6889,19 +7116,19 @@
 				};
 
 				// TODO: deprecated since version 0.23.0, clean up some day
-				math.emultiply = function () {
+				math.emultiply = function() {
 					throw new Error('Function emultiply is renamed to dotMultiply');
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 40 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 					collection = __webpack_require__(13);
 
@@ -6926,10 +7153,11 @@
 				 *
 				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} x  The base
 				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} y  The exponent
-				 * @return {Number | BigNumber | Complex | Unit | Array | Matrix}                     The value of `x` to the power `y`
+				 * @return {Number | BigNumber | Complex | Unit | Array | Matrix}                     The value of `x`
+				 *     to the power `y`
 				 */
 				math.dotPow = function dotPow(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('dotPow', arguments.length, 2);
 					}
 
@@ -6937,19 +7165,19 @@
 				};
 
 				// TODO: deprecated since version 0.23.0, clean up some day
-				math.epow = function () {
+				math.epow = function() {
 					throw new Error('Function epow is renamed to dotPow');
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 41 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -6987,35 +7215,36 @@
 				 *
 				 *    log, pow
 				 *
-				 * @param {Number | BigNumber | Boolean | Complex | Array | Matrix | null} x  A number or matrix to exponentiate
+				 * @param {Number | BigNumber | Boolean | Complex | Array | Matrix | null} x  A number or matrix to
+				 *     exponentiate
 				 * @return {Number | BigNumber | Complex | Array | Matrix} Exponent of `x`
 				 */
-				math.exp = function exp (x) {
-					if (arguments.length != 1) {
+				math.exp = function exp(x) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('exp', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return Math.exp(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var r = Math.exp(x.re);
 						return new Complex(
-								r * Math.cos(x.im),
-								r * Math.sin(x.im)
+							r * Math.cos(x.im),
+							r * Math.sin(x.im)
 						);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return x.exp();
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, exp);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return Math.exp(x);
 					}
 
@@ -7023,14 +7252,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 42 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -7070,30 +7299,30 @@
 				 * @return {Number | BigNumber | Complex | Array | Matrix}            Rounded value
 				 */
 				math.fix = function fix(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('fix', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return (x > 0) ? Math.floor(x) : Math.ceil(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return new Complex(
 							(x.re > 0) ? Math.floor(x.re) : Math.ceil(x.re),
 							(x.im > 0) ? Math.floor(x.im) : Math.ceil(x.im)
 						);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return x.isNegative() ? x.ceil() : x.floor();
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, fix);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return fix(+x);
 					}
 
@@ -7101,14 +7330,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 43 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -7148,30 +7377,30 @@
 				 * @return {Number | BigNumber | Complex | Array | Matrix} Rounded value
 				 */
 				math.floor = function floor(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('floor', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return Math.floor(x);
 					}
 
-					if (isComplex(x)) {
-						return new Complex (
+					if(isComplex(x)) {
+						return new Complex(
 							Math.floor(x.re),
 							Math.floor(x.im)
 						);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return x.floor();
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, floor);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return floor(+x);
 					}
 
@@ -7179,14 +7408,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 44 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -7227,15 +7456,15 @@
 						b = arguments[1],
 						r; // remainder
 
-					if (arguments.length == 2) {
+					if(arguments.length == 2) {
 						// two arguments
-						if (isNumber(a) && isNumber(b)) {
-							if (!isInteger(a) || !isInteger(b)) {
+						if(isNumber(a) && isNumber(b)) {
+							if(!isInteger(a) || !isInteger(b)) {
 								throw new Error('Parameters in function gcd must be integer numbers');
 							}
 
 							// http://en.wikipedia.org/wiki/Euclidean_algorithm
-							while (b != 0) {
+							while(b != 0) {
 								r = a % b;
 								a = b;
 								b = r;
@@ -7244,36 +7473,36 @@
 						}
 
 						// evaluate gcd element wise
-						if (isCollection(a) || isCollection(b)) {
+						if(isCollection(a) || isCollection(b)) {
 							return collection.deepMap2(a, b, gcd);
 						}
 
-						if (a instanceof BigNumber) {
+						if(a instanceof BigNumber) {
 							// try to convert to big number
-							if (isNumber(b)) {
+							if(isNumber(b)) {
 								b = BigNumber.convert(b);
 							}
-							else if (isBoolean(b) || b === null) {
+							else if(isBoolean(b) || b === null) {
 								b = new BigNumber(b ? 1 : 0);
 							}
 
-							if (b instanceof BigNumber) {
+							if(b instanceof BigNumber) {
 								return _bigGcd(a, b);
 							}
 
 							// downgrade to Number
 							return gcd(a.toNumber(), b);
 						}
-						if (b instanceof BigNumber) {
+						if(b instanceof BigNumber) {
 							// try to convert to big number
-							if (isNumber(a)) {
+							if(isNumber(a)) {
 								a = BigNumber.convert(a);
 							}
-							else if (isBoolean(a) || a === null) {
+							else if(isBoolean(a) || a === null) {
 								a = new BigNumber(a ? 1 : 0);
 							}
 
-							if (a instanceof BigNumber) {
+							if(a instanceof BigNumber) {
 								return _bigGcd(a, b);
 							}
 
@@ -7281,19 +7510,19 @@
 							return gcd(a.toNumber(), b);
 						}
 
-						if (isBoolean(a) || a === null) {
+						if(isBoolean(a) || a === null) {
 							return gcd(+a, b);
 						}
-						if (isBoolean(b) || b === null) {
+						if(isBoolean(b) || b === null) {
 							return gcd(a, +b);
 						}
 
 						throw new math.error.UnsupportedTypeError('gcd', math['typeof'](a), math['typeof'](b));
 					}
 
-					if (arguments.length > 2) {
+					if(arguments.length > 2) {
 						// multiple arguments. Evaluate them iteratively
-						for (var i = 1; i < arguments.length; i++) {
+						for(var i = 1; i < arguments.length; i++) {
 							a = gcd(a, arguments[i]);
 						}
 						return a;
@@ -7311,13 +7540,13 @@
 				 * @private
 				 */
 				function _bigGcd(a, b) {
-					if (!a.isInt() || !b.isInt()) {
+					if(!a.isInt() || !b.isInt()) {
 						throw new Error('Parameters in function gcd must be integer numbers');
 					}
 
 					// http://en.wikipedia.org/wiki/Euclidean_algorithm
 					var zero = new BigNumber(0);
-					while (!b.isZero()) {
+					while(!b.isZero()) {
 						var r = a.mod(b);
 						a = b;
 						b = r;
@@ -7326,14 +7555,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 45 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -7378,21 +7607,21 @@
 						b = arguments[1],
 						t;
 
-					if (arguments.length == 2) {
+					if(arguments.length == 2) {
 						// two arguments
-						if (isNumber(a) && isNumber(b)) {
-							if (!isInteger(a) || !isInteger(b)) {
+						if(isNumber(a) && isNumber(b)) {
+							if(!isInteger(a) || !isInteger(b)) {
 								throw new Error('Parameters in function lcm must be integer numbers');
 							}
 
-							if (a == 0 || b == 0) {
+							if(a == 0 || b == 0) {
 								return 0;
 							}
 
 							// http://en.wikipedia.org/wiki/Euclidean_algorithm
 							// evaluate lcm here inline to reduce overhead
 							var prod = a * b;
-							while (b != 0) {
+							while(b != 0) {
 								t = b;
 								b = a % t;
 								a = t;
@@ -7401,36 +7630,36 @@
 						}
 
 						// evaluate lcm element wise
-						if (isCollection(a) || isCollection(b)) {
+						if(isCollection(a) || isCollection(b)) {
 							return collection.deepMap2(a, b, lcm);
 						}
 
-						if (a instanceof BigNumber) {
+						if(a instanceof BigNumber) {
 							// try to convert to big number
-							if (isNumber(b)) {
+							if(isNumber(b)) {
 								b = BigNumber.convert(b);
 							}
-							else if (isBoolean(b) || b === null) {
+							else if(isBoolean(b) || b === null) {
 								b = new BigNumber(b ? 1 : 0);
 							}
 
-							if (b instanceof BigNumber) {
+							if(b instanceof BigNumber) {
 								return _bigLcm(a, b);
 							}
 
 							// downgrade to Number
 							return lcm(a.toNumber(), b);
 						}
-						if (b instanceof BigNumber) {
+						if(b instanceof BigNumber) {
 							// try to convert to big number
-							if (isNumber(a)) {
+							if(isNumber(a)) {
 								a = BigNumber.convert(a);
 							}
-							else if (isBoolean(a) || a === null) {
+							else if(isBoolean(a) || a === null) {
 								a = new BigNumber(a ? 1 : 0);
 							}
 
-							if (a instanceof BigNumber) {
+							if(a instanceof BigNumber) {
 								return _bigLcm(a, b);
 							}
 
@@ -7438,19 +7667,19 @@
 							return lcm(a.toNumber(), b);
 						}
 
-						if (isBoolean(a) || a === null) {
+						if(isBoolean(a) || a === null) {
 							return lcm(+a, b);
 						}
-						if (isBoolean(b) || b === null) {
+						if(isBoolean(b) || b === null) {
 							return lcm(a, +b);
 						}
 
 						throw new math.error.UnsupportedTypeError('lcm', math['typeof'](a), math['typeof'](b));
 					}
 
-					if (arguments.length > 2) {
+					if(arguments.length > 2) {
 						// multiple arguments. Evaluate them iteratively
-						for (var i = 1; i < arguments.length; i++) {
+						for(var i = 1; i < arguments.length; i++) {
 							a = lcm(a, arguments[i]);
 						}
 						return a;
@@ -7468,18 +7697,18 @@
 				 * @private
 				 */
 				function _bigLcm(a, b) {
-					if (!a.isInt() || !b.isInt()) {
+					if(!a.isInt() || !b.isInt()) {
 						throw new Error('Parameters in function lcm must be integer numbers');
 					}
 
-					if (a.isZero() || b.isZero()) {
+					if(a.isZero() || b.isZero()) {
 						return new BigNumber(0);
 					}
 
 					// http://en.wikipedia.org/wiki/Euclidean_algorithm
 					// evaluate lcm here inline to reduce overhead
 					var prod = a.times(b);
-					while (!b.isZero()) {
+					while(!b.isZero()) {
 						var t = b;
 						b = a.mod(t);
 						a = t;
@@ -7488,14 +7717,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 46 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -7542,10 +7771,10 @@
 				 *            Returns the logarithm of `x`
 				 */
 				math.log = function log(x, base) {
-					if (arguments.length == 1) {
+					if(arguments.length == 1) {
 						// calculate natural logarithm, log(x)
-						if (isNumber(x)) {
-							if (x >= 0) {
+						if(isNumber(x)) {
+							if(x >= 0) {
 								return Math.log(x);
 							}
 							else {
@@ -7554,15 +7783,15 @@
 							}
 						}
 
-						if (isComplex(x)) {
-							return new Complex (
+						if(isComplex(x)) {
+							return new Complex(
 								Math.log(Math.sqrt(x.re * x.re + x.im * x.im)),
 								Math.atan2(x.im, x.re)
 							);
 						}
 
-						if (x instanceof BigNumber) {
-							if (x.isNegative()) {
+						if(x instanceof BigNumber) {
+							if(x.isNegative()) {
 								// negative value -> downgrade to number to do complex value computation
 								return log(x.toNumber());
 							}
@@ -7571,17 +7800,17 @@
 							}
 						}
 
-						if (isCollection(x)) {
+						if(isCollection(x)) {
 							return collection.deepMap(x, log);
 						}
 
-						if (isBoolean(x) || x === null) {
+						if(isBoolean(x) || x === null) {
 							return log(+x);
 						}
 
 						throw new math.error.UnsupportedTypeError('log', math['typeof'](x));
 					}
-					else if (arguments.length == 2) {
+					else if(arguments.length == 2) {
 						// calculate logarithm for a specified base, log(x, base)
 						return math.divide(log(x), log(base));
 					}
@@ -7591,14 +7820,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 47 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -7636,12 +7865,12 @@
 				 *            Returns the 10-base logarithm of `x`
 				 */
 				math.log10 = function log10(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('log10', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
-						if (x >= 0) {
+					if(isNumber(x)) {
+						if(x >= 0) {
 							return Math.log(x) / Math.LN10;
 						}
 						else {
@@ -7650,8 +7879,8 @@
 						}
 					}
 
-					if (x instanceof BigNumber) {
-						if (x.isNegative()) {
+					if(x instanceof BigNumber) {
+						if(x.isNegative()) {
 							// negative value -> downgrade to number to do complex value computation
 							return log10(x.toNumber());
 						}
@@ -7660,18 +7889,18 @@
 						}
 					}
 
-					if (isComplex(x)) {
-						return new Complex (
-								Math.log(Math.sqrt(x.re * x.re + x.im * x.im)) / Math.LN10,
-								Math.atan2(x.im, x.re) / Math.LN10
+					if(isComplex(x)) {
+						return new Complex(
+							Math.log(Math.sqrt(x.re * x.re + x.im * x.im)) / Math.LN10,
+							Math.atan2(x.im, x.re) / Math.LN10
 						);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, log10);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return log10(+x);
 					}
 
@@ -7679,14 +7908,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 48 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -7732,45 +7961,45 @@
 				 * @return {Number | BigNumber | Array | Matrix} Returns the remainder of `x` divided by `y`.
 				 */
 				math.mod = function mod(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('mod', arguments.length, 2);
 					}
 
 					// see http://functions.wolfram.com/IntegerFunctions/Mod/
 
-					if (isNumber(x)) {
-						if (isNumber(y)) {
+					if(isNumber(x)) {
+						if(isNumber(y)) {
 							// number % number
 							return _mod(x, y);
 						}
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return y.isZero() ? x : x.mod(y);
 						}
 
 						// downgrade x to Number
 						return mod(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return y.isZero() ? x : x.mod(y);
 						}
 
@@ -7780,14 +8009,14 @@
 
 					// TODO: implement mod for complex values
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, mod);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return mod(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return mod(x, +y);
 					}
 
@@ -7802,13 +8031,13 @@
 				 * @private
 				 */
 				function _mod(x, y) {
-					if (y > 0) {
+					if(y > 0) {
 						// We don't use JavaScript's % operator here as this doesn't work
 						// correctly for x < 0 and x == 0
 						// see http://en.wikipedia.org/wiki/Modulo_operation
 						return x - y * Math.floor(x / y);
 					}
-					else if (y == 0) {
+					else if(y == 0) {
 						return x;
 					}
 					else { // y < 0
@@ -7818,8 +8047,8 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 49 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -7868,70 +8097,72 @@
 				 *
 				 *    divide
 				 *
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} x First value to multiply
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} y Second value to multiply
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} x First value to
+				 *     multiply
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} y Second value to
+				 *     multiply
 				 * @return {Number | BigNumber | Complex | Unit | Array | Matrix} Multiplication of `x` and `y`
 				 */
 				math.multiply = function multiply(x, y) {
 					var res;
 
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('multiply', arguments.length, 2);
 					}
 
-					if (isNumber(x)) {
-						if (isNumber(y)) {
+					if(isNumber(x)) {
+						if(isNumber(y)) {
 							// number * number
 							return x * y;
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							// number * complex
-							return _multiplyComplex (new Complex(x, 0), y);
+							return _multiplyComplex(new Complex(x, 0), y);
 						}
-						else if (isUnit(y)) {
+						else if(isUnit(y)) {
 							res = y.clone();
 							res.value = (res.value === null) ? res._normalize(x) : (res.value * x);
 							return res;
 						}
 					}
 
-					if (isComplex(x)) {
-						if (isNumber(y)) {
+					if(isComplex(x)) {
+						if(isNumber(y)) {
 							// complex * number
-							return _multiplyComplex (x, new Complex(y, 0));
+							return _multiplyComplex(x, new Complex(y, 0));
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							// complex * complex
-							return _multiplyComplex (x, y);
+							return _multiplyComplex(x, y);
 						}
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return x.times(y);
 						}
 
 						// downgrade to Number
 						return multiply(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.times(y)
 						}
 
@@ -7939,86 +8170,86 @@
 						return multiply(x, y.toNumber());
 					}
 
-					if (isUnit(x)) {
-						if (isNumber(y)) {
+					if(isUnit(x)) {
+						if(isNumber(y)) {
 							res = x.clone();
 							res.value = (res.value === null) ? res._normalize(y) : (res.value * y);
 							return res;
 						}
 					}
 
-					if (isArray(x)) {
-						if (isArray(y)) {
+					if(isArray(x)) {
+						if(isArray(y)) {
 							// array * array
 							var sizeX = array.size(x);
 							var sizeY = array.size(y);
 
-							if (sizeX.length == 1) {
-								if (sizeY.length == 1) {
+							if(sizeX.length == 1) {
+								if(sizeY.length == 1) {
 									// vector * vector
-									if (sizeX[0] != sizeY[0]) {
+									if(sizeX[0] != sizeY[0]) {
 										throw new RangeError('Dimension mismatch in multiplication. ' +
-											'Length of A must match length of B ' +
-											'(A is ' + sizeX[0] +
-											', B is ' + sizeY[0] +
-											sizeX[0] + ' != ' + sizeY[0] + ')');
+										'Length of A must match length of B ' +
+										'(A is ' + sizeX[0] +
+										', B is ' + sizeY[0] +
+										sizeX[0] + ' != ' + sizeY[0] + ')');
 									}
 
 									return _multiplyVectorVector(x, y);
 								}
-								else if (sizeY.length == 2) {
+								else if(sizeY.length == 2) {
 									// vector * matrix
-									if (sizeX[0] != sizeY[0]) {
+									if(sizeX[0] != sizeY[0]) {
 										throw new RangeError('Dimension mismatch in multiplication. ' +
-											'Length of A must match rows of B ' +
-											'(A is ' + sizeX[0] +
-											', B is ' + sizeY[0] + 'x' + sizeY[1] + ', ' +
-											sizeX[0] + ' != ' + sizeY[0] + ')');
+										'Length of A must match rows of B ' +
+										'(A is ' + sizeX[0] +
+										', B is ' + sizeY[0] + 'x' + sizeY[1] + ', ' +
+										sizeX[0] + ' != ' + sizeY[0] + ')');
 									}
 
 									return _multiplyVectorMatrix(x, y);
 								}
 								else {
 									throw new Error('Can only multiply a 1 or 2 dimensional matrix ' +
-										'(B has ' + sizeY.length + ' dimensions)');
+									'(B has ' + sizeY.length + ' dimensions)');
 								}
 							}
-							else if (sizeX.length == 2) {
-								if (sizeY.length == 1) {
+							else if(sizeX.length == 2) {
+								if(sizeY.length == 1) {
 									// matrix * vector
-									if (sizeX[1] != sizeY[0]) {
+									if(sizeX[1] != sizeY[0]) {
 										throw new RangeError('Dimension mismatch in multiplication. ' +
-											'Columns of A must match length of B ' +
-											'(A is ' + sizeX[0] + 'x' + sizeX[0] +
-											', B is ' + sizeY[0] + ', ' +
-											sizeX[1] + ' != ' + sizeY[0] + ')');
+										'Columns of A must match length of B ' +
+										'(A is ' + sizeX[0] + 'x' + sizeX[0] +
+										', B is ' + sizeY[0] + ', ' +
+										sizeX[1] + ' != ' + sizeY[0] + ')');
 									}
 
 									return _multiplyMatrixVector(x, y);
 								}
-								else if (sizeY.length == 2) {
+								else if(sizeY.length == 2) {
 									// matrix * matrix
-									if (sizeX[1] != sizeY[0]) {
+									if(sizeX[1] != sizeY[0]) {
 										throw new RangeError('Dimension mismatch in multiplication. ' +
-											'Columns of A must match rows of B ' +
-											'(A is ' + sizeX[0] + 'x' + sizeX[1] +
-											', B is ' + sizeY[0] + 'x' + sizeY[1] + ', ' +
-											sizeX[1] + ' != ' + sizeY[0] + ')');
+										'Columns of A must match rows of B ' +
+										'(A is ' + sizeX[0] + 'x' + sizeX[1] +
+										', B is ' + sizeY[0] + 'x' + sizeY[1] + ', ' +
+										sizeX[1] + ' != ' + sizeY[0] + ')');
 									}
 
 									return _multiplyMatrixMatrix(x, y);
 								}
 								else {
 									throw new Error('Can only multiply a 1 or 2 dimensional matrix ' +
-										'(B has ' + sizeY.length + ' dimensions)');
+									'(B has ' + sizeY.length + ' dimensions)');
 								}
 							}
 							else {
 								throw new Error('Can only multiply a 1 or 2 dimensional matrix ' +
-									'(A has ' + sizeX.length + ' dimensions)');
+								'(A has ' + sizeX.length + ' dimensions)');
 							}
 						}
-						else if (y instanceof Matrix) {
+						else if(y instanceof Matrix) {
 							// array * matrix
 							res = multiply(x, y.valueOf());
 							return isArray(res) ? new Matrix(res) : res;
@@ -8029,8 +8260,8 @@
 						}
 					}
 
-					if (x instanceof Matrix) {
-						if (y instanceof Matrix) {
+					if(x instanceof Matrix) {
+						if(y instanceof Matrix) {
 							// matrix * matrix
 							res = multiply(x.valueOf(), y.valueOf());
 							return isArray(res) ? new Matrix(res) : res;
@@ -8043,19 +8274,19 @@
 						}
 					}
 
-					if (isArray(y)) {
+					if(isArray(y)) {
 						// scalar * array
 						return collection.deepMap2(x, y, multiply);
 					}
-					else if (y instanceof Matrix) {
+					else if(y instanceof Matrix) {
 						// scalar * matrix
 						return new Matrix(collection.deepMap2(x, y.valueOf(), multiply));
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return multiply(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return multiply(x, +y);
 					}
 
@@ -8077,11 +8308,11 @@
 						cols = y[0].length,
 						num = x[0].length;
 
-					for (var r = 0; r < rows; r++) {
+					for(var r = 0; r < rows; r++) {
 						res[r] = [];
-						for (var c = 0; c < cols; c++) {
+						for(var c = 0; c < cols; c++) {
 							var result = null;
-							for (var n = 0; n < num; n++) {
+							for(var n = 0; n < num; n++) {
 								var p = math.multiply(x[r][n], y[n][c]);
 								result = (result === null) ? p : math.add(result, p);
 							}
@@ -8107,9 +8338,9 @@
 						rows = y.length,
 						cols = y[0].length;
 
-					for (var c = 0; c < cols; c++) {
+					for(var c = 0; c < cols; c++) {
 						var result = null;
-						for (var r = 0; r < rows; r++) {
+						for(var r = 0; r < rows; r++) {
 							var p = math.multiply(x[r], y[r][c]);
 							result = (r === 0) ? p : math.add(result, p);
 						}
@@ -8133,9 +8364,9 @@
 						rows = x.length,
 						cols = x[0].length;
 
-					for (var r = 0; r < rows; r++) {
+					for(var r = 0; r < rows; r++) {
 						var result = null;
-						for (var c = 0; c < cols; c++) {
+						for(var c = 0; c < cols; c++) {
 							var p = math.multiply(x[r][c], y[c]);
 							result = (c === 0) ? p : math.add(result, p);
 						}
@@ -8157,12 +8388,12 @@
 					// TODO: performance of matrix multiplication can be improved
 					var len = x.length;
 
-					if (!len) {
+					if(!len) {
 						throw new Error('Cannot multiply two empty vectors');
 					}
 
 					var dot = 0;
-					for (var i = 0; i < len; i++) {
+					for(var i = 0; i < len; i++) {
 						dot = math.add(dot, math.multiply(x[i], y[i]));
 					}
 					return dot;
@@ -8175,88 +8406,88 @@
 				 * @return {Complex | Number} res
 				 * @private
 				 */
-				function _multiplyComplex (x, y) {
+				function _multiplyComplex(x, y) {
 					// Note: we test whether x or y are pure real or pure complex,
 					// to prevent unnecessary NaN values. For example, Infinity*i should
 					// result in Infinity*i, and not in NaN+Infinity*i
 
-					if (x.im == 0) {
+					if(x.im == 0) {
 						// x is pure real
-						if (y.im == 0) {
+						if(y.im == 0) {
 							// y is pure real
 							return new Complex(x.re * y.re, 0);
 						}
-						else if (y.re == 0) {
+						else if(y.re == 0) {
 							// y is pure complex
 							return new Complex(
 								0,
-									x.re * y.im
+								x.re * y.im
 							);
 						}
 						else {
 							// y has a real and complex part
 							return new Complex(
-									x.re * y.re,
-									x.re * y.im
+								x.re * y.re,
+								x.re * y.im
 							);
 						}
 					}
-					else if (x.re == 0) {
+					else if(x.re == 0) {
 						// x is pure complex
-						if (y.im == 0) {
+						if(y.im == 0) {
 							// y is pure real
 							return new Complex(
 								0,
-									x.im * y.re
+								x.im * y.re
 							);
 						}
-						else if (y.re == 0) {
+						else if(y.re == 0) {
 							// y is pure complex
 							return new Complex(-x.im * y.im, 0);
 						}
 						else {
 							// y has a real and complex part
 							return new Complex(
-									-x.im * y.im,
-									x.im * y.re
+								-x.im * y.im,
+								x.im * y.re
 							);
 						}
 					}
 					else {
 						// x has a real and complex part
-						if (y.im == 0) {
+						if(y.im == 0) {
 							// y is pure real
 							return new Complex(
-									x.re * y.re,
-									x.im * y.re
+								x.re * y.re,
+								x.im * y.re
 							);
 						}
-						else if (y.re == 0) {
+						else if(y.re == 0) {
 							// y is pure complex
 							return new Complex(
-									-x.im * y.im,
-									x.re * y.im
+								-x.im * y.im,
+								x.re * y.im
 							);
 						}
 						else {
 							// y has a real and complex part
 							return new Complex(
-									x.re * y.re - x.im * y.im,
-									x.re * y.im + x.im * y.re
+								x.re * y.re - x.im * y.im,
+								x.re * y.im + x.im * y.re
 							);
 						}
 					}
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 50 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					array = __webpack_require__(137),
@@ -8310,67 +8541,67 @@
 				 * @return {Number} the p-norm
 				 */
 				math.norm = function norm(x, p) {
-					if (arguments.length < 1 || arguments.length > 2) {
+					if(arguments.length < 1 || arguments.length > 2) {
 						throw new math.error.ArgumentsError('abs', arguments.length, 1, 2);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						// norm(x) = abs(x)
 						return Math.abs(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						// ignore p, complex numbers
 						return Math.sqrt(x.re * x.re + x.im * x.im);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// norm(x) = abs(x)
 						return x.abs();
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						// norm(x) = abs(x)
 						return Math.abs(x);
 					}
 
-					if (isArray(x)) {
+					if(isArray(x)) {
 						// size
 						var sizeX = array.size(x);
 						// missing p
-						if (p == null)
+						if(p == null)
 							p = 2;
 						// check it is a Vector
-						if (sizeX.length == 1) {
+						if(sizeX.length == 1) {
 							// check p
-							if (p === Number.POSITIVE_INFINITY || p === 'inf') {
+							if(p === Number.POSITIVE_INFINITY || p === 'inf') {
 								// norm(x, Infinity) = max(abs(x))
 								var n;
-								math.forEach(x, function (value) {
+								math.forEach(x, function(value) {
 									var v = math.abs(value);
-									if (!n || math.larger(v, n))
+									if(!n || math.larger(v, n))
 										n = v;
 								});
 								return n;
 							}
-							if (p === Number.NEGATIVE_INFINITY || p === '-inf') {
+							if(p === Number.NEGATIVE_INFINITY || p === '-inf') {
 								// norm(x, -Infinity) = min(abs(x))
 								var n;
-								math.forEach(x, function (value) {
+								math.forEach(x, function(value) {
 									var v = math.abs(value);
-									if (!n || math.smaller(v, n))
+									if(!n || math.smaller(v, n))
 										n = v;
 								});
 								return n;
 							}
-							if (p === 'fro')
+							if(p === 'fro')
 								return norm(x);
-							if (isNumber(p) && !isNaN(p)) {
+							if(isNumber(p) && !isNaN(p)) {
 								// check p != 0
-								if (!math.equal(p, 0)) {
+								if(!math.equal(p, 0)) {
 									// norm(x, p) = sum(abs(xi) ^ p) ^ 1/p
 									var n = 0;
-									math.forEach(x, function (value) {
+									math.forEach(x, function(value) {
 										n = math.add(math.pow(math.abs(value), p), n);
 									});
 									return math.pow(n, 1 / p);
@@ -8380,47 +8611,47 @@
 							// invalid parameter value
 							throw new Error('Unsupported parameter value');
 						}
-						else if (sizeX.length == 2) {
+						else if(sizeX.length == 2) {
 							// check p
-							if (p == 1) {
+							if(p == 1) {
 								// norm(x) = the largest column sum
 								var c = [];
 								// loop rows
-								for (var i = 0; i < x.length; i++) {
+								for(var i = 0; i < x.length; i++) {
 									var r = x[i];
 									// loop columns
-									for (var j = 0; j < r.length; j++) {
+									for(var j = 0; j < r.length; j++) {
 										c[j] = math.add(c[j] || 0, math.abs(r[j]));
 									}
 								}
 								return math.max(c);
 							}
-							if (p == Number.POSITIVE_INFINITY || p === 'inf') {
+							if(p == Number.POSITIVE_INFINITY || p === 'inf') {
 								// norm(x) = the largest row sum
 								var n = 0;
 								// loop rows
-								for (var i = 0; i < x.length; i++) {
+								for(var i = 0; i < x.length; i++) {
 									var rs = 0;
 									var r = x[i];
 									// loop columns
-									for (var j = 0; j < r.length; j++) {
+									for(var j = 0; j < r.length; j++) {
 										rs = math.add(rs, math.abs(r[j]));
 									}
-									if (math.larger(rs, n))
+									if(math.larger(rs, n))
 										n = rs;
 								}
 								return n;
 							}
-							if (p === 'fro') {
+							if(p === 'fro') {
 								// norm(x) = sqrt(sum(diag(x'x)))
 								var d = math.diag(math.multiply(math.transpose(x), x));
 								var s = 0;
-								math.forEach(d, function (value) {
+								math.forEach(d, function(value) {
 									s = math.add(value, s);
 								});
 								return math.sqrt(s);
 							}
-							if (p == 2) {
+							if(p == 2) {
 								// not implemented
 								throw new Error('Unsupported parameter value, missing implementation of matrix singular value decomposition');
 							}
@@ -8429,7 +8660,7 @@
 						}
 					}
 
-					if (x instanceof Matrix) {
+					if(x instanceof Matrix) {
 						return norm(x.valueOf(), p);
 					}
 
@@ -8437,14 +8668,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 51 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -8487,13 +8718,13 @@
 				 * @return {Number | BigNumber | Complex | Array | Matrix} The value of `x` to the power `y`
 				 */
 				math.pow = function pow(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('pow', arguments.length, 2);
 					}
 
-					if (isNumber(x)) {
-						if (isNumber(y)) {
-							if (isInteger(y) || x >= 0) {
+					if(isNumber(x)) {
+						if(isNumber(y)) {
+							if(isInteger(y) || x >= 0) {
 								// real value computation
 								return Math.pow(x, y);
 							}
@@ -8501,31 +8732,31 @@
 								return powComplex(new Complex(x, 0), new Complex(y, 0));
 							}
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							return powComplex(new Complex(x, 0), y);
 						}
 					}
 
-					if (isComplex(x)) {
-						if (isNumber(y)) {
+					if(isComplex(x)) {
+						if(isNumber(y)) {
 							return powComplex(x, new Complex(y, 0));
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							return powComplex(x, y);
 						}
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to upgrade y to to bignumber
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
-							if (y.isInteger() && !x.isNegative()) {
+						if(y instanceof BigNumber) {
+							if(y.isInteger() && !x.isNegative()) {
 								return x.pow(y);
 							}
 							else {
@@ -8539,17 +8770,17 @@
 						}
 					}
 
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert x to bignumber
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
-							if (y.isInteger() && !x.isNegative()) {
+						if(x instanceof BigNumber) {
+							if(y.isInteger() && !x.isNegative()) {
 								return x.pow(y);
 							}
 							else {
@@ -8563,27 +8794,27 @@
 						}
 					}
 
-					if (isArray(x)) {
-						if (!isNumber(y) || !isInteger(y) || y < 0) {
+					if(isArray(x)) {
+						if(!isNumber(y) || !isInteger(y) || y < 0) {
 							throw new TypeError('For A^b, b must be a positive integer ' +
-								'(value is ' + y + ')');
+							'(value is ' + y + ')');
 						}
 						// verify that A is a 2 dimensional square matrix
 						var s = array.size(x);
-						if (s.length != 2) {
+						if(s.length != 2) {
 							throw new Error('For A^b, A must be 2 dimensional ' +
-								'(A has ' + s.length + ' dimensions)');
+							'(A has ' + s.length + ' dimensions)');
 						}
-						if (s[0] != s[1]) {
+						if(s[0] != s[1]) {
 							throw new Error('For A^b, A must be square ' +
-								'(size is ' + s[0] + 'x' + s[1] + ')');
+							'(size is ' + s[0] + 'x' + s[1] + ')');
 						}
 
 						// compute power of matrix
 						var res = math.eye(s[0]).valueOf();
 						var px = x;
-						while (y >= 1) {
-							if ((y & 1) == 1) {
+						while(y >= 1) {
+							if((y & 1) == 1) {
 								res = math.multiply(px, res);
 							}
 							y >>= 1;
@@ -8591,14 +8822,14 @@
 						}
 						return res;
 					}
-					else if (x instanceof Matrix) {
+					else if(x instanceof Matrix) {
 						return new Matrix(pow(x.valueOf(), y));
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return pow(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return pow(x, +y);
 					}
 
@@ -8612,7 +8843,7 @@
 				 * @return {Complex} res
 				 * @private
 				 */
-				function powComplex (x, y) {
+				function powComplex(x, y) {
 					// complex computation
 					// x^y = exp(log(x)*y) = exp((abs(x)+i*arg(x))*y)
 					var temp1 = math.log(x);
@@ -8621,14 +8852,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 52 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -8673,32 +8904,32 @@
 				 * @return {Number | BigNumber | Complex | Array | Matrix} Rounded value
 				 */
 				math.round = function round(x, n) {
-					if (arguments.length != 1 && arguments.length != 2) {
+					if(arguments.length != 1 && arguments.length != 2) {
 						throw new math.error.ArgumentsError('round', arguments.length, 1, 2);
 					}
 
-					if (n == undefined) {
+					if(n == undefined) {
 						// round (x)
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							return Math.round(x);
 						}
 
-						if (isComplex(x)) {
-							return new Complex (
+						if(isComplex(x)) {
+							return new Complex(
 								Math.round(x.re),
 								Math.round(x.im)
 							);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.toDecimalPlaces(0);
 						}
 
-						if (isCollection(x)) {
+						if(isCollection(x)) {
 							return collection.deepMap(x, round);
 						}
 
-						if (isBoolean(x) || x === null) {
+						if(isBoolean(x) || x === null) {
 							return Math.round(x);
 						}
 
@@ -8706,41 +8937,41 @@
 					}
 					else {
 						// round (x, n)
-						if (!isNumber(n) || !isInteger(n)) {
-							if (n instanceof BigNumber) {
+						if(!isNumber(n) || !isInteger(n)) {
+							if(n instanceof BigNumber) {
 								n = parseFloat(n.valueOf());
 							}
-							else if (isBoolean(n) || x === null) {
+							else if(isBoolean(n) || x === null) {
 								return round(x, +n);
 							}
 							else {
 								throw new TypeError('Number of decimals in function round must be an integer');
 							}
 						}
-						if (n < 0 || n > 15) {
-							throw new Error ('Number of decimals in function round must be in te range of 0-15');
+						if(n < 0 || n > 15) {
+							throw new Error('Number of decimals in function round must be in te range of 0-15');
 						}
 
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							return roundNumber(x, n);
 						}
 
-						if (isComplex(x)) {
-							return new Complex (
+						if(isComplex(x)) {
+							return new Complex(
 								roundNumber(x.re, n),
 								roundNumber(x.im, n)
 							);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.toDecimalPlaces(n);
 						}
 
-						if (isCollection(x) || isCollection(n)) {
+						if(isCollection(x) || isCollection(n)) {
 							return collection.deepMap2(x, n, round);
 						}
 
-						if (isBoolean(x) || x === null) {
+						if(isBoolean(x) || x === null) {
 							return round(+x, n);
 						}
 
@@ -8755,20 +8986,20 @@
 				 * @param {Number} decimals       number of decimals, between 0 and 15 (0 by default)
 				 * @return {Number} roundedValue
 				 */
-				function roundNumber (value, decimals) {
+				function roundNumber(value, decimals) {
 					var p = Math.pow(10, decimals);
 					return Math.round(value * p) / p;
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 53 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -8812,28 +9043,28 @@
 				 *            The sign of `x`
 				 */
 				math.sign = function sign(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('sign', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return number.sign(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var abs = Math.sqrt(x.re * x.re + x.im * x.im);
 						return new Complex(x.re / abs, x.im / abs);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return new BigNumber(x.cmp(0));
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, sign);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return number.sign(x);
 					}
 
@@ -8841,14 +9072,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 54 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -8884,13 +9115,13 @@
 				 * @return {Number | Complex | Array | Matrix}
 				 *            Returns the square root of `x`
 				 */
-				math.sqrt = function sqrt (x) {
-					if (arguments.length != 1) {
+				math.sqrt = function sqrt(x) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('sqrt', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
-						if (x >= 0) {
+					if(isNumber(x)) {
+						if(x >= 0) {
 							return Math.sqrt(x);
 						}
 						else {
@@ -8898,26 +9129,26 @@
 						}
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var r = Math.sqrt(x.re * x.re + x.im * x.im);
 
 						var re, im;
 
-						if (x.re >= 0) {
+						if(x.re >= 0) {
 							re = 0.5 * Math.sqrt(2.0 * (r + x.re));
 						}
 						else {
 							re = Math.abs(x.im) / Math.sqrt(2 * (r - x.re));
 						}
 
-						if (x.re <= 0) {
+						if(x.re <= 0) {
 							im = 0.5 * Math.sqrt(2.0 * (r - x.re));
 						}
 						else {
 							im = Math.abs(x.im) / Math.sqrt(2 * (r + x.re));
 						}
 
-						if (x.im >= 0) {
+						if(x.im >= 0) {
 							return new Complex(re, im);
 						}
 						else {
@@ -8925,8 +9156,8 @@
 						}
 					}
 
-					if (x instanceof BigNumber) {
-						if (x.isNegative()) {
+					if(x instanceof BigNumber) {
+						if(x.isNegative()) {
 							// negative value -> downgrade to number to do complex value computation
 							return sqrt(x.toNumber());
 						}
@@ -8935,11 +9166,11 @@
 						}
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, sqrt);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return sqrt(+x);
 					}
 
@@ -8947,14 +9178,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 55 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -8993,27 +9224,27 @@
 				 *            Squared value
 				 */
 				math.square = function square(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('square', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return x * x;
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return math.multiply(x, x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return x.times(x);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, square);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return x * x;
 					}
 
@@ -9021,14 +9252,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 56 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -9077,66 +9308,66 @@
 				 *            Subtraction of `x` and `y`
 				 */
 				math.subtract = function subtract(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('subtract', arguments.length, 2);
 					}
 
-					if (isNumber(x)) {
-						if (isNumber(y)) {
+					if(isNumber(x)) {
+						if(isNumber(y)) {
 							// number - number
 							return x - y;
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							// number - complex
-							return new Complex (
-									x - y.re,
-								- y.im
+							return new Complex(
+								x - y.re,
+								-y.im
 							);
 						}
 					}
-					else if (isComplex(x)) {
-						if (isNumber(y)) {
+					else if(isComplex(x)) {
+						if(isNumber(y)) {
 							// complex - number
-							return new Complex (
-									x.re - y,
+							return new Complex(
+								x.re - y,
 								x.im
 							)
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							// complex - complex
-							return new Complex (
-									x.re - y.re,
-									x.im - y.im
+							return new Complex(
+								x.re - y.re,
+								x.im - y.im
 							)
 						}
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return x.minus(y);
 						}
 
 						// downgrade to Number
 						return subtract(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.minus(y)
 						}
 
@@ -9144,17 +9375,17 @@
 						return subtract(x, y.toNumber());
 					}
 
-					if (isUnit(x)) {
-						if (isUnit(y)) {
-							if (x.value == null) {
+					if(isUnit(x)) {
+						if(isUnit(y)) {
+							if(x.value == null) {
 								throw new Error('Parameter x contains a unit with undefined value');
 							}
 
-							if (y.value == null) {
+							if(y.value == null) {
 								throw new Error('Parameter y contains a unit with undefined value');
 							}
 
-							if (!x.equalBase(y)) {
+							if(!x.equalBase(y)) {
 								throw new Error('Units do not match');
 							}
 
@@ -9166,14 +9397,14 @@
 						}
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, subtract);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return subtract(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return subtract(x, +y);
 					}
 
@@ -9181,14 +9412,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 57 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -9223,42 +9454,43 @@
 				 *
 				 *    add, subtract, unaryPlus
 				 *
-				 * @param  {Number | BigNumber | Boolean | String | Complex | Unit | Array | Matrix | null} x Number to be inverted.
+				 * @param  {Number | BigNumber | Boolean | String | Complex | Unit | Array | Matrix | null} x Number to
+				 *     be inverted.
 				 * @return {Number | BigNumber | Complex | Unit | Array | Matrix} Returns the value with inverted sign.
 				 */
 				math.unaryMinus = function unaryMinus(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('unaryMinus', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return -x;
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return new Complex(
 							-x.re,
 							-x.im
 						);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return x.neg();
 					}
 
-					if (isUnit(x)) {
+					if(isUnit(x)) {
 						var res = x.clone();
 						res.value = -x.value;
 						return res;
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, unaryMinus);
 					}
 
-					if (isBoolean(x) || isString(x) || x === null) {
+					if(isBoolean(x) || isString(x) || x === null) {
 						// convert to a number or bignumber
-						return (config.number == 'bignumber') ? new BigNumber(-x): -x;
+						return (config.number == 'bignumber') ? new BigNumber(-x) : -x;
 					}
 
 					throw new math.error.UnsupportedTypeError('unaryMinus', math['typeof'](x));
@@ -9270,14 +9502,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 58 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -9317,47 +9549,47 @@
 				 *            Returns the input value when numeric, converts to a number when input is non-numeric.
 				 */
 				math.unaryPlus = function unaryPlus(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('unaryPlus', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return x;
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return x.clone();
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return x;
 					}
 
-					if (isUnit(x)) {
+					if(isUnit(x)) {
 						return x.clone();
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, unaryPlus);
 					}
 
-					if (isBoolean(x) || isString(x) || x === null) {
+					if(isBoolean(x) || isString(x) || x === null) {
 						// convert to a number or bignumber
-						return (config.number == 'bignumber') ? new BigNumber(+x): +x;
+						return (config.number == 'bignumber') ? new BigNumber(+x) : +x;
 					}
 
 					throw new math.error.UnsupportedTypeError('unaryPlus', math['typeof'](x));
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 59 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					Matrix = __webpack_require__(9),
@@ -9391,42 +9623,42 @@
 				 *                              where `div = gcd(a, b)` and `a*m + b*n = div`
 				 */
 				math.xgcd = function xgcd(a, b) {
-					if (arguments.length == 2) {
+					if(arguments.length == 2) {
 						// two arguments
-						if (isNumber(a) && isNumber(b)) {
-							if (!isInteger(a) || !isInteger(b)) {
+						if(isNumber(a) && isNumber(b)) {
+							if(!isInteger(a) || !isInteger(b)) {
 								throw new Error('Parameters in function xgcd must be integer numbers');
 							}
 
 							return _xgcd(a, b);
 						}
 
-						if (a instanceof BigNumber) {
+						if(a instanceof BigNumber) {
 							// try to convert to big number
-							if (isNumber(b)) {
+							if(isNumber(b)) {
 								b = BigNumber.convert(b);
 							}
-							else if (isBoolean(b) || b === null) {
+							else if(isBoolean(b) || b === null) {
 								b = new BigNumber(b ? 1 : 0);
 							}
 
-							if (b instanceof BigNumber) {
+							if(b instanceof BigNumber) {
 								return _bigXgcd(a, b);
 							}
 
 							// downgrade to Number
 							return xgcd(a.toNumber(), b);
 						}
-						if (b instanceof BigNumber) {
+						if(b instanceof BigNumber) {
 							// try to convert to big number
-							if (isNumber(a)) {
+							if(isNumber(a)) {
 								a = BigNumber.convert(a);
 							}
-							else if (isBoolean(a) || a === null) {
+							else if(isBoolean(a) || a === null) {
 								a = new BigNumber(a ? 1 : 0);
 							}
 
-							if (a instanceof BigNumber) {
+							if(a instanceof BigNumber) {
 								return _bigXgcd(a, b);
 							}
 
@@ -9434,10 +9666,10 @@
 							return xgcd(a.toNumber(), b);
 						}
 
-						if (isBoolean(a) || a === null) {
+						if(isBoolean(a) || a === null) {
 							return xgcd(+a, b);
 						}
-						if (isBoolean(b) || b === null) {
+						if(isBoolean(b) || b === null) {
 							return xgcd(a, +b);
 						}
 
@@ -9463,7 +9695,7 @@
 						x = 0, lastx = 1,
 						y = 1, lasty = 0;
 
-					while (b) {
+					while(b) {
 						q = Math.floor(a / b);
 						r = a % b;
 
@@ -9480,7 +9712,7 @@
 					}
 
 					var res;
-					if (a < 0) {
+					if(a < 0) {
 						res = [-a, -lastx, -lasty];
 					}
 					else {
@@ -9505,7 +9737,7 @@
 						x = new BigNumber(0), lastx = new BigNumber(1),
 						y = new BigNumber(1), lasty = new BigNumber(0);
 
-					while (!b.isZero()) {
+					while(!b.isZero()) {
 						q = a.div(b).floor();
 						r = a.mod(b);
 
@@ -9522,7 +9754,7 @@
 					}
 
 					var res;
-					if (a.lt(zero)) {
+					if(a.lt(zero)) {
 						res = [a.neg(), lastx.neg(), lasty.neg()];
 					}
 					else {
@@ -9532,14 +9764,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 60 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -9584,45 +9816,47 @@
 				 *
 				 *    equal, unequal, smaller, smallerEq, larger, largerEq
 				 *
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to compare
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to compare
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to
+				 *     compare
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to
+				 *     compare
 				 * @return {Number | BigNumber | Array | Matrix} Returns the result of the comparison: 1, 0 or -1.
 				 */
 				math.compare = function compare(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('compare', arguments.length, 2);
 					}
 
-					if (isNumber(x) && isNumber(y)) {
+					if(isNumber(x) && isNumber(y)) {
 						return nearlyEqual(x, y, config.epsilon) ? 0 : (x > y ? 1 : -1);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return new BigNumber(x.cmp(y));
 						}
 
 						// downgrade to Number
 						return compare(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return new BigNumber(x.cmp(y));
 						}
 
@@ -9630,31 +9864,31 @@
 						return compare(x, y.toNumber());
 					}
 
-					if ((isUnit(x)) && (isUnit(y))) {
-						if (!x.equalBase(y)) {
+					if((isUnit(x)) && (isUnit(y))) {
+						if(!x.equalBase(y)) {
 							throw new Error('Cannot compare units with different base');
 						}
 						return (x.value > y.value) ? 1 : ((x.value < y.value) ? -1 : 0);
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, compare);
 					}
 
 					// Note: test strings after testing collections,
 					// else we can't compare a string with a matrix
-					if (isString(x) || isString(y)) {
+					if(isString(x) || isString(y)) {
 						return (x > y) ? 1 : ((x < y) ? -1 : 0);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return compare(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return compare(x, +y);
 					}
 
-					if (isComplex(x) || isComplex(y)) {
+					if(isComplex(x) || isComplex(y)) {
 						throw new TypeError('No ordering relation is defined for complex numbers');
 					}
 
@@ -9662,14 +9896,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 61 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var collection = __webpack_require__(13),
 
 					isCollection = collection.isCollection,
@@ -9697,17 +9931,20 @@
 				 *
 				 *    equal, unequal
 				 *
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} x First matrix to compare
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} y Second matrix to compare
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} x First matrix to
+				 *     compare
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | Array | Matrix | null} y Second matrix to
+				 *     compare
 				 * @return {Number | BigNumber | Complex | Unit | Array | Matrix}
-				 *            Returns true when the input matrices have the same size and each of their elements is equal.
+				 *            Returns true when the input matrices have the same size and each of their elements is
+				 *     equal.
 				 */
 				math.deepEqual = function deepEqual(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('deepEqual', arguments.length, 2);
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return _deepEqual(x.valueOf(), y.valueOf());
 					}
 
@@ -9721,13 +9958,13 @@
 				 * @return {boolean} Returns true if both arrays are deep equal
 				 */
 				function _deepEqual(x, y) {
-					if (isArray(x)) {
-						if (isArray(y)) {
+					if(isArray(x)) {
+						if(isArray(y)) {
 							var len = x.length;
-							if (len !== y.length) return false;
+							if(len !== y.length) return false;
 
-							for (var i = 0; i < len; i++) {
-								if (!_deepEqual(x[i], y[i])) return false;
+							for(var i = 0; i < len; i++) {
+								if(!_deepEqual(x[i], y[i])) return false;
 							}
 
 							return true;
@@ -9737,7 +9974,7 @@
 						}
 					}
 					else {
-						if (isArray(y)) {
+						if(isArray(y)) {
 							return false;
 						}
 						else {
@@ -9747,14 +9984,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 62 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -9809,59 +10046,62 @@
 				 *
 				 *    unequal, smaller, smallerEq, larger, largerEq, compare, deepEqual
 				 *
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null | undefined} x First value to compare
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null | undefined} y Second value to compare
-				 * @return {Boolean | Array | Matrix} Returns true when the compared values are equal, else returns false
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null | undefined}
+				 *     x First value to compare
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null | undefined}
+				 *     y Second value to compare
+				 * @return {Boolean | Array | Matrix} Returns true when the compared values are equal, else returns
+				 *     false
 				 */
 				math.equal = function equal(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('equal', arguments.length, 2);
 					}
 
-					if (isNumber(x)) {
-						if (isNumber(y)) {
+					if(isNumber(x)) {
+						if(isNumber(y)) {
 							return nearlyEqual(x, y, config.epsilon);
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							return nearlyEqual(x, y.re, config.epsilon) && nearlyEqual(y.im, 0, config.epsilon);
 						}
 					}
 
-					if (isComplex(x)) {
-						if (isNumber(y)) {
+					if(isComplex(x)) {
+						if(isNumber(y)) {
 							return nearlyEqual(x.re, y, config.epsilon) && nearlyEqual(x.im, 0, config.epsilon);
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							return nearlyEqual(x.re, y.re, config.epsilon) && nearlyEqual(x.im, y.im, config.epsilon);
 						}
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y)) {
+						else if(isBoolean(y)) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return x.eq(y);
 						}
 
 						// downgrade to Number
 						return equal(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x)) {
+						else if(isBoolean(x)) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.eq(y);
 						}
 
@@ -9869,41 +10109,41 @@
 						return equal(x, y.toNumber());
 					}
 
-					if ((isUnit(x)) && (isUnit(y))) {
-						if (!x.equalBase(y)) {
+					if((isUnit(x)) && (isUnit(y))) {
+						if(!x.equalBase(y)) {
 							throw new Error('Cannot compare units with different base');
 						}
 						return x.value == y.value;
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, equal);
 					}
 
 					// Note: test strings after testing collections,
 					// else we can accidentally compare a stringified array with a string
-					if (isString(x) || isString(y)) {
+					if(isString(x) || isString(y)) {
 						return x == y;
 					}
 
-					if (isBoolean(x)) {
+					if(isBoolean(x)) {
 						return equal(+x, y);
 					}
-					if (isBoolean(y)) {
+					if(isBoolean(y)) {
 						return equal(x, +y);
 					}
 
-					if (x === null) {
+					if(x === null) {
 						return y === null;
 					}
-					if (y === null) {
+					if(y === null) {
 						return x === null;
 					}
 
-					if (x === undefined) {
+					if(x === undefined) {
 						return y === undefined;
 					}
-					if (y === undefined) {
+					if(y === undefined) {
 						return x === undefined;
 					}
 
@@ -9911,14 +10151,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 63 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -9960,45 +10200,47 @@
 				 *
 				 *    equal, unequal, smaller, smallerEq, largerEq, compare
 				 *
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to compare
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to compare
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to
+				 *     compare
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to
+				 *     compare
 				 * @return {Boolean | Array | Matrix} Returns true when the x is larger than y, else returns false
 				 */
 				math.larger = function larger(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('larger', arguments.length, 2);
 					}
 
-					if (isNumber(x) && isNumber(y)) {
+					if(isNumber(x) && isNumber(y)) {
 						return !nearlyEqual(x, y, config.epsilon) && x > y;
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return x.gt(y);
 						}
 
 						// downgrade to Number
 						return larger(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.gt(y)
 						}
 
@@ -10006,31 +10248,31 @@
 						return larger(x, y.toNumber());
 					}
 
-					if ((isUnit(x)) && (isUnit(y))) {
-						if (!x.equalBase(y)) {
+					if((isUnit(x)) && (isUnit(y))) {
+						if(!x.equalBase(y)) {
 							throw new Error('Cannot compare units with different base');
 						}
 						return x.value > y.value;
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, larger);
 					}
 
 					// Note: test strings after testing collections,
 					// else we can't compare a string with a matrix
-					if (isString(x) || isString(y)) {
+					if(isString(x) || isString(y)) {
 						return x > y;
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return larger(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return larger(x, +y);
 					}
 
-					if (isComplex(x) || isComplex(y)) {
+					if(isComplex(x) || isComplex(y)) {
 						throw new TypeError('No ordering relation is defined for complex numbers');
 					}
 
@@ -10038,14 +10280,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 64 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -10083,45 +10325,48 @@
 				 *
 				 *    equal, unequal, smaller, smallerEq, larger, compare
 				 *
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to compare
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to compare
-				 * @return {Boolean | Array | Matrix} Returns true when the x is larger or equal to y, else returns false
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to
+				 *     compare
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to
+				 *     compare
+				 * @return {Boolean | Array | Matrix} Returns true when the x is larger or equal to y, else returns
+				 *     false
 				 */
 				math.largerEq = function largerEq(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('largerEq', arguments.length, 2);
 					}
 
-					if (isNumber(x) && isNumber(y)) {
+					if(isNumber(x) && isNumber(y)) {
 						return nearlyEqual(x, y, config.epsilon) || x > y;
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return x.gte(y);
 						}
 
 						// downgrade to Number
 						return largerEq(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.gte(y)
 						}
 
@@ -10129,31 +10374,31 @@
 						return largerEq(x, y.toNumber());
 					}
 
-					if ((isUnit(x)) && (isUnit(y))) {
-						if (!x.equalBase(y)) {
+					if((isUnit(x)) && (isUnit(y))) {
+						if(!x.equalBase(y)) {
 							throw new Error('Cannot compare units with different base');
 						}
 						return x.value >= y.value;
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, largerEq);
 					}
 
 					// Note: test strings after testing collections,
 					// else we can't compare a string with a matrix
-					if (isString(x) || isString(y)) {
+					if(isString(x) || isString(y)) {
 						return x >= y;
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return largerEq(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return largerEq(x, +y);
 					}
 
-					if (isComplex(x) || isComplex(y)) {
+					if(isComplex(x) || isComplex(y)) {
 						throw new TypeError('No ordering relation is defined for complex numbers');
 					}
 
@@ -10161,19 +10406,19 @@
 				};
 
 				// TODO: deprecated since version 0.23.0, cleanup some day
-				math.largereq = function () {
+				math.largereq = function() {
 					throw new Error('Function largereq is renamed to largerEq');
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 65 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -10215,45 +10460,47 @@
 				 *
 				 *    equal, unequal, smallerEq, larger, largerEq, compare
 				 *
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to compare
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to compare
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to
+				 *     compare
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to
+				 *     compare
 				 * @return {Boolean | Array | Matrix} Returns true when the x is smaller than y, else returns false
 				 */
 				math.smaller = function smaller(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('smaller', arguments.length, 2);
 					}
 
-					if (isNumber(x) && isNumber(y)) {
+					if(isNumber(x) && isNumber(y)) {
 						return !nearlyEqual(x, y, config.epsilon) && x < y;
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return x.lt(y);
 						}
 
 						// downgrade to Number
 						return smaller(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.lt(y)
 						}
 
@@ -10261,31 +10508,31 @@
 						return smaller(x, y.toNumber());
 					}
 
-					if ((isUnit(x)) && (isUnit(y))) {
-						if (!x.equalBase(y)) {
+					if((isUnit(x)) && (isUnit(y))) {
+						if(!x.equalBase(y)) {
 							throw new Error('Cannot compare units with different base');
 						}
 						return x.value < y.value;
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, smaller);
 					}
 
 					// Note: test strings after testing collections,
 					// else we can't compare a string with a matrix
-					if (isString(x) || isString(y)) {
+					if(isString(x) || isString(y)) {
 						return x < y;
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return smaller(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return smaller(x, +y);
 					}
 
-					if (isComplex(x) || isComplex(y)) {
+					if(isComplex(x) || isComplex(y)) {
 						throw new TypeError('No ordering relation is defined for complex numbers');
 					}
 
@@ -10293,14 +10540,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 66 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -10337,45 +10584,47 @@
 				 *
 				 *    equal, unequal, smaller, larger, largerEq, compare
 				 *
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to compare
-				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to compare
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} x First value to
+				 *     compare
+				 * @param  {Number | BigNumber | Boolean | Unit | String | Array | Matrix | null} y Second value to
+				 *     compare
 				 * @return {Boolean | Array | Matrix} Returns true when the x is smaller than y, else returns false
 				 */
 				math.smallerEq = function smallerEq(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('smallerEq', arguments.length, 2);
 					}
 
-					if (isNumber(x) && isNumber(y)) {
+					if(isNumber(x) && isNumber(y)) {
 						return nearlyEqual(x, y, config.epsilon) || x < y;
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y) || y === null) {
+						else if(isBoolean(y) || y === null) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return x.lte(y);
 						}
 
 						// downgrade to Number
 						return smallerEq(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x) || x === null) {
+						else if(isBoolean(x) || x === null) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return x.lte(y)
 						}
 
@@ -10383,31 +10632,31 @@
 						return smallerEq(x, y.toNumber());
 					}
 
-					if ((isUnit(x)) && (isUnit(y))) {
-						if (!x.equalBase(y)) {
+					if((isUnit(x)) && (isUnit(y))) {
+						if(!x.equalBase(y)) {
 							throw new Error('Cannot compare units with different base');
 						}
 						return x.value <= y.value;
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, smallerEq);
 					}
 
 					// Note: test strings after testing collections,
 					// else we can't compare a string with a matrix
-					if (isString(x) || isString(y)) {
+					if(isString(x) || isString(y)) {
 						return x <= y;
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return smallerEq(+x, y);
 					}
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return smallerEq(x, +y);
 					}
 
-					if (isComplex(x) || isComplex(y)) {
+					if(isComplex(x) || isComplex(y)) {
 						throw new TypeError('No ordering relation is defined for complex numbers');
 					}
 
@@ -10415,19 +10664,19 @@
 				};
 
 				// TODO: deprecated since version 0.23.0, cleanup some day
-				math.smallereq = function () {
+				math.smallereq = function() {
 					throw new Error('Function smallereq is renamed to smallerEq');
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 67 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -10481,59 +10730,62 @@
 				 *
 				 *    equal, deepEqual, smaller, smallerEq, larger, largerEq, compare
 				 *
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null | undefined} x First value to compare
-				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null | undefined} y Second value to compare
-				 * @return {Boolean | Array | Matrix} Returns true when the compared values are unequal, else returns false
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null | undefined}
+				 *     x First value to compare
+				 * @param  {Number | BigNumber | Boolean | Complex | Unit | String | Array | Matrix | null | undefined}
+				 *     y Second value to compare
+				 * @return {Boolean | Array | Matrix} Returns true when the compared values are unequal, else returns
+				 *     false
 				 */
 				math.unequal = function unequal(x, y) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('unequal', arguments.length, 2);
 					}
 
-					if (isNumber(x)) {
-						if (isNumber(y)) {
+					if(isNumber(x)) {
+						if(isNumber(y)) {
 							return !nearlyEqual(x, y, config.epsilon);
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							return !nearlyEqual(x, y.re, config.epsilon) || !nearlyEqual(y.im, 0, config.epsilon);
 						}
 					}
 
-					if (isComplex(x)) {
-						if (isNumber(y)) {
+					if(isComplex(x)) {
+						if(isNumber(y)) {
 							return !nearlyEqual(x.re, y, config.epsilon) || !nearlyEqual(x.im, 0, config.epsilon);
 						}
-						else if (isComplex(y)) {
+						else if(isComplex(y)) {
 							return !nearlyEqual(x.re, y.re, config.epsilon) || !nearlyEqual(x.im, y.im, config.epsilon);
 						}
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(y)) {
+						if(isNumber(y)) {
 							y = BigNumber.convert(y);
 						}
-						else if (isBoolean(y)) {
+						else if(isBoolean(y)) {
 							y = new BigNumber(y ? 1 : 0);
 						}
 
-						if (y instanceof BigNumber) {
+						if(y instanceof BigNumber) {
 							return !x.eq(y);
 						}
 
 						// downgrade to Number
 						return unequal(x.toNumber(), y);
 					}
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						// try to convert to big number
-						if (isNumber(x)) {
+						if(isNumber(x)) {
 							x = BigNumber.convert(x);
 						}
-						else if (isBoolean(x)) {
+						else if(isBoolean(x)) {
 							x = new BigNumber(x ? 1 : 0);
 						}
 
-						if (x instanceof BigNumber) {
+						if(x instanceof BigNumber) {
 							return !x.eq(y)
 						}
 
@@ -10541,41 +10793,41 @@
 						return unequal(x, y.toNumber());
 					}
 
-					if ((isUnit(x)) && (isUnit(y))) {
-						if (!x.equalBase(y)) {
+					if((isUnit(x)) && (isUnit(y))) {
+						if(!x.equalBase(y)) {
 							throw new Error('Cannot compare units with different base');
 						}
 						return x.value != y.value;
 					}
 
-					if (isCollection(x) || isCollection(y)) {
+					if(isCollection(x) || isCollection(y)) {
 						return collection.deepMap2(x, y, unequal);
 					}
 
 					// Note: test strings after testing collections,
 					// else we can accidentally compare a stringified array with a string
-					if (isString(x) || isString(y)) {
+					if(isString(x) || isString(y)) {
 						return x != y;
 					}
 
-					if (isBoolean(x)) {
+					if(isBoolean(x)) {
 						return unequal(+x, y);
 					}
-					if (isBoolean(y)) {
+					if(isBoolean(y)) {
 						return unequal(x, +y);
 					}
 
-					if (x === null) {
+					if(x === null) {
 						return y !== null;
 					}
-					if (y === null) {
+					if(y === null) {
 						return x !== null;
 					}
 
-					if (x === undefined) {
+					if(x === undefined) {
 						return y !== undefined;
 					}
-					if (y === undefined) {
+					if(y === undefined) {
 						return x !== undefined;
 					}
 
@@ -10583,14 +10835,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 68 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -10630,27 +10882,27 @@
 				 * @return {Number | Array | Matrix} The argument of x
 				 */
 				math.arg = function arg(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('arg', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return Math.atan2(0, x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return Math.atan2(x.im, x.re);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, arg);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return arg(+x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// downgrade to Number
 						// TODO: implement BigNumber support
 						return arg(x.toNumber());
@@ -10660,14 +10912,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 69 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -10677,7 +10929,7 @@
 					object = util.object,
 					isNumber = util.number.isNumber,
 					isBoolean = util['boolean'].isBoolean,
-					isCollection =collection.isCollection,
+					isCollection = collection.isCollection,
 					isComplex = Complex.isComplex;
 
 				/**
@@ -10706,27 +10958,27 @@
 				 *            The complex conjugate of x
 				 */
 				math.conj = function conj(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('conj', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return x;
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return new BigNumber(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return new Complex(x.re, -x.im);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, conj);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return +x;
 					}
 
@@ -10735,14 +10987,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 70 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -10783,27 +11035,27 @@
 				 * @return {Number | BigNumber | Array | Matrix} The real part of x
 				 */
 				math.re = function re(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('re', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return x;
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return new BigNumber(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return x.re;
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, re);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return +x;
 					}
 
@@ -10812,14 +11064,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 71 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -10828,7 +11080,7 @@
 
 					isNumber = util.number.isNumber,
 					isBoolean = util['boolean'].isBoolean,
-					isCollection =collection.isCollection,
+					isCollection = collection.isCollection,
 					isComplex = Complex.isComplex;
 
 				/**
@@ -10859,27 +11111,27 @@
 				 * @return {Number | BigNumber | Array | Matrix} The imaginary part of x
 				 */
 				math.im = function im(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('im', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return 0;
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return new BigNumber(0);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return x.im;
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, im);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return 0;
 					}
 
@@ -10888,14 +11140,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 72 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 				// take the BigNumber instance the provided math.js instance
@@ -10933,23 +11185,23 @@
 				 * @returns {BigNumber} The created bignumber
 				 */
 				math.bignumber = function bignumber(value) {
-					if (arguments.length > 1) {
+					if(arguments.length > 1) {
 						throw new math.error.ArgumentsError('bignumber', arguments.length, 0, 1);
 					}
 
-					if ((value instanceof BigNumber) || isNumber(value) || isString(value)) {
+					if((value instanceof BigNumber) || isNumber(value) || isString(value)) {
 						return new BigNumber(value);
 					}
 
-					if (isBoolean(value) || value === null) {
+					if(isBoolean(value) || value === null) {
 						return new BigNumber(+value);
 					}
 
-					if (isCollection(value)) {
+					if(isCollection(value)) {
 						return collection.deepMap(value, bignumber);
 					}
 
-					if (arguments.length == 0) {
+					if(arguments.length == 0) {
 						return new BigNumber(0);
 					}
 
@@ -10957,14 +11209,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 73 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -11001,49 +11253,49 @@
 				 * @param {String | Number | Boolean | Array | Matrix | null} value  A value of any type
 				 * @return {Boolean | Array | Matrix} The boolean value
 				 */
-				math['boolean'] = function bool (value) {
-					if (arguments.length != 1) {
+				math['boolean'] = function bool(value) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('boolean', arguments.length, 0, 1);
 					}
 
-					if (value === 'true' || value === true) {
+					if(value === 'true' || value === true) {
 						return true;
 					}
 
-					if (value === 'false' || value === false || value === null) {
+					if(value === 'false' || value === false || value === null) {
 						return false;
 					}
 
-					if (value instanceof Boolean) {
+					if(value instanceof Boolean) {
 						return value == true;
 					}
 
-					if (isNumber(value)) {
+					if(isNumber(value)) {
 						return (value !== 0);
 					}
 
-					if (value instanceof BigNumber) {
+					if(value instanceof BigNumber) {
 						return !value.isZero();
 					}
 
-					if (isString(value)) {
+					if(isString(value)) {
 						// try case insensitive
 						var lcase = value.toLowerCase();
-						if (lcase === 'true') {
+						if(lcase === 'true') {
 							return true;
 						}
-						else if (lcase === 'false') {
+						else if(lcase === 'false') {
 							return false;
 						}
 
 						// test whether value is a valid number
 						var num = Number(value);
-						if (value != '' && !isNaN(num)) {
+						if(value != '' && !isNaN(num)) {
 							return (num !== 0);
 						}
 					}
 
-					if (isCollection(value)) {
+					if(isCollection(value)) {
 						return collection.deepMap(value, bool);
 					}
 
@@ -11051,14 +11303,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 74 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -11109,7 +11361,7 @@
 				 * @return {Complex | Array | Matrix} Returns a complex value
 				 */
 				math.complex = function complex(args) {
-					switch (arguments.length) {
+					switch(arguments.length) {
 						case 0:
 							// no parameters. Set re and im zero
 							return new Complex(0, 0);
@@ -11118,23 +11370,23 @@
 							// parse string into a complex number
 							var arg = arguments[0];
 
-							if (isNumber(arg)) {
+							if(isNumber(arg)) {
 								return new Complex(arg, 0);
 							}
 
-							if (arg instanceof BigNumber) {
+							if(arg instanceof BigNumber) {
 								// convert to Number
 								return new Complex(arg.toNumber(), 0);
 							}
 
-							if (isComplex(arg)) {
+							if(isComplex(arg)) {
 								// create a clone
 								return arg.clone();
 							}
 
-							if (isString(arg)) {
+							if(isString(arg)) {
 								var c = Complex.parse(arg);
-								if (c) {
+								if(c) {
 									return c;
 								}
 								else {
@@ -11142,14 +11394,15 @@
 								}
 							}
 
-							if (isCollection(arg)) {
+							if(isCollection(arg)) {
 								return collection.deepMap(arg, complex);
 							}
 
-							if (typeof arg === 'object') {
+							if(typeof arg === 'object') {
 								if('re' in arg && 'im' in arg) {
 									return new Complex(arg.re, arg.im);
-								} else if ('r' in arg && 'phi' in arg) {
+								}
+								else if('r' in arg && 'phi' in arg) {
 									return Complex.fromPolar(arg.r, arg.phi);
 								}
 							}
@@ -11162,16 +11415,16 @@
 								im = arguments[1];
 
 							// convert re to number
-							if (re instanceof BigNumber) {
+							if(re instanceof BigNumber) {
 								re = re.toNumber();
 							}
 
 							// convert im to number
-							if (im instanceof BigNumber) {
+							if(im instanceof BigNumber) {
 								im = im.toNumber();
 							}
 
-							if (isNumber(re) && isNumber(im)) {
+							if(isNumber(re) && isNumber(im)) {
 								return new Complex(re, im);
 							}
 							else {
@@ -11184,14 +11437,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 75 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -11238,12 +11491,12 @@
 				 */
 				math.index = function(ranges) {
 					// downgrade BigNumber to Number
-					var args = Array.prototype.slice.apply(arguments).map(function (arg) {
-						if (arg instanceof BigNumber) {
+					var args = Array.prototype.slice.apply(arguments).map(function(arg) {
+						if(arg instanceof BigNumber) {
 							return arg.toNumber();
 						}
-						else if (Array.isArray(arg)) {
-							return arg.map(function (elem) {
+						else if(Array.isArray(arg)) {
+							return arg.map(function(elem) {
 								return (elem instanceof BigNumber) ? elem.toNumber() : elem;
 							});
 						}
@@ -11258,14 +11511,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 76 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 					Matrix = __webpack_require__(9);
 
@@ -11295,7 +11548,7 @@
 				 * @return {Matrix} The created matrix
 				 */
 				math.matrix = function matrix(data) {
-					if (arguments.length > 1) {
+					if(arguments.length > 1) {
 						throw new math.error.ArgumentsError('matrix', arguments.length, 0, 1);
 					}
 
@@ -11303,14 +11556,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 77 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144);
 
 				var BigNumber = math.type.BigNumber;
@@ -11347,52 +11600,51 @@
 				 * @param {Unit | string} [valuelessUnit] A valueless unit, used to convert a unit to a number
 				 * @return {Number | Array | Matrix} The created number
 				 */
-				math.number = function number (value, valuelessUnit) {
-					switch (arguments.length) {
+				math.number = function number(value, valuelessUnit) {
+					switch(arguments.length) {
 						case 0:
 							return 0;
 
 						case 1:
-							if (isCollection(value)) {
+							if(isCollection(value)) {
 								return collection.deepMap(value, number);
 							}
 
-							if (value instanceof BigNumber) {
+							if(value instanceof BigNumber) {
 								return value.toNumber();
 							}
 
-							if (isString(value)) {
+							if(isString(value)) {
 								var num = Number(value);
-								if (isNaN(num)) {
+								if(isNaN(num)) {
 									num = Number(value.valueOf());
 								}
-								if (isNaN(num)) {
+								if(isNaN(num)) {
 									throw new SyntaxError(value.toString() + ' is no valid number');
 								}
 								return num;
 							}
 
-							if (isBoolean(value) || value === null) {
+							if(isBoolean(value) || value === null) {
 								return +value;
 							}
 
-							if (isNumber(value)) {
+							if(isNumber(value)) {
 								return value;
 							}
 
-							if (value instanceof Unit) {
+							if(value instanceof Unit) {
 								throw new Error('Second argument with valueless unit expected');
 							}
 
 							throw new math.error.UnsupportedTypeError('number', math['typeof'](value));
 
 						case 2:
-							if (value instanceof Unit && isString(valuelessUnit) || valuelessUnit instanceof Unit) {
+							if(value instanceof Unit && isString(valuelessUnit) || valuelessUnit instanceof Unit) {
 								return value.toNumber(valuelessUnit);
 							}
 
 							throw new math.error.UnsupportedTypeError('number', math['typeof'](value), math['typeof'](valuelessUnit));
-
 
 						default:
 							throw new math.error.ArgumentsError('number', arguments.length, 0, 1);
@@ -11400,14 +11652,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 78 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Parser = __webpack_require__(15);
 
 				/**
@@ -11458,14 +11710,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 79 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				/**
 				 * Wrap any value in a Selector, allowing to perform chained operations on
 				 * the value.
@@ -11507,14 +11759,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 80 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					collection = __webpack_require__(13),
@@ -11548,21 +11800,21 @@
 				 * @param {* | Array | Matrix | null} [value]  A value to convert to a string
 				 * @return {String | Array | Matrix} The created string
 				 */
-				math.string = function string (value) {
-					switch (arguments.length) {
+				math.string = function string(value) {
+					switch(arguments.length) {
 						case 0:
 							return '';
 
 						case 1:
-							if (isNumber(value)) {
+							if(isNumber(value)) {
 								return number.format(value);
 							}
 
-							if (isCollection(value)) {
+							if(isCollection(value)) {
 								return collection.deepMap(value, string);
 							}
 
-							if (value === null) {
+							if(value === null) {
 								return 'null';
 							}
 
@@ -11574,14 +11826,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 81 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -11620,25 +11872,25 @@
 							// parse a string
 							var arg = arguments[0];
 
-							if (arg instanceof Unit) {
+							if(arg instanceof Unit) {
 								// create a clone of the unit
 								return arg.clone();
 							}
 
-							if (isString(arg)) {
-								if (Unit.isValuelessUnit(arg)) {
+							if(isString(arg)) {
+								if(Unit.isValuelessUnit(arg)) {
 									return new Unit(null, arg); // a pure unit
 								}
 
 								var u = Unit.parse(arg);        // a unit with value, like '5cm'
-								if (u) {
+								if(u) {
 									return u;
 								}
 
 								throw new SyntaxError('String "' + arg + '" is no valid unit');
 							}
 
-							if (isCollection(args)) {
+							if(isCollection(args)) {
 								return collection.deepMap(args, unit);
 							}
 
@@ -11647,7 +11899,7 @@
 						case 2:
 							// a number and a unit
 
-							if (arguments[0] instanceof BigNumber) {
+							if(arguments[0] instanceof BigNumber) {
 								// convert value to number
 								return new Unit(arguments[0].toNumber(), arguments[1]);
 							}
@@ -11661,14 +11913,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 82 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = __webpack_require__(139),
@@ -11709,7 +11961,7 @@
 				 * @param {... Array | Matrix} args     Two or more matrices
 				 * @return {Array | Matrix} Concatenated matrix
 				 */
-				math.concat = function concat (args) {
+				math.concat = function concat(args) {
 					var i,
 						len = arguments.length,
 						dim = -1,  // zero-based dimension
@@ -11717,33 +11969,33 @@
 						asMatrix = false,
 						matrices = [];  // contains multi dimensional arrays
 
-					for (i = 0; i < len; i++) {
+					for(i = 0; i < len; i++) {
 						var arg = arguments[i];
 
 						// test whether we need to return a Matrix (if not we return an Array)
-						if (arg instanceof Matrix) {
+						if(arg instanceof Matrix) {
 							asMatrix = true;
 						}
 
-						if ((i == len - 1) && (isNumber(arg) || arg instanceof BigNumber)) {
+						if((i == len - 1) && (isNumber(arg) || arg instanceof BigNumber)) {
 							// last argument contains the dimension on which to concatenate
 							prevDim = dim;
 							dim = arg.valueOf(); // change bignumber to number
 
-							if (!isInteger(dim)) {
+							if(!isInteger(dim)) {
 								throw new TypeError('Integer number expected for dimension');
 							}
 
-							if (dim < 0) {
+							if(dim < 0) {
 								// TODO: would be more clear when throwing a DimensionError here
 								throw new math.error.IndexError(dim);
 							}
-							if (i > 0 && dim > prevDim) {
+							if(i > 0 && dim > prevDim) {
 								// TODO: would be more clear when throwing a DimensionError here
 								throw new math.error.IndexError(dim, prevDim + 1);
 							}
 						}
-						else if (isCollection(arg)) {
+						else if(isCollection(arg)) {
 							// this is a matrix or array
 							var matrix = object.clone(arg).valueOf();
 							var size = array.size(arg.valueOf());
@@ -11752,7 +12004,7 @@
 							dim = size.length - 1;
 
 							// verify whether each of the matrices has the same number of dimensions
-							if (i > 0 && dim != prevDim) {
+							if(i > 0 && dim != prevDim) {
 								throw new math.error.DimensionError(prevDim + 1, dim + 1);
 							}
 						}
@@ -11761,12 +12013,12 @@
 						}
 					}
 
-					if (matrices.length == 0) {
+					if(matrices.length == 0) {
 						throw new SyntaxError('At least one matrix expected');
 					}
 
 					var res = matrices.shift();
-					while (matrices.length) {
+					while(matrices.length) {
 						res = _concat(res, matrices.shift(), dim, 0);
 					}
 
@@ -11784,14 +12036,14 @@
 				 * @private
 				 */
 				function _concat(a, b, concatDim, dim) {
-					if (dim < concatDim) {
+					if(dim < concatDim) {
 						// recurse into next dimension
-						if (a.length != b.length) {
+						if(a.length != b.length) {
 							throw new math.error.DimensionError(a.length, b.length);
 						}
 
 						var c = [];
-						for (var i = 0; i < a.length; i++) {
+						for(var i = 0; i < a.length; i++) {
 							c[i] = _concat(a[i], b[i], concatDim, dim + 1);
 						}
 						return c;
@@ -11803,14 +12055,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 83 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					Matrix = __webpack_require__(9),
@@ -11843,16 +12095,16 @@
 				 * @param {Array | Matrix} x  A matrix
 				 * @return {Number} The determinant of `x`
 				 */
-				math.det = function det (x) {
-					if (arguments.length != 1) {
+				math.det = function det(x) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('det', arguments.length, 1);
 					}
 
 					var size;
-					if (x instanceof Matrix) {
+					if(x instanceof Matrix) {
 						size = x.size();
 					}
-					else if (x instanceof Array) {
+					else if(x instanceof Array) {
 						x = new Matrix(x);
 						size = x.size();
 					}
@@ -11861,37 +12113,37 @@
 						size = [];
 					}
 
-					switch (size.length) {
+					switch(size.length) {
 						case 0:
 							// scalar
 							return object.clone(x);
 
 						case 1:
 							// vector
-							if (size[0] == 1) {
+							if(size[0] == 1) {
 								return object.clone(x.valueOf()[0]);
 							}
 							else {
 								throw new RangeError('Matrix must be square ' +
-									'(size: ' + string.format(size) + ')');
+								'(size: ' + string.format(size) + ')');
 							}
 
 						case 2:
 							// two dimensional array
 							var rows = size[0];
 							var cols = size[1];
-							if (rows == cols) {
+							if(rows == cols) {
 								return _det(x.clone().valueOf(), rows, cols);
 							}
 							else {
 								throw new RangeError('Matrix must be square ' +
-									'(size: ' + string.format(size) + ')');
+								'(size: ' + string.format(size) + ')');
 							}
 
 						default:
 							// multi dimensional array
 							throw new RangeError('Matrix must be two dimensional ' +
-								'(size: ' + string.format(size) + ')');
+							'(size: ' + string.format(size) + ')');
 					}
 				};
 
@@ -11903,12 +12155,12 @@
 				 * @returns {Number} det
 				 * @private
 				 */
-				function _det (matrix, rows, cols) {
-					if (rows == 1) {
+				function _det(matrix, rows, cols) {
+					if(rows == 1) {
 						// this is a 1 x 1 matrix
 						return object.clone(matrix[0][0]);
 					}
-					else if (rows == 2) {
+					else if(rows == 2) {
 						// this is a 2 x 2 matrix
 						// the determinant of [a11,a12;a21,a22] is det = a11*a22-a21*a12
 						return math.subtract(
@@ -11918,7 +12170,7 @@
 					}
 					else {
 						// this is an n x n matrix
-						var compute_mu = function (matrix) {
+						var compute_mu = function(matrix) {
 							var i, j;
 
 							// Compute the matrix with zero lower triangle, same upper triangle,
@@ -11926,23 +12178,23 @@
 							// elements.
 							var mu = new Array(matrix.length);
 							var sum = 0;
-							for (i = 1; i < matrix.length; i++) {
+							for(i = 1; i < matrix.length; i++) {
 								sum = math.add(sum, matrix[i][i]);
 							}
 
-							for (i = 0; i < matrix.length; i++) {
+							for(i = 0; i < matrix.length; i++) {
 								mu[i] = new Array(matrix.length);
 								mu[i][i] = math.unaryMinus(sum);
 
-								for (j = 0; j < i; j++) {
+								for(j = 0; j < i; j++) {
 									mu[i][j] = 0; // TODO: make bignumber 0 in case of bignumber computation
 								}
 
-								for (j = i + 1; j < matrix.length; j++) {
+								for(j = i + 1; j < matrix.length; j++) {
 									mu[i][j] = matrix[i][j];
 								}
 
-								if (i+1 < matrix.length) {
+								if(i + 1 < matrix.length) {
 									sum = math.subtract(sum, matrix[i + 1][i + 1]);
 								}
 							}
@@ -11951,27 +12203,28 @@
 						};
 
 						var fa = matrix;
-						for (var i = 0; i < rows - 1; i++) {
+						for(var i = 0; i < rows - 1; i++) {
 							fa = math.multiply(compute_mu(fa), matrix);
 						}
 
-						if (rows % 2 == 0) {
+						if(rows % 2 == 0) {
 							return math.unaryMinus(fa[0][0]);
-						} else {
+						}
+						else {
 							return fa[0][0];
 						}
 					}
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 84 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -12015,19 +12268,19 @@
 				 *                                    in or retrieved.
 				 * @returns {Matrix | Array} Diagonal matrix from input vector, or diagonal from input matrix.
 				 */
-				math.diag = function diag (x, k) {
+				math.diag = function diag(x, k) {
 					var data, vector, i, iMax;
 
-					if (arguments.length != 1 && arguments.length != 2) {
+					if(arguments.length != 1 && arguments.length != 2) {
 						throw new math.error.ArgumentsError('diag', arguments.length, 1, 2);
 					}
 
-					if (k) {
+					if(k) {
 						// convert BigNumber to a number
-						if (k instanceof BigNumber) k = k.toNumber();
+						if(k instanceof BigNumber) k = k.toNumber();
 
-						if (!isNumber(k) || !isInteger(k)) {
-							throw new TypeError ('Second parameter in function diag must be an integer');
+						if(!isNumber(k) || !isInteger(k)) {
+							throw new TypeError('Second parameter in function diag must be an integer');
 						}
 					}
 					else {
@@ -12038,20 +12291,20 @@
 
 					// check type of input
 					var asArray;
-					if (x instanceof Matrix) {
+					if(x instanceof Matrix) {
 						asArray = false;
 					}
-					else if (isArray(x)) {
+					else if(isArray(x)) {
 						// convert to matrix
 						x = new Matrix(x);
 						asArray = true;
 					}
 					else {
-						throw new TypeError ('First parameter in function diag must be a Matrix or Array');
+						throw new TypeError('First parameter in function diag must be a Matrix or Array');
 					}
 
 					var s = x.size();
-					switch (s.length) {
+					switch(s.length) {
 						case 1:
 							// x is a vector. create diagonal matrix
 							vector = x.valueOf();
@@ -12060,7 +12313,7 @@
 							matrix.resize([vector.length + kSub, vector.length + kSuper], defaultValue);
 							data = matrix.valueOf();
 							iMax = vector.length;
-							for (i = 0; i < iMax; i++) {
+							for(i = 0; i < iMax; i++) {
 								data[i + kSub][i + kSuper] = object.clone(vector[i]);
 							}
 							return asArray ? matrix.valueOf() : matrix;
@@ -12070,7 +12323,7 @@
 							vector = [];
 							data = x.valueOf();
 							iMax = Math.min(s[0] - kSub, s[1] - kSuper);
-							for (i = 0; i < iMax; i++) {
+							for(i = 0; i < iMax; i++) {
 								vector[i] = object.clone(data[i + kSub][i + kSuper]);
 							}
 							return asArray ? vector : new Matrix(vector);
@@ -12081,14 +12334,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 85 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -12124,21 +12377,20 @@
 				 * @param {...Number | Matrix | Array} size   The size for the matrix
 				 * @return {Matrix | Array | Number} A matrix with ones on the diagonal.
 				 */
-				math.eye = function eye (size) {
+				math.eye = function eye(size) {
 					var args = collection.argsToArray(arguments),
 						asMatrix = (size instanceof Matrix) ? true :
 							(isArray(size) ? false : (config.matrix === 'matrix'));
 
-
-					if (args.length == 0) {
+					if(args.length == 0) {
 						// return an empty array
 						return asMatrix ? new Matrix() : [];
 					}
-					else if (args.length == 1) {
+					else if(args.length == 1) {
 						// change to a 2-dimensional square
 						args[1] = args[0];
 					}
-					else if (args.length > 2) {
+					else if(args.length > 2) {
 						// error in case of an n-dimensional size
 						throw new math.error.ArgumentsError('eye', args.length, 0, 2);
 					}
@@ -12146,23 +12398,24 @@
 					var rows = args[0],
 						cols = args[1];
 
-					if (rows instanceof BigNumber) rows = rows.toNumber();
-					if (cols instanceof BigNumber) cols = cols.toNumber();
+					if(rows instanceof BigNumber) rows = rows.toNumber();
+					if(cols instanceof BigNumber) cols = cols.toNumber();
 
-					if (!isNumber(rows) || !isInteger(rows) || rows < 1) {
+					if(!isNumber(rows) || !isInteger(rows) || rows < 1) {
 						throw new Error('Parameters in function eye must be positive integers');
 					}
-					if (!isNumber(cols) || !isInteger(cols) || cols < 1) {
+					if(!isNumber(cols) || !isInteger(cols) || cols < 1) {
 						throw new Error('Parameters in function eye must be positive integers');
 					}
 
 					// convert arguments from bignumber to numbers if needed
 					var asBigNumber = false;
-					args = args.map(function (value) {
-						if (value instanceof BigNumber) {
+					args = args.map(function(value) {
+						if(value instanceof BigNumber) {
 							asBigNumber = true;
 							return value.toNumber();
-						} else {
+						}
+						else {
 							return value;
 						}
 					});
@@ -12176,7 +12429,7 @@
 					// fill in ones on the diagonal
 					var minimum = math.min(args);
 					var data = matrix.valueOf();
-					for (var d = 0; d < minimum; d++) {
+					for(var d = 0; d < minimum; d++) {
 						data[d][d] = one;
 					}
 
@@ -12184,14 +12437,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 86 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144);
 
 				var Matrix = __webpack_require__(9);
@@ -12218,18 +12471,18 @@
 				 * @param {Matrix | Array} x   Matrix to be flattened
 				 * @return {Matrix | Array} Returns the flattened matrix
 				 */
-				math.flatten = function flatten (x) {
-					if (arguments.length !== 1) {
+				math.flatten = function flatten(x) {
+					if(arguments.length !== 1) {
 						throw new math.error.ArgumentsError('flatten', arguments.length, 1);
 					}
 
-					if (x instanceof Matrix) {
+					if(x instanceof Matrix) {
 						var clone = object.clone(x.toArray());
 						var flat = array.flatten(clone);
 						return new Matrix(flat);
 					}
 
-					if (isArray(x)) {
+					if(isArray(x)) {
 						return array.flatten(object.clone(x));
 					}
 
@@ -12237,14 +12490,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 87 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 					string = util.string,
 
@@ -12270,20 +12523,20 @@
 				 * @param {Number | Complex | Array | Matrix} x     Matrix to be inversed
 				 * @return {Number | Complex | Array | Matrix} The inverse of `x`.
 				 */
-				math.inv = function inv (x) {
-					if (arguments.length != 1) {
+				math.inv = function inv(x) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('inv', arguments.length, 1);
 					}
 					var size = math.size(x).valueOf();
-					switch (size.length) {
+					switch(size.length) {
 						case 0:
 							// scalar
 							return math.divide(1, x);
 
 						case 1:
 							// vector
-							if (size[0] == 1) {
-								if (x instanceof Matrix) {
+							if(size[0] == 1) {
+								if(x instanceof Matrix) {
 									return new Matrix([
 										math.divide(1, x.valueOf()[0])
 									]);
@@ -12296,15 +12549,15 @@
 							}
 							else {
 								throw new RangeError('Matrix must be square ' +
-									'(size: ' + string.format(size) + ')');
+								'(size: ' + string.format(size) + ')');
 							}
 
 						case 2:
 							// two dimensional array
 							var rows = size[0];
 							var cols = size[1];
-							if (rows == cols) {
-								if (x instanceof Matrix) {
+							if(rows == cols) {
+								if(x instanceof Matrix) {
 									return new Matrix(
 										_inv(x.valueOf(), rows, cols)
 									);
@@ -12316,13 +12569,13 @@
 							}
 							else {
 								throw new RangeError('Matrix must be square ' +
-									'(size: ' + string.format(size) + ')');
+								'(size: ' + string.format(size) + ')');
 							}
 
 						default:
 							// multi dimensional array
 							throw new RangeError('Matrix must be two dimensional ' +
-								'(size: ' + string.format(size) + ')');
+							'(size: ' + string.format(size) + ')');
 					}
 				};
 
@@ -12334,23 +12587,23 @@
 				 * @return {Array[]} inv    Inverse matrix
 				 * @private
 				 */
-				function _inv (matrix, rows, cols){
+				function _inv(matrix, rows, cols) {
 					var r, s, f, value, temp;
 
-					if (rows == 1) {
+					if(rows == 1) {
 						// this is a 1 x 1 matrix
 						value = matrix[0][0];
-						if (value == 0) {
+						if(value == 0) {
 							throw Error('Cannot calculate inverse, determinant is zero');
 						}
 						return [[
 							math.divide(1, value)
 						]];
 					}
-					else if (rows == 2) {
+					else if(rows == 2) {
 						// this is a 2 x 2 matrix
 						var d = math.det(matrix);
-						if (d == 0) {
+						if(d == 0) {
 							throw Error('Cannot calculate inverse, determinant is zero');
 						}
 						return [
@@ -12373,7 +12626,7 @@
 
 						// make a copy of the matrix (only the arrays, not of the elements)
 						var A = matrix.concat();
-						for (r = 0; r < rows; r++) {
+						for(r = 0; r < rows; r++) {
 							A[r] = A[r].concat();
 						}
 
@@ -12382,40 +12635,44 @@
 						var B = math.eye(rows).valueOf();
 
 						// loop over all columns, and perform row reductions
-						for (var c = 0; c < cols; c++) {
+						for(var c = 0; c < cols; c++) {
 							// element Acc should be non zero. if not, swap content
 							// with one of the lower rows
 							r = c;
-							while (r < rows && A[r][c] == 0) {
+							while(r < rows && A[r][c] == 0) {
 								r++;
 							}
-							if (r == rows || A[r][c] == 0) {
+							if(r == rows || A[r][c] == 0) {
 								// TODO: in case of zero det, just return a matrix wih Infinity values? (like octave)
 								throw Error('Cannot calculate inverse, determinant is zero');
 							}
-							if (r != c) {
-								temp = A[c]; A[c] = A[r]; A[r] = temp;
-								temp = B[c]; B[c] = B[r]; B[r] = temp;
+							if(r != c) {
+								temp = A[c];
+								A[c] = A[r];
+								A[r] = temp;
+								temp = B[c];
+								B[c] = B[r];
+								B[r] = temp;
 							}
 
 							// eliminate non-zero values on the other rows at column c
 							var Ac = A[c],
 								Bc = B[c];
-							for (r = 0; r < rows; r++) {
+							for(r = 0; r < rows; r++) {
 								var Ar = A[r],
 									Br = B[r];
 								if(r != c) {
 									// eliminate value at column c and row r
-									if (Ar[c] != 0) {
+									if(Ar[c] != 0) {
 										f = math.divide(math.unaryMinus(Ar[c]), Ac[c]);
 
 										// add (f * row c) to row r to eliminate the value
 										// at column c
-										for (s = c; s < cols; s++) {
+										for(s = c; s < cols; s++) {
 											Ar[s] = math.add(Ar[s], math.multiply(f, Ac[s]));
 										}
-										for (s = 0; s < cols; s++) {
-											Br[s] = math.add(Br[s],  math.multiply(f, Bc[s]));
+										for(s = 0; s < cols; s++) {
+											Br[s] = math.add(Br[s], math.multiply(f, Bc[s]));
 										}
 									}
 								}
@@ -12423,10 +12680,10 @@
 									// normalize value at Acc to 1,
 									// divide each value on row r with the value at Acc
 									f = Ac[c];
-									for (s = c; s < cols; s++) {
+									for(s = c; s < cols; s++) {
 										Ar[s] = math.divide(Ar[s], f);
 									}
-									for (s = 0; s < cols; s++) {
+									for(s = 0; s < cols; s++) {
 										Br[s] = math.divide(Br[s], f);
 									}
 								}
@@ -12437,14 +12694,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 88 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -12481,12 +12738,12 @@
 				 * @param {...Number | Array} size    The size of each dimension of the matrix
 				 * @return {Array | Matrix | Number}  A matrix filled with ones
 				 */
-				math.ones = function ones (size) {
+				math.ones = function ones(size) {
 					var args = collection.argsToArray(arguments);
 					var asMatrix = (size instanceof Matrix) ? true :
 						(isArray(size) ? false : (config.matrix === 'matrix'));
 
-					if (args.length == 0) {
+					if(args.length == 0) {
 						// output an empty matrix
 						return asMatrix ? new Matrix() : [];
 					}
@@ -12495,11 +12752,12 @@
 
 						// convert arguments from bignumber to numbers if needed
 						var asBigNumber = false;
-						args = args.map(function (value) {
-							if (value instanceof BigNumber) {
+						args = args.map(function(value) {
+							if(value instanceof BigNumber) {
 								asBigNumber = true;
 								return value.toNumber();
-							} else {
+							}
+							else {
 								return value;
 							}
 						});
@@ -12514,14 +12772,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 89 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -12583,17 +12841,17 @@
 						includeEnd = false;
 
 					// read the includeEnd parameter
-					if (isBoolean(params[params.length - 1])) {
+					if(isBoolean(params[params.length - 1])) {
 						includeEnd = params.pop() ? true : false;
 					}
 
-					switch (params.length) {
+					switch(params.length) {
 						case 1:
 							// range(str)
 							// parse string into a range
-							if (isString(params[0])) {
+							if(isString(params[0])) {
 								var r = _parse(params[0]);
-								if (!r){
+								if(!r) {
 									throw new SyntaxError('String "' + params[0] + '" is no valid range');
 								}
 
@@ -12629,40 +12887,40 @@
 					}
 
 					// verify type of parameters
-					if (!isNumber(start) && !(start instanceof BigNumber)) {
+					if(!isNumber(start) && !(start instanceof BigNumber)) {
 						throw new TypeError('Parameter start must be a number');
 					}
-					if (!isNumber(end) && !(end instanceof BigNumber)) {
+					if(!isNumber(end) && !(end instanceof BigNumber)) {
 						throw new TypeError('Parameter end must be a number');
 					}
-					if (!isNumber(step) && !(step instanceof BigNumber)) {
+					if(!isNumber(step) && !(step instanceof BigNumber)) {
 						throw new TypeError('Parameter step must be a number');
 					}
 
 					// go big
-					if (start instanceof BigNumber || end instanceof BigNumber || step instanceof BigNumber) {
+					if(start instanceof BigNumber || end instanceof BigNumber || step instanceof BigNumber) {
 						// create a range with big numbers
 						var asBigNumber = true;
 
 						// convert start, end, step to BigNumber
-						if (!(start instanceof BigNumber)) start = BigNumber.convert(start);
-						if (!(end instanceof BigNumber))   end   = BigNumber.convert(end);
-						if (!(step instanceof BigNumber))  step  = BigNumber.convert(step);
+						if(!(start instanceof BigNumber)) start = BigNumber.convert(start);
+						if(!(end instanceof BigNumber))   end = BigNumber.convert(end);
+						if(!(step instanceof BigNumber))  step = BigNumber.convert(step);
 
-						if (!(start instanceof BigNumber) || !(end instanceof BigNumber) || !(step instanceof BigNumber)) {
+						if(!(start instanceof BigNumber) || !(end instanceof BigNumber) || !(step instanceof BigNumber)) {
 							// not all values can be converted to big number :(
 							// fall back to numbers
 							asBigNumber = false;
-							if (start instanceof BigNumber) start = start.toNumber();
-							if (end instanceof BigNumber)   end   = end.toNumber();
-							if (step instanceof BigNumber)  step  = step.toNumber();
+							if(start instanceof BigNumber) start = start.toNumber();
+							if(end instanceof BigNumber)   end = end.toNumber();
+							if(step instanceof BigNumber)  step = step.toNumber();
 						}
 					}
 
 					// generate the range
 					var fn = asBigNumber ?
 						(includeEnd ? _bigRangeInc : _bigRange) :
-						(includeEnd ? _rangeInc    : _range);
+						(includeEnd ? _rangeInc : _range);
 					var array = fn(start, end, step);
 
 					// return as array or matrix
@@ -12677,17 +12935,17 @@
 				 * @returns {Array} range
 				 * @private
 				 */
-				function _range (start, end, step) {
+				function _range(start, end, step) {
 					var array = [],
 						x = start;
-					if (step > 0) {
-						while (x < end) {
+					if(step > 0) {
+						while(x < end) {
 							array.push(x);
 							x += step;
 						}
 					}
-					else if (step < 0) {
-						while (x > end) {
+					else if(step < 0) {
+						while(x > end) {
 							array.push(x);
 							x += step;
 						}
@@ -12704,17 +12962,17 @@
 				 * @returns {Array} range
 				 * @private
 				 */
-				function _rangeInc (start, end, step) {
+				function _rangeInc(start, end, step) {
 					var array = [],
 						x = start;
-					if (step > 0) {
-						while (x <= end) {
+					if(step > 0) {
+						while(x <= end) {
 							array.push(x);
 							x += step;
 						}
 					}
-					else if (step < 0) {
-						while (x >= end) {
+					else if(step < 0) {
+						while(x >= end) {
 							array.push(x);
 							x += step;
 						}
@@ -12731,18 +12989,18 @@
 				 * @returns {Array} range
 				 * @private
 				 */
-				function _bigRange (start, end, step) {
+				function _bigRange(start, end, step) {
 					var array = [],
 						x = start.clone(),
 						zero = new BigNumber(0);
-					if (step.gt(zero)) {
-						while (x.lt(end)) {
+					if(step.gt(zero)) {
+						while(x.lt(end)) {
 							array.push(x);
 							x = x.plus(step);
 						}
 					}
-					else if (step.lt(zero)) {
-						while (x.gt(end)) {
+					else if(step.lt(zero)) {
+						while(x.gt(end)) {
 							array.push(x);
 							x = x.plus(step);
 						}
@@ -12759,18 +13017,18 @@
 				 * @returns {Array} range
 				 * @private
 				 */
-				function _bigRangeInc (start, end, step) {
+				function _bigRangeInc(start, end, step) {
 					var array = [],
 						x = start.clone(),
 						zero = new BigNumber(0);
-					if (step.gt(zero)) {
-						while (x.lte(end)) {
+					if(step.gt(zero)) {
+						while(x.lte(end)) {
 							array.push(x);
 							x = x.plus(step);
 						}
 					}
-					else if (step.lt(zero)) {
-						while (x.gte(end)) {
+					else if(step.lt(zero)) {
+						while(x.gte(end)) {
 							array.push(x);
 							x = x.plus(step);
 						}
@@ -12788,29 +13046,29 @@
 				 * @return {Object | null} range Object containing properties start, end, step
 				 * @private
 				 */
-				function _parse (str) {
+				function _parse(str) {
 					var args = str.split(':'),
 						nums = null;
 
-					if (config.number === 'bignumber') {
+					if(config.number === 'bignumber') {
 						// bignumber
 						try {
-							nums = args.map(function (arg) {
+							nums = args.map(function(arg) {
 								return new BigNumber(arg);
 							});
 						}
-						catch (err) {
+						catch(err) {
 							return null;
 						}
 					}
 					else {
 						// number
-						nums = args.map(function (arg) {
+						nums = args.map(function(arg) {
 							// use Number and not parseFloat as Number returns NaN on invalid garbage in the string
 							return Number(arg);
 						});
 
-						var invalid = nums.some(function (num) {
+						var invalid = nums.some(function(num) {
 							return isNaN(num);
 						});
 						if(invalid) {
@@ -12818,7 +13076,7 @@
 						}
 					}
 
-					switch (nums.length) {
+					switch(nums.length) {
 						case 2:
 							return {
 								start: nums[0],
@@ -12840,14 +13098,14 @@
 
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 90 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -12887,34 +13145,34 @@
 				 *                                           defaultValue = ' '
 				 * @return {* | Array | Matrix} A resized clone of matrix `x`
 				 */
-				math.resize = function resize (x, size, defaultValue) {
-					if (arguments.length != 2 && arguments.length != 3) {
+				math.resize = function resize(x, size, defaultValue) {
+					if(arguments.length != 2 && arguments.length != 3) {
 						throw new math.error.ArgumentsError('resize', arguments.length, 2, 3);
 					}
 
 					var asMatrix = (x instanceof Matrix) ? true : isArray(x) ? false : (config.matrix !== 'array');
 
-					if (x instanceof Matrix) {
+					if(x instanceof Matrix) {
 						x = x.valueOf(); // get Array
 					}
-					if (size instanceof Matrix) {
+					if(size instanceof Matrix) {
 						size = size.valueOf(); // get Array
 					}
 
-					if (size.length && size[0] instanceof BigNumber) {
+					if(size.length && size[0] instanceof BigNumber) {
 						// convert bignumbers to numbers
-						size = size.map(function (value) {
+						size = size.map(function(value) {
 							return (value instanceof BigNumber) ? value.toNumber() : value;
 						});
 					}
 
-					if (isString(x)) {
+					if(isString(x)) {
 						return _resizeString(x, size, defaultValue);
 					}
 					else {
-						if (size.length == 0) {
+						if(size.length == 0) {
 							// output a scalar
-							while (isArray(x)) {
+							while(isArray(x)) {
 								x = x[0];
 							}
 
@@ -12922,7 +13180,7 @@
 						}
 						else {
 							// output an array/matrix
-							if (!isArray(x)) {
+							if(!isArray(x)) {
 								x = [x];
 							}
 							x = clone(x);
@@ -12941,8 +13199,8 @@
 				 * @private
 				 */
 				function _resizeString(str, size, defaultChar) {
-					if (defaultChar !== undefined) {
-						if (!isString(defaultChar) || defaultChar.length !== 1) {
+					if(defaultChar !== undefined) {
+						if(!isString(defaultChar) || defaultChar.length !== 1) {
 							throw new TypeError('Single character expected as defaultValue');
 						}
 					}
@@ -12950,21 +13208,21 @@
 						defaultChar = ' ';
 					}
 
-					if (size.length !== 1) {
+					if(size.length !== 1) {
 						throw new math.error.DimensionError(size.length, 1);
 					}
 					var len = size[0];
-					if (!isNumber(len) || !isInteger(len)) {
+					if(!isNumber(len) || !isInteger(len)) {
 						throw new TypeError('Invalid size, must contain positive integers ' +
-							'(size: ' + string.format(size) + ')');
+						'(size: ' + string.format(size) + ')');
 					}
 
-					if (str.length > len) {
+					if(str.length > len) {
 						return str.substring(0, len);
 					}
-					else if (str.length < len) {
+					else if(str.length < len) {
 						var res = str;
-						for (var i = 0, ii = len - str.length; i < ii; i++) {
+						for(var i = 0, ii = len - str.length; i < ii; i++) {
 							res += defaultChar;
 						}
 						return res;
@@ -12975,14 +13233,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 91 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -13020,27 +13278,27 @@
 				 * @param {Boolean | Number | Complex | Unit | String | Array | Matrix} x  A matrix
 				 * @return {Array | Matrix} A vector with size of `x`.
 				 */
-				math.size = function size (x) {
-					if (arguments.length != 1) {
+				math.size = function size(x) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('size', arguments.length, 1);
 					}
 
 					var asArray = (config.matrix === 'array');
 
-					if (isNumber(x) || isComplex(x) || isUnit(x) || isBoolean(x) ||
+					if(isNumber(x) || isComplex(x) || isUnit(x) || isBoolean(x) ||
 						x == null || x instanceof BigNumber) {
 						return asArray ? [] : new Matrix([]);
 					}
 
-					if (isString(x)) {
+					if(isString(x)) {
 						return asArray ? [x.length] : new Matrix([x.length]);
 					}
 
-					if (Array.isArray(x)) {
+					if(Array.isArray(x)) {
 						return array.size(x);
 					}
 
-					if (x instanceof Matrix) {
+					if(x instanceof Matrix) {
 						return new Matrix(x.size());
 					}
 
@@ -13048,14 +13306,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 92 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					Matrix = __webpack_require__(9),
@@ -13093,15 +13351,15 @@
 				 * @param {Matrix | Array} x      Matrix to be squeezed
 				 * @return {Matrix | Array} Squeezed matrix
 				 */
-				math.squeeze = function squeeze (x) {
-					if (arguments.length != 1) {
+				math.squeeze = function squeeze(x) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('squeeze', arguments.length, 1);
 					}
 
-					if (isArray(x)) {
+					if(isArray(x)) {
 						return array.squeeze(object.clone(x));
 					}
-					else if (x instanceof Matrix) {
+					else if(x instanceof Matrix) {
 						var res = array.squeeze(x.toArray());
 						return isArray(res) ? new Matrix(res) : res;
 					}
@@ -13112,14 +13370,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 93 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					Matrix = __webpack_require__(9),
@@ -13163,8 +13421,8 @@
 				 *                                          new matrix elements will be left undefined.
 				 * @return {Array | Matrix | String} Either the retrieved subset or the updated matrix.
 				 */
-				math.subset = function subset (matrix, index, replacement, defaultValue) {
-					switch (arguments.length) {
+				math.subset = function subset(matrix, index, replacement, defaultValue) {
+					switch(arguments.length) {
 						case 2: // get subset
 							return _getSubset(arguments[0], arguments[1]);
 
@@ -13189,15 +13447,15 @@
 				function _getSubset(value, index) {
 					var m, subset;
 
-					if (isArray(value)) {
+					if(isArray(value)) {
 						m = new Matrix(value);
 						subset = m.subset(index);           // returns a Matrix
 						return subset && subset.valueOf();  // return an Array (like the input)
 					}
-					else if (value instanceof Matrix) {
+					else if(value instanceof Matrix) {
 						return value.subset(index);
 					}
-					else if (isString(value)) {
+					else if(isString(value)) {
 						return _getSubstring(value, index);
 					}
 					else {
@@ -13213,11 +13471,11 @@
 				 * @private
 				 */
 				function _getSubstring(str, index) {
-					if (!(index instanceof Index)) {
+					if(!(index instanceof Index)) {
 						// TODO: better error message
 						throw new TypeError('Index expected');
 					}
-					if (index.size().length != 1) {
+					if(index.size().length != 1) {
 						throw new math.error.DimensionError(index.size().length, 1);
 					}
 
@@ -13229,7 +13487,7 @@
 					var range = index.range(0);
 
 					var substr = '';
-					range.forEach(function (v) {
+					range.forEach(function(v) {
 						substr += str.charAt(v);
 					});
 
@@ -13251,15 +13509,15 @@
 				function _setSubset(value, index, replacement, defaultValue) {
 					var m;
 
-					if (isArray(value)) {
+					if(isArray(value)) {
 						m = new Matrix(math.clone(value));
 						m.subset(index, replacement, defaultValue);
 						return m.valueOf();
 					}
-					else if (value instanceof Matrix) {
+					else if(value instanceof Matrix) {
 						return value.clone().subset(index, replacement, defaultValue);
 					}
-					else if (isString(value)) {
+					else if(isString(value)) {
 						return _setSubstring(value, index, replacement, defaultValue);
 					}
 					else {
@@ -13278,15 +13536,15 @@
 				 * @private
 				 */
 				function _setSubstring(str, index, replacement, defaultValue) {
-					if (!(index instanceof Index)) {
+					if(!(index instanceof Index)) {
 						// TODO: better error message
 						throw new TypeError('Index expected');
 					}
-					if (index.size().length != 1) {
+					if(index.size().length != 1) {
 						throw new math.error.DimensionError(index.size().length, 1);
 					}
-					if (defaultValue !== undefined) {
-						if (!isString(defaultValue) || defaultValue.length !== 1) {
+					if(defaultValue !== undefined) {
+						if(!isString(defaultValue) || defaultValue.length !== 1) {
 							throw new TypeError('Single character expected as defaultValue');
 						}
 					}
@@ -13297,7 +13555,7 @@
 					var range = index.range(0);
 					var len = range.size()[0];
 
-					if (len != replacement.length) {
+					if(len != replacement.length) {
 						throw new math.error.DimensionError(range.size()[0], replacement.length);
 					}
 
@@ -13308,18 +13566,18 @@
 
 					// copy the string into an array with characters
 					var chars = [];
-					for (var i = 0; i < strLen; i++) {
+					for(var i = 0; i < strLen; i++) {
 						chars[i] = str.charAt(i);
 					}
 
-					range.forEach(function (v, i) {
+					range.forEach(function(v, i) {
 						chars[v] = replacement.charAt(i);
 					});
 
 					// initialize undefined characters with a space
-					if (chars.length > strLen) {
-						for (i = strLen - 1, len = chars.length; i < len; i++) {
-							if (!chars[i]) {
+					if(chars.length > strLen) {
+						for(i = strLen - 1, len = chars.length; i < len; i++) {
+							if(!chars[i]) {
 								chars[i] = defaultValue;
 							}
 						}
@@ -13329,14 +13587,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 94 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					Matrix = __webpack_require__(9),
@@ -13364,13 +13622,13 @@
 				 * @param {Array | Matrix} x  Matrix to be transposed
 				 * @return {Array | Matrix}   The transposed matrix
 				 */
-				math.transpose = function transpose (x) {
-					if (arguments.length != 1) {
+				math.transpose = function transpose(x) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('transpose', arguments.length, 1);
 					}
 
 					var size = math.size(x).valueOf();
-					switch (size.length) {
+					switch(size.length) {
 						case 0:
 							// scalar
 							return object.clone(x);
@@ -13389,15 +13647,15 @@
 								transposedRow,
 								clone = object.clone;
 
-							if (rows === 0) {
+							if(rows === 0) {
 								// whoops
 								throw new RangeError('Cannot transpose a 2D matrix with no rows' +
-									'(size: ' + string.format(size) + ')');
+								'(size: ' + string.format(size) + ')');
 							}
 
-							for (var r = 0; r < rows; r++) {
+							for(var r = 0; r < rows; r++) {
 								transposedRow = transposed[r] = [];
-								for (var c = 0; c < cols; c++) {
+								for(var c = 0; c < cols; c++) {
 									transposedRow[c] = clone(data[c][r]);
 								}
 							}
@@ -13407,19 +13665,19 @@
 						default:
 							// multi dimensional array
 							throw new RangeError('Matrix must be two dimensional ' +
-								'(size: ' + string.format(size) + ')');
+							'(size: ' + string.format(size) + ')');
 					}
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 95 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math, config) {
+			module.exports = function(math, config) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -13455,12 +13713,12 @@
 				 * @param {...Number | Array} size    The size of each dimension of the matrix
 				 * @return {Array | Matrix | Number}  A matrix filled with zeros
 				 */
-				math.zeros = function zeros (size) {
+				math.zeros = function zeros(size) {
 					var args = collection.argsToArray(arguments);
 					var asMatrix = (size instanceof Matrix) ? true :
 						(isArray(size) ? false : (config.matrix === 'matrix'));
 
-					if (args.length == 0) {
+					if(args.length == 0) {
 						// output an empty matrix
 						return asMatrix ? new Matrix() : [];
 					}
@@ -13469,11 +13727,12 @@
 
 						// convert arguments from bignumber to numbers if needed
 						var asBigNumber = false;
-						args = args.map(function (value) {
-							if (value instanceof BigNumber) {
+						args = args.map(function(value) {
+							if(value instanceof BigNumber) {
 								asBigNumber = true;
 								return value.toNumber();
-							} else {
+							}
+							else {
 								return value;
 							}
 						});
@@ -13488,14 +13747,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 96 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -13528,34 +13787,34 @@
 				 * @param {Number | BigNumber | Array | Matrix | Boolean | null} n   An integer number
 				 * @return {Number | BigNumber | Array | Matrix}    The factorial of `n`
 				 */
-				math.factorial = function factorial (n) {
+				math.factorial = function factorial(n) {
 					var value, res;
 
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('factorial', arguments.length, 1);
 					}
 
-					if (isNumber(n)) {
-						if (!isInteger(n) || n < 0) {
+					if(isNumber(n)) {
+						if(!isInteger(n) || n < 0) {
 							throw new TypeError('Positive integer value expected in function factorial');
 						}
 
 						value = n - 1;
 						res = n;
-						while (value > 1) {
+						while(value > 1) {
 							res *= value;
 							value--;
 						}
 
-						if (res == 0) {
+						if(res == 0) {
 							res = 1;        // 0! is per definition 1
 						}
 
 						return res;
 					}
 
-					if (n instanceof BigNumber) {
-						if (!(isPositiveInteger(n))) {
+					if(n instanceof BigNumber) {
+						if(!(isPositiveInteger(n))) {
 							throw new TypeError('Positive integer value expected in function factorial');
 						}
 
@@ -13563,23 +13822,23 @@
 
 						value = n.minus(one);
 						res = n;
-						while (value.gt(one)) {
+						while(value.gt(one)) {
 							res = res.times(value);
 							value = value.minus(one);
 						}
 
-						if (res.equals(0)) {
+						if(res.equals(0)) {
 							res = one;        // 0! is per definition 1
 						}
 
 						return res;
 					}
 
-					if (isBoolean(n) || n === null) {
+					if(isBoolean(n) || n === null) {
 						return 1; // factorial(1) = 1, factorial(0) = 1
 					}
 
-					if (isCollection(n)) {
+					if(isCollection(n)) {
 						return collection.deepMap(n, factorial);
 					}
 
@@ -13596,14 +13855,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 97 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var distribution = __webpack_require__(178)(math);
 
 				/**
@@ -13637,14 +13896,14 @@
 				math.random = distribution('uniform').random;
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 98 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var distribution = __webpack_require__(178)(math);
 
 				/**
@@ -13678,14 +13937,14 @@
 				math.randomInt = distribution('uniform').randomInt;
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 99 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var distribution = __webpack_require__(178)(math);
 
 				/**
@@ -13710,14 +13969,14 @@
 				math.pickRandom = distribution('uniform').pickRandom;
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 100 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -13750,36 +14009,36 @@
 				 * @param {Number | BigNumber} k  The number of objects in the subset
 				 * @return {Number | BigNumber}   The number of permutations
 				 */
-				math.permutations = function permutations (n, k) {
+				math.permutations = function permutations(n, k) {
 					var result, i;
 
 					var arity = arguments.length;
-					if (arity > 2) {
+					if(arity > 2) {
 						throw new math.error.ArgumentsError('permutations', arguments.length, 2);
 					}
 
-					if (isNumber(n)) {
-						if (!isInteger(n) || n < 0) {
+					if(isNumber(n)) {
+						if(!isInteger(n) || n < 0) {
 							throw new TypeError('Positive integer value expected in function permutations');
 						}
 
 						// Permute n objects
-						if (arity == 1) {
+						if(arity == 1) {
 							return math.factorial(n);
 						}
 
 						// Permute n objects, k at a time
-						if (arity == 2) {
-							if (isNumber(k)) {
-								if (!isInteger(k) || k < 0) {
+						if(arity == 2) {
+							if(isNumber(k)) {
+								if(!isInteger(k) || k < 0) {
 									throw new TypeError('Positive integer value expected in function permutations');
 								}
-								if (k > n) {
+								if(k > n) {
 									throw new TypeError('second argument k must be less than or equal to first argument n');
 								}
 
 								result = 1;
-								for (i = n - k + 1; i <= n; i++) {
+								for(i = n - k + 1; i <= n; i++) {
 									result = result * i;
 								}
 								return result;
@@ -13787,8 +14046,8 @@
 						}
 					}
 
-					if (n instanceof BigNumber) {
-						if (k === undefined && isPositiveInteger(n)) {
+					if(n instanceof BigNumber) {
+						if(k === undefined && isPositiveInteger(n)) {
 							return math.factorial(n);
 						}
 
@@ -13796,15 +14055,15 @@
 						// not all numbers can be converted to BigNumber
 						k = BigNumber.convert(k);
 
-						if (!(k instanceof BigNumber) || !isPositiveInteger(n) || !isPositiveInteger(k)) {
+						if(!(k instanceof BigNumber) || !isPositiveInteger(n) || !isPositiveInteger(k)) {
 							throw new TypeError('Positive integer value expected in function permutations');
 						}
-						if (k.gt(n)) {
+						if(k.gt(n)) {
 							throw new TypeError('second argument k must be less than or equal to first argument n');
 						}
 
 						result = new BigNumber(1);
-						for (i = n.minus(k).plus(1); i.lte(n); i = i.plus(1)) {
+						for(i = n.minus(k).plus(1); i.lte(n); i = i.plus(1)) {
 							result = result.times(i);
 						}
 						return result;
@@ -13823,14 +14082,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 101 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -13862,46 +14121,46 @@
 				 * @param {Number | BigNumber} k    Number of objects in the subset
 				 * @return {Number | BigNumber}     Number of possible combinations.
 				 */
-				math.combinations = function combinations (n, k) {
-					var max, result, i,ii;
+				math.combinations = function combinations(n, k) {
+					var max, result, i, ii;
 
 					var arity = arguments.length;
-					if (arity != 2) {
+					if(arity != 2) {
 						throw new math.error.ArgumentsError('combinations', arguments.length, 2);
 					}
 
-					if (isNumber(n)) {
-						if (!isInteger(n) || n < 0) {
+					if(isNumber(n)) {
+						if(!isInteger(n) || n < 0) {
 							throw new TypeError('Positive integer value enpected in function combinations');
 						}
-						if (k > n) {
+						if(k > n) {
 							throw new TypeError('k must be less than or equal to n');
 						}
 
 						max = Math.max(k, n - k);
 						result = 1;
-						for (i = 1; i <= n - max; i++) {
+						for(i = 1; i <= n - max; i++) {
 							result = result * (max + i) / i;
 						}
 						return result;
 					}
 
-					if (n instanceof BigNumber) {
+					if(n instanceof BigNumber) {
 						// make sure k is a BigNumber as well
 						// not all numbers can be converted to BigNumber
 						k = BigNumber.convert(k);
 
-						if (!(k instanceof BigNumber) || !isPositiveInteger(n) || !isPositiveInteger(k)) {
+						if(!(k instanceof BigNumber) || !isPositiveInteger(n) || !isPositiveInteger(k)) {
 							throw new TypeError('Positive integer value expected in function combinations');
 						}
-						if (k.gt(n)) {
+						if(k.gt(n)) {
 							throw new TypeError('k must be less than n in function combinations');
 						}
 
 						max = n.minus(k);
-						if (k.lt(max)) max = k;
+						if(k.lt(max)) max = k;
 						result = new BigNumber(1);
-						for (i = new BigNumber(1), ii = n.minus(max); i.lte(ii); i = i.plus(1)) {
+						for(i = new BigNumber(1), ii = n.minus(max); i.lte(ii); i = i.plus(1)) {
 							result = result.times(max.plus(i)).dividedBy(i);
 						}
 						return result;
@@ -13920,14 +14179,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 102 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9),
 					collection = __webpack_require__(13),
 
@@ -13965,16 +14224,16 @@
 				 * @return {*} The minimum value
 				 */
 				math.min = function min(args) {
-					if (arguments.length == 0) {
+					if(arguments.length == 0) {
 						throw new SyntaxError('Function min requires one or more parameters (0 provided)');
 					}
 
-					if (isCollection(args)) {
-						if (arguments.length == 1) {
+					if(isCollection(args)) {
+						if(arguments.length == 1) {
 							// min([a, b, c, d, ...])
 							return _min(args);
 						}
-						else if (arguments.length == 2) {
+						else if(arguments.length == 2) {
 							// min([a, b, c, d, ...], dim)
 							return collection.reduce(arguments[0], arguments[1], _getSmaller);
 						}
@@ -13988,8 +14247,8 @@
 					}
 				};
 
-				function _getSmaller(x, y){
-					return math.smaller(x, y)  ? x : y;
+				function _getSmaller(x, y) {
+					return math.smaller(x, y) ? x : y;
 				}
 
 				/**
@@ -14001,13 +14260,13 @@
 				function _min(array) {
 					var min = undefined;
 
-					collection.deepForEach(array, function (value) {
-						if (min === undefined || math.smaller(value, min)) {
+					collection.deepForEach(array, function(value) {
+						if(min === undefined || math.smaller(value, min)) {
 							min = value;
 						}
 					});
 
-					if (min === undefined) {
+					if(min === undefined) {
 						throw new Error('Cannot calculate min of an empty array');
 					}
 
@@ -14015,14 +14274,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 103 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9),
 					collection = __webpack_require__(13),
 
@@ -14060,16 +14319,16 @@
 				 * @return {*} The maximum value
 				 */
 				math.max = function max(args) {
-					if (arguments.length == 0) {
+					if(arguments.length == 0) {
 						throw new SyntaxError('Function max requires one or more parameters (0 provided)');
 					}
 
-					if (isCollection(args)) {
-						if (arguments.length == 1) {
+					if(isCollection(args)) {
+						if(arguments.length == 1) {
 							// max([a, b, c, d, ...])
 							return _max(args);
 						}
-						else if (arguments.length == 2) {
+						else if(arguments.length == 2) {
 							// max([a, b, c, d, ...], dim)
 							return collection.reduce(arguments[0], arguments[1], _getLarger);
 						}
@@ -14083,7 +14342,7 @@
 					}
 				};
 
-				function _getLarger(x, y){
+				function _getLarger(x, y) {
 					return math.larger(x, y) ? x : y;
 				}
 
@@ -14096,13 +14355,13 @@
 				function _max(array) {
 					var max = undefined;
 
-					collection.deepForEach(array, function (value) {
-						if (max === undefined || math.larger(value, max)) {
+					collection.deepForEach(array, function(value) {
+						if(max === undefined || math.larger(value, max)) {
 							max = value;
 						}
 					});
 
-					if (max === undefined) {
+					if(max === undefined) {
 						throw new Error('Cannot calculate max of an empty array');
 					}
 
@@ -14110,14 +14369,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 104 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9),
 					collection = __webpack_require__(13),
 
@@ -14154,16 +14413,16 @@
 				 * @return {*} The mean of all values
 				 */
 				math.mean = function mean(args) {
-					if (arguments.length == 0) {
+					if(arguments.length == 0) {
 						throw new SyntaxError('Function mean requires one or more parameters (0 provided)');
 					}
 
-					if (isCollection(args)) {
-						if (arguments.length == 1) {
+					if(isCollection(args)) {
+						if(arguments.length == 1) {
 							// mean([a, b, c, d, ...])
 							return _mean(args);
 						}
-						else if (arguments.length == 2) {
+						else if(arguments.length == 2) {
 							// mean([a, b, c, d, ...], dim)
 							return _nmean(arguments[0], arguments[1]);
 						}
@@ -14185,7 +14444,7 @@
 				 * @return {Number} mean
 				 * @private
 				 */
-				function _nmean(array, dim){
+				function _nmean(array, dim) {
 					var sum = collection.reduce(array, dim, math.add);
 					var s = isArray(array) ? size(array) : array.size();
 					return math.divide(sum, s[dim]);
@@ -14201,12 +14460,12 @@
 					var sum = 0;
 					var num = 0;
 
-					collection.deepForEach(array, function (value) {
+					collection.deepForEach(array, function(value) {
 						sum = math.add(sum, value);
 						num++;
 					});
 
-					if (num === 0) {
+					if(num === 0) {
 						throw new Error('Cannot calculate mean of an empty array');
 					}
 
@@ -14214,14 +14473,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 105 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9),
 					Unit = __webpack_require__(10),
 					BigNumber = math.type.BigNumber,
@@ -14259,16 +14518,16 @@
 				 * @return {*} The median
 				 */
 				math.median = function median(args) {
-					if (arguments.length == 0) {
+					if(arguments.length == 0) {
 						throw new SyntaxError('Function median requires one or more parameters (0 provided)');
 					}
 
-					if (isCollection(args)) {
-						if (arguments.length == 1) {
+					if(isCollection(args)) {
+						if(arguments.length == 1) {
 							// median([a, b, c, d, ...])
 							return _median(args.valueOf());
 						}
-						else if (arguments.length == 2) {
+						else if(arguments.length == 2) {
 							// median([a, b, c, d, ...], dim)
 							// TODO: implement median(A, dim)
 							throw new Error('median(A, dim) is not yet supported');
@@ -14297,19 +14556,19 @@
 
 					var num = flat.length;
 
-					if (num == 0) {
+					if(num == 0) {
 						throw new Error('Cannot calculate median of an empty array');
 					}
 
-					if (num % 2 == 0) {
+					if(num % 2 == 0) {
 						// even: return the average of the two middle values
 						var left = flat[num / 2 - 1];
 						var right = flat[num / 2];
 
-						if (!isNumber(left) && !(left instanceof BigNumber) && !(left instanceof Unit)) {
+						if(!isNumber(left) && !(left instanceof BigNumber) && !(left instanceof Unit)) {
 							throw new math.error.UnsupportedTypeError('median', math['typeof'](left));
 						}
-						if (!isNumber(right) && !(right instanceof BigNumber) && !(right instanceof Unit)) {
+						if(!isNumber(right) && !(right instanceof BigNumber) && !(right instanceof Unit)) {
 							throw new math.error.UnsupportedTypeError('median', math['typeof'](right));
 						}
 
@@ -14319,7 +14578,7 @@
 						// odd: return the middle value
 						var middle = flat[(num - 1) / 2];
 
-						if (!isNumber(middle) && !(middle instanceof BigNumber) && !(middle instanceof Unit)) {
+						if(!isNumber(middle) && !(middle instanceof BigNumber) && !(middle instanceof Unit)) {
 							throw new math.error.UnsupportedTypeError('median', math['typeof'](middle));
 						}
 
@@ -14328,14 +14587,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 106 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9),
 					collection = __webpack_require__(13),
 
@@ -14367,16 +14626,16 @@
 				 * @return {*} The product of all values
 				 */
 				math.prod = function prod(args) {
-					if (arguments.length == 0) {
+					if(arguments.length == 0) {
 						throw new SyntaxError('Function prod requires one or more parameters (0 provided)');
 					}
 
-					if (isCollection(args)) {
-						if (arguments.length == 1) {
+					if(isCollection(args)) {
+						if(arguments.length == 1) {
 							// prod([a, b, c, d, ...])
 							return _prod(args);
 						}
-						else if (arguments.length == 2) {
+						else if(arguments.length == 2) {
 							// prod([a, b, c, d, ...], dim)
 							// TODO: implement prod(A, dim)
 							throw new Error('prod(A, dim) is not yet supported');
@@ -14401,11 +14660,11 @@
 				function _prod(array) {
 					var prod = undefined;
 
-					collection.deepForEach(array, function (value) {
+					collection.deepForEach(array, function(value) {
 						prod = (prod === undefined) ? value : math.multiply(prod, value);
 					});
 
-					if (prod === undefined) {
+					if(prod === undefined) {
 						throw new Error('Cannot calculate prod of an empty array');
 					}
 
@@ -14413,15 +14672,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 107 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
-
+			module.exports = function(math) {
 
 				/**
 				 * Compute the standard deviation of a matrix or a  list with values.
@@ -14464,7 +14722,7 @@
 				 * @return {*} The standard deviation
 				 */
 				math.std = function std(array, normalization) {
-					if (arguments.length == 0) {
+					if(arguments.length == 0) {
 						throw new SyntaxError('Function std requires one or more parameters (0 provided)');
 					}
 
@@ -14473,14 +14731,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 108 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9),
 					collection = __webpack_require__(13),
 
@@ -14510,16 +14768,16 @@
 				 * @return {*} The sum of all values
 				 */
 				math.sum = function sum(args) {
-					if (arguments.length == 0) {
+					if(arguments.length == 0) {
 						throw new SyntaxError('Function sum requires one or more parameters (0 provided)');
 					}
 
-					if (isCollection(args)) {
-						if (arguments.length == 1) {
+					if(isCollection(args)) {
+						if(arguments.length == 1) {
 							// sum([a, b, c, d, ...])
 							return _sum(args);
 						}
-						else if (arguments.length == 2) {
+						else if(arguments.length == 2) {
 							// sum([a, b, c, d, ...], dim)
 							// TODO: implement sum(A, dim)
 							throw new Error('sum(A, dim) is not yet supported');
@@ -14544,11 +14802,11 @@
 				function _sum(array) {
 					var sum = undefined;
 
-					collection.deepForEach(array, function (value) {
+					collection.deepForEach(array, function(value) {
 						sum = (sum === undefined) ? value : math.add(sum, value);
 					});
 
-					if (sum === undefined) {
+					if(sum === undefined) {
 						throw new Error('Cannot calculate sum of an empty array');
 					}
 
@@ -14556,14 +14814,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 109 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9),
 					BigNumber = math.type.BigNumber,
 					collection = __webpack_require__(13),
@@ -14616,19 +14874,19 @@
 				 * @return {*} The variance
 				 */
 				math['var'] = function variance(array, normalization) {
-					if (arguments.length == 0) {
+					if(arguments.length == 0) {
 						throw new SyntaxError('Function var requires one or more parameters (0 provided)');
 					}
 
-					if (isCollection(array)) {
-						if (arguments.length == 1) {
+					if(isCollection(array)) {
+						if(arguments.length == 1) {
 							// var([a, b, c, d, ...])
 							return _var(array, DEFAULT_NORMALIZATION);
 						}
-						else if (arguments.length == 2) {
+						else if(arguments.length == 2) {
 							// var([a, b, c, d, ...], normalization)
 
-							if (!isString(normalization)) {
+							if(!isString(normalization)) {
 								throw new Error('String expected for parameter normalization');
 							}
 
@@ -14667,22 +14925,22 @@
 					var num = 0;
 
 					// calculate the mean and number of elements
-					collection.deepForEach(array, function (value) {
+					collection.deepForEach(array, function(value) {
 						sum = math.add(sum, value);
 						num++;
 					});
-					if (num === 0) throw new Error('Cannot calculate var of an empty array');
+					if(num === 0) throw new Error('Cannot calculate var of an empty array');
 
 					var mean = math.divide(sum, num);
 
 					// calculate the variance
 					sum = 0;
-					collection.deepForEach(array, function (value) {
+					collection.deepForEach(array, function(value) {
 						var diff = math.subtract(value, mean);
 						sum = math.add(sum, math.multiply(diff, diff));
 					});
 
-					switch (normalization) {
+					switch(normalization) {
 						case 'uncorrected':
 							return math.divide(sum, num);
 
@@ -14695,19 +14953,19 @@
 
 						default:
 							throw new Error('Unknown normalization "' + normalization + '". ' +
-								'Choose "unbiased" (default), "uncorrected", or "biased".');
+							'Choose "unbiased" (default), "uncorrected", or "biased".');
 					}
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 110 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -14743,12 +15001,12 @@
 				 * @return {Number | Complex | Array | Matrix} The arc cosine of x
 				 */
 				math.acos = function acos(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('acos', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
-						if (x >= -1 && x <= 1) {
+					if(isNumber(x)) {
+						if(x >= -1 && x <= 1) {
 							return Math.acos(x);
 						}
 						else {
@@ -14756,35 +15014,35 @@
 						}
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						// acos(z) = 0.5*pi + i*log(iz + sqrt(1-z^2))
 						var temp1 = new Complex(
-								x.im * x.im - x.re * x.re + 1.0,
-								-2.0 * x.re * x.im
+							x.im * x.im - x.re * x.re + 1.0,
+							-2.0 * x.re * x.im
 						);
 						var temp2 = math.sqrt(temp1);
 						var temp3 = new Complex(
-								temp2.re - x.im,
-								temp2.im + x.re
+							temp2.re - x.im,
+							temp2.im + x.re
 						);
 						var temp4 = math.log(temp3);
 
 						// 0.5*pi = 1.5707963267948966192313216916398
 						return new Complex(
-								1.57079632679489661923 - temp4.im,
+							1.57079632679489661923 - temp4.im,
 							temp4.re
 						);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, acos);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return Math.acos(x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return acos(x.toNumber());
@@ -14794,14 +15052,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 111 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -14837,12 +15095,12 @@
 				 * @return {Number | Complex | Array | Matrix} The arc sine of x
 				 */
 				math.asin = function asin(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('asin', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
-						if (x >= -1 && x <= 1) {
+					if(isNumber(x)) {
+						if(x >= -1 && x <= 1) {
 							return Math.asin(x);
 						}
 						else {
@@ -14850,33 +15108,33 @@
 						}
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						// asin(z) = -i*log(iz + sqrt(1-z^2))
 						var re = x.re;
 						var im = x.im;
 						var temp1 = new Complex(
-								im * im - re * re + 1.0,
-								-2.0 * re * im
+							im * im - re * re + 1.0,
+							-2.0 * re * im
 						);
 						var temp2 = math.sqrt(temp1);
 						var temp3 = new Complex(
-								temp2.re - im,
-								temp2.im + re
+							temp2.re - im,
+							temp2.im + re
 						);
 						var temp4 = math.log(temp3);
 
 						return new Complex(temp4.im, -temp4.re);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, asin);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return Math.asin(x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return asin(x.toNumber());
@@ -14886,14 +15144,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 112 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -14929,41 +15187,41 @@
 				 * @return {Number | Complex | Array | Matrix} The arc tangent of x
 				 */
 				math.atan = function atan(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('atan', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return Math.atan(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						// atan(z) = 1/2 * i * (ln(1-iz) - ln(1+iz))
 						var re = x.re;
 						var im = x.im;
 						var den = re * re + (1.0 - im) * (1.0 - im);
 
 						var temp1 = new Complex(
-								(1.0 - im * im - re * re) / den,
-								(-2.0 * re) / den
+							(1.0 - im * im - re * re) / den,
+							(-2.0 * re) / den
 						);
 						var temp2 = math.log(temp1);
 
 						return new Complex(
-								-0.5 * temp2.im,
-								0.5 * temp2.re
+							-0.5 * temp2.im,
+							0.5 * temp2.re
 						);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, atan);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return Math.atan(x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return atan(x.toNumber());
@@ -14973,14 +15231,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 113 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15022,34 +15280,34 @@
 				 * @return {Number | Complex | Array | Matrix} Four-quadrant inverse tangent
 				 */
 				math.atan2 = function atan2(y, x) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('atan2', arguments.length, 2);
 					}
 
-					if (isNumber(y)) {
-						if (isNumber(x)) {
+					if(isNumber(y)) {
+						if(isNumber(x)) {
 							return Math.atan2(y, x);
 						}
 					}
 
 					// TODO: support for complex computation of atan2
 
-					if (isCollection(y) || isCollection(x)) {
+					if(isCollection(y) || isCollection(x)) {
 						return collection.deepMap2(y, x, atan2);
 					}
 
-					if (isBoolean(y) || y === null) {
+					if(isBoolean(y) || y === null) {
 						return atan2(+y, x);
 					}
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return atan2(y, +x);
 					}
 
 					// TODO: implement bignumber support
-					if (y instanceof BigNumber) {
+					if(y instanceof BigNumber) {
 						return atan2(y.toNumber(), x);
 					}
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						return atan2(y, x.toNumber());
 					}
 
@@ -15057,14 +15315,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 114 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15105,38 +15363,38 @@
 				 * @return {Number | Complex | Array | Matrix} Cosine of x
 				 */
 				math.cos = function cos(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('cos', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return Math.cos(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						// cos(z) = (exp(iz) + exp(-iz)) / 2
 						return new Complex(
-								0.5 * Math.cos(x.re) * (Math.exp(-x.im) + Math.exp(x.im)),
-								0.5 * Math.sin(x.re) * (Math.exp(-x.im) - Math.exp(x.im))
+							0.5 * Math.cos(x.re) * (Math.exp(-x.im) + Math.exp(x.im)),
+							0.5 * Math.sin(x.re) * (Math.exp(-x.im) - Math.exp(x.im))
 						);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function cos is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function cos is no angle');
 						}
 						return Math.cos(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, cos);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return Math.cos(x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return cos(x.toNumber());
@@ -15146,14 +15404,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 115 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15189,36 +15447,36 @@
 				 * @return {Number | Complex | Array | Matrix} Hyperbolic cosine of x
 				 */
 				math.cosh = function cosh(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('cosh', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return (Math.exp(x) + Math.exp(-x)) / 2;
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var ep = Math.exp(x.re);
 						var en = Math.exp(-x.re);
 						return new Complex(Math.cos(x.im) * (ep + en) / 2, Math.sin(x.im) * (ep - en) / 2);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function cosh is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function cosh is no angle');
 						}
 						return cosh(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, cosh);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return cosh(x ? 1 : 0);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return cosh(x.toNumber());
@@ -15228,14 +15486,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 116 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15271,40 +15529,40 @@
 				 * @return {Number | Complex | Array | Matrix} Cotangent of x
 				 */
 				math.cot = function cot(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('cot', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return 1 / Math.tan(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var den = Math.exp(-4.0 * x.im) -
 							2.0 * Math.exp(-2.0 * x.im) * Math.cos(2.0 * x.re) + 1.0;
 
 						return new Complex(
-								2.0 * Math.exp(-2.0 * x.im) * Math.sin(2.0 * x.re) / den,
-								(Math.exp(-4.0 * x.im) - 1.0) / den
+							2.0 * Math.exp(-2.0 * x.im) * Math.sin(2.0 * x.re) / den,
+							(Math.exp(-4.0 * x.im) - 1.0) / den
 						);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function cot is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function cot is no angle');
 						}
 						return 1 / Math.tan(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, cot);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return cot(+x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return cot(x.toNumber());
@@ -15314,14 +15572,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 117 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15359,42 +15617,42 @@
 				 * @return {Number | Complex | Array | Matrix} Hyperbolic cotangent of x
 				 */
 				math.coth = function coth(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('coth', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						var e = Math.exp(2 * x);
 						return (e + 1) / (e - 1);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var r = Math.exp(2 * x.re);
 						var re = r * Math.cos(2 * x.im);
 						var im = r * Math.sin(2 * x.im);
 						var den = (re - 1) * (re - 1) + im * im;
 						return new Complex(
-								((re + 1) * (re - 1) + im * im) / den,
-								-2 * im / den
+							((re + 1) * (re - 1) + im * im) / den,
+							-2 * im / den
 						);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function coth is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function coth is no angle');
 						}
 						return coth(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, coth);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return coth(x ? 1 : 0);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return coth(x.toNumber());
@@ -15404,14 +15662,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 118 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15447,41 +15705,41 @@
 				 * @return {Number | Complex | Array | Matrix} Cosecant of x
 				 */
 				math.csc = function csc(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('csc', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return 1 / Math.sin(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						// csc(z) = 1/sin(z) = (2i) / (exp(iz) - exp(-iz))
 						var den = 0.25 * (Math.exp(-2.0 * x.im) + Math.exp(2.0 * x.im)) -
 							0.5 * Math.cos(2.0 * x.re);
 
-						return new Complex (
-								0.5 * Math.sin(x.re) * (Math.exp(-x.im) + Math.exp(x.im)) / den,
-								0.5 * Math.cos(x.re) * (Math.exp(-x.im) - Math.exp(x.im)) / den
+						return new Complex(
+							0.5 * Math.sin(x.re) * (Math.exp(-x.im) + Math.exp(x.im)) / den,
+							0.5 * Math.cos(x.re) * (Math.exp(-x.im) - Math.exp(x.im)) / den
 						);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function csc is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function csc is no angle');
 						}
 						return 1 / Math.sin(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, csc);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return csc(+x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return csc(x.toNumber());
@@ -15491,14 +15749,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 119 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15537,42 +15795,42 @@
 				 * @return {Number | Complex | Array | Matrix} Hyperbolic cosecant of x
 				 */
 				math.csch = function csch(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('csch', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						// x == 0
-						if (x == 0) return Number.NaN;
+						if(x == 0) return Number.NaN;
 						// consider values close to zero (+/-)
 						return Math.abs(2 / (Math.exp(x) - Math.exp(-x))) * number.sign(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var ep = Math.exp(x.re);
 						var en = Math.exp(-x.re);
 						var re = Math.cos(x.im) * (ep - en);
 						var im = Math.sin(x.im) * (ep + en);
 						var den = re * re + im * im;
-						return new Complex(2 * re / den, -2 * im /den);
+						return new Complex(2 * re / den, -2 * im / den);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function csch is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function csch is no angle');
 						}
 						return csch(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, csch);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return csch(x ? 1 : 0);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return csch(x.toNumber());
@@ -15582,14 +15840,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 120 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15625,41 +15883,41 @@
 				 * @return {Number | Complex | Array | Matrix} Secant of x
 				 */
 				math.sec = function sec(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('sec', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return 1 / Math.cos(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						// sec(z) = 1/cos(z) = 2 / (exp(iz) + exp(-iz))
 						var den = 0.25 * (Math.exp(-2.0 * x.im) + Math.exp(2.0 * x.im)) +
 							0.5 * Math.cos(2.0 * x.re);
 
 						return new Complex(
-								0.5 * Math.cos(x.re) * (Math.exp(-x.im) + Math.exp( x.im)) / den,
-								0.5 * Math.sin(x.re) * (Math.exp( x.im) - Math.exp(-x.im)) / den
+							0.5 * Math.cos(x.re) * (Math.exp(-x.im) + Math.exp(x.im)) / den,
+							0.5 * Math.sin(x.re) * (Math.exp(x.im) - Math.exp(-x.im)) / den
 						);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function sec is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function sec is no angle');
 						}
 						return 1 / Math.cos(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, sec);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return sec(+x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return sec(x.toNumber());
@@ -15669,14 +15927,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 121 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15714,15 +15972,15 @@
 				 * @return {Number | Complex | Array | Matrix} Hyperbolic secant of x
 				 */
 				math.sech = function sech(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('sech', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return 2 / (Math.exp(x) + Math.exp(-x));
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var ep = Math.exp(x.re);
 						var en = Math.exp(-x.re);
 						var re = Math.cos(x.im) * (ep + en);
@@ -15731,22 +15989,22 @@
 						return new Complex(2 * re / den, -2 * im / den);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function sech is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function sech is no angle');
 						}
 						return sech(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, sech);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return sech(x ? 1 : 0);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return sech(x.toNumber());
@@ -15756,14 +16014,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 122 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15804,37 +16062,37 @@
 				 * @return {Number | Complex | Array | Matrix} Sine of x
 				 */
 				math.sin = function sin(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('sin', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return Math.sin(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						return new Complex(
-								0.5 * Math.sin(x.re) * (Math.exp(-x.im) + Math.exp( x.im)),
-								0.5 * Math.cos(x.re) * (Math.exp( x.im) - Math.exp(-x.im))
+							0.5 * Math.sin(x.re) * (Math.exp(-x.im) + Math.exp(x.im)),
+							0.5 * Math.cos(x.re) * (Math.exp(x.im) - Math.exp(-x.im))
 						);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function sin is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function sin is no angle');
 						}
 						return Math.sin(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, sin);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return Math.sin(x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return sin(x.toNumber());
@@ -15844,14 +16102,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 123 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15887,15 +16145,15 @@
 				 * @return {Number | Complex | Array | Matrix} Hyperbolic sine of x
 				 */
 				math.sinh = function sinh(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('sinh', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return (Math.exp(x) - Math.exp(-x)) / 2;
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var cim = Math.cos(x.im);
 						var sim = Math.sin(x.im);
 						var ep = Math.exp(x.re);
@@ -15903,22 +16161,22 @@
 						return new Complex(cim * (ep - en) / 2, sim * (ep + en) / 2);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function sinh is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function sinh is no angle');
 						}
 						return sinh(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, sinh);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return sinh(x ? 1 : 0);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return sinh(x.toNumber());
@@ -15928,14 +16186,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 124 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -15973,41 +16231,41 @@
 				 * @return {Number | Complex | Array | Matrix} Tangent of x
 				 */
 				math.tan = function tan(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('tan', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						return Math.tan(x);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var den = Math.exp(-4.0 * x.im) +
 							2.0 * Math.exp(-2.0 * x.im) * Math.cos(2.0 * x.re) +
 							1.0;
 
 						return new Complex(
-								2.0 * Math.exp(-2.0 * x.im) * Math.sin(2.0 * x.re) / den,
-								(1.0 - Math.exp(-4.0 * x.im)) / den
+							2.0 * Math.exp(-2.0 * x.im) * Math.sin(2.0 * x.re) / den,
+							(1.0 - Math.exp(-4.0 * x.im)) / den
 						);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function tan is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function tan is no angle');
 						}
 						return Math.tan(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, tan);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return Math.tan(x);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return tan(x.toNumber());
@@ -16017,14 +16275,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 125 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					BigNumber = math.type.BigNumber,
@@ -16063,42 +16321,42 @@
 				 * @return {Number | Complex | Array | Matrix} Hyperbolic tangent of x
 				 */
 				math.tanh = function tanh(x) {
-					if (arguments.length != 1) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('tanh', arguments.length, 1);
 					}
 
-					if (isNumber(x)) {
+					if(isNumber(x)) {
 						var e = Math.exp(2 * x);
 						return (e - 1) / (e + 1);
 					}
 
-					if (isComplex(x)) {
+					if(isComplex(x)) {
 						var r = Math.exp(2 * x.re);
 						var re = r * Math.cos(2 * x.im);
 						var im = r * Math.sin(2 * x.im);
 						var den = (re + 1) * (re + 1) + im * im;
 						return new Complex(
-								((re - 1) * (re + 1) + im * im) / den,
-								im * 2 / den
+							((re - 1) * (re + 1) + im * im) / den,
+							im * 2 / den
 						);
 					}
 
-					if (isUnit(x)) {
-						if (!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
-							throw new TypeError ('Unit in function tanh is no angle');
+					if(isUnit(x)) {
+						if(!x.hasBase(Unit.BASE_UNITS.ANGLE)) {
+							throw new TypeError('Unit in function tanh is no angle');
 						}
 						return tanh(x.value);
 					}
 
-					if (isCollection(x)) {
+					if(isCollection(x)) {
 						return collection.deepMap(x, tanh);
 					}
 
-					if (isBoolean(x) || x === null) {
+					if(isBoolean(x) || x === null) {
 						return tanh(x ? 1 : 0);
 					}
 
-					if (x instanceof BigNumber) {
+					if(x instanceof BigNumber) {
 						// TODO: implement BigNumber support
 						// downgrade to Number
 						return tanh(x.toNumber());
@@ -16108,14 +16366,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 126 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					Unit = __webpack_require__(10),
@@ -16150,19 +16408,19 @@
 				 * @return {Unit | Array | Matrix} value with changed, fixed unit.
 				 */
 				math.to = function to(x, unit) {
-					if (arguments.length != 2) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('to', arguments.length, 2);
 					}
 
-					if (isUnit(x)) {
-						if (isUnit(unit) || isString(unit)) {
+					if(isUnit(x)) {
+						if(isUnit(unit) || isString(unit)) {
 							return x.to(unit);
 						}
 					}
 
 					// TODO: add support for string, in that case, convert to unit
 
-					if (isCollection(x) || isCollection(unit)) {
+					if(isCollection(x) || isCollection(unit)) {
 						return collection.deepMap2(x, unit, to);
 					}
 
@@ -16170,14 +16428,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 127 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 					object = util.object;
 
@@ -16199,8 +16457,8 @@
 				 * @param {*} x   Object to be cloned
 				 * @return {*} A clone of object x
 				 */
-				math.clone = function clone (x) {
-					if (arguments.length != 1) {
+				math.clone = function clone(x) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('clone', arguments.length, 1);
 					}
 
@@ -16208,14 +16466,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 128 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9);
 
 				/**
@@ -16245,19 +16503,19 @@
 				 *        All entries for which `test` returns true are returned.
 				 * @return {Matrix | Array} Returns the filtered matrix.
 				 */
-				math.filter = function (x, test) {
-					if (arguments.length !== 2) {
+				math.filter = function(x, test) {
+					if(arguments.length !== 2) {
 						throw new math.error.ArgumentsError('filter', arguments.length, 2);
 					}
 
-					if (x instanceof Matrix) {
+					if(x instanceof Matrix) {
 						var size = x.size();
-						if (size.length > 1) {
+						if(size.length > 1) {
 							throw new Error('Only one dimensional matrices supported');
 						}
 						return new Matrix(_filter(x.toArray(), test));
 					}
-					else if (Array.isArray(x)) {
+					else if(Array.isArray(x)) {
 						return _filter(x, test);
 					}
 					else {
@@ -16273,13 +16531,13 @@
 				 * @private
 				 */
 				function _filter(x, test) {
-					if (typeof test === 'function') {
-						return x.filter(function (entry) {
+					if(typeof test === 'function') {
+						return x.filter(function(entry) {
 							return test(entry);
 						});
 					}
-					else if (test instanceof RegExp) {
-						return x.filter(function (entry) {
+					else if(test instanceof RegExp) {
+						return x.filter(function(entry) {
 							return test.test(entry);
 						});
 					}
@@ -16289,13 +16547,14 @@
 				}
 			};
 
-			/***/ },
+			/***/
+		},
 		/* 129 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 					string = util.string;
 
@@ -16363,9 +16622,9 @@
 				 * @param {Object | Function | Number} [options]  Formatting options
 				 * @return {String} The formatted value
 				 */
-				math.format = function format (value, options) {
+				math.format = function format(value, options) {
 					var num = arguments.length;
-					if (num !== 1 && num !== 2) {
+					if(num !== 1 && num !== 2) {
 						throw new math.error.ArgumentsError('format', num, 1, 2);
 					}
 
@@ -16373,14 +16632,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 130 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					Complex = __webpack_require__(6),
@@ -16438,21 +16697,21 @@
 					// TODO: return status information
 				math['import'] = function math_import(object, options) {
 					var num = arguments.length;
-					if (num != 1 && num != 2) {
+					if(num != 1 && num != 2) {
 						throw new math.error.ArgumentsError('import', num, 1, 2);
 					}
 
 					var name;
 					var opts = {
 						override: options && options.override || false,
-						wrap:     options && options.wrap || false
+						wrap: options && options.wrap || false
 					};
 
-					if (isString(object)) {
+					if(isString(object)) {
 						// a string with a filename
 
 						// istanbul ignore else (we cannot unit test the else case in a node.js environment)
-						if (true) {
+						if(true) {
 							// load the file using require
 							var _module = __webpack_require__(179)(object);
 							math_import(_module, options);
@@ -16461,12 +16720,12 @@
 							throw new Error('Cannot load module: require not available.');
 						}
 					}
-					else if (typeof object === 'object') {
+					else if(typeof object === 'object') {
 						// a map with functions
-						for (name in object) {
-							if (object.hasOwnProperty(name)) {
+						for(name in object) {
+							if(object.hasOwnProperty(name)) {
 								var value = object[name];
-								if (isSupportedType(value)) {
+								if(isSupportedType(value)) {
 									_import(name, value, opts);
 								}
 								else {
@@ -16488,13 +16747,13 @@
 				 * @private
 				 */
 				function _import(name, value, options) {
-					if (options.override || math[name] === undefined) {
+					if(options.override || math[name] === undefined) {
 						// add to math namespace
-						if (options.wrap && typeof value === 'function') {
+						if(options.wrap && typeof value === 'function') {
 							// create a wrapper around the function
-							math[name] = function () {
+							math[name] = function() {
 								var args = [];
-								for (var i = 0, len = arguments.length; i < len; i++) {
+								for(var i = 0, len = arguments.length; i < len; i++) {
 									var arg = arguments[i];
 									args[i] = arg && arg.valueOf();
 								}
@@ -16525,16 +16784,15 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 131 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var isMatrix = __webpack_require__(9).isMatrix;
-
 
 				/**
 				 * Create a new matrix or array with the results of the callback function executed on
@@ -16560,25 +16818,27 @@
 				 *                              of the element, and the matrix being traversed.
 				 * @return {Matrix | array}     Transformed map of x
 				 */
-				math.map = function (x, callback) {
-					if (arguments.length != 2) {
+				math.map = function(x, callback) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('map', arguments.length, 2);
 					}
 
-					if (Array.isArray(x)) {
+					if(Array.isArray(x)) {
 						return _mapArray(x, callback);
-					} else if (isMatrix(x)) {
+					}
+					else if(isMatrix(x)) {
 						return x.map(callback);
-					} else {
+					}
+					else {
 						throw new math.error.UnsupportedTypeError('map', math['typeof'](x));
 					}
 				};
 
-				function _mapArray (arrayIn, callback) {
+				function _mapArray(arrayIn, callback) {
 					var index = [];
-					var recurse = function (value, dim) {
-						if (Array.isArray(value)) {
-							return value.map(function (child, i) {
+					var recurse = function(value, dim) {
+						if(Array.isArray(value)) {
+							return value.map(function(child, i) {
 								index[dim] = i;
 								return recurse(child, dim + 1);
 							});
@@ -16592,14 +16852,14 @@
 				}
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 132 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var util = __webpack_require__(144),
 
 					isString = util.string.isString;
@@ -16639,30 +16899,30 @@
 				 *                              If not provided, the value will not be rounded.
 				 * @return {String} Interpolated string
 				 */
-				math.print = function print (template, values, precision) {
+				math.print = function print(template, values, precision) {
 					var num = arguments.length;
-					if (num != 2 && num != 3) {
+					if(num != 2 && num != 3) {
 						throw new math.error.ArgumentsError('print', num, 2, 3);
 					}
 
-					if (!isString(template)) {
+					if(!isString(template)) {
 						throw new TypeError('String expected as first parameter in function format');
 					}
-					if (!(values instanceof Object)) {
+					if(!(values instanceof Object)) {
 						throw new TypeError('Object expected as second parameter in function format');
 					}
 
 					// format values into a string
-					return template.replace(/\$([\w\.]+)/g, function (original, key) {
+					return template.replace(/\$([\w\.]+)/g, function(original, key) {
 							var keys = key.split('.');
 							var value = values[keys.shift()];
-							while (keys.length && value !== undefined) {
+							while(keys.length && value !== undefined) {
 								var k = keys.shift();
 								value = k ? value[k] : value + '.';
 							}
 
-							if (value !== undefined) {
-								if (!isString(value)) {
+							if(value !== undefined) {
+								if(!isString(value)) {
 									return math.format(value, precision);
 								}
 								else {
@@ -16676,14 +16936,14 @@
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 133 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9);
 
 				/**
@@ -16715,21 +16975,21 @@
 				 *        and 0 when a == b.
 				 * @return {Matrix | Array} Returns the sorted matrix.
 				 */
-				math.sort = function (x, compare) {
+				math.sort = function(x, compare) {
 					var _compare = null;
 
-					if (arguments.length === 1) {
+					if(arguments.length === 1) {
 						_compare = math.compare;
 					}
-					else if (arguments.length === 2) {
-						if (typeof compare === 'function') {
+					else if(arguments.length === 2) {
+						if(typeof compare === 'function') {
 							_compare = compare;
 						}
-						else if (compare === 'asc') {
+						else if(compare === 'asc') {
 							_compare = math.compare;
 						}
-						else if (compare === 'desc') {
-							_compare = function (a, b) {
+						else if(compare === 'desc') {
+							_compare = function(a, b) {
 								return -math.compare(a, b);
 							}
 						}
@@ -16741,14 +17001,14 @@
 						throw new math.error.ArgumentsError('sort', arguments.length, 1, 2);
 					}
 
-					if (x instanceof Matrix) {
+					if(x instanceof Matrix) {
 						var size = x.size();
-						if (size.length > 1) {
+						if(size.length > 1) {
 							throw new Error('Only one dimensional matrices supported');
 						}
 						return new Matrix(x.toArray().sort(_compare));
 					}
-					else if (Array.isArray(x)) {
+					else if(Array.isArray(x)) {
 						return x.sort(_compare);
 					}
 					else {
@@ -16757,13 +17017,14 @@
 				};
 			};
 
-			/***/ },
+			/***/
+		},
 		/* 134 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var types = __webpack_require__(180),
 
 					Complex = __webpack_require__(6),
@@ -16812,8 +17073,8 @@
 				 * @param {*} x  The variable for which to test the type.
 				 * @return {String} Lower case type, for example 'number', 'string', 'array'.
 				 */
-				math['typeof'] = function _typeof (x) {
-					if (arguments.length != 1) {
+				math['typeof'] = function _typeof(x) {
+					if(arguments.length != 1) {
 						throw new math.error.ArgumentsError('typeof', arguments.length, 1);
 					}
 
@@ -16821,31 +17082,31 @@
 					var type = types.type(x);
 
 					// math.js types
-					if (type === 'object') {
-						if (x instanceof Complex) return 'complex';
-						if (x instanceof Matrix) return 'matrix';
-						if (x instanceof Unit) return 'unit';
-						if (x instanceof Index) return 'index';
-						if (x instanceof Range) return 'range';
-						if (x instanceof Help) return 'help';
+					if(type === 'object') {
+						if(x instanceof Complex) return 'complex';
+						if(x instanceof Matrix) return 'matrix';
+						if(x instanceof Unit) return 'unit';
+						if(x instanceof Index) return 'index';
+						if(x instanceof Range) return 'range';
+						if(x instanceof Help) return 'help';
 
 						// the following types are different instances per math.js instance
-						if (x instanceof math.type.BigNumber) return 'bignumber';
-						if (x instanceof math.chaining.Selector) return 'selector';
+						if(x instanceof math.type.BigNumber) return 'bignumber';
+						if(x instanceof math.chaining.Selector) return 'selector';
 					}
 
 					return type;
 				};
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 135 */
 		/***/ function(module, exports, __webpack_require__) {
 
 			'use strict';
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var isMatrix = __webpack_require__(9).isMatrix;
 
 				/**
@@ -16871,25 +17132,27 @@
 				 *                              parameters: the value of the element, the index
 				 *                              of the element, and the Matrix/array being traversed.
 				 */
-				math.forEach = function (x, callback) {
-					if (arguments.length != 2) {
+				math.forEach = function(x, callback) {
+					if(arguments.length != 2) {
 						throw new math.error.ArgumentsError('forEach', arguments.length, 2);
 					}
 
-					if (Array.isArray(x)) {
+					if(Array.isArray(x)) {
 						return _forEachArray(x, callback);
-					} else if (isMatrix(x)) {
+					}
+					else if(isMatrix(x)) {
 						return x.forEach(callback);
-					} else {
+					}
+					else {
 						throw new math.error.UnsupportedTypeError('forEach', math['typeof'](x));
 					}
 				};
 
-				function _forEachArray (array, callback) {
+				function _forEachArray(array, callback) {
 					var index = [];
-					var recurse = function (value, dim) {
-						if (Array.isArray(value)) {
-							value.forEach(function (child, i) {
+					var recurse = function(value, dim) {
+						if(Array.isArray(value)) {
+							value.forEach(function(child, i) {
 								index[dim] = i; // zero-based index
 								recurse(child, dim + 1);
 							});
@@ -16903,7 +17166,8 @@
 
 			};
 
-			/***/ },
+			/***/
+		},
 		/* 136 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -16987,13 +17251,13 @@
 			 * @return {String} str The formatted value
 			 */
 			exports.format = function(value, options) {
-				if (typeof options === 'function') {
+				if(typeof options === 'function') {
 					// handle format(value, fn)
 					return options(value);
 				}
 
 				// handle special cases
-				if (!value.isFinite()) {
+				if(!value.isFinite()) {
 					return value.isNaN() ? 'NaN' : (value.gt(0) ? 'Infinity' : '-Infinity');
 				}
 
@@ -17001,23 +17265,23 @@
 				var notation = 'auto';
 				var precision = undefined;
 
-				if (options !== undefined) {
+				if(options !== undefined) {
 					// determine notation from options
-					if (options.notation) {
+					if(options.notation) {
 						notation = options.notation;
 					}
 
 					// determine precision from options
-					if (isNumber(options)) {
+					if(isNumber(options)) {
 						precision = options;
 					}
-					else if (options.precision) {
+					else if(options.precision) {
 						precision = options.precision;
 					}
 				}
 
 				// handle the various notations
-				switch (notation) {
+				switch(notation) {
 					case 'fixed':
 						return exports.toFixed(value, precision);
 
@@ -17029,11 +17293,11 @@
 						// TODO: implement support for upper and lower to be BigNumbers themselves
 						var lower = 1e-3;
 						var upper = 1e5;
-						if (options && options.exponential) {
-							if (options.exponential.lower !== undefined) {
+						if(options && options.exponential) {
+							if(options.exponential.lower !== undefined) {
 								lower = options.exponential.lower;
 							}
-							if (options.exponential.upper !== undefined) {
+							if(options.exponential.upper !== undefined) {
 								upper = options.exponential.upper;
 							}
 						}
@@ -17050,12 +17314,12 @@
 						});
 
 						// handle special case zero
-						if (value.isZero()) return '0';
+						if(value.isZero()) return '0';
 
 						// determine whether or not to output exponential notation
 						var str;
 						var abs = value.abs();
-						if (abs.gte(lower) && abs.lt(upper)) {
+						if(abs.gte(lower) && abs.lt(upper)) {
 							// normal number notation
 							str = value.toSignificantDigits(precision).toFixed();
 						}
@@ -17065,7 +17329,7 @@
 						}
 
 						// remove trailing zeros after the decimal point
-						return str.replace(/((\.\d*?)(0+))($|e)/, function () {
+						return str.replace(/((\.\d*?)(0+))($|e)/, function() {
 							var digits = arguments[2];
 							var e = arguments[4];
 							return (digits !== '.') ? digits + e : e;
@@ -17073,7 +17337,7 @@
 
 					default:
 						throw new Error('Unknown notation "' + notation + '". ' +
-							'Choose "auto", "exponential", or "fixed".');
+						'Choose "auto", "exponential", or "fixed".');
 				}
 			};
 
@@ -17086,7 +17350,7 @@
 			 * @returns {string} str
 			 */
 			exports.toExponential = function(value, precision) {
-				if (precision !== undefined) {
+				if(precision !== undefined) {
 					return value.toExponential(precision - 1); // Note the offset of one
 				}
 				else {
@@ -17106,8 +17370,8 @@
 				// undefined default precision instead of 0.
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 137 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -17132,7 +17396,7 @@
 			function _size(x) {
 				var size = [];
 
-				while (isArray(x)) {
+				while(isArray(x)) {
 					size.push(x.length);
 					x = x[0];
 				}
@@ -17172,16 +17436,16 @@
 				var i;
 				var len = array.length;
 
-				if (len != size[dim]) {
+				if(len != size[dim]) {
 					throw new DimensionError(len, size[dim]);
 				}
 
-				if (dim < size.length - 1) {
+				if(dim < size.length - 1) {
 					// recursively validate each child array
 					var dimNext = dim + 1;
-					for (i = 0; i < len; i++) {
+					for(i = 0; i < len; i++) {
 						var child = array[i];
-						if (!isArray(child)) {
+						if(!isArray(child)) {
 							throw new DimensionError(size.length - 1, size.length, '<');
 						}
 						_validate(array[i], size, dimNext);
@@ -17189,8 +17453,8 @@
 				}
 				else {
 					// last dimension. none of the childs may be an array
-					for (i = 0; i < len; i++) {
-						if (isArray(array[i])) {
+					for(i = 0; i < len; i++) {
+						if(isArray(array[i])) {
 							throw new DimensionError(size.length + 1, size.length, '>');
 						}
 					}
@@ -17206,9 +17470,9 @@
 			 */
 			exports.validate = function(array, size) {
 				var isScalar = (size.length == 0);
-				if (isScalar) {
+				if(isScalar) {
 					// scalar
-					if (isArray(array)) {
+					if(isArray(array)) {
 						throw new DimensionError(array.length, 0);
 					}
 				}
@@ -17224,13 +17488,13 @@
 			 * @param {Number} [length] Length of the array
 			 */
 			exports.validateIndex = function(index, length) {
-				if (!number.isNumber(index) || !number.isInteger(index)) {
+				if(!number.isNumber(index) || !number.isInteger(index)) {
 					throw new TypeError('Index must be an integer (value: ' + index + ')');
 				}
-				if (index < 0) {
+				if(index < 0) {
 					throw new IndexError(index);
 				}
-				if (length !== undefined && index >= length) {
+				if(length !== undefined && index >= length) {
 					throw new IndexError(index, length);
 				}
 			};
@@ -17251,18 +17515,18 @@
 				// TODO: add support for scalars, having size=[] ?
 
 				// check the type of the arguments
-				if (!isArray(array) || !isArray(size)) {
+				if(!isArray(array) || !isArray(size)) {
 					throw new TypeError('Array expected');
 				}
-				if (size.length === 0) {
+				if(size.length === 0) {
 					throw new Error('Resizing to scalar is not supported');
 				}
 
 				// check whether size contains positive integers
-				size.forEach(function (value) {
-					if (!number.isNumber(value) || !number.isInteger(value) || value < 0) {
+				size.forEach(function(value) {
+					if(!number.isNumber(value) || !number.isInteger(value) || value < 0) {
 						throw new TypeError('Invalid size, must contain positive integers ' +
-							'(size: ' + string.format(size) + ')');
+						'(size: ' + string.format(size) + ')');
 					}
 				});
 
@@ -17282,7 +17546,7 @@
 			 *                              undefined by default.
 			 * @private
 			 */
-			function _resize (array, size, dim, defaultValue) {
+			function _resize(array, size, dim, defaultValue) {
 				var i;
 				var elem;
 				var oldLen = array.length;
@@ -17292,15 +17556,15 @@
 				// apply new length
 				array.length = newLen;
 
-				if (dim < size.length - 1) {
+				if(dim < size.length - 1) {
 					// non-last dimension
 					var dimNext = dim + 1;
 
 					// resize existing child arrays
-					for (i = 0; i < minLen; i++) {
+					for(i = 0; i < minLen; i++) {
 						// resize child array
 						elem = array[i];
-						if (!isArray(elem)) {
+						if(!isArray(elem)) {
 							elem = [elem]; // add a dimension
 							array[i] = elem;
 						}
@@ -17308,7 +17572,7 @@
 					}
 
 					// create new child arrays
-					for (i = minLen; i < newLen; i++) {
+					for(i = minLen; i < newLen; i++) {
 						// get child array
 						elem = [];
 						array[i] = elem;
@@ -17321,15 +17585,15 @@
 					// last dimension
 
 					// remove dimensions of existing values
-					for (i = 0; i < minLen; i++) {
-						while (isArray(array[i])) {
+					for(i = 0; i < minLen; i++) {
+						while(isArray(array[i])) {
 							array[i] = array[i][0];
 						}
 					}
 
 					if(defaultValue !== exports.UNINITIALIZED) {
 						// fill new elements with the default value
-						for (i = minLen; i < newLen; i++) {
+						for(i = minLen; i < newLen; i++) {
 							array[i] = object.clone(defaultValue);
 						}
 					}
@@ -17347,19 +17611,19 @@
 				var s = size || exports.size(array);
 
 				// squeeze outer dimensions
-				while (isArray(array) && array.length === 1) {
+				while(isArray(array) && array.length === 1) {
 					array = array[0];
 					s.shift();
 				}
 
 				// find the first dimension to be squeezed
 				var dims = s.length;
-				while (s[dims - 1] === 1) {
+				while(s[dims - 1] === 1) {
 					dims--;
 				}
 
 				// squeeze inner dimensions
-				if (dims < s.length) {
+				if(dims < s.length) {
 					array = _squeeze(array, dims, 0);
 					s.length = dims;
 				}
@@ -17375,17 +17639,17 @@
 			 * @returns {Array | *} Returns the squeezed array
 			 * @private
 			 */
-			function _squeeze (array, dims, dim) {
+			function _squeeze(array, dims, dim) {
 				var i, ii;
 
-				if (dim < dims) {
+				if(dim < dims) {
 					var next = dim + 1;
-					for (i = 0, ii = array.length; i < ii; i++) {
+					for(i = 0, ii = array.length; i < ii; i++) {
 						array[i] = _squeeze(array[i], dims, next);
 					}
 				}
 				else {
-					while (isArray(array)) {
+					while(isArray(array)) {
 						array = array[0];
 					}
 				}
@@ -17406,8 +17670,8 @@
 				var s = size || exports.size(array);
 
 				// unsqueeze outer dimensions
-				if (outer) {
-					for (var i = 0; i < outer; i++) {
+				if(outer) {
+					for(var i = 0; i < outer; i++) {
 						array = [array];
 						s.unshift(1);
 					}
@@ -17415,7 +17679,7 @@
 
 				// unsqueeze inner dimensions
 				array = _unsqueeze(array, dims, 0);
-				while (s.length < dims) {
+				while(s.length < dims) {
 					s.push(1);
 				}
 
@@ -17430,23 +17694,24 @@
 			 * @returns {Array | *} Returns the squeezed array
 			 * @private
 			 */
-			function _unsqueeze (array, dims, dim) {
+			function _unsqueeze(array, dims, dim) {
 				var i, ii;
 
-				if (isArray(array)) {
+				if(isArray(array)) {
 					var next = dim + 1;
-					for (i = 0, ii = array.length; i < ii; i++) {
+					for(i = 0, ii = array.length; i < ii; i++) {
 						array[i] = _unsqueeze(array[i], dims, next);
 					}
 				}
 				else {
-					for (var d = dim; d < dims; d++) {
+					for(var d = dim; d < dims; d++) {
 						array = [array];
 					}
 				}
 
 				return array;
 			}
+
 			/**
 			 * Flatten a multi dimensional array, put all elements in a one dimensional
 			 * array
@@ -17458,9 +17723,9 @@
 				var flat = array,
 					isArray = Array.isArray;
 
-				while (isArray(flat[0])) {
+				while(isArray(flat[0])) {
 					var next = [];
-					for (var i = 0, ii = flat.length; i < ii; i++) {
+					for(var i = 0, ii = flat.length; i < ii; i++) {
 						next = next.concat.apply(next, flat[i]);
 					}
 					flat = next;
@@ -17476,7 +17741,7 @@
 			 */
 			exports.argsToArray = function(args) {
 				var array = [];
-				for (var i = 0, len = args.length; i < len; i++) {
+				for(var i = 0, len = args.length; i < len; i++) {
 					array[i] = args[i];
 				}
 				return array;
@@ -17489,7 +17754,8 @@
 			 */
 			exports.isArray = isArray;
 
-			/***/ },
+			/***/
+		},
 		/* 138 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -17497,15 +17763,16 @@
 			// Note: This file is automatically generated when building math.js.
 			// Changes made in this file will be overwritten.
 
-
-			/***/ },
+			/***/
+		},
 		/* 139 */
 		/***/ function(module, exports, __webpack_require__) {
 
-			var __WEBPACK_AMD_DEFINE_RESULT__;/*! decimal.js v3.0.1 https://github.com/MikeMcl/decimal.js/LICENCE */
-			;(function (global) {
+			var __WEBPACK_AMD_DEFINE_RESULT__;
+			/*! decimal.js v3.0.1 https://github.com/MikeMcl/decimal.js/LICENCE */
+			;
+			(function(global) {
 				'use strict';
-
 
 				/*
 				 *  decimal.js v3.0.1
@@ -17514,7 +17781,6 @@
 				 *  Copyright (c) 2014 Michael Mclaughlin <M8ch88l@gmail.com>
 				 *  MIT Expat Licence
 				 */
-
 
 				var convertBase, DecimalConstructor, noConflict,
 					crypto = global['crypto'],
@@ -17551,35 +17817,31 @@
 				// The natural logarithm of 10 (1025 digits).
 					LN10 = '2.3025850929940456840179914546843642076011014886287729760333279009675726096773524802359972050895982983419677840422862486334095254650828067566662873690987816894829072083255546808437998948262331985283935053089653777326288461633662222876982198867465436674744042432743651550489343149393914796194044002221051017141748003688084012647080685567743216228355220114804663715659121373450747856947683463616792101806445070648000277502684916746550586856935673420670581136429224554405758925724208241314695689016758940256776311356919292033376587141660230105703089634572075440370847469940168269282808481184289314848524948644871927809676271275775397027668605952496716674183485704422507197965004714951050492214776567636938662976979522110718264549734772662425709429322582798502585509785265383207606726317164309505995087807523710333101197857547331541421808427543863591778117054309827482385045648019095610299291824318237525357709750539565187697510374970888692180205189339507238539205144634197265287286965110862571492198849978748873771345686209167058';
 
-
 				// Decimal prototype methods
-
 
 				/*
 				 * Return a new Decimal whose value is the absolute value of this Decimal.
 				 *
 				 */
-				P['absoluteValue'] = P['abs'] = function () {
+				P['absoluteValue'] = P['abs'] = function() {
 					var x = new this['constructor'](this);
 
-					if ( x['s'] < 0 ) {
+					if(x['s'] < 0) {
 						x['s'] = 1;
 					}
 
 					return rnd(x);
 				};
 
-
 				/*
 				 * Return a new Decimal whose value is the value of this Decimal rounded to a whole number in
 				 * the direction of positive Infinity.
 				 *
 				 */
-				P['ceil'] = function () {
+				P['ceil'] = function() {
 
-					return rnd( new this['constructor'](this), this['e'] + 1, 2 );
+					return rnd(new this['constructor'](this), this['e'] + 1, 2);
 				};
-
 
 				/*
 				 * Return
@@ -17589,18 +17851,18 @@
 				 *  null  if the value of either Decimal is NaN.
 				 *
 				 */
-				P['comparedTo'] = P['cmp'] = function ( y, b ) {
+				P['comparedTo'] = P['cmp'] = function(y, b) {
 					var a,
 						x = this,
 						xc = x['c'],
-						yc = ( id = -id, y = new x['constructor']( y, b ), y['c'] ),
+						yc = ( id = -id, y = new x['constructor'](y, b), y['c'] ),
 						i = x['s'],
 						j = y['s'],
 						k = x['e'],
 						l = y['e'];
 
 					// Either NaN?
-					if ( !i || !j ) {
+					if(!i || !j) {
 						return null;
 					}
 
@@ -17608,33 +17870,33 @@
 					b = yc && !yc[0];
 
 					// Either zero?
-					if ( a || b ) {
+					if(a || b) {
 						return a ? b ? 0 : -j : i;
 					}
 
 					// Signs differ?
-					if ( i != j ) {
+					if(i != j) {
 						return i;
 					}
 
 					a = i < 0;
 
 					// Either Infinity?
-					if ( !xc || !yc ) {
+					if(!xc || !yc) {
 						return k == l ? 0 : !xc ^ a ? 1 : -1;
 					}
 
 					// Compare exponents.
-					if ( k != l ) {
+					if(k != l) {
 						return k > l ^ a ? 1 : -1;
 					}
 
 					// Compare digit by digit.
-					for ( i = -1,
+					for(i = -1,
 						j = ( k = xc.length ) < ( l = yc.length ) ? k : l;
-						++i < j; ) {
+						++i < j;) {
 
-						if ( xc[i] != yc[i] ) {
+						if(xc[i] != yc[i]) {
 							return xc[i] > yc[i] ^ a ? 1 : -1;
 						}
 					}
@@ -17643,32 +17905,30 @@
 					return k == l ? 0 : k > l ^ a ? 1 : -1;
 				};
 
-
 				/*
 				 * Return the number of decimal places of the value of this Decimal.
 				 *
 				 */
-				P['decimalPlaces'] = P['dp'] = function () {
+				P['decimalPlaces'] = P['dp'] = function() {
 					var c, v,
 						n = null;
 
-					if ( c = this['c'] ) {
-						n = ( ( v = c.length - 1 ) - mathfloor( this['e'] / LOGBASE ) ) * LOGBASE;
+					if(c = this['c']) {
+						n = ( ( v = c.length - 1 ) - mathfloor(this['e'] / LOGBASE) ) * LOGBASE;
 
-						if ( v = c[v] ) {
+						if(v = c[v]) {
 
 							// Subtract the number of trailing zeros of the last number.
-							for ( ; v % 10 == 0; v /= 10, n-- );
+							for(; v % 10 == 0; v /= 10, n--);
 						}
 
-						if ( n < 0 ) {
+						if(n < 0) {
 							n = 0;
 						}
 					}
 
 					return n;
 				};
-
 
 				/*
 				 *  n / 0 = I
@@ -17691,12 +17951,11 @@
 				 * rounded to precision significant digits using rounding mode rounding.
 				 *
 				 */
-				P['dividedBy'] = P['div'] = function ( y, b ) {
+				P['dividedBy'] = P['div'] = function(y, b) {
 					id = 2;
 
-					return div( this, new this['constructor']( y, b ) );
+					return div(this, new this['constructor'](y, b));
 				};
-
 
 				/*
 				 * Return a new Decimal whose value is the integer part of dividing the value of this Decimal by
@@ -17704,28 +17963,26 @@
 				 * rounding.
 				 *
 				 */
-				P['dividedToIntegerBy'] = P['divToInt'] = function ( y, b ) {
+				P['dividedToIntegerBy'] = P['divToInt'] = function(y, b) {
 					var x = this,
 						Decimal = x['constructor'];
 					id = 18;
 
 					return rnd(
-						div( x, new Decimal( y, b ), 0, 1, 1 ), Decimal['precision'], Decimal['rounding']
+						div(x, new Decimal(y, b), 0, 1, 1), Decimal['precision'], Decimal['rounding']
 					);
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is equal to the value of Decimal(n, b), otherwise
 				 * return false.
 				 *
 				 */
-				P['equals'] = P['eq'] = function ( n, b ) {
+				P['equals'] = P['eq'] = function(n, b) {
 					id = 3;
 
-					return this['cmp']( n, b ) === 0;
+					return this['cmp'](n, b) === 0;
 				};
-
 
 				/*
 				 * Return a new Decimal whose value is the exponential of the value of this Decimal, i.e. the
@@ -17733,121 +17990,110 @@
 				 * using rounding mode rounding.
 				 *
 				 */
-				P['exponential'] = P['exp'] = function () {
+				P['exponential'] = P['exp'] = function() {
 
 					return exp(this);
 				};
-
 
 				/*
 				 * Return a new Decimal whose value is the value of this Decimal rounded to a whole number in
 				 * the direction of negative Infinity.
 				 *
 				 */
-				P['floor'] = function () {
+				P['floor'] = function() {
 
-					return rnd( new this['constructor'](this), this['e'] + 1, 3 );
+					return rnd(new this['constructor'](this), this['e'] + 1, 3);
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is greater than the value of Decimal(n, b), otherwise
 				 * return false.
 				 *
 				 */
-				P['greaterThan'] = P['gt'] = function ( n, b ) {
+				P['greaterThan'] = P['gt'] = function(n, b) {
 					id = 4;
 
-					return this['cmp']( n, b ) > 0;
+					return this['cmp'](n, b) > 0;
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is greater than or equal to the value of
 				 * Decimal(n, b), otherwise return false.
 				 *
 				 */
-				P['greaterThanOrEqualTo'] = P['gte'] = function ( n, b ) {
+				P['greaterThanOrEqualTo'] = P['gte'] = function(n, b) {
 					id = 5;
-					b = this['cmp']( n, b );
+					b = this['cmp'](n, b);
 
 					return b == 1 || b === 0;
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is a finite number, otherwise return false.
 				 *
 				 */
-				P['isFinite'] = function () {
+				P['isFinite'] = function() {
 
 					return !!this['c'];
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is an integer, otherwise return false.
 				 *
 				 */
-				P['isInteger'] = P['isInt'] = function () {
+				P['isInteger'] = P['isInt'] = function() {
 
-					return !!this['c'] && mathfloor( this['e'] / LOGBASE ) > this['c'].length - 2;
+					return !!this['c'] && mathfloor(this['e'] / LOGBASE) > this['c'].length - 2;
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is NaN, otherwise return false.
 				 *
 				 */
-				P['isNaN'] = function () {
+				P['isNaN'] = function() {
 
 					return !this['s'];
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is negative, otherwise return false.
 				 *
 				 */
-				P['isNegative'] = P['isNeg'] = function () {
+				P['isNegative'] = P['isNeg'] = function() {
 
 					return this['s'] < 0;
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is 0 or -0, otherwise return false.
 				 *
 				 */
-				P['isZero'] = function () {
+				P['isZero'] = function() {
 
 					return !!this['c'] && this['c'][0] == 0;
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is less than Decimal(n, b), otherwise return false.
 				 *
 				 */
-				P['lessThan'] = P['lt'] = function ( n, b ) {
+				P['lessThan'] = P['lt'] = function(n, b) {
 					id = 6;
 
-					return this['cmp']( n, b ) < 0;
+					return this['cmp'](n, b) < 0;
 				};
-
 
 				/*
 				 * Return true if the value of this Decimal is less than or equal to Decimal(n, b), otherwise
 				 * return false.
 				 *
 				 */
-				P['lessThanOrEqualTo'] = P['lte'] = function ( n, b ) {
+				P['lessThanOrEqualTo'] = P['lte'] = function(n, b) {
 					id = 7;
-					b = this['cmp']( n, b );
+					b = this['cmp'](n, b);
 
 					return b == -1 || b === 0;
 				};
-
 
 				/*
 				 * Return the logarithm of the value of this Decimal to the specified base, rounded
@@ -17880,7 +18126,7 @@
 				 * [b] {number} The base of base.
 				 *
 				 */
-				P['logarithm'] = P['log'] = function ( base, b ) {
+				P['logarithm'] = P['log'] = function(base, b) {
 					var base10, c, denom, i, inf, num, sd, sd10, r,
 						arg = this,
 						Decimal = arg['constructor'],
@@ -17889,16 +18135,17 @@
 						guard = 5;
 
 					// Default base is 10.
-					if ( base == null ) {
+					if(base == null) {
 						base = new Decimal(10);
 						base10 = true;
-					} else {
+					}
+					else {
 						id = 15;
-						base = new Decimal( base, b );
+						base = new Decimal(base, b);
 						c = base['c'];
 
 						// If base < 0 or +-Infinity/NaN or 0 or 1.
-						if ( base['s'] < 0 || !c || !c[0] || !base['e'] && c[0] == 1 && c.length == 1 ) {
+						if(base['s'] < 0 || !c || !c[0] || !base['e'] && c[0] == 1 && c.length == 1) {
 
 							return new Decimal(NaN);
 						}
@@ -17907,9 +18154,9 @@
 					c = arg['c'];
 
 					// If arg < 0 or +-Infinity/NaN or 0 or 1.
-					if ( arg['s'] < 0 || !c || !c[0] || !arg['e'] && c[0] == 1 && c.length == 1 ) {
+					if(arg['s'] < 0 || !c || !c[0] || !arg['e'] && c[0] == 1 && c.length == 1) {
 
-						return new Decimal( c && !c[0] ? -1 / 0 : arg['s'] != 1 ? NaN : c ? 0 : 1 / 0 );
+						return new Decimal(c && !c[0] ? -1 / 0 : arg['s'] != 1 ? NaN : c ? 0 : 1 / 0);
 					}
 
 					/*
@@ -17917,7 +18164,7 @@
 					 integer power of 10...
 					 */
 					inf = base10 && ( i = c[0], c.length > 1 || i != 1 && i != 10 &&
-						i != 1e2 && i != 1e3 && i != 1e4 && i != 1e5 && i != 1e6 );
+					i != 1e2 && i != 1e3 && i != 1e4 && i != 1e5 && i != 1e6 );
 					/*
 					 // or if base last digit's evenness is not the same as arg last digit's evenness...
 					 // (FAILS when e.g. base.c[0] = 10 and c[0] = 1)
@@ -17931,20 +18178,21 @@
 					sd = pr + guard;
 					sd10 = sd + 10;
 
-					num = ln( arg, sd );
+					num = ln(arg, sd);
 
-					if (base10) {
+					if(base10) {
 
-						if ( sd10 > LN10.length ) {
-							ifExceptionsThrow( Decimal, 1, sd10, 'log' );
+						if(sd10 > LN10.length) {
+							ifExceptionsThrow(Decimal, 1, sd10, 'log');
 						}
-						denom = new Decimal( LN10.slice( 0, sd10 ) );
-					} else {
-						denom = ln( base, sd );
+						denom = new Decimal(LN10.slice(0, sd10));
+					}
+					else {
+						denom = ln(base, sd);
 					}
 
 					// The result will have 5 rounding digits.
-					r = div( num, denom, sd, 1 );
+					r = div(num, denom, sd, 1);
 
 					/*
 					 If at a rounding boundary, i.e. the result's rounding digits are [49]9999 or [50]0000,
@@ -17962,41 +18210,41 @@
 					 decimal place, so the exact result would be assumed to be 2.6, which rounded using
 					 ROUND_CEIL to 1 decimal place is still 2.6.
 					 */
-					if ( checkRoundingDigits( r['c'], i = pr, rm ) ) {
+					if(checkRoundingDigits(r['c'], i = pr, rm)) {
 
 						do {
 							sd += 10;
-							num = ln( arg, sd );
+							num = ln(arg, sd);
 
-							if (base10) {
+							if(base10) {
 								sd10 = sd + 10;
 
-								if ( sd10 > LN10.length ) {
-									ifExceptionsThrow( Decimal, 1, sd10, 'log' );
+								if(sd10 > LN10.length) {
+									ifExceptionsThrow(Decimal, 1, sd10, 'log');
 								}
-								denom = new Decimal( LN10.slice( 0, sd10 ) );
-							} else {
-								denom = ln( base, sd );
+								denom = new Decimal(LN10.slice(0, sd10));
+							}
+							else {
+								denom = ln(base, sd);
 							}
 
-							r = div( num, denom, sd, 1 );
+							r = div(num, denom, sd, 1);
 
-							if ( !inf ) {
+							if(!inf) {
 
 								// Check for 14 nines from the 2nd rounding digit, as the first may be 4.
-								if ( +coefficientToString( r['c'] ).slice( i + 1, i + 15 ) + 1 == 1e14 ) {
-									r = rnd( r, pr + 1, 0 );
+								if(+coefficientToString(r['c']).slice(i + 1, i + 15) + 1 == 1e14) {
+									r = rnd(r, pr + 1, 0);
 								}
 
 								break;
 							}
-						} while ( checkRoundingDigits( r['c'], i += 10, rm ) );
+						} while(checkRoundingDigits(r['c'], i += 10, rm));
 					}
 					external = true;
 
-					return rnd( r, pr, rm );
+					return rnd(r, pr, rm);
 				};
-
 
 				/*
 				 *  n - 0 = n
@@ -18019,24 +18267,24 @@
 				 * to precision significant digits using rounding mode rounding.
 				 *
 				 */
-				P['minus'] = function ( y, b ) {
+				P['minus'] = function(y, b) {
 					var t, i, j, xLTy,
 						x = this,
 						Decimal = x['constructor'],
 						a = x['s'];
 
 					id = 8;
-					y = new Decimal( y, b );
+					y = new Decimal(y, b);
 					b = y['s'];
 
 					// Either NaN?
-					if ( !a || !b ) {
+					if(!a || !b) {
 
 						return new Decimal(NaN);
 					}
 
 					// Signs differ?
-					if ( a != b ) {
+					if(a != b) {
 						y['s'] = -b;
 
 						return x['plus'](y);
@@ -18044,29 +18292,29 @@
 
 					var xc = x['c'],
 						yc = y['c'],
-						e = mathfloor( y['e'] / LOGBASE ),
-						k = mathfloor( x['e'] / LOGBASE ),
+						e = mathfloor(y['e'] / LOGBASE),
+						k = mathfloor(x['e'] / LOGBASE),
 						pr = Decimal['precision'],
 						rm = Decimal['rounding'];
 
-					if ( !k || !e ) {
+					if(!k || !e) {
 
 						// Either Infinity?
-						if ( !xc || !yc ) {
+						if(!xc || !yc) {
 
-							return xc ? ( y['s'] = -b, y ) : new Decimal( yc ? x : NaN );
+							return xc ? ( y['s'] = -b, y ) : new Decimal(yc ? x : NaN);
 						}
 
 						// Either zero?
-						if ( !xc[0] || !yc[0] ) {
+						if(!xc[0] || !yc[0]) {
 
 							// Return y if y is non-zero, x if x is non-zero, or zero if both are zero.
-							x = yc[0] ? ( y['s'] = -b, y ) : new Decimal( xc[0] ? x :
+							x = yc[0] ? ( y['s'] = -b, y ) : new Decimal(xc[0] ? x :
 
 								// IEEE 754 (2008) 6.3: n - n = -0 when rounding to -Infinity
-									rm == 3 ? -0 : 0 );
+								rm == 3 ? -0 : 0);
 
-							return external ? rnd( x, pr, rm ) : x;
+							return external ? rnd(x, pr, rm) : x;
 						}
 					}
 
@@ -18074,18 +18322,19 @@
 					i = xc.length;
 
 					// Determine which is the bigger number. Prepend zeros to equalise exponents.
-					if ( a = k - e ) {
+					if(a = k - e) {
 
-						if ( xLTy = a < 0 ) {
+						if(xLTy = a < 0) {
 							a = -a;
 							t = xc;
 							i = yc.length;
-						} else {
+						}
+						else {
 							e = k;
 							t = yc;
 						}
 
-						if ( ( k = Math.ceil( pr / LOGBASE ) ) > i ) {
+						if(( k = Math.ceil(pr / LOGBASE) ) > i) {
 							i = k;
 						}
 
@@ -18095,23 +18344,24 @@
 						 rounding by limiting the number of zeros to max( precision, i ) + 2, where pr is
 						 precision and i is the length of the coefficient of whichever is greater x or y.
 						 */
-						if ( a > ( i += 2 ) ) {
+						if(a > ( i += 2 )) {
 							a = i;
 							t.length = 1;
 						}
 
-						for ( t.reverse(), b = a; b--; t.push(0) );
+						for(t.reverse(), b = a; b--; t.push(0));
 						t.reverse();
-					} else {
+					}
+					else {
 						// Exponents equal. Check digits.
 
-						if ( xLTy = i < ( j = yc.length ) ) {
+						if(xLTy = i < ( j = yc.length )) {
 							j = i;
 						}
 
-						for ( a = b = 0; b < j; b++ ) {
+						for(a = b = 0; b < j; b++) {
 
-							if ( xc[b] != yc[b] ) {
+							if(xc[b] != yc[b]) {
 								xLTy = xc[b] < yc[b];
 
 								break;
@@ -18120,7 +18370,7 @@
 					}
 
 					// x < y? Point xc to the array of the bigger number.
-					if ( xLTy ) {
+					if(xLTy) {
 						t = xc, xc = yc, yc = t;
 						y['s'] = -y['s'];
 					}
@@ -18129,17 +18379,17 @@
 					 Append zeros to xc if shorter. No need to add zeros to yc if shorter as subtraction only
 					 needs to start at yc length.
 					 */
-					if ( ( b = -( ( j = xc.length ) - yc.length ) ) > 0 ) {
+					if(( b = -( ( j = xc.length ) - yc.length ) ) > 0) {
 
-						for ( ; b--; xc[j++] = 0 );
+						for(; b--; xc[j++] = 0);
 					}
 
 					// Subtract yc from xc.
-					for ( k = BASE - 1, b = yc.length; b > a; ) {
+					for(k = BASE - 1, b = yc.length; b > a;) {
 
-						if ( xc[--b] < yc[b] ) {
+						if(xc[--b] < yc[b]) {
 
-							for ( i = b; i && !xc[--i]; xc[i] = k );
+							for(i = b; i && !xc[--i]; xc[i] = k);
 							--xc[i];
 							xc[b] += BASE;
 						}
@@ -18147,15 +18397,15 @@
 					}
 
 					// Remove trailing zeros.
-					for ( ; xc[--j] == 0; xc.pop() );
+					for(; xc[--j] == 0; xc.pop());
 
 					// Remove leading zeros and adjust exponent accordingly.
-					for ( ; xc[0] == 0; xc.shift(), --e );
+					for(; xc[0] == 0; xc.shift(), --e);
 
-					if ( !xc[0] ) {
+					if(!xc[0]) {
 
 						// Zero.
-						xc = [ e = 0 ];
+						xc = [e = 0];
 
 						// Following IEEE 754 (2008) 6.3, n - n = -0 when rounding towards -Infinity.
 						y['s'] = rm == 3 ? -1 : 1;
@@ -18164,12 +18414,11 @@
 					y['c'] = xc;
 
 					// Get the number of digits of xc[0].
-					for ( a = 1, b = xc[0]; b >= 10; b /= 10, a++ );
+					for(a = 1, b = xc[0]; b >= 10; b /= 10, a++);
 					y['e'] = a + e * LOGBASE - 1;
 
-					return external ? rnd( y, pr, rm ) : y;
+					return external ? rnd(y, pr, rm) : y;
 				};
-
 
 				/*
 				 *   n % 0 =  N
@@ -18195,14 +18444,14 @@
 				 * The result depends on the modulo mode.
 				 *
 				 */
-				P['modulo'] = P['mod'] = function ( y, b ) {
+				P['modulo'] = P['mod'] = function(y, b) {
 					var n, q,
 						x = this,
 						Decimal = x['constructor'],
 						m = Decimal['modulo'];
 
 					id = 9;
-					y = new Decimal( y, b );
+					y = new Decimal(y, b);
 					b = y['s'];
 					n = !x['c'] || !b || y['c'] && !y['c'][0];
 
@@ -18210,25 +18459,26 @@
 					 Return NaN if x is Infinity or NaN, or y is NaN or zero, else return x if y is Infinity
 					 or x is zero.
 					 */
-					if ( n || !y['c'] || x['c'] && !x['c'][0] ) {
+					if(n || !y['c'] || x['c'] && !x['c'][0]) {
 
 						return n
 							? new Decimal(NaN)
-							: rnd( new Decimal(x), Decimal['precision'], Decimal['rounding'] );
+							: rnd(new Decimal(x), Decimal['precision'], Decimal['rounding']);
 					}
 
 					external = false;
 
-					if ( m == 9 ) {
+					if(m == 9) {
 
 						// Euclidian division: q = sign(y) * floor(x / abs(y))
 						// r = x - qy    where  0 <= r < abs(y)
 						y['s'] = 1;
-						q = div( x, y, 0, 3, 1 );
+						q = div(x, y, 0, 3, 1);
 						y['s'] = b;
 						q['s'] *= b;
-					} else {
-						q = div( x, y, 0, m, 1 );
+					}
+					else {
+						q = div(x, y, 0, m, 1);
 					}
 
 					q = q['times'](y);
@@ -18237,30 +18487,27 @@
 					return x['minus'](q);
 				};
 
-
 				/*
 				 * Return a new Decimal whose value is the natural logarithm of the value of this Decimal,
 				 * rounded to precision significant digits using rounding mode rounding.
 				 *
 				 */
-				P['naturalLogarithm'] = P['ln'] = function () {
+				P['naturalLogarithm'] = P['ln'] = function() {
 
 					return ln(this);
 				};
-
 
 				/*
 				 * Return a new Decimal whose value is the value of this Decimal negated, i.e. as if
 				 * multiplied by -1.
 				 *
 				 */
-				P['negated'] = P['neg'] = function () {
+				P['negated'] = P['neg'] = function() {
 					var x = new this['constructor'](this);
 					x['s'] = -x['s'] || null;
 
 					return rnd(x);
 				};
-
 
 				/*
 				 *  n + 0 = n
@@ -18283,24 +18530,24 @@
 				 * to precision significant digits using rounding mode rounding.
 				 *
 				 */
-				P['plus'] = function ( y, b ) {
+				P['plus'] = function(y, b) {
 					var t,
 						x = this,
 						Decimal = x['constructor'],
 						a = x['s'];
 
 					id = 10;
-					y = new Decimal( y, b );
+					y = new Decimal(y, b);
 					b = y['s'];
 
 					// Either NaN?
-					if ( !a || !b ) {
+					if(!a || !b) {
 
 						return new Decimal(NaN);
 					}
 
 					// Signs differ?
-					if ( a != b ) {
+					if(a != b) {
 						y['s'] = -b;
 
 						return x['minus'](y);
@@ -18308,88 +18555,88 @@
 
 					var xc = x['c'],
 						yc = y['c'],
-						e = mathfloor( y['e'] / LOGBASE ),
-						k = mathfloor( x['e'] / LOGBASE ),
+						e = mathfloor(y['e'] / LOGBASE),
+						k = mathfloor(x['e'] / LOGBASE),
 						pr = Decimal['precision'],
 						rm = Decimal['rounding'];
 
-					if ( !k || !e ) {
+					if(!k || !e) {
 
 						// Either Infinity?
-						if ( !xc || !yc ) {
+						if(!xc || !yc) {
 
 							// Return +-Infinity.
-							return new Decimal( a / 0 );
+							return new Decimal(a / 0);
 						}
 
 						// Either zero?
-						if ( !xc[0] || !yc[0] ) {
+						if(!xc[0] || !yc[0]) {
 
 							// Return y if y is non-zero, x if x is non-zero, or zero if both are zero.
-							x = yc[0] ? y: new Decimal( xc[0] ? x : a * 0 );
+							x = yc[0] ? y : new Decimal(xc[0] ? x : a * 0);
 
-							return external ? rnd( x, pr, rm ) : x;
+							return external ? rnd(x, pr, rm) : x;
 						}
 					}
 
 					xc = xc.slice();
 
 					// Prepend zeros to equalise exponents. Note: Faster to use reverse then do unshifts.
-					if ( a = k - e ) {
+					if(a = k - e) {
 
-						if ( a < 0 ) {
+						if(a < 0) {
 							a = -a;
 							t = xc;
 							b = yc.length;
-						} else {
+						}
+						else {
 							e = k;
 							t = yc;
 							b = xc.length;
 						}
 
-						if ( ( k = Math.ceil( pr / LOGBASE ) ) > b ) {
+						if(( k = Math.ceil(pr / LOGBASE) ) > b) {
 							b = k;
 						}
 
 						// Limit number of zeros prepended to max( pr, b ) + 1.
-						if ( a > ++b ) {
+						if(a > ++b) {
 							a = b;
 							t.length = 1;
 						}
 
-						for ( t.reverse(); a--; t.push(0) );
+						for(t.reverse(); a--; t.push(0));
 						t.reverse();
 					}
 
 					// Point xc to the longer array.
-					if ( xc.length - yc.length < 0 ) {
+					if(xc.length - yc.length < 0) {
 						t = yc, yc = xc, xc = t;
 					}
 
 					// Only start adding at yc.length - 1 as the further digits of xc can be left as they are.
-					for ( a = yc.length, b = 0, k = BASE; a; xc[a] %= k ) {
+					for(a = yc.length, b = 0, k = BASE; a; xc[a] %= k) {
 						b = ( xc[--a] = xc[a] + yc[a] + b ) / k | 0;
 					}
 
-					if (b) {
+					if(b) {
 						xc.unshift(b);
 						++e;
 					}
 
 					// Remove trailing zeros.
-					for ( a = xc.length; xc[--a] == 0; xc.pop() );
+					for(a = xc.length; xc[--a] == 0; xc.pop());
 
 					// No need to check for zero, as +x + +y != 0 && -x + -y != 0
 
 					y['c'] = xc;
 
 					// Get the number of digits of xc[0].
-					for ( a = 1, b = xc[0]; b >= 10; b /= 10, a++ );
+					for(a = 1, b = xc[0]; b >= 10; b /= 10, a++);
 					y['e'] = a + e * LOGBASE - 1;
 
-					return external ? rnd( y, pr, rm ) : y;
+					return external ? rnd(y, pr, rm) : y;
 				};
-
 
 				/*
 				 * Return the number of significant digits of this Decimal.
@@ -18397,23 +18644,23 @@
 				 * z {boolean|number} Whether to count integer-part trailing zeros: true, false, 1 or 0.
 				 *
 				 */
-				P['precision'] = P['sd'] = function (z) {
+				P['precision'] = P['sd'] = function(z) {
 					var n = null,
 						x = this;
 
-					if ( z != n ) {
+					if(z != n) {
 
-						if ( z !== !!z && z !== 1 && z !== 0 ) {
+						if(z !== !!z && z !== 1 && z !== 0) {
 
 							// 'precision() argument not a boolean or binary digit: {z}'
-							ifExceptionsThrow( x['constructor'], 'argument', z, 'precision', 1 );
+							ifExceptionsThrow(x['constructor'], 'argument', z, 'precision', 1);
 						}
 					}
 
-					if ( x['c'] ) {
-						n = getCoeffLength( x['c'] );
+					if(x['c']) {
+						n = getCoeffLength(x['c']);
 
-						if ( z && x['e'] + 1 > n ) {
+						if(z && x['e'] + 1 > n) {
 							n = x['e'] + 1;
 						}
 					}
@@ -18421,19 +18668,17 @@
 					return n;
 				};
 
-
 				/*
 				 * Return a new Decimal whose value is the value of this Decimal rounded to a whole number using
 				 * rounding mode rounding.
 				 *
 				 */
-				P['round'] = function () {
+				P['round'] = function() {
 					var x = this,
 						Decimal = x['constructor'];
 
-					return rnd( new Decimal(x), x['e'] + 1, Decimal['rounding'] );
+					return rnd(new Decimal(x), x['e'] + 1, Decimal['rounding']);
 				};
-
 
 				/*
 				 *  sqrt(-n) =  N
@@ -18447,7 +18692,7 @@
 				 * significant digits using rounding mode rounding.
 				 *
 				 */
-				P['squareRoot'] = P['sqrt'] = function () {
+				P['squareRoot'] = P['sqrt'] = function() {
 					var m, n, sd, r, rep, t,
 						x = this,
 						c = x['c'],
@@ -18457,67 +18702,69 @@
 						half = new Decimal(0.5);
 
 					// Negative/NaN/Infinity/zero?
-					if ( s !== 1 || !c || !c[0] ) {
+					if(s !== 1 || !c || !c[0]) {
 
-						return new Decimal( !s || s < 0 && ( !c || c[0] ) ? NaN : c ? x : 1 / 0 );
+						return new Decimal(!s || s < 0 && ( !c || c[0] ) ? NaN : c ? x : 1 / 0);
 					}
 
 					external = false;
 
 					// Initial estimate.
-					s = Math.sqrt( +x );
+					s = Math.sqrt(+x);
 
 					/*
 					 Math.sqrt underflow/overflow?
 					 Pass x to Math.sqrt as integer, then adjust the exponent of the result.
 					 */
-					if ( s == 0 || s == 1 / 0 ) {
+					if(s == 0 || s == 1 / 0) {
 						n = coefficientToString(c);
 
-						if ( ( n.length + e ) % 2 == 0 ) {
+						if(( n.length + e ) % 2 == 0) {
 							n += '0';
 						}
 
 						s = Math.sqrt(n);
-						e = mathfloor( ( e + 1 ) / 2 ) - ( e < 0 || e % 2 );
+						e = mathfloor(( e + 1 ) / 2) - ( e < 0 || e % 2 );
 
-						if ( s == 1 / 0 ) {
+						if(s == 1 / 0) {
 							n = '1e' + e;
-						} else {
+						}
+						else {
 							n = s.toExponential();
-							n = n.slice( 0, n.indexOf('e') + 1 ) + e;
+							n = n.slice(0, n.indexOf('e') + 1) + e;
 						}
 
 						r = new Decimal(n);
-					} else {
-						r = new Decimal( s.toString() );
+					}
+					else {
+						r = new Decimal(s.toString());
 					}
 
 					sd = ( e = Decimal['precision'] ) + 3;
 
 					// Newton-Raphson iteration.
-					for ( ; ; ) {
+					for(; ;) {
 						t = r;
-						r = half['times']( t['plus']( div( x, t, sd + 2, 1 ) ) );
+						r = half['times'](t['plus'](div(x, t, sd + 2, 1)));
 
-						if ( coefficientToString( t['c'] ).slice( 0, sd ) ===
-							( n = coefficientToString( r['c'] ) ).slice( 0, sd ) ) {
-							n = n.slice( sd - 3, sd + 1 );
+						if(coefficientToString(t['c']).slice(0, sd) ===
+							( n = coefficientToString(r['c']) ).slice(0, sd)) {
+							n = n.slice(sd - 3, sd + 1);
 
 							/*
 							 The 4th rounding digit may be in error by -1 so if the 4 rounding digits are
 							 9999 or 4999 (i.e. approaching a rounding boundary) continue the iteration.
 							 */
-							if ( n == '9999' || !rep && n == '4999' ) {
+							if(n == '9999' || !rep && n == '4999') {
 
 								/*
 								 On the first iteration only, check to see if rounding up gives the exact result
 								 as the nines may infinitely repeat.
 								 */
-								if ( !rep ) {
-									rnd( t, e + 1, 0 );
+								if(!rep) {
+									rnd(t, e + 1, 0);
 
-									if ( t['times'](t)['eq'](x) ) {
+									if(t['times'](t)['eq'](x)) {
 										r = t;
 
 										break;
@@ -18525,16 +18772,17 @@
 								}
 								sd += 4;
 								rep = 1;
-							} else {
+							}
+							else {
 
 								/*
 								 If the rounding digits are null, 0{0,4} or 50{0,3}, check for an exact result.
 								 If not, then there are further digits and m will be truthy.
 								 */
-								if ( !+n || !+n.slice(1) && n.charAt(0) == '5' ) {
+								if(!+n || !+n.slice(1) && n.charAt(0) == '5') {
 
 									// Truncate to the first rounding digit.
-									rnd( r, e + 1, 1 );
+									rnd(r, e + 1, 1);
 									m = !r['times'](r)['eq'](x);
 								}
 
@@ -18544,9 +18792,8 @@
 					}
 					external = true;
 
-					return rnd( r, e, Decimal['rounding'], m );
+					return rnd(r, e, Decimal['rounding'], m);
 				};
-
 
 				/*
 				 *  n * 0 = 0
@@ -18569,14 +18816,14 @@
 				 * significant digits using rounding mode rounding.
 				 *
 				 */
-				P['times'] = function ( y, b ) {
+				P['times'] = function(y, b) {
 					var c, e,
 						x = this,
 						Decimal = x['constructor'],
 						xc = x['c'],
-						yc = ( id = 11, y = new Decimal( y, b ), y['c'] ),
-						i = mathfloor( x['e'] / LOGBASE ),
-						j = mathfloor( y['e'] / LOGBASE ),
+						yc = ( id = 11, y = new Decimal(y, b), y['c'] ),
+						i = mathfloor(x['e'] / LOGBASE),
+						j = mathfloor(y['e'] / LOGBASE),
 						a = x['s'];
 
 					b = y['s'];
@@ -18584,13 +18831,13 @@
 					y['s'] = a == b ? 1 : -1;
 
 					// Either NaN/Infinity/0?
-					if ( !i && ( !xc || !xc[0] ) || !j && ( !yc || !yc[0] ) ) {
+					if(!i && ( !xc || !xc[0] ) || !j && ( !yc || !yc[0] )) {
 
 						// Either NaN?
-						return new Decimal( !a || !b ||
+						return new Decimal(!a || !b ||
 
 							// x is 0 and y is Infinity  or y is 0 and x is Infinity?
-							xc && !xc[0] && !yc || yc && !yc[0] && !xc
+						xc && !xc[0] && !yc || yc && !yc[0] && !xc
 
 							// Return NaN.
 							? NaN
@@ -18602,56 +18849,55 @@
 							? y['s'] / 0
 
 							// x or y is 0. Return +-0.
-							: y['s'] * 0 );
+							: y['s'] * 0);
 					}
 
 					e = i + j;
 					a = xc.length;
 					b = yc.length;
 
-					if ( a < b ) {
+					if(a < b) {
 
 						// Swap.
 						c = xc, xc = yc, yc = c;
 						j = a, a = b, b = j;
 					}
 
-					for ( j = a + b, c = []; j--; c.push(0) );
+					for(j = a + b, c = []; j--; c.push(0));
 
 					// Multiply!
-					for ( i = b - 1; i > -1; i-- ) {
+					for(i = b - 1; i > -1; i--) {
 
-						for ( b = 0, j = a + i; j > i; b = b / BASE | 0 ) {
+						for(b = 0, j = a + i; j > i; b = b / BASE | 0) {
 							b = c[j] + yc[i] * xc[j - i - 1] + b;
 							c[j--] = b % BASE | 0;
 						}
 
-						if (b) {
+						if(b) {
 							c[j] = ( c[j] + b ) % BASE;
 						}
 					}
 
-					if (b) {
+					if(b) {
 						++e;
 					}
 
 					// Remove any leading zero.
-					if ( !c[0] ) {
+					if(!c[0]) {
 						c.shift();
 					}
 
 					// Remove trailing zeros.
-					for ( j = c.length; !c[--j]; c.pop() );
+					for(j = c.length; !c[--j]; c.pop());
 
 					y['c'] = c;
 
 					// Get the number of digits of c[0].
-					for ( a = 1, b = c[0]; b >= 10; b /= 10, a++ );
+					for(a = 1, b = c[0]; b >= 10; b /= 10, a++);
 					y['e'] = a + e * LOGBASE - 1;
 
-					return external ? rnd( y, Decimal['precision'], Decimal['rounding'] ) : y;
+					return external ? rnd(y, Decimal['precision'], Decimal['rounding']) : y;
 				};
-
 
 				/*
 				 * Return a new Decimal whose value is the value of this Decimal rounded to a maximum of dp
@@ -18668,15 +18914,14 @@
 				 * 'toDP() rounding mode out of range: {rm}'
 				 *
 				 */
-				P['toDecimalPlaces'] = P['toDP'] = function ( dp, rm ) {
+				P['toDecimalPlaces'] = P['toDP'] = function(dp, rm) {
 					var x = this;
 					x = new x['constructor'](x);
 
-					return dp == null || !checkArg( x, dp, 'toDP' )
+					return dp == null || !checkArg(x, dp, 'toDP')
 						? x
-						: rnd( x, ( dp | 0 ) + x['e'] + 1, checkRM( x, rm, 'toDP' ) );
+						: rnd(x, ( dp | 0 ) + x['e'] + 1, checkRM(x, rm, 'toDP'));
 				};
-
 
 				/*
 				 * Return a string representing the value of this Decimal in exponential notation rounded to dp
@@ -18694,15 +18939,14 @@
 				 * 'toExponential() rounding mode out of range: {rm}'
 				 *
 				 */
-				P['toExponential'] = function ( dp, rm ) {
+				P['toExponential'] = function(dp, rm) {
 					var x = this;
 
 					return x['c']
-						? format( x, dp != null && checkArg( x, dp, 'toExponential' ) ? dp | 0 : null,
-							dp != null && checkRM( x, rm, 'toExponential' ), 1 )
+						? format(x, dp != null && checkArg(x, dp, 'toExponential') ? dp | 0 : null,
+						dp != null && checkRM(x, rm, 'toExponential'), 1)
 						: x.toString();
 				};
-
 
 				/*
 				 * Return a string representing the value of this Decimal in normal (fixed-point) notation to
@@ -18722,36 +18966,38 @@
 				 * 'toFixed() rounding mode out of range: {rm}'
 				 *
 				 */
-				P['toFixed'] = function ( dp, rm ) {
+				P['toFixed'] = function(dp, rm) {
 					var str,
 						x = this,
 						Decimal = x['constructor'],
 						neg = Decimal['toExpNeg'],
 						pos = Decimal['toExpPos'];
 
-					if ( dp != null ) {
-						dp = checkArg( x, dp, str = 'toFixed' ) ? x['e'] + ( dp | 0 ) : null;
-						rm = checkRM( x, rm, str );
+					if(dp != null) {
+						dp = checkArg(x, dp, str = 'toFixed') ? x['e'] + ( dp | 0 ) : null;
+						rm = checkRM(x, rm, str);
 					}
 
 					// Prevent toString returning exponential notation;
 					Decimal['toExpNeg'] = -( Decimal['toExpPos'] = 1 / 0 );
 
-					if ( dp == null || !x['c'] ) {
+					if(dp == null || !x['c']) {
 						str = x.toString();
-					} else {
-						str = format( x, dp, rm );
+					}
+					else {
+						str = format(x, dp, rm);
 
 						// (-0).toFixed() is '0', but (-0.1).toFixed() is '-0'.
 						// (-0).toFixed(1) is '0.0', but (-0.01).toFixed(1) is '-0.0'.
-						if ( x['s'] < 0 && x['c'] ) {
+						if(x['s'] < 0 && x['c']) {
 
 							// As e.g. (-0).toFixed(3), will wrongly be returned as -0.000 from toString.
-							if ( !x['c'][0] ) {
-								str = str.replace( '-', '' );
+							if(!x['c'][0]) {
+								str = str.replace('-', '');
 
 								// As e.g. -0.5 if rounded to -0 will cause toString to omit the minus sign.
-							} else if ( str.indexOf('-') < 0 ) {
+							}
+							else if(str.indexOf('-') < 0) {
 								str = '-' + str;
 							}
 						}
@@ -18761,7 +19007,6 @@
 
 					return str;
 				};
-
 
 				/*
 				 * Return a string representing the value of this Decimal in normal notation rounded using
@@ -18778,13 +19023,12 @@
 				 * If dp is invalid the error message will incorrectly give the method as toFixed.
 				 *
 				 */
-				P['toFormat'] = function ( sep1, dp, sep2 ) {
+				P['toFormat'] = function(sep1, dp, sep2) {
 					var arr = this.toFixed(dp).split('.');
 
-					return arr[0].replace( /\B(?=(\d{3})+$)/g, sep1 == null ? ',' : sep1 + '' ) +
-						( arr[1] ? '.' + ( sep2 ? arr[1].replace( /\d{5}\B/g, '$&' + sep2 ) : arr[1] ) : '' );
+					return arr[0].replace(/\B(?=(\d{3})+$)/g, sep1 == null ? ',' : sep1 + '') +
+						( arr[1] ? '.' + ( sep2 ? arr[1].replace(/\d{5}\B/g, '$&' + sep2) : arr[1] ) : '' );
 				};
-
 
 				/*
 				 * Return a string array representing the value of this Decimal as a simple fraction with an
@@ -18797,86 +19041,85 @@
 				 * [maxD] {number|string|Decimal} Maximum denominator. Integer >= 1 and < Infinity.
 				 *
 				 */
-				P['toFraction'] = function (maxD) {
+				P['toFraction'] = function(maxD) {
 					var d0, d2, e, frac, n, n0, p, q,
 						x = this,
 						Decimal = x['constructor'],
-						n1 = d0 = new Decimal( Decimal['ONE'] ),
+						n1 = d0 = new Decimal(Decimal['ONE']),
 						d1 = n0 = new Decimal(0),
 						xc = x['c'],
 						d = new Decimal(d1);
 
 					// NaN, Infinity.
-					if ( !xc ) {
+					if(!xc) {
 
 						return x.toString();
 					}
 
 					e = d['e'] = getCoeffLength(xc) - x['e'] - 1;
-					d['c'][0] = mathpow( 10, ( p = e % LOGBASE ) < 0 ? LOGBASE + p : p );
+					d['c'][0] = mathpow(10, ( p = e % LOGBASE ) < 0 ? LOGBASE + p : p);
 
 					// If maxD is undefined or null...
-					if ( maxD == null ||
+					if(maxD == null ||
 
-						// or NaN...
+							// or NaN...
 						( !( id = 12, n = new Decimal(maxD) )['s'] ||
 
 							// or less than 1, or Infinity...
-							( outOfRange = n['cmp'](n1) < 0 || !n['c'] ) ||
+						( outOfRange = n['cmp'](n1) < 0 || !n['c'] ) ||
 
 							// or not an integer...
-							( Decimal['errors'] && mathfloor( n['e'] / LOGBASE ) < n['c'].length - 1 ) ) &&
+						( Decimal['errors'] && mathfloor(n['e'] / LOGBASE) < n['c'].length - 1 ) ) &&
 
-						// 'toFraction() max denominator not an integer: {maxD}'
-						// 'toFraction() max denominator out of range: {maxD}'
-						!ifExceptionsThrow( Decimal, 'max denominator', maxD, 'toFraction', 0 ) ||
+							// 'toFraction() max denominator not an integer: {maxD}'
+							// 'toFraction() max denominator out of range: {maxD}'
+						!ifExceptionsThrow(Decimal, 'max denominator', maxD, 'toFraction', 0) ||
 
-						// or greater than the maximum denominator needed to specify the value exactly.
-						( maxD = n )['cmp'](d) > 0 ) {
+							// or greater than the maximum denominator needed to specify the value exactly.
+						( maxD = n )['cmp'](d) > 0) {
 
 						// d is 10**e, n1 is 1.
 						maxD = e > 0 ? d : n1;
 					}
 
 					external = false;
-					n = new Decimal( coefficientToString(xc) );
+					n = new Decimal(coefficientToString(xc));
 					p = Decimal['precision'];
 					Decimal['precision'] = e = xc.length * LOGBASE * 2;
 
-					for ( ; ; )  {
-						q = div( n, d, 0, 1, 1 );
-						d2 = d0['plus']( q['times'](d1) );
+					for(; ;) {
+						q = div(n, d, 0, 1, 1);
+						d2 = d0['plus'](q['times'](d1));
 
-						if ( d2['cmp'](maxD) == 1 ) {
+						if(d2['cmp'](maxD) == 1) {
 
 							break;
 						}
 						d0 = d1, d1 = d2;
 
-						n1 = n0['plus']( q['times']( d2 = n1 ) );
+						n1 = n0['plus'](q['times'](d2 = n1));
 						n0 = d2;
 
-						d = n['minus']( q['times']( d2 = d ) );
+						d = n['minus'](q['times'](d2 = d));
 						n = d2;
 					}
 
-					d2 = div( maxD['minus'](d0), d1, 0, 1, 1 );
-					n0 = n0['plus']( d2['times'](n1) );
-					d0 = d0['plus']( d2['times'](d1) );
+					d2 = div(maxD['minus'](d0), d1, 0, 1, 1);
+					n0 = n0['plus'](d2['times'](n1));
+					d0 = d0['plus'](d2['times'](d1));
 					n0['s'] = n1['s'] = x['s'];
 
 					// Determine which fraction is closer to x, n0/d0 or n1/d1?
-					frac = div( n1, d1, e, 1 )['minus'](x)['abs']()['cmp'](
-						div( n0, d0, e, 1 )['minus'](x)['abs']() ) < 1
-						? [ n1 + '', d1 + '' ]
-						: [ n0 + '', d0 + '' ];
+					frac = div(n1, d1, e, 1)['minus'](x)['abs']()['cmp'](
+						div(n0, d0, e, 1)['minus'](x)['abs']()) < 1
+						? [n1 + '', d1 + '']
+						: [n0 + '', d0 + ''];
 
 					external = true;
 					Decimal['precision'] = p;
 
 					return frac;
 				};
-
 
 				/*
 				 * Returns a new Decimal whose value is the nearest multiple of the magnitude of n to the value
@@ -18901,42 +19144,45 @@
 				 * 'toNearest() rounding mode out of range: {rm}'
 				 *
 				 */
-				P['toNearest'] = function ( n, rm ) {
+				P['toNearest'] = function(n, rm) {
 					var x = this,
 						Decimal = x['constructor'];
 
 					x = new Decimal(x);
 
-					if ( n == null ) {
-						n = new Decimal( Decimal['ONE'] );
+					if(n == null) {
+						n = new Decimal(Decimal['ONE']);
 						rm = Decimal['rounding'];
-					} else {
+					}
+					else {
 						id = 17;
 						n = new Decimal(n);
-						rm = checkRM( x, rm, 'toNearest' );
+						rm = checkRM(x, rm, 'toNearest');
 					}
 
 					// If n is finite...
-					if ( n['c'] ) {
+					if(n['c']) {
 
 						// If x is finite...
-						if ( x['c'] ) {
+						if(x['c']) {
 
-							if ( n['c'][0] ) {
+							if(n['c'][0]) {
 								external = false;
-								x = div( x, n, 0, rm < 4 ? [4, 5, 7, 8][rm] : rm, 1 )['times'](n);
+								x = div(x, n, 0, rm < 4 ? [4, 5, 7, 8][rm] : rm, 1)['times'](n);
 								external = true;
 								rnd(x);
-							} else {
-								x['c'] = [ x['e'] = 0 ];
+							}
+							else {
+								x['c'] = [x['e'] = 0];
 							}
 						}
 
 						// n is NaN or +-Infinity. If x is not NaN...
-					} else if ( x['s'] ) {
+					}
+					else if(x['s']) {
 
 						// If n is +-Infinity...
-						if ( n['s'] ) {
+						if(n['s']) {
 							n['s'] = x['s'];
 						}
 						x = n;
@@ -18945,18 +19191,16 @@
 					return x;
 				};
 
-
 				/*
 				 * Return the value of this Decimal converted to a number primitive.
 				 *
 				 */
-				P['toNumber'] = function () {
+				P['toNumber'] = function() {
 					var x = this;
 
 					// Ensure zero has correct sign.
 					return +x || ( x['s'] ? 0 * x['s'] : NaN );
 				};
-
 
 				/*
 				 * Return a new Decimal whose value is the value of this Decimal raised to the power
@@ -19005,28 +19249,28 @@
 				 * [b] {number} The base of y.
 				 *
 				 */
-				P['toPower'] = P['pow'] = function ( y, b ) {
+				P['toPower'] = P['pow'] = function(y, b) {
 					var a, e, n, r,
 						x = this,
 						Decimal = x['constructor'],
 						s = x['s'],
-						yN = +( id = 13, y = new Decimal( y, b ) ),
+						yN = +( id = 13, y = new Decimal(y, b) ),
 						i = yN < 0 ? -yN : yN,
 						pr = Decimal['precision'],
 						rm = Decimal['rounding'];
 
 					// Handle +-Infinity, NaN and +-0.
-					if ( !x['c'] || !y['c'] || ( n = !x['c'][0] ) || !y['c'][0] ) {
+					if(!x['c'] || !y['c'] || ( n = !x['c'][0] ) || !y['c'][0]) {
 
 						// valueOf -0 is 0, so check for 0 then multiply it by the sign.
-						return new Decimal( mathpow( n ? s * 0 : +x, yN ) );
+						return new Decimal(mathpow(n ? s * 0 : +x, yN));
 					}
 
 					x = new Decimal(x);
 					a = x['c'].length;
 
 					// if x == 1
-					if ( !x['e'] && x['c'][0] == x['s'] && a == 1 ) {
+					if(!x['e'] && x['c'][0] == x['s'] && a == 1) {
 
 						return x;
 					}
@@ -19034,34 +19278,37 @@
 					b = y['c'].length - 1;
 
 					// if y == 1
-					if ( !y['e'] && y['c'][0] == y['s'] && !b ) {
-						r = rnd( x, pr, rm );
-					} else {
-						e = mathfloor( y['e'] / LOGBASE );
+					if(!y['e'] && y['c'][0] == y['s'] && !b) {
+						r = rnd(x, pr, rm);
+					}
+					else {
+						e = mathfloor(y['e'] / LOGBASE);
 						n = e >= b;
 
 						// If y is not an integer and x is negative, return NaN.
-						if ( !n && s < 0 ) {
+						if(!n && s < 0) {
 							r = new Decimal(NaN);
-						} else {
+						}
+						else {
 
 							/*
 							 If the approximate number of significant digits of x multiplied by abs(y) is less
 							 than INT_POW_LIMIT use the 'exponentiation by squaring' algorithm.
 							 */
-							if ( n && a * LOGBASE * i < INT_POW_LIMIT ) {
-								r = intPow( Decimal, x, i );
+							if(n && a * LOGBASE * i < INT_POW_LIMIT) {
+								r = intPow(Decimal, x, i);
 
-								if ( y['s'] < 0 ) {
+								if(y['s'] < 0) {
 
 									return Decimal['ONE']['div'](r);
 								}
-							} else {
+							}
+							else {
 
 								// Result is negative if x is negative and the last digit of integer y is odd.
-								s = s < 0 && y['c'][ Math.max( e, b ) ] & 1 ? -1 : 1;
+								s = s < 0 && y['c'][Math.max(e, b)] & 1 ? -1 : 1;
 
-								b = mathpow( +x, yN );
+								b = mathpow(+x, yN);
 
 								/*
 								 Estimate result exponent.
@@ -19070,16 +19317,16 @@
 								 log10(x_significand) = ln(x_significand) / ln(10)
 								 */
 								e = b == 0 || !isFinite(b)
-									? mathfloor( yN * (
-									Math.log( '0.' + coefficientToString( x['c'] ) ) / Math.LN10 + x['e'] + 1 ) )
-									: new Decimal( b + '' )['e'];
+									? mathfloor(yN * (
+								Math.log('0.' + coefficientToString(x['c'])) / Math.LN10 + x['e'] + 1 ))
+									: new Decimal(b + '')['e'];
 
 								// Estimate may be incorrect e.g.: x: 0.999999999999999999, y: 2.29, e: 0, r.e:-1
 
 								// Overflow/underflow?
-								if ( e > Decimal['maxE'] + 1 || e < Decimal['minE'] - 1 ) {
+								if(e > Decimal['maxE'] + 1 || e < Decimal['minE'] - 1) {
 
-									return new Decimal( e > 0 ? s / 0 : 0 );
+									return new Decimal(e > 0 ? s / 0 : 0);
 								}
 
 								external = false;
@@ -19092,30 +19339,30 @@
 								 new Decimal(2.32456).pow('2087987436534566.46411')
 								 should be 1.162377823e+764914905173815, but is 1.162355823e+764914905173815
 								 */
-								i = Math.min( 12, ( e + '' ).length );
+								i = Math.min(12, ( e + '' ).length);
 
 								// r = x^y = exp(y*ln(x))
-								r = exp( y['times']( ln( x, pr + i ) ), pr );
+								r = exp(y['times'](ln(x, pr + i)), pr);
 
 								// Truncate to the required precision plus five rounding digits.
-								r = rnd( r, pr + 5, 1 );
+								r = rnd(r, pr + 5, 1);
 
 								/*
 								 If the rounding digits are [49]9999 or [50]0000 increase the precision by 10
 								 and recalculate the result.
 								 */
-								if ( checkRoundingDigits( r['c'], pr, rm ) ) {
+								if(checkRoundingDigits(r['c'], pr, rm)) {
 									e = pr + 10;
 
 									// Truncate to the increased precision plus five rounding digits.
-									r = rnd( exp( y['times']( ln( x, e + i ) ), e ), e + 5, 1 );
+									r = rnd(exp(y['times'](ln(x, e + i)), e), e + 5, 1);
 
 									/*
 									 Check for 14 nines from the 2nd rounding digit (the first rounding digit
 									 may be 4 or 9).
 									 */
-									if ( +coefficientToString( r['c'] ).slice( pr + 1, pr + 15 ) + 1 == 1e14 ) {
-										r = rnd( r, pr + 1, 0 );
+									if(+coefficientToString(r['c']).slice(pr + 1, pr + 15) + 1 == 1e14) {
+										r = rnd(r, pr + 1, 0);
 									}
 								}
 
@@ -19124,13 +19371,12 @@
 								Decimal['rounding'] = rm;
 							}
 
-							r = rnd( r, pr, rm );
+							r = rnd(r, pr, rm);
 						}
 					}
 
 					return r;
 				};
-
 
 				/*
 				 * Return a string representing the value of this Decimal rounded to sd significant digits
@@ -19151,14 +19397,13 @@
 				 * 'toPrecision() rounding mode out of range: {rm}'
 				 *
 				 */
-				P['toPrecision'] = function ( sd, rm ) {
+				P['toPrecision'] = function(sd, rm) {
 					var x = this;
 
-					return sd != null && checkArg( x, sd, 'toPrecision', 1 ) && x['c']
-						? format( x, --sd | 0, checkRM( x, rm, 'toPrecision' ), 2 )
+					return sd != null && checkArg(x, sd, 'toPrecision', 1) && x['c']
+						? format(x, --sd | 0, checkRM(x, rm, 'toPrecision'), 2)
 						: x.toString();
 				};
-
 
 				/*
 				 * Return a new Decimal whose value is this Decimal rounded to a maximum of d significant
@@ -19173,17 +19418,16 @@
 				 * 'toSD() rounding mode out of range: {rm}'
 				 *
 				 */
-				P['toSignificantDigits'] = P['toSD'] = function ( d, rm ) {
+				P['toSignificantDigits'] = P['toSD'] = function(d, rm) {
 					var x = this,
 						Decimal = x['constructor'];
 
 					x = new Decimal(x);
 
-					return d == null || !checkArg( x, d, 'toSD', 1 )
-						? rnd( x, Decimal['precision'], Decimal['rounding'] )
-						: rnd( x, d | 0, checkRM( x, rm, 'toSD' ) );
+					return d == null || !checkArg(x, d, 'toSD', 1)
+						? rnd(x, Decimal['precision'], Decimal['rounding'])
+						: rnd(x, d | 0, checkRM(x, rm, 'toSD'));
 				};
-
 
 				/*
 				 * Return a string representing the value of this Decimal in base b, or base 10 if b is
@@ -19197,72 +19441,79 @@
 				 * [b] {number} Base. Integer, 2 to 64 inclusive.
 				 *
 				 */
-				P['toString'] = function (b) {
+				P['toString'] = function(b) {
 					var u, str, strL,
 						x = this,
 						Decimal = x['constructor'],
 						xe = x['e'];
 
 					// Infinity or NaN?
-					if ( xe === null ) {
+					if(xe === null) {
 						str = x['s'] ? 'Infinity' : 'NaN';
 
 						// Exponential format?
-					} else if ( b === u && ( xe <= Decimal['toExpNeg'] || xe >= Decimal['toExpPos'] ) ) {
+					}
+					else if(b === u && ( xe <= Decimal['toExpNeg'] || xe >= Decimal['toExpPos'] )) {
 
-						return format( x, null, Decimal['rounding'], 1 );
-					} else {
-						str = coefficientToString( x['c'] );
+						return format(x, null, Decimal['rounding'], 1);
+					}
+					else {
+						str = coefficientToString(x['c']);
 
 						// Negative exponent?
-						if ( xe < 0 ) {
+						if(xe < 0) {
 
 							// Prepend zeros.
-							for ( ; ++xe; str = '0' + str );
+							for(; ++xe; str = '0' + str);
 							str = '0.' + str;
 
 							// Positive exponent?
-						} else if ( strL = str.length, xe > 0 ) {
+						}
+						else if(strL = str.length, xe > 0) {
 
-							if ( ++xe > strL ) {
+							if(++xe > strL) {
 
 								// Append zeros.
-								for ( xe -= strL; xe-- ; str += '0' );
+								for(xe -= strL; xe--; str += '0');
 
-							} else if ( xe < strL ) {
-								str = str.slice( 0, xe ) + '.' + str.slice(xe);
+							}
+							else if(xe < strL) {
+								str = str.slice(0, xe) + '.' + str.slice(xe);
 							}
 
 							// Exponent zero.
-						} else {
+						}
+						else {
 							u = str.charAt(0);
 
-							if ( strL > 1 ) {
+							if(strL > 1) {
 								str = u + '.' + str.slice(1);
 
 								// Avoid '-0'
-							} else if ( u == '0' ) {
+							}
+							else if(u == '0') {
 
 								return u;
 							}
 						}
 
-						if ( b != null ) {
+						if(b != null) {
 
-							if ( !( outOfRange = !( b >= 2 && b < 65 ) ) &&
-								( b == (b | 0) || !Decimal['errors'] ) ) {
-								str = convertBase( Decimal, str, b | 0, 10, x['s'] );
+							if(!( outOfRange = !( b >= 2 && b < 65 ) ) &&
+								( b == (b | 0) || !Decimal['errors'] )) {
+								str = convertBase(Decimal, str, b | 0, 10, x['s']);
 
 								// Avoid '-0'
-								if ( str == '0' ) {
+								if(str == '0') {
 
 									return str;
 								}
-							} else {
+							}
+							else {
 
 								// 'toString() base not an integer: {b}'
 								// 'toString() base out of range: {b}'
-								ifExceptionsThrow( Decimal, 'base', b, 'toString', 0 );
+								ifExceptionsThrow(Decimal, 'base', b, 'toString', 0);
 							}
 						}
 					}
@@ -19270,16 +19521,14 @@
 					return x['s'] < 0 ? '-' + str : str;
 				};
 
-
 				/*
 				 * Return a new Decimal whose value is the value of this Decimal truncated to a whole number.
 				 *
 				 */
-				P['truncated'] = P['trunc'] = function () {
+				P['truncated'] = P['trunc'] = function() {
 
-					return rnd( new this['constructor'](this), this['e'] + 1, 1 );
+					return rnd(new this['constructor'](this), this['e'] + 1, 1);
 				};
-
 
 				/*
 				 * Return as toString, but do not accept a base argument.
@@ -19287,11 +19536,10 @@
 				 * Ensures that JSON.stringify() uses toString for serialization.
 				 *
 				 */
-				P['valueOf'] = P['toJSON'] = function () {
+				P['valueOf'] = P['toJSON'] = function() {
 
 					return this.toString();
 				};
-
 
 				/*
 				 // Add aliases to match BigDecimal method names.
@@ -19304,9 +19552,7 @@
 				 P['negate'] = P['neg'];
 				 */
 
-
 				// Private functions for Decimal.prototype methods.
-
 
 				/*
 				 *  coefficientToString
@@ -19324,28 +19570,26 @@
 				 *  rnd
 				 */
 
-
 				function coefficientToString(a) {
 					var s, z,
 						i = 1,
 						j = a.length,
 						r = a[0] + '';
 
-					for ( ; i < j; i++ ) {
+					for(; i < j; i++) {
 						s = a[i] + '';
 
-						for ( z = LOGBASE - s.length; z--; ) {
+						for(z = LOGBASE - s.length; z--;) {
 							s = '0' + s;
 						}
 
 						r += s;
 					}
 
-					for ( j = r.length; r.charAt(--j) == '0'; );
+					for(j = r.length; r.charAt(--j) == '0';);
 
-					return r.slice( 0, j + 1 || 1 );
+					return r.slice(0, j + 1 || 1);
 				}
-
 
 				/*
 				 * Check 5 rounding digits if repeating is null, 4 otherwise.
@@ -19362,124 +19606,127 @@
 				 !c[i + 3] && !c[i + 4];
 				 }
 				 */
-				function checkRoundingDigits( c, i, rm, repeating ) {
+				function checkRoundingDigits(c, i, rm, repeating) {
 					var ci, k, n, r, rd;
 
 					// Get the length of the first element of the array c.
-					for ( k = 1, n = c[0]; n >= 10; n /= 10, k++ );
+					for(k = 1, n = c[0]; n >= 10; n /= 10, k++);
 
 					n = i - k;
 
 					// Is the rounding digit in the first element of c?
-					if ( n < 0 ) {
+					if(n < 0) {
 						n += LOGBASE;
 						ci = 0;
-					} else {
-						ci = Math.ceil( ( n + 1 ) / LOGBASE );
+					}
+					else {
+						ci = Math.ceil(( n + 1 ) / LOGBASE);
 						n %= LOGBASE;
 					}
 
-					k =mathpow( 10, LOGBASE - n );
+					k = mathpow(10, LOGBASE - n);
 					rd = c[ci] % k | 0;
 
-					if ( repeating == null ) {
+					if(repeating == null) {
 
-						if ( n < 3 ) {
+						if(n < 3) {
 
-							if ( n == 0 ) {
+							if(n == 0) {
 								rd = rd / 100 | 0;
-							} else if ( n == 1 ) {
+							}
+							else if(n == 1) {
 								rd = rd / 10 | 0;
 							}
 
 							r = rm < 4 && rd == 99999 || rm > 3 && rd == 49999 || rd == 50000 || rd == 0;
-						} else {
-							r = ( rm < 4 && rd + 1 == k || rm > 3 && rd + 1 == k / 2 ) &&
-								( c[ci + 1] / k / 100 | 0 ) == mathpow( 10, n - 2 ) - 1 ||
-								( rd == k / 2 || rd == 0 ) && ( c[ci + 1] / k / 100 | 0 ) == 0;
 						}
-					} else {
+						else {
+							r = ( rm < 4 && rd + 1 == k || rm > 3 && rd + 1 == k / 2 ) &&
+							( c[ci + 1] / k / 100 | 0 ) == mathpow(10, n - 2) - 1 ||
+							( rd == k / 2 || rd == 0 ) && ( c[ci + 1] / k / 100 | 0 ) == 0;
+						}
+					}
+					else {
 
-						if ( n < 4 ) {
+						if(n < 4) {
 
-							if ( n == 0 ) {
+							if(n == 0) {
 								rd = rd / 1000 | 0;
-							} else if ( n == 1 ) {
+							}
+							else if(n == 1) {
 								rd = rd / 100 | 0;
-							} else if ( n == 2 ) {
+							}
+							else if(n == 2) {
 								rd = rd / 10 | 0;
 							}
 
 							r = ( repeating || rm < 4 ) && rd == 9999 || !repeating && rm > 3 && rd == 4999;
-						} else {
+						}
+						else {
 							r = ( ( repeating || rm < 4 ) && rd + 1 == k ||
-								( !repeating && rm > 3 ) && rd + 1 == k / 2 ) &&
-								( c[ci + 1] / k / 1000 | 0 ) == mathpow( 10, n - 3 ) - 1;
+							( !repeating && rm > 3 ) && rd + 1 == k / 2 ) &&
+							( c[ci + 1] / k / 1000 | 0 ) == mathpow(10, n - 3) - 1;
 						}
 					}
 
 					return r;
 				}
 
-
 				/*
 				 * Check and return rounding mode. If rm is invalid, return rounding mode rounding.
 				 */
-				function checkRM( x, rm, method ) {
+				function checkRM(x, rm, method) {
 					var Decimal = x['constructor'];
 
 					return rm == null || ( ( outOfRange = rm < 0 || rm > 8 ) ||
-						rm !== 0 && ( Decimal['errors'] ? parseInt : parseFloat )(rm) != rm ) &&
-						!ifExceptionsThrow( Decimal, 'rounding mode', rm, method, 0 )
+					rm !== 0 && ( Decimal['errors'] ? parseInt : parseFloat )(rm) != rm ) && !ifExceptionsThrow(Decimal, 'rounding mode', rm, method, 0)
 						? Decimal['rounding'] : rm | 0;
 				}
-
 
 				/*
 				 * Check that argument n is in range, return true or false.
 				 */
-				function checkArg( x, n, method, min ) {
+				function checkArg(x, n, method, min) {
 					var Decimal = x['constructor'];
 
 					return !( outOfRange = n < ( min || 0 ) || n >= MAX_DIGITS + 1 ) &&
 
-						/*
-						 * Include 'n === 0' because Opera has 'parseFloat(-0) == -0' as false
-						 * despite having 'parseFloat(-0) === -0 && parseFloat('-0') === -0 && 0 == -0' as true.
-						 */
+							/*
+							 * Include 'n === 0' because Opera has 'parseFloat(-0) == -0' as false
+							 * despite having 'parseFloat(-0) === -0 && parseFloat('-0') === -0 && 0 == -0' as true.
+							 */
 						( n === 0 || ( Decimal['errors'] ? parseInt : parseFloat )(n) == n ) ||
-						ifExceptionsThrow( Decimal, 'argument', n, method, 0 );
+						ifExceptionsThrow(Decimal, 'argument', n, method, 0);
 				}
-
 
 				/*
 				 * Convert a numeric string of baseIn to a numeric string of baseOut.
 				 */
-				convertBase = (function () {
+				convertBase = (function() {
 
 					/*
 					 * Convert string of baseIn to an array of numbers of baseOut.
 					 * Eg. convertBase('255', 10, 16) returns [15, 15].
 					 * Eg. convertBase('ff', 16, 10) returns [2, 5, 5].
 					 */
-					function toBaseOut( str, baseIn, baseOut ) {
+					function toBaseOut(str, baseIn, baseOut) {
 						var j,
 							arr = [0],
 							arrL,
 							i = 0,
 							strL = str.length;
 
-						for ( ; i < strL; ) {
+						for(; i < strL;) {
 
-							for ( arrL = arr.length; arrL--; arr[arrL] *= baseIn );
+							for(arrL = arr.length; arrL--; arr[arrL] *= baseIn);
 
-							arr[ j = 0 ] += NUMERALS.indexOf( str.charAt( i++ ) );
+							arr[j = 0] += NUMERALS.indexOf(str.charAt(i++));
 
-							for ( ; j < arr.length; j++ ) {
+							for(; j < arr.length; j++) {
 
-								if ( arr[j] > baseOut - 1 ) {
+								if(arr[j] > baseOut - 1) {
 
-									if ( arr[j + 1] == null ) {
+									if(arr[j + 1] == null) {
 										arr[j + 1] = 0;
 									}
 									arr[j + 1] += arr[j] / baseOut | 0;
@@ -19491,52 +19738,53 @@
 						return arr.reverse();
 					}
 
-					return function ( Decimal, str, baseOut, baseIn, sign ) {
+					return function(Decimal, str, baseOut, baseIn, sign) {
 						var e, j, r, x, xc, y,
-							i = str.indexOf( '.' ),
+							i = str.indexOf('.'),
 							pr = Decimal['precision'],
 							rm = Decimal['rounding'];
 
-						if ( baseIn < 37 ) {
+						if(baseIn < 37) {
 							str = str.toLowerCase();
 						}
 
 						// Non-integer.
-						if ( i >= 0 ) {
-							str = str.replace( '.', '' );
+						if(i >= 0) {
+							str = str.replace('.', '');
 							y = new Decimal(baseIn);
-							x = intPow( Decimal, y, str.length - i );
+							x = intPow(Decimal, y, str.length - i);
 
 							/*
 							 Convert str as if an integer, then divide the result by its base raised to a power
 							 such that the fraction part will be restored.
 							 Use toFixed to avoid possible exponential notation.
 							 */
-							y['c'] = toBaseOut( x.toFixed(), 10, baseOut );
+							y['c'] = toBaseOut(x.toFixed(), 10, baseOut);
 							y['e'] = y['c'].length;
 						}
 
 						// Convert the number as integer.
-						xc = toBaseOut( str, baseIn, baseOut );
+						xc = toBaseOut(str, baseIn, baseOut);
 						e = j = xc.length;
 
 						// Remove trailing zeros.
-						for ( ; xc[--j] == 0; xc.pop() );
+						for(; xc[--j] == 0; xc.pop());
 
-						if ( !xc[0] ) {
+						if(!xc[0]) {
 
 							return '0';
 						}
 
-						if ( i < 0 ) {
+						if(i < 0) {
 							e--;
-						} else {
+						}
+						else {
 							x['c'] = xc;
 							x['e'] = e;
 
 							// sign is needed for correct rounding.
 							x['s'] = sign;
-							x = div( x, y, pr, rm, 0, baseOut );
+							x = div(x, y, pr, rm, 0, baseOut);
 							xc = x['c'];
 							r = x['r'];
 							e = x['e'];
@@ -19547,51 +19795,54 @@
 						j = baseOut / 2;
 						r = r || xc[pr + 1] != null;
 
-						if ( rm < 4
-							? ( i != null || r ) && ( rm == 0 || rm == ( x['s'] < 0 ? 3 : 2 ) )
-							: i > j || i == j && ( rm == 4 || r || rm == 6 && xc[pr - 1] & 1 ||
-							rm == ( x['s'] < 0 ? 8 : 7 ) ) ) {
+						if(rm < 4
+								? ( i != null || r ) && ( rm == 0 || rm == ( x['s'] < 0 ? 3 : 2 ) )
+								: i > j || i == j && ( rm == 4 || r || rm == 6 && xc[pr - 1] & 1 ||
+							rm == ( x['s'] < 0 ? 8 : 7 ) )) {
 
 							xc.length = pr;
 
 							// Rounding up may mean the previous digit has to be rounded up and so on.
-							for ( --baseOut; ++xc[--pr] > baseOut; ) {
+							for(--baseOut; ++xc[--pr] > baseOut;) {
 								xc[pr] = 0;
 
-								if ( !pr ) {
+								if(!pr) {
 									++e;
 									xc.unshift(1);
 								}
 							}
-						} else {
+						}
+						else {
 							xc.length = pr;
 						}
 
 						// Determine trailing zeros.
-						for ( j = xc.length; !xc[--j]; );
+						for(j = xc.length; !xc[--j];);
 
 						// E.g. [4, 11, 15] becomes 4bf.
-						for ( i = 0, str = ''; i <= j; str += NUMERALS.charAt( xc[i++] ) );
+						for(i = 0, str = ''; i <= j; str += NUMERALS.charAt(xc[i++]));
 
 						// Negative exponent?
-						if ( e < 0 ) {
+						if(e < 0) {
 
 							// Prepend zeros.
-							for ( ; ++e; str = '0' + str );
+							for(; ++e; str = '0' + str);
 
 							str = '0.' + str;
 
 							// Positive exponent?
-						} else {
+						}
+						else {
 							i = str.length;
 
-							if ( ++e > i ) {
+							if(++e > i) {
 
 								// Append zeros.
-								for ( e -= i; e-- ; str += '0' );
+								for(e -= i; e--; str += '0');
 
-							} else if ( e < i ) {
-								str = str.slice( 0, e ) + '.' + str.slice(e);
+							}
+							else if(e < i) {
+								str = str.slice(0, e) + '.' + str.slice(e);
 							}
 						}
 
@@ -19600,41 +19851,41 @@
 					}
 				})();
 
-
 				/*
 				 * Perform division in the specified base. Called by div and convertBase.
 				 */
-				var div = ( function () {
+				var div = (function() {
 
 					// Assumes non-zero x and k, and hence non-zero result.
-					function multiplyInteger( x, k, base ) {
+					function multiplyInteger(x, k, base) {
 						var temp,
 							carry = 0,
 							i = x.length;
 
-						for ( x = x.slice(); i--; ) {
+						for(x = x.slice(); i--;) {
 							temp = x[i] * k + carry;
 							x[i] = temp % base | 0;
 							carry = temp / base | 0;
 						}
 
-						if (carry) {
+						if(carry) {
 							x.unshift(carry);
 						}
 
 						return x;
 					}
 
-					function compare( a, b, aL, bL ) {
+					function compare(a, b, aL, bL) {
 						var i, cmp;
 
-						if ( aL != bL ) {
+						if(aL != bL) {
 							cmp = aL > bL ? 1 : -1;
-						} else {
+						}
+						else {
 
-							for ( i = cmp = 0; i < aL; i++ ) {
+							for(i = cmp = 0; i < aL; i++) {
 
-								if ( a[i] != b[i] ) {
+								if(a[i] != b[i]) {
 									cmp = a[i] > b[i] ? 1 : -1;
 
 									break;
@@ -19645,22 +19896,22 @@
 						return cmp;
 					}
 
-					function subtract( a, b, aL, base ) {
+					function subtract(a, b, aL, base) {
 						var i = 0;
 
 						// Subtract b from a.
-						for ( ; aL--; ) {
+						for(; aL--;) {
 							a[aL] -= i;
 							i = a[aL] < b[aL] ? 1 : 0;
 							a[aL] = i * base + a[aL] - b[aL];
 						}
 
 						// Remove leading zeros.
-						for ( ; !a[0] && a.length > 1; a.shift() );
+						for(; !a[0] && a.length > 1; a.shift());
 					}
 
 					// x: dividend, y: divisor.
-					return function ( x, y, pr, rm, dp, base ) {
+					return function(x, y, pr, rm, dp, base) {
 						var cmp, e, i, logbase, more, n, prod, prodL, q, qc, rem, remL, rem0, t, xi, xL, yc0,
 							yL, yz,
 							Decimal = x['constructor'],
@@ -19669,25 +19920,25 @@
 							yc = y['c'];
 
 						// Either NaN, Infinity or 0?
-						if ( !xc || !xc[0] || !yc || !yc[0] ) {
+						if(!xc || !xc[0] || !yc || !yc[0]) {
 
 							return new Decimal(
-
 								// Return NaN if either NaN, or both Infinity or 0.
-									!x['s'] || !y['s'] || ( xc ? yc && xc[0] == yc[0] : !yc ) ? NaN :
+								!x['s'] || !y['s'] || ( xc ? yc && xc[0] == yc[0] : !yc ) ? NaN :
 
 									// Return +-0 if x is 0 or y is +-Infinity, or return +-Infinity as y is 0.
-										xc && xc[0] == 0 || !yc ? s * 0 : s / 0
+									xc && xc[0] == 0 || !yc ? s * 0 : s / 0
 							);
 						}
 
-						if (base) {
+						if(base) {
 							logbase = 1;
 							e = x['e'] - y['e'];
-						} else {
+						}
+						else {
 							base = BASE;
 							logbase = LOGBASE;
-							e = mathfloor( x['e'] / logbase ) - mathfloor( y['e'] / logbase );
+							e = mathfloor(x['e'] / logbase) - mathfloor(y['e'] / logbase);
 						}
 
 						yL = yc.length;
@@ -19697,38 +19948,41 @@
 
 						// Result exponent may be one less then the current value of e.
 						// The coefficients of the Decimals from convertBase may have trailing zeros.
-						for ( i = 0; yc[i] == ( xc[i] || 0 ); i++ );
+						for(i = 0; yc[i] == ( xc[i] || 0 ); i++);
 
-						if ( yc[i] > ( xc[i] || 0 ) ) {
+						if(yc[i] > ( xc[i] || 0 )) {
 							e--;
 						}
 
-						if ( pr == null ) {
+						if(pr == null) {
 							s = pr = Decimal['precision'];
 							rm = Decimal['rounding'];
-						} else if (dp) {
+						}
+						else if(dp) {
 							s = pr + ( x['e'] - y['e'] ) + 1;
-						} else {
+						}
+						else {
 							s = pr;
 						}
 
-						if ( s < 0 ) {
+						if(s < 0) {
 							qc.push(1);
 							more = true;
-						} else {
+						}
+						else {
 
 							// Convert base 10 decimal places to base 1e7 decimal places.
 							s = s / logbase + 2 | 0;
 							i = 0;
 
 							// divisor < 1e7
-							if ( yL == 1 ) {
+							if(yL == 1) {
 								n = 0;
 								yc = yc[0];
 								s++;
 
 								// 'n' is the carry.
-								for ( ; ( i < xL || n ) && s--; i++ ) {
+								for(; ( i < xL || n ) && s--; i++) {
 									t = n * base + ( xc[i] || 0 );
 									qc[i] = t / yc | 0;
 									n = t % yc | 0;
@@ -19737,30 +19991,31 @@
 								more = n || i < xL;
 
 								// divisor >= 1e7
-							} else {
+							}
+							else {
 
 								// Normalise xc and yc so highest order digit of yc is >= base/2
 								n = base / ( yc[0] + 1 ) | 0;
 
-								if ( n > 1 ) {
-									yc = multiplyInteger( yc, n, base );
-									xc = multiplyInteger( xc, n, base );
+								if(n > 1) {
+									yc = multiplyInteger(yc, n, base);
+									xc = multiplyInteger(xc, n, base);
 									yL = yc.length;
 									xL = xc.length;
 								}
 
 								xi = yL;
-								rem = xc.slice( 0, yL );
+								rem = xc.slice(0, yL);
 								remL = rem.length;
 
 								// Add zeros to make remainder as long as divisor.
-								for ( ; remL < yL; rem[remL++] = 0 );
+								for(; remL < yL; rem[remL++] = 0);
 
 								yz = yc.slice();
 								yz.unshift(0);
 								yc0 = yc[0];
 
-								if ( yc[1] >= base / 2 ) {
+								if(yc[1] >= base / 2) {
 									yc0++;
 								}
 
@@ -19768,15 +20023,15 @@
 									n = 0;
 
 									// Compare divisor and remainder.
-									cmp = compare( yc, rem, yL, remL );
+									cmp = compare(yc, rem, yL, remL);
 
 									// If divisor < remainder.
-									if ( cmp < 0 ) {
+									if(cmp < 0) {
 
 										// Calculate trial digit, n.
 										rem0 = rem[0];
 
-										if ( yL != remL ) {
+										if(yL != remL) {
 											rem0 = rem0 * base + ( rem[1] || 0 );
 										}
 
@@ -19793,65 +20048,68 @@
 										 6. If remainder > divisor: remainder -= divisor, n++
 										 */
 
-										if ( n > 1 ) {
+										if(n > 1) {
 
-											if ( n >= base ) {
+											if(n >= base) {
 												n = base - 1;
 											}
 
 											// product = divisor * trial digit.
-											prod = multiplyInteger( yc, n, base );
+											prod = multiplyInteger(yc, n, base);
 											prodL = prod.length;
 											remL = rem.length;
 
 											// Compare product and remainder.
-											cmp = compare( prod, rem, prodL, remL );
+											cmp = compare(prod, rem, prodL, remL);
 
 											// product > remainder.
-											if ( cmp == 1 ) {
+											if(cmp == 1) {
 												n--;
 
 												// Subtract divisor from product.
-												subtract( prod, yL < prodL ? yz : yc, prodL, base );
+												subtract(prod, yL < prodL ? yz : yc, prodL, base);
 											}
-										} else {
+										}
+										else {
 
 											// cmp is -1.
-											// If n is 0, there is no need to compare yc and rem again below, so change cmp to 1 to avoid it.
-											// If n is 1 there IS a need to compare yc and rem again below.
-											if ( n == 0 ) {
+											// If n is 0, there is no need to compare yc and rem again below, so change
+											// cmp to 1 to avoid it. If n is 1 there IS a need to compare yc and rem
+											// again below.
+											if(n == 0) {
 												cmp = n = 1;
 											}
 											prod = yc.slice();
 										}
 										prodL = prod.length;
 
-										if ( prodL < remL ) {
+										if(prodL < remL) {
 											prod.unshift(0);
 										}
 
 										// Subtract product from remainder.
-										subtract( rem, prod, remL, base );
+										subtract(rem, prod, remL, base);
 
 										// If product was < previous remainder.
-										if ( cmp == -1 ) {
+										if(cmp == -1) {
 											remL = rem.length;
 
 											// Compare divisor and new remainder.
-											cmp = compare( yc, rem, yL, remL );
+											cmp = compare(yc, rem, yL, remL);
 
 											// If divisor < new remainder, subtract divisor from remainder.
-											if ( cmp < 1 ) {
+											if(cmp < 1) {
 												n++;
 
 												// Subtract divisor from remainder.
-												subtract( rem, yL < remL ? yz : yc, remL, base );
+												subtract(rem, yL < remL ? yz : yc, remL, base);
 											}
 										}
 
 										remL = rem.length;
 
-									} else if ( cmp === 0 ) {
+									}
+									else if(cmp === 0) {
 										n++;
 										rem = [0];
 									}    // if cmp === 1, n will be 0
@@ -19860,41 +20118,42 @@
 									qc[i++] = n;
 
 									// Update the remainder.
-									if ( cmp && rem[0] ) {
+									if(cmp && rem[0]) {
 										rem[remL++] = xc[xi] || 0;
-									} else {
-										rem = [ xc[xi] ];
+									}
+									else {
+										rem = [xc[xi]];
 										remL = 1;
 									}
 
-								} while ( ( xi++ < xL || rem[0] != null ) && s-- );
+								} while(( xi++ < xL || rem[0] != null ) && s--);
 
 								more = rem[0] != null;
 							}
 
 							// Leading zero?
-							if ( !qc[0] ) {
+							if(!qc[0]) {
 								qc.shift();
 							}
 						}
 
 						// If div is being used for base conversion.
-						if ( logbase == 1 ) {
+						if(logbase == 1) {
 							q['e'] = e;
 							q['r'] = +more;
-						} else {
+						}
+						else {
 
 							// To calculate q.e, first get the number of digits of qc[0].
-							for ( i = 1, s = qc[0]; s >= 10; s /= 10, i++ );
+							for(i = 1, s = qc[0]; s >= 10; s /= 10, i++);
 							q['e'] = i + e * logbase - 1;
 
-							rnd( q, dp ? pr + q['e'] + 1 : pr, rm, more );
+							rnd(q, dp ? pr + q['e'] + 1 : pr, rm, more);
 						}
 
 						return q;
 					}
 				})();
-
 
 				/*
 				 * Taylor/Maclaurin series.
@@ -19924,7 +20183,7 @@
 				 *  The result will always be correctly rounded.
 				 *
 				 */
-				function exp( x, pr ) {
+				function exp(x, pr) {
 					var denom, guard, j, pow, sd, sum, t,
 						rep = 0,
 						i = 0,
@@ -19935,14 +20194,14 @@
 						precision = Decimal['precision'];
 
 					// 0/NaN/Infinity?
-					if ( !x['c'] || !x['c'][0] || x['e'] > 17 ) {
+					if(!x['c'] || !x['c'][0] || x['e'] > 17) {
 
-						return new Decimal( x['c']
+						return new Decimal(x['c']
 							? !x['c'][0] ? one : x['s'] < 0 ? 0 : 1 / 0
-							: x['s'] ? x['s'] < 0 ? 0 : x : NaN );
+							: x['s'] ? x['s'] < 0 ? 0 : x : NaN);
 					}
 
-					if ( pr == null ) {
+					if(pr == null) {
 
 						/*
 						 Estimate result exponent.
@@ -19960,14 +20219,15 @@
 
 						external = false;
 						sd = precision;
-					} else {
+					}
+					else {
 						sd = pr;
 					}
 
 					t = new Decimal(0.03125);
 
 					// while abs(x) >= 0.1
-					while ( x['e'] > -2 ) {
+					while(x['e'] > -2) {
 
 						// x = x / 2^5
 						x = x['times'](t);
@@ -19978,23 +20238,23 @@
 					 Use 2 * log10(2^k) + 5 to estimate the increase in precision necessary to ensure the first
 					 4 rounding digits are correct.
 					 */
-					guard = Math.log( mathpow( 2, k ) ) / Math.LN10 * 2 + 5 | 0;
+					guard = Math.log(mathpow(2, k)) / Math.LN10 * 2 + 5 | 0;
 					sd += guard;
 
 					denom = pow = sum = new Decimal(one);
 					Decimal['precision'] = sd;
 
-					for ( ; ; ) {
-						pow = rnd( pow['times'](x), sd, 1 );
+					for(; ;) {
+						pow = rnd(pow['times'](x), sd, 1);
 						denom = denom['times'](++i);
-						t = sum['plus']( div( pow, denom, sd, 1 ) );
+						t = sum['plus'](div(pow, denom, sd, 1));
 
-						if ( coefficientToString( t['c'] ).slice( 0, sd ) ===
-							coefficientToString( sum['c'] ).slice( 0, sd ) ) {
+						if(coefficientToString(t['c']).slice(0, sd) ===
+							coefficientToString(sum['c']).slice(0, sd)) {
 							j = k;
 
-							while ( j-- ) {
-								sum = rnd( sum['times'](sum), sd, 1 );
+							while(j--) {
+								sum = rnd(sum['times'](sum), sd, 1);
 							}
 
 							/*
@@ -20006,18 +20266,20 @@
 
 							 sd - guard is the index of first rounding digit.
 							 */
-							if ( pr == null ) {
+							if(pr == null) {
 
-								if ( rep < 3 && checkRoundingDigits( sum['c'], sd - guard, rm, rep ) ) {
+								if(rep < 3 && checkRoundingDigits(sum['c'], sd - guard, rm, rep)) {
 									Decimal['precision'] = sd += 10;
 									denom = pow = t = new Decimal(one);
 									i = 0;
 									rep++;
-								} else {
-
-									return rnd( sum, Decimal['precision'] = precision, rm, external = true );
 								}
-							} else {
+								else {
+
+									return rnd(sum, Decimal['precision'] = precision, rm, external = true);
+								}
+							}
+							else {
 								Decimal['precision'] = precision;
 
 								return sum;
@@ -20027,7 +20289,6 @@
 					}
 				}
 
-
 				/*
 				 * Return a string representing the value of Decimal n in normal or exponential notation
 				 * rounded to the specified decimal places or significant digits.
@@ -20036,23 +20297,24 @@
 				 * j is the rounding mode, then the number of digits required including fraction-part trailing
 				 * zeros.
 				 */
-				function format( n, i, j, k ) {
+				function format(n, i, j, k) {
 					var s, z,
 						Decimal = n['constructor'],
 						e = ( n = new Decimal(n) )['e'];
 
 					// i == null when toExponential(no arg), or toString() when x >= toExpPos etc.
-					if ( i == null ) {
+					if(i == null) {
 						j = 0;
-					} else {
-						rnd( n, ++i, j );
+					}
+					else {
+						rnd(n, ++i, j);
 
 						// If toFixed, n['e'] may have changed if the value was rounded up.
 						j = k ? i : i + n['e'] - e;
 					}
 
 					e = n['e'];
-					s = coefficientToString( n['c'] );
+					s = coefficientToString(n['c']);
 
 					/*
 					 toPrecision returns exponential notation if the number of significant digits specified
@@ -20061,94 +20323,96 @@
 					 */
 
 					// Exponential notation.
-					if ( k == 1 || k == 2 && ( i <= e || e <= Decimal['toExpNeg'] ) ) {
+					if(k == 1 || k == 2 && ( i <= e || e <= Decimal['toExpNeg'] )) {
 
 						// Append zeros?
-						for ( ; s.length < j; s += '0' );
+						for(; s.length < j; s += '0');
 
-						if ( s.length > 1 ) {
+						if(s.length > 1) {
 							s = s.charAt(0) + '.' + s.slice(1);
 						}
 
 						s += ( e < 0 ? 'e' : 'e+' ) + e;
 
 						// Normal notation.
-					} else {
+					}
+					else {
 						k = s.length;
 
 						// Negative exponent?
-						if ( e < 0 ) {
+						if(e < 0) {
 							z = j - k;
 
 							// Prepend zeros.
-							for ( ; ++e; s = '0' + s );
+							for(; ++e; s = '0' + s);
 							s = '0.' + s;
 
 							// Positive exponent?
-						} else {
+						}
+						else {
 
-							if ( ++e > k ) {
+							if(++e > k) {
 								z = j - e;
 
 								// Append zeros.
-								for ( e -= k; e-- ; s += '0' );
+								for(e -= k; e--; s += '0');
 
-								if ( z > 0 ) {
+								if(z > 0) {
 									s += '.';
 								}
 
-							} else {
+							}
+							else {
 								z = j - k;
 
-								if ( e < k ) {
-									s = s.slice( 0, e ) + '.' + s.slice(e);
-								} else if ( z > 0 ) {
+								if(e < k) {
+									s = s.slice(0, e) + '.' + s.slice(e);
+								}
+								else if(z > 0) {
 									s += '.';
 								}
 							}
 						}
 
 						// Append more zeros?
-						if ( z > 0 ) {
+						if(z > 0) {
 
-							for ( ; z--; s += '0' );
+							for(; z--; s += '0');
 						}
 					}
 
 					return n['s'] < 0 && n['c'][0] ? '-' + s : s;
 				}
 
-
 				function getCoeffLength(c) {
 					var v = c.length - 1,
 						n = v * LOGBASE + 1;
 
-					if ( v = c[v] ) {
+					if(v = c[v]) {
 
 						// Subtract the number of trailing zeros of the last number.
-						for ( ; v % 10 == 0; v /= 10, n-- );
+						for(; v % 10 == 0; v /= 10, n--);
 
 						// Add the number of digits of the first number.
-						for ( v = c[0]; v >= 10; v /= 10, n++ );
+						for(v = c[0]; v >= 10; v /= 10, n++);
 					}
 
 					return n;
 				}
 
-
 				/*
 				 * Assemble error messages. Throw Decimal Errors.
 				 */
-				function ifExceptionsThrow( Decimal, message, arg, method, more ) {
+				function ifExceptionsThrow(Decimal, message, arg, method, more) {
 
-					if ( Decimal['errors'] ) {
-						var error = new Error( ( method || [
+					if(Decimal['errors']) {
+						var error = new Error(( method || [
 								'new Decimal', 'cmp', 'div', 'eq', 'gt', 'gte', 'lt', 'lte', 'minus', 'mod',
 								'plus', 'times', 'toFraction', 'pow', 'random', 'log', 'sqrt', 'toNearest', 'divToInt'
-							][ id ? id < 0 ? -id : id : 1 / id < 0 ? 1 : 0 ] ) + '() ' + ( [
-								'number type has more than 15 significant digits', 'LN10 out of digits' ][message]
-								|| message + ( [ outOfRange ? ' out of range' : ' not an integer',
-								' not a boolean or binary digit' ][more] || '' ) ) + ': ' + arg
+							][id ? id < 0 ? -id : id : 1 / id < 0 ? 1 : 0] ) + '() ' + ( [
+								'number type has more than 15 significant digits', 'LN10 out of digits'][message]
+							|| message + ( [outOfRange ? ' out of range' : ' not an integer',
+								' not a boolean or binary digit'][more] || '' ) ) + ': ' + arg
 						);
 						error['name'] = 'Decimal Error';
 						outOfRange = id = 0;
@@ -20157,21 +20421,20 @@
 					}
 				}
 
-
 				/*
 				 * Use 'exponentiation by squaring' for small integers. Called by convertBase and pow.
 				 */
-				function intPow( Decimal, x, i ) {
-					var r = new Decimal( Decimal['ONE'] );
+				function intPow(Decimal, x, i) {
+					var r = new Decimal(Decimal['ONE']);
 
-					for ( external = false; ; ) {
+					for(external = false; ;) {
 
-						if ( i & 1 ) {
+						if(i & 1) {
 							r = r['times'](x);
 						}
 						i >>= 1;
 
-						if ( !i ) {
+						if(!i) {
 
 							break;
 						}
@@ -20181,7 +20444,6 @@
 
 					return r;
 				}
-
 
 				/*
 				 *  ln(-n)        = NaN
@@ -20195,7 +20457,7 @@
 				 *  ln(n) (n != 1) is non-terminating.
 				 *
 				 */
-				function ln( y, pr ) {
+				function ln(y, pr) {
 					var c, c0, denom, e, num, rep, sd, sum, t, x1, x2,
 						n = 1,
 						guard = 10,
@@ -20207,15 +20469,16 @@
 						precision = Decimal['precision'];
 
 					// x < 0 or +-Infinity/NaN or 0 or 1.
-					if ( x['s'] < 0 || !xc || !xc[0] || !x['e'] && xc[0] == 1 && xc.length == 1 ) {
+					if(x['s'] < 0 || !xc || !xc[0] || !x['e'] && xc[0] == 1 && xc.length == 1) {
 
-						return new Decimal( xc && !xc[0] ? -1 / 0 : x['s'] != 1 ? NaN : xc ? 0 : x );
+						return new Decimal(xc && !xc[0] ? -1 / 0 : x['s'] != 1 ? NaN : xc ? 0 : x);
 					}
 
-					if ( pr == null ) {
+					if(pr == null) {
 						external = false;
 						sd = precision;
-					} else {
+					}
+					else {
 						sd = pr;
 					}
 
@@ -20224,7 +20487,7 @@
 					c = coefficientToString(xc);
 					c0 = c.charAt(0);
 
-					if ( Math.abs( e = x['e'] ) < 1.5e15 ) {
+					if(Math.abs(e = x['e']) < 1.5e15) {
 
 						/*
 						 Argument reduction.
@@ -20239,41 +20502,43 @@
 						// max n is 21 ( gives 0.9, 1.0 or 1.1 ) ( 9e15 / 21 = 4.2e14 ).
 						//while ( c0 < 9 && c0 != 1 || c0 == 1 && c.charAt(1) > 1 ) {
 						// max n is 6 ( gives 0.7 - 1.3 )
-						while ( c0 < 7 && c0 != 1 || c0 == 1 && c.charAt(1) > 3 ) {
+						while(c0 < 7 && c0 != 1 || c0 == 1 && c.charAt(1) > 3) {
 							x = x['times'](y);
-							c = coefficientToString( x['c'] );
+							c = coefficientToString(x['c']);
 							c0 = c.charAt(0);
 							n++;
 						}
 
 						e = x['e'];
 
-						if ( c0 > 1 ) {
-							x = new Decimal( '0.' + c );
+						if(c0 > 1) {
+							x = new Decimal('0.' + c);
 							e++;
-						} else {
-							x = new Decimal( c0 + '.' + c.slice(1) );
 						}
-					} else {
+						else {
+							x = new Decimal(c0 + '.' + c.slice(1));
+						}
+					}
+					else {
 
 						/*
 						 The argument reduction method above may result in overflow if the argument y is a
 						 massive number with exponent >= 1500000000000000 ( 9e15 / 6 = 1.5e15 ), so instead
 						 recall this function using ln(x*10^e) = ln(x) + e*ln(10).
 						 */
-						x = new Decimal( c0 + '.' + c.slice(1) );
+						x = new Decimal(c0 + '.' + c.slice(1));
 
-						if ( sd + 2 > LN10.length ) {
-							ifExceptionsThrow( Decimal, 1, sd + 2, 'ln' );
+						if(sd + 2 > LN10.length) {
+							ifExceptionsThrow(Decimal, 1, sd + 2, 'ln');
 						}
 
-						x = ln( x, sd - guard )['plus'](
-							new Decimal( LN10.slice( 0, sd + 2 ) )['times']( e + '' )
+						x = ln(x, sd - guard)['plus'](
+							new Decimal(LN10.slice(0, sd + 2))['times'](e + '')
 						);
 
 						Decimal['precision'] = precision;
 
-						return pr == null ? rnd( x, precision, rm, external = true ) : x;
+						return pr == null ? rnd(x, precision, rm, external = true) : x;
 					}
 
 					// x1 is x reduced to a value near 1.
@@ -20285,16 +20550,16 @@
 					 where
 					 x = (y - 1)/(y + 1)              ( |x| < 1 )
 					 */
-					sum = num = x = div( x['minus'](one), x['plus'](one), sd, 1 );
-					x2 = rnd( x['times'](x), sd, 1 );
+					sum = num = x = div(x['minus'](one), x['plus'](one), sd, 1);
+					x2 = rnd(x['times'](x), sd, 1);
 					denom = 3;
 
-					for ( ; ; ) {
-						num = rnd( num['times'](x2), sd, 1 );
-						t = sum['plus']( div( num, new Decimal(denom), sd, 1 ) );
+					for(; ;) {
+						num = rnd(num['times'](x2), sd, 1);
+						t = sum['plus'](div(num, new Decimal(denom), sd, 1));
 
-						if ( coefficientToString( t['c'] ).slice( 0, sd ) ===
-							coefficientToString( sum['c'] ).slice( 0, sd ) ) {
+						if(coefficientToString(t['c']).slice(0, sd) ===
+							coefficientToString(sum['c']).slice(0, sd)) {
 							sum = sum['times'](2);
 
 							/*
@@ -20302,18 +20567,18 @@
 							 preventing an unnecessary calculation, -0 + 0 = +0 and to ensure correct
 							 rounding later -0 needs to stay -0.
 							 */
-							if ( e !== 0 ) {
+							if(e !== 0) {
 
-								if ( sd + 2 > LN10.length ) {
-									ifExceptionsThrow( Decimal, 1, sd + 2, 'ln' );
+								if(sd + 2 > LN10.length) {
+									ifExceptionsThrow(Decimal, 1, sd + 2, 'ln');
 								}
 
 								sum = sum['plus'](
-									new Decimal( LN10.slice( 0, sd + 2 ) )['times']( e + '' )
+									new Decimal(LN10.slice(0, sd + 2))['times'](e + '')
 								);
 							}
 
-							sum = div( sum, new Decimal(n), sd, 1 );
+							sum = div(sum, new Decimal(n), sd, 1);
 
 							/*
 							 Is rm > 3 and the first 4 rounding digits 4999, or rm < 4 (or the summation has
@@ -20325,18 +20590,20 @@
 
 							 sd - guard is the index of first rounding digit.
 							 */
-							if ( pr == null ) {
+							if(pr == null) {
 
-								if ( checkRoundingDigits( sum['c'], sd - guard, rm, rep ) ) {
+								if(checkRoundingDigits(sum['c'], sd - guard, rm, rep)) {
 									Decimal['precision'] = sd += guard;
-									t = num = x = div( x1['minus'](one), x1['plus'](one), sd, 1 );
-									x2 = rnd( x['times'](x), sd, 1 );
+									t = num = x = div(x1['minus'](one), x1['plus'](one), sd, 1);
+									x2 = rnd(x['times'](x), sd, 1);
 									denom = rep = 1;
-								} else {
-
-									return rnd( sum, Decimal['precision'] = precision, rm, external = true );
 								}
-							} else {
+								else {
+
+									return rnd(sum, Decimal['precision'] = precision, rm, external = true);
+								}
+							}
+							else {
 								Decimal['precision'] = precision;
 
 								return sum;
@@ -20348,19 +20615,18 @@
 					}
 				}
 
-
 				/*
 				 * Round x to sd significant digits using rounding mode rm. Check for over/under-flow.
 				 */
-				function rnd( x, sd, rm, r ) {
+				function rnd(x, sd, rm, r) {
 					var digits, i, j, k, n, rd, xc, xci,
 						Decimal = x['constructor'];
 
 					// Don't round if sd is null or undefined.
-					r: if ( sd != i ) {
+					r: if(sd != i) {
 
 						// Infinity/NaN.
-						if ( !( xc = x['c'] ) ) {
+						if(!( xc = x['c'] )) {
 
 							return x;
 						}
@@ -20376,41 +20642,44 @@
 						 */
 
 						// Get the length of the first element of the coefficient array xc.
-						for ( digits = 1, k = xc[0]; k >= 10; k /= 10, digits++ );
+						for(digits = 1, k = xc[0]; k >= 10; k /= 10, digits++);
 
 						i = sd - digits;
 
 						// Is the rounding digit in the first element of xc?
-						if ( i < 0 ) {
+						if(i < 0) {
 							i += LOGBASE;
 							j = sd;
-							n = xc[ xci = 0 ];
+							n = xc[xci = 0];
 
 							// Get the rounding digit at index j of n.
-							rd = n / mathpow( 10, digits - j - 1 ) % 10 | 0;
-						} else {
-							xci = Math.ceil( ( i + 1 ) / LOGBASE );
+							rd = n / mathpow(10, digits - j - 1) % 10 | 0;
+						}
+						else {
+							xci = Math.ceil(( i + 1 ) / LOGBASE);
 
-							if ( xci >= xc.length ) {
+							if(xci >= xc.length) {
 
-								if (r) {
+								if(r) {
 
 									// Needed by exp, ln and sqrt.
-									for ( ; xc.length <= xci; xc.push(0) );
+									for(; xc.length <= xci; xc.push(0));
 
 									n = rd = 0;
 									digits = 1;
 									i %= LOGBASE;
 									j = i - LOGBASE + 1;
-								} else {
+								}
+								else {
 
 									break r;
 								}
-							} else {
+							}
+							else {
 								n = k = xc[xci];
 
 								// Get the number of digits of n.
-								for ( digits = 1; k >= 10; k /= 10, digits++ );
+								for(digits = 1; k >= 10; k /= 10, digits++);
 
 								// Get the index of rd within n.
 								i %= LOGBASE;
@@ -20421,13 +20690,13 @@
 
 								// Get the rounding digit at index j of n.
 								// Floor using Math.floor instead of | 0 as rd may be outside int range.
-								rd = j < 0 ? 0 : mathfloor( n / mathpow( 10, digits - j - 1 ) % 10 );
+								rd = j < 0 ? 0 : mathfloor(n / mathpow(10, digits - j - 1) % 10);
 							}
 						}
 
 						r = r || sd < 0 ||
 							// Are there any non-zero digits after the rounding digit?
-							xc[xci + 1] != null || ( j < 0 ? n : n % mathpow( 10, digits - j - 1 ) );
+						xc[xci + 1] != null || ( j < 0 ? n : n % mathpow(10, digits - j - 1) );
 
 						/*
 						 The expression  n % mathpow( 10, digits - j - 1 )  returns all the digits of n to the
@@ -20439,21 +20708,22 @@
 							? ( rd || r ) && ( rm == 0 || rm == ( x['s'] < 0 ? 3 : 2 ) )
 							: rd > 5 || rd == 5 && ( rm == 4 || r ||
 							// Check whether the digit to the left of the rounding digit is odd.
-							rm == 6 && ( ( i > 0 ? j > 0 ? n / mathpow( 10, digits - j ) : 0 : xc[xci - 1] ) % 10 ) & 1 ||
-							rm == ( x['s'] < 0 ? 8 : 7 ) );
+						rm == 6 && ( ( i > 0 ? j > 0 ? n / mathpow(10, digits - j) : 0 : xc[xci - 1] ) % 10 ) & 1 ||
+						rm == ( x['s'] < 0 ? 8 : 7 ) );
 
-						if ( sd < 1 || !xc[0] ) {
+						if(sd < 1 || !xc[0]) {
 							xc.length = 0;
 
-							if (r) {
+							if(r) {
 
 								// Convert sd to decimal places.
 								sd -= x['e'] + 1;
 
 								// 1, 0.1, 0.01, 0.001, 0.0001 etc.
-								xc[0] = mathpow( 10, sd % LOGBASE );
+								xc[0] = mathpow(10, sd % LOGBASE);
 								x['e'] = -sd || 0;
-							} else {
+							}
+							else {
 
 								// Zero.
 								xc[0] = x['e'] = 0;
@@ -20464,48 +20734,50 @@
 
 						// Remove excess digits.
 
-						if ( i == 0 ) {
+						if(i == 0) {
 							xc.length = xci;
 							k = 1;
 							xci--;
-						} else {
+						}
+						else {
 							xc.length = xci + 1;
-							k = mathpow( 10, LOGBASE - i );
+							k = mathpow(10, LOGBASE - i);
 
 							// E.g. 56700 becomes 56000 if 7 is the rounding digit.
 							// j > 0 means i > number of leading zeros of n.
-							xc[xci] = j > 0 ? ( n / mathpow( 10, digits - j ) % mathpow( 10, j ) | 0 ) * k : 0;
+							xc[xci] = j > 0 ? ( n / mathpow(10, digits - j) % mathpow(10, j) | 0 ) * k : 0;
 						}
 
 						// Round up?
-						if (r) {
+						if(r) {
 
-							for ( ; ; ) {
+							for(; ;) {
 
 								// Is the digit to be rounded up in the first element of xc.
-								if ( xci == 0 ) {
+								if(xci == 0) {
 
 									// i will be the length of xc[0] before k is added.
-									for ( i = 1, j = xc[0]; j >= 10; j /= 10, i++ );
+									for(i = 1, j = xc[0]; j >= 10; j /= 10, i++);
 
 									j = xc[0] += k;
 
-									for ( k = 1; j >= 10; j /= 10, k++ );
+									for(k = 1; j >= 10; j /= 10, k++);
 
 									// if i != k the length has increased.
-									if ( i != k ) {
+									if(i != k) {
 										x['e']++;
 
-										if ( xc[0] == BASE ) {
+										if(xc[0] == BASE) {
 											xc[0] = 1;
 										}
 									}
 
 									break;
-								} else {
+								}
+								else {
 									xc[xci] += k;
 
-									if ( xc[xci] != BASE ) {
+									if(xc[xci] != BASE) {
 
 										break;
 									}
@@ -20517,34 +20789,33 @@
 						}
 
 						// Remove trailing zeros.
-						for ( i = xc.length; xc[--i] === 0; xc.pop() );
+						for(i = xc.length; xc[--i] === 0; xc.pop());
 					}
 
-					if (external) {
+					if(external) {
 
 						// Overflow?
-						if ( x['e'] > Decimal['maxE'] ) {
+						if(x['e'] > Decimal['maxE']) {
 
 							// Infinity.
 							x['c'] = x['e'] = null;
 
 							// Underflow?
-						} else if ( x['e'] < Decimal['minE'] ) {
+						}
+						else if(x['e'] < Decimal['minE']) {
 
 							// Zero.
-							x['c'] = [ x['e'] = 0 ];
+							x['c'] = [x['e'] = 0];
 						}
 					}
 
 					return x;
 				}
 
-
-				DecimalConstructor = (function () {
+				DecimalConstructor = (function() {
 
 
 					// Private functions used by static Decimal methods.
-
 
 					/*
 					 *  The following emulations or wrappers of Math object functions are currently
@@ -20564,7 +20835,6 @@
 					 *  trunc
 					 */
 
-
 					/*
 					 * Return a new Decimal whose value is the absolute value of n.
 					 *
@@ -20572,7 +20842,6 @@
 					 *
 					 function abs(n) { return new this(n)['abs']() }
 					 */
-
 
 					/*
 					 * Return a new Decimal whose value is the arccosine in radians of n.
@@ -20582,7 +20851,6 @@
 					 function acos(n) { return new this( Math.acos(n) + '' ) }
 					 */
 
-
 					/*
 					 * Return a new Decimal whose value is the arcsine in radians of n.
 					 *
@@ -20591,7 +20859,6 @@
 					 function asin(n) { return new this( Math.asin(n) + '' ) }
 					 */
 
-
 					/*
 					 * Return a new Decimal whose value is the arctangent in radians of n.
 					 *
@@ -20599,7 +20866,6 @@
 					 *
 					 function atan(n) { return new this( Math.atan(n) + '' ) }
 					 */
-
 
 					/*
 					 * Return a new Decimal whose value is the arctangent in radians of y/x in the range
@@ -20611,7 +20877,6 @@
 					 function atan2( y, x ) { return new this( Math.atan2( y, x ) + '' ) }
 					 */
 
-
 					/*
 					 * Return a new Decimal whose value is n round to an integer using ROUND_CEIL.
 					 *
@@ -20619,7 +20884,6 @@
 					 *
 					 function ceil(n) { return new this(n)['ceil']() }
 					 */
-
 
 					/*
 					 * Configure global settings for a Decimal constructor.
@@ -20646,131 +20910,138 @@
 							c = 'config',
 							parse = Decimal['errors'] ? parseInt : parseFloat;
 
-						if ( obj == u || typeof obj != 'object' &&
-							!ifExceptionsThrow( Decimal, 'object expected', obj, c ) ) {
+						if(obj == u || typeof obj != 'object' && !ifExceptionsThrow(Decimal, 'object expected', obj, c)) {
 
 							return Decimal;
 						}
 
 						// precision {number|number[]} Integer, 1 to MAX_DIGITS inclusive.
-						if ( ( v = obj[ p = 'precision' ] ) != u ) {
+						if(( v = obj[p = 'precision'] ) != u) {
 
-							if ( !( outOfRange = v < 1 || v > MAX_DIGITS ) && parse(v) == v ) {
+							if(!( outOfRange = v < 1 || v > MAX_DIGITS ) && parse(v) == v) {
 								Decimal[p] = v | 0;
-							} else {
+							}
+							else {
 
 								// 'config() precision not an integer: {v}'
 								// 'config() precision out of range: {v}'
-								ifExceptionsThrow( Decimal, p, v, c, 0 );
+								ifExceptionsThrow(Decimal, p, v, c, 0);
 							}
 						}
 
 						// rounding {number} Integer, 0 to 8 inclusive.
-						if ( ( v = obj[ p = 'rounding' ] ) != u ) {
+						if(( v = obj[p = 'rounding'] ) != u) {
 
-							if ( !( outOfRange = v < 0 || v > 8 ) && parse(v) == v ) {
+							if(!( outOfRange = v < 0 || v > 8 ) && parse(v) == v) {
 								Decimal[p] = v | 0;
-							} else {
+							}
+							else {
 
 								// 'config() rounding not an integer: {v}'
 								// 'config() rounding out of range: {v}'
-								ifExceptionsThrow( Decimal, p, v, c, 0 );
+								ifExceptionsThrow(Decimal, p, v, c, 0);
 							}
 						}
 
 						// toExpNeg {number} Integer, -EXP_LIMIT to 0 inclusive.
-						if ( ( v = obj[ p = 'toExpNeg' ] ) != u ) {
+						if(( v = obj[p = 'toExpNeg'] ) != u) {
 
-							if ( !( outOfRange = v < -EXP_LIMIT || v > 0 ) && parse(v) == v ) {
+							if(!( outOfRange = v < -EXP_LIMIT || v > 0 ) && parse(v) == v) {
 								Decimal[p] = mathfloor(v);
-							} else {
+							}
+							else {
 
 								// 'config() toExpNeg not an integer: {v}'
 								// 'config() toExpNeg out of range: {v}'
-								ifExceptionsThrow( Decimal, p, v, c, 0 );
+								ifExceptionsThrow(Decimal, p, v, c, 0);
 							}
 						}
 
 						// toExpPos {number} Integer, 0 to EXP_LIMIT inclusive.
-						if ( ( v = obj[ p = 'toExpPos' ] ) != u ) {
+						if(( v = obj[p = 'toExpPos'] ) != u) {
 
-							if ( !( outOfRange = v < 0 || v > EXP_LIMIT ) && parse(v) == v ) {
+							if(!( outOfRange = v < 0 || v > EXP_LIMIT ) && parse(v) == v) {
 								Decimal[p] = mathfloor(v);
-							} else {
+							}
+							else {
 
 								// 'config() toExpPos not an integer: {v}'
 								// 'config() toExpPos out of range: {v}'
-								ifExceptionsThrow( Decimal, p, v, c, 0 );
+								ifExceptionsThrow(Decimal, p, v, c, 0);
 							}
 						}
 
 						// minE {number} Integer, -EXP_LIMIT to 0 inclusive.
-						if ( ( v = obj[ p = 'minE' ] ) != u ) {
+						if(( v = obj[p = 'minE'] ) != u) {
 
-							if ( !( outOfRange = v < -EXP_LIMIT || v > 0 ) && parse(v) == v ) {
+							if(!( outOfRange = v < -EXP_LIMIT || v > 0 ) && parse(v) == v) {
 								Decimal[p] = mathfloor(v);
-							} else {
+							}
+							else {
 
 								// 'config() minE not an integer: {v}'
 								// 'config() minE out of range: {v}'
-								ifExceptionsThrow( Decimal, p, v, c, 0 );
+								ifExceptionsThrow(Decimal, p, v, c, 0);
 							}
 						}
 
 						// maxE {number} Integer, 0 to EXP_LIMIT inclusive.
-						if ( ( v = obj[ p = 'maxE' ] ) != u ) {
+						if(( v = obj[p = 'maxE'] ) != u) {
 
-							if ( !( outOfRange = v < 0 || v > EXP_LIMIT ) && parse(v) == v ) {
+							if(!( outOfRange = v < 0 || v > EXP_LIMIT ) && parse(v) == v) {
 								Decimal[p] = mathfloor(v);
-							} else {
+							}
+							else {
 
 								// 'config() maxE not an integer: {v}'
 								// 'config() maxE out of range: {v}'
-								ifExceptionsThrow( Decimal, p, v, c, 0 );
+								ifExceptionsThrow(Decimal, p, v, c, 0);
 							}
 						}
 
 						// errors {boolean|number} true, false, 1 or 0.
-						if ( ( v = obj[ p = 'errors' ] ) != u ) {
+						if(( v = obj[p = 'errors'] ) != u) {
 
-							if ( v === !!v || v === 1 || v === 0 ) {
+							if(v === !!v || v === 1 || v === 0) {
 								outOfRange = id = 0;
 								Decimal[p] = !!v;
-							} else {
+							}
+							else {
 
 								// 'config() errors not a boolean or binary digit: {v}'
-								ifExceptionsThrow( Decimal, p, v, c, 1 );
+								ifExceptionsThrow(Decimal, p, v, c, 1);
 							}
 						}
 
 						// crypto {boolean|number} true, false, 1 or 0.
-						if ( ( v = obj[ p = 'crypto' ] ) != u ) {
+						if(( v = obj[p = 'crypto'] ) != u) {
 
-							if ( v === !!v || v === 1 || v === 0 ) {
+							if(v === !!v || v === 1 || v === 0) {
 								Decimal[p] = !!( v && crypto && typeof crypto == 'object' );
-							} else {
+							}
+							else {
 
 								// 'config() crypto not a boolean or binary digit: {v}'
-								ifExceptionsThrow( Decimal, p, v, c, 1 );
+								ifExceptionsThrow(Decimal, p, v, c, 1);
 							}
 						}
 
 						// modulo {number} Integer, 0 to 9 inclusive.
-						if ( ( v = obj[ p = 'modulo' ] ) != u ) {
+						if(( v = obj[p = 'modulo'] ) != u) {
 
-							if ( !( outOfRange = v < 0 || v > 9 ) && parse(v) == v ) {
+							if(!( outOfRange = v < 0 || v > 9 ) && parse(v) == v) {
 								Decimal[p] = v | 0;
-							} else {
+							}
+							else {
 
 								// 'config() modulo not an integer: {v}'
 								// 'config() modulo out of range: {v}'
-								ifExceptionsThrow( Decimal, p, v, c, 0 );
+								ifExceptionsThrow(Decimal, p, v, c, 0);
 							}
 						}
 
 						return Decimal;
 					}
-
 
 					/*
 					 * Return a new Decimal whose value is the cosine of n.
@@ -20780,15 +21051,15 @@
 					 function cos(n) { return new this( Math.cos(n) + '' ) }
 					 */
 
-
 					/*
 					 * Return a new Decimal whose value is the exponential of n,
 					 *
 					 * n {number|string|Decimal} The power to which to raise the base of the natural log.
 					 *
 					 */
-					function exp(n) { return new this(n)['exp']() }
-
+					function exp(n) {
+						return new this(n)['exp']()
+					}
 
 					/*
 					 * Return a new Decimal whose value is n round to an integer using ROUND_FLOOR.
@@ -20798,15 +21069,15 @@
 					 function floor(n) { return new this(n)['floor']() }
 					 */
 
-
 					/*
 					 * Return a new Decimal whose value is the natural logarithm of n.
 					 *
 					 * n {number|string|Decimal}
 					 *
 					 */
-					function ln(n) { return new this(n)['ln']() }
-
+					function ln(n) {
+						return new this(n)['ln']()
+					}
 
 					/*
 					 * Return a new Decimal whose value is the log of x to the base y, or to base 10 if no
@@ -20818,30 +21089,32 @@
 					 * y {number|string|Decimal} The base of the logarithm.
 					 *
 					 */
-					function log( x, y ) { return new this(x)['log'](y) }
-
+					function log(x, y) {
+						return new this(x)['log'](y)
+					}
 
 					/*
 					 * Handle max and min. ltgt is 'lt' or 'gt'.
 					 */
-					function maxOrMin( Decimal, args, ltgt ) {
+					function maxOrMin(Decimal, args, ltgt) {
 						var m, n,
 							i = 0;
 
-						if ( toString.call( args[0] ) == '[object Array]' ) {
+						if(toString.call(args[0]) == '[object Array]') {
 							args = args[0];
 						}
 
-						m = new Decimal( args[0] );
+						m = new Decimal(args[0]);
 
-						for ( ; ++i < args.length; ) {
-							n = new Decimal( args[i] );
+						for(; ++i < args.length;) {
+							n = new Decimal(args[i]);
 
-							if ( !n['s'] ) {
+							if(!n['s']) {
 								m = n;
 
 								break;
-							} else if ( m[ltgt](n) ) {
+							}
+							else if(m[ltgt](n)) {
 								m = n;
 							}
 						}
@@ -20849,15 +21122,15 @@
 						return m;
 					}
 
-
 					/*
 					 * Return a new Decimal whose value is the maximum of the arguments.
 					 *
 					 * arguments {number|string|Decimal}
 					 *
 					 */
-					function max() { return maxOrMin( this, arguments, 'lt' ) }
-
+					function max() {
+						return maxOrMin(this, arguments, 'lt')
+					}
 
 					/*
 					 * Return a new Decimal whose value is the minimum of the arguments.
@@ -20865,108 +21138,114 @@
 					 * arguments {number|string|Decimal}
 					 *
 					 */
-					function min() { return maxOrMin( this, arguments, 'gt' ) }
-
+					function min() {
+						return maxOrMin(this, arguments, 'gt')
+					}
 
 					/*
 					 * Parse the value of a new Decimal from a number or string.
 					 */
-					var parseDecimal = (function () {
+					var parseDecimal = (function() {
 						var isValid = /^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i,
-							trim = String.prototype.trim || function () {return this.replace(/^\s+|\s+$/g, '')};
+							trim = String.prototype.trim || function() {
+									return this.replace(/^\s+|\s+$/g, '')
+								};
 
-						return function ( Decimal, x, n, b ) {
+						return function(Decimal, x, n, b) {
 							var d, e, i, isNum, orig, valid;
 
-							if ( typeof n != 'string' ) {
+							if(typeof n != 'string') {
 
 								// TODO: modify so regex test below is avoided if type is number.
 								// If n is a number, check if minus zero.
 								n = ( isNum = typeof n == 'number' || toString.call(n) == '[object Number]' ) &&
-									n === 0 && 1 / n < 0 ? '-0' : n + '';
+								n === 0 && 1 / n < 0 ? '-0' : n + '';
 							}
 							orig = n;
 
-							if ( b == e && isValid.test(n) ) {
+							if(b == e && isValid.test(n)) {
 
 								// Determine sign.
 								x['s'] = n.charAt(0) == '-' ? ( n = n.slice(1), -1 ) : 1;
 
 								// Either n is not a valid Decimal or a base has been specified.
-							} else {
+							}
+							else {
 
 								/*
 								 Enable exponential notation to be used with base 10 argument.
 								 Ensure return value is rounded to precision as with other bases.
 								 */
-								if ( b == 10 ) {
+								if(b == 10) {
 
-									return rnd( new Decimal(n), Decimal['precision'], Decimal['rounding'] );
+									return rnd(new Decimal(n), Decimal['precision'], Decimal['rounding']);
 								}
 
-								n = trim.call(n).replace( /^\+(?!-)/, '' );
+								n = trim.call(n).replace(/^\+(?!-)/, '');
 
-								x['s'] = n.charAt(0) == '-' ? ( n = n.replace( /^-(?!-)/, '' ), -1 ) : 1;
+								x['s'] = n.charAt(0) == '-' ? ( n = n.replace(/^-(?!-)/, ''), -1 ) : 1;
 
-								if ( b != e ) {
+								if(b != e) {
 
-									if ( ( b == (b | 0) || !Decimal['errors'] ) &&
-										!( outOfRange = !( b >= 2 && b < 65 ) ) ) {
-										d = '[' + NUMERALS.slice( 0, b = b | 0 ) + ']+';
+									if(( b == (b | 0) || !Decimal['errors'] ) && !( outOfRange = !( b >= 2 && b < 65 ) )) {
+										d = '[' + NUMERALS.slice(0, b = b | 0) + ']+';
 
 										// Remove the `.` from e.g. '1.', and replace e.g. '.1' with '0.1'.
-										n = n.replace( /\.$/, '' ).replace( /^\./, '0.' );
+										n = n.replace(/\.$/, '').replace(/^\./, '0.');
 
 										// Any number in exponential form will fail due to the e+/-.
-										if ( valid = new RegExp(
-												'^' + d + '(?:\\.' + d + ')?$', b < 37 ? 'i' : '' ).test(n)
-											) {
+										if(valid = new RegExp(
+												'^' + d + '(?:\\.' + d + ')?$', b < 37 ? 'i' : '').test(n)
+										) {
 
-											if (isNum) {
+											if(isNum) {
 
-												if ( n.replace( /^0\.0*|\./, '' ).length > 15 ) {
+												if(n.replace(/^0\.0*|\./, '').length > 15) {
 
 													// '{method} number type has more than 15 significant digits: {n}'
-													ifExceptionsThrow( Decimal, 0, orig );
+													ifExceptionsThrow(Decimal, 0, orig);
 												}
 
 												// Prevent later check for length on converted number.
 												isNum = !isNum;
 											}
-											n = convertBase( Decimal, n, 10, b, x['s'] );
+											n = convertBase(Decimal, n, 10, b, x['s']);
 
-										} else if ( n != 'Infinity' && n != 'NaN' ) {
+										}
+										else if(n != 'Infinity' && n != 'NaN') {
 
 											// '{method} not a base {b} number: {n}'
-											ifExceptionsThrow( Decimal, 'not a base ' + b + ' number', orig );
+											ifExceptionsThrow(Decimal, 'not a base ' + b + ' number', orig);
 											n = 'NaN';
 										}
-									} else {
+									}
+									else {
 
 										// '{method} base not an integer: {b}'
 										// '{method} base out of range: {b}'
-										ifExceptionsThrow( Decimal, 'base', b, 0, 0 );
+										ifExceptionsThrow(Decimal, 'base', b, 0, 0);
 
 										// Ignore base.
 										valid = isValid.test(n);
 									}
-								} else {
+								}
+								else {
 									valid = isValid.test(n);
 								}
 
-								if ( !valid ) {
+								if(!valid) {
 
 									// Infinity/NaN
 									x['c'] = x['e'] = null;
 
 									// NaN
-									if ( n != 'Infinity' ) {
+									if(n != 'Infinity') {
 
 										// No exception on NaN.
-										if ( n != 'NaN' ) {
+										if(n != 'NaN') {
 
 											// '{method} not a number: {n}'
-											ifExceptionsThrow( Decimal, 'not a number', orig );
+											ifExceptionsThrow(Decimal, 'not a number', orig);
 										}
 										x['s'] = null;
 									}
@@ -20977,42 +21256,43 @@
 							}
 
 							// Decimal point?
-							if ( ( e = n.indexOf('.') ) > -1 ) {
-								n = n.replace( '.', '' );
+							if(( e = n.indexOf('.') ) > -1) {
+								n = n.replace('.', '');
 							}
 
 							// Exponential form?
-							if ( ( i = n.search( /e/i ) ) > 0 ) {
+							if(( i = n.search(/e/i) ) > 0) {
 
 								// Determine exponent.
-								if ( e < 0 ) {
+								if(e < 0) {
 									e = i;
 								}
-								e += +n.slice( i + 1 );
-								n = n.substring( 0, i );
+								e += +n.slice(i + 1);
+								n = n.substring(0, i);
 
-							} else if ( e < 0 ) {
+							}
+							else if(e < 0) {
 
 								// Integer.
 								e = n.length;
 							}
 
 							// Determine leading zeros.
-							for ( i = 0; n.charAt(i) == '0'; i++ );
+							for(i = 0; n.charAt(i) == '0'; i++);
 
 							// Determine trailing zeros.
-							for ( b = n.length; n.charAt(--b) == '0'; );
+							for(b = n.length; n.charAt(--b) == '0';);
 
-							n = n.slice( i, b + 1 );
+							n = n.slice(i, b + 1);
 
-							if (n) {
+							if(n) {
 								b = n.length;
 
 								// Disallow numbers with over 15 significant digits if number type.
-								if ( isNum && b > 15 ) {
+								if(isNum && b > 15) {
 
 									// '{method} number type has more than 15 significant digits: {n}'
-									ifExceptionsThrow( Decimal, 0, orig );
+									ifExceptionsThrow(Decimal, 0, orig);
 								}
 
 								x['e'] = e = e - i - 1;
@@ -21024,56 +21304,58 @@
 								// i is where to slice n to get the first element of the coefficient array.
 								i = ( e + 1 ) % LOGBASE;
 
-								if ( e < 0 ) {
+								if(e < 0) {
 									i += LOGBASE;
 								}
 
 								// b is n.length.
-								if ( i < b ) {
+								if(i < b) {
 
-									if (i) {
-										x['c'].push( +n.slice( 0, i ) );
+									if(i) {
+										x['c'].push(+n.slice(0, i));
 									}
 
-									for ( b -= LOGBASE; i < b; ) {
-										x['c'].push( +n.slice( i, i += LOGBASE ) );
+									for(b -= LOGBASE; i < b;) {
+										x['c'].push(+n.slice(i, i += LOGBASE));
 									}
 
 									n = n.slice(i);
 									i = LOGBASE - n.length;
-								} else {
+								}
+								else {
 									i -= b;
 								}
 
-								for ( ; i--; n += '0' );
+								for(; i--; n += '0');
 
-								x['c'].push( +n );
+								x['c'].push(+n);
 
-								if (external) {
+								if(external) {
 
 									// Overflow?
-									if ( x['e'] > Decimal['maxE'] ) {
+									if(x['e'] > Decimal['maxE']) {
 
 										// Infinity.
 										x['c'] = x['e'] = null;
 
 										// Underflow?
-									} else if ( x['e'] < Decimal['minE'] ) {
+									}
+									else if(x['e'] < Decimal['minE']) {
 
 										// Zero.
-										x['c'] = [ x['e'] = 0 ];
+										x['c'] = [x['e'] = 0];
 									}
 								}
-							} else {
+							}
+							else {
 
 								// Zero.
-								x['c'] = [ x['e'] = 0 ];
+								x['c'] = [x['e'] = 0];
 							}
 
 							id = 0;
 						}
 					})();
-
 
 					/*
 					 * Return a new Decimal whose value is x raised to the power y.
@@ -21082,8 +21364,9 @@
 					 * y {number|string|Decimal} The exponent.
 					 *
 					 */
-					function pow( x, y ) { return new this(x)['pow'](y) }
-
+					function pow(x, y) {
+						return new this(x)['pow'](y)
+					}
 
 					/*
 					 * Returns a new Decimal with a random value equal to or greater than 0 and less than 1, and
@@ -21098,32 +21381,34 @@
 							i = 0,
 							r = [],
 							Decimal = this,
-							rand = new Decimal( Decimal['ONE'] );
+							rand = new Decimal(Decimal['ONE']);
 
-						if ( dp == null || !checkArg( rand, dp, 'random' ) ) {
+						if(dp == null || !checkArg(rand, dp, 'random')) {
 							dp = Decimal['precision'];
-						} else {
+						}
+						else {
 							dp |= 0;
 						}
 
-						n = Math.ceil( dp / LOGBASE );
+						n = Math.ceil(dp / LOGBASE);
 
-						if ( Decimal['crypto'] ) {
+						if(Decimal['crypto']) {
 
 							// Browsers supporting crypto.getRandomValues.
-							if ( crypto && crypto['getRandomValues'] ) {
+							if(crypto && crypto['getRandomValues']) {
 
-								a = crypto['getRandomValues']( new Uint32Array(n) );
+								a = crypto['getRandomValues'](new Uint32Array(n));
 
-								for ( ; i < n; ) {
+								for(; i < n;) {
 									v = a[i];
 
 									// 0 >= v < 4294967296
 									// Probability that v >= 4.29e9, is 4967296 / 4294967296 = 0.00116 (1 in 865).
-									if ( v >= 4.29e9 ) {
+									if(v >= 4.29e9) {
 
-										a[i] = crypto['getRandomValues']( new Uint32Array(1) )[0];
-									} else {
+										a[i] = crypto['getRandomValues'](new Uint32Array(1))[0];
+									}
+									else {
 
 										// 0 <= v <= 4289999999
 										// 0 <= ( v % 1e7 ) <= 9999999
@@ -21132,39 +21417,42 @@
 								}
 
 								// Node.js supporting crypto.randomBytes.
-							} else if ( crypto && crypto['randomBytes'] ) {
+							}
+							else if(crypto && crypto['randomBytes']) {
 
 								// buffer
-								a = crypto['randomBytes']( n *= 4 );
+								a = crypto['randomBytes'](n *= 4);
 
-								for ( ; i < n; ) {
+								for(; i < n;) {
 
 									// 0 <= v < 2147483648
 									v = a[i] + ( a[i + 1] << 8 ) + ( a[i + 2] << 16 ) +
-										( ( a[i + 3] & 0x7f ) << 24 );
+									( ( a[i + 3] & 0x7f ) << 24 );
 
 									// Probability that v >= 2.14e9, is 7483648 / 2147483648 = 0.0035 (1 in 286).
-									if ( v >= 2.14e9 ) {
-										crypto['randomBytes'](4).copy( a, i );
-									} else {
+									if(v >= 2.14e9) {
+										crypto['randomBytes'](4).copy(a, i);
+									}
+									else {
 
 										// 0 <= v <= 4289999999
 										// 0 <= ( v % 1e7 ) <= 9999999
-										r.push( v % 1e7 );
+										r.push(v % 1e7);
 										i += 4;
 									}
 								}
 								i = n / 4;
 
-							} else {
-								ifExceptionsThrow( Decimal, 'crypto unavailable', crypto, 'random' );
+							}
+							else {
+								ifExceptionsThrow(Decimal, 'crypto unavailable', crypto, 'random');
 							}
 						}
 
 						// Use Math.random: either Decimal.crypto is false or crypto is unavailable and errors is false.
-						if (!i) {
+						if(!i) {
 
-							for ( ; i < n; ) {
+							for(; i < n;) {
 								r[i++] = Math.random() * 1e7 | 0;
 							}
 						}
@@ -21173,36 +21461,37 @@
 						dp %= LOGBASE;
 
 						// Convert trailing digits to zeros according to dp.
-						if ( n && dp ) {
-							v = mathpow( 10, LOGBASE - dp );
+						if(n && dp) {
+							v = mathpow(10, LOGBASE - dp);
 							r[i] = ( n / v | 0 ) * v;
 						}
 
 						// Remove trailing elements which are zero.
-						for ( ; r[i] === 0; i-- ) {
+						for(; r[i] === 0; i--) {
 							r.pop();
 						}
 
 						// Zero?
-						if ( i < 0 ) {
-							r = [ n = 0 ];
-						} else {
+						if(i < 0) {
+							r = [n = 0];
+						}
+						else {
 							n = -1;
 
 							// Remove leading elements which are zero and adjust exponent accordingly.
-							for ( ; r[0] === 0; ) {
+							for(; r[0] === 0;) {
 								r.shift();
 								n -= LOGBASE;
 							}
 
 							// Count the digits of the first element of r to determine leading zeros.
-							for ( i = 1, v = r[0]; v >= 10; ) {
+							for(i = 1, v = r[0]; v >= 10;) {
 								v /= 10;
 								i++;
 							}
 
 							// Adjust the exponent for leading zeros of the first element of r.
-							if ( i < LOGBASE ) {
+							if(i < LOGBASE) {
 								n -= LOGBASE - i;
 							}
 						}
@@ -21212,7 +21501,6 @@
 
 						return rand;
 					}
-
 
 					/*
 					 * Return a new Decimal whose value is n round to an integer using rounding mode rounding.
@@ -21228,7 +21516,6 @@
 					 }
 					 */
 
-
 					/*
 					 * Return a new Decimal whose value is the sine of n.
 					 *
@@ -21237,15 +21524,15 @@
 					 function sin(n) { return new this( Math.sin(n) + '' ) }
 					 */
 
-
 					/*
 					 * Return a new Decimal whose value is the square root of n.
 					 *
 					 * n {number|string|Decimal}
 					 *
 					 */
-					function sqrt(n) { return new this(n)['sqrt']() }
-
+					function sqrt(n) {
+						return new this(n)['sqrt']()
+					}
 
 					/*
 					 * Return a new Decimal whose value is the tangent of n.
@@ -21255,7 +21542,6 @@
 					 function tan(n) { return new this( Math.tan(n) + '' ) }
 					 */
 
-
 					/*
 					 * Return a new Decimal whose value is n truncated to an integer.
 					 *
@@ -21263,7 +21549,6 @@
 					 *
 					 function trunc(n) { return new this(n)['trunc']() }
 					 */
-
 
 					/*
 					 * Create and return a new Decimal constructor.
@@ -21279,20 +21564,20 @@
 						 * [b] {number} The base of n. Integer, 2 to 64 inclusive.
 						 *
 						 */
-						function Decimal( n, b ) {
+						function Decimal(n, b) {
 							var x = this;
 
 							// Constructor called without new.
-							if ( !( x instanceof Decimal ) ) {
-								ifExceptionsThrow( Decimal, 'Decimal called without new', n );
+							if(!( x instanceof Decimal )) {
+								ifExceptionsThrow(Decimal, 'Decimal called without new', n);
 
-								return new Decimal( n, b );
+								return new Decimal(n, b);
 							}
 
 							// Duplicate.
-							if ( n instanceof Decimal ) {
+							if(n instanceof Decimal) {
 
-								if ( b == null ) {
+								if(b == null) {
 									id = 0;
 									x['constructor'] = n['constructor'];
 									x['s'] = n['s'];
@@ -21300,17 +21585,18 @@
 									x['c'] = ( n = n['c'] ) ? n.slice() : n;
 
 									return;
-								} else if ( b == 10 ) {
+								}
+								else if(b == 10) {
 
-									return rnd( new Decimal(n), Decimal['precision'], Decimal['rounding'] );
-								} else {
+									return rnd(new Decimal(n), Decimal['precision'], Decimal['rounding']);
+								}
+								else {
 									n += '';
 								}
 							}
 
-							return parseDecimal( x['constructor'] = Decimal, x, n, b );
+							return parseDecimal(x['constructor'] = Decimal, x, n, b);
 						}
-
 
 						/* ************************ CONSTRUCTOR DEFAULT PROPERTIES *****************************
 
@@ -21387,9 +21673,7 @@
 						// Whether to use cryptographically-secure random number generation, if available.
 						Decimal['crypto'] = false;                        // true/false
 
-
 						/* ********************** END OF CONSTRUCTOR DEFAULT PROPERTIES ********************* */
-
 
 						Decimal.prototype = P;
 
@@ -21439,7 +21723,7 @@
 						Decimal['sqrt'] = sqrt;
 						Decimal['random'] = random;
 
-						if ( obj != null ) {
+						if(obj != null) {
 							Decimal['config'](obj);
 						}
 
@@ -21449,33 +21733,34 @@
 					return DecimalFactory();
 				})();
 
-
 				// Export.
 
-
 				// AMD.
-				if ( true ) {
+				if(true) {
 
-					!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+					!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
 						return DecimalConstructor;
 					}.call(exports, __webpack_require__, exports, module)), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 					// Node and other environments that support module.exports.
-				} else if ( typeof module != 'undefined' && module.exports ) {
+				}
+				else if(typeof module != 'undefined' && module.exports) {
 					module.exports = DecimalConstructor;
 
-					if ( !crypto ) {
+					if(!crypto) {
 
 						try {
 							crypto = require('crypto');
-						} catch (e) {}
+						} catch(e) {
+						}
 					}
 
 					// Browser.
-				} else {
+				}
+				else {
 					noConflict = global['Decimal'];
 
-					DecimalConstructor['noConflict'] = function () {
+					DecimalConstructor['noConflict'] = function() {
 						global['Decimal'] = noConflict;
 
 						return DecimalConstructor;
@@ -21486,8 +21771,8 @@
 
 			})(this);
 
-
-			/***/ },
+			/***/
+		},
 		/* 140 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -21503,7 +21788,7 @@
 			 * @extends Error
 			 */
 			function ArgumentsError(fn, count, min, max) {
-				if (!(this instanceof ArgumentsError)) {
+				if(!(this instanceof ArgumentsError)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
@@ -21513,8 +21798,8 @@
 				this.max = max;
 
 				this.message = 'Wrong number of arguments in function ' + fn +
-					' (' + count + ' provided, ' +
-					min + ((max != undefined) ? ('-' + max) : '') + ' expected)';
+				' (' + count + ' provided, ' +
+				min + ((max != undefined) ? ('-' + max) : '') + ' expected)';
 
 				this.stack = (new Error()).stack;
 			}
@@ -21525,8 +21810,8 @@
 
 			module.exports = ArgumentsError;
 
-
-			/***/ },
+			/***/
+		},
 		/* 141 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -21542,19 +21827,19 @@
 			 * @extends RangeError
 			 */
 			function DimensionError(actual, expected, relation) {
-				if (!(this instanceof DimensionError)) {
+				if(!(this instanceof DimensionError)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
-				this.actual   = actual;
+				this.actual = actual;
 				this.expected = expected;
 				this.relation = relation;
 
 				this.message = 'Dimension mismatch (' +
-					(Array.isArray(actual) ? ('[' + actual.join(', ') + ']') : actual) +
-					' ' + (this.relation || '!=') + ' ' +
-					(Array.isArray(expected) ? ('[' + expected.join(', ') + ']') : expected) +
-					')';
+				(Array.isArray(actual) ? ('[' + actual.join(', ') + ']') : actual) +
+				' ' + (this.relation || '!=') + ' ' +
+				(Array.isArray(expected) ? ('[' + expected.join(', ') + ']') : expected) +
+				')';
 
 				this.stack = (new Error()).stack;
 			}
@@ -21565,8 +21850,8 @@
 
 			module.exports = DimensionError;
 
-
-			/***/ },
+			/***/
+		},
 		/* 142 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -21583,12 +21868,12 @@
 			 * @extends RangeError
 			 */
 			function IndexError(index, min, max) {
-				if (!(this instanceof IndexError)) {
+				if(!(this instanceof IndexError)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				this.index = index;
-				if (arguments.length < 3) {
+				if(arguments.length < 3) {
 					this.min = 0;
 					this.max = min;
 				}
@@ -21597,10 +21882,10 @@
 					this.max = max;
 				}
 
-				if (this.min !== undefined && this.index < this.min) {
+				if(this.min !== undefined && this.index < this.min) {
 					this.message = 'Index out of range (' + this.index + ' < ' + this.min + ')';
 				}
-				else if (this.max !== undefined && this.index >= this.max) {
+				else if(this.max !== undefined && this.index >= this.max) {
 					this.message = 'Index out of range (' + this.index + ' > ' + (this.max - 1) + ')';
 				}
 				else {
@@ -21616,8 +21901,8 @@
 
 			module.exports = IndexError;
 
-
-			/***/ },
+			/***/
+		},
 		/* 143 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -21631,18 +21916,18 @@
 			 * @extends TypeError
 			 */
 			function UnsupportedTypeError(fn, types) {
-				if (!(this instanceof UnsupportedTypeError)) {
+				if(!(this instanceof UnsupportedTypeError)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				this.fn = fn;
 				this.types = Array.prototype.splice.call(arguments, 1);
 
-				if (!fn) {
+				if(!fn) {
 					this.message = 'Unsupported type of argument';
 				}
 				else {
-					if (this.types.length == 0) {
+					if(this.types.length == 0) {
 						this.message = 'Unsupported type of argument in function ' + fn;
 					}
 					else {
@@ -21659,8 +21944,8 @@
 
 			module.exports = UnsupportedTypeError;
 
-
-			/***/ },
+			/***/
+		},
 		/* 144 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -21674,8 +21959,8 @@
 			exports.string = __webpack_require__(160);
 			exports.types = __webpack_require__(180);
 
-
-			/***/ },
+			/***/
+		},
 		/* 145 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -21697,14 +21982,14 @@
 			 * @param {Node[]} [nodes]   1 dimensional array with nodes
 			 */
 			function ArrayNode(nodes) {
-				if (!(this instanceof ArrayNode)) {
+				if(!(this instanceof ArrayNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				this.nodes = nodes || [];
 
 				// validate input
-				if (!isArray(this.nodes) || !this.nodes.every(isNode)) {
+				if(!isArray(this.nodes) || !this.nodes.every(isNode)) {
 					throw new TypeError('Array containing Nodes expected')
 				}
 			}
@@ -21720,10 +22005,10 @@
 			 *                          expression
 			 * @private
 			 */
-			ArrayNode.prototype._compile = function (defs) {
+			ArrayNode.prototype._compile = function(defs) {
 				var asMatrix = (defs.math.config().matrix !== 'array');
 
-				var nodes = this.nodes.map(function (node) {
+				var nodes = this.nodes.map(function(node) {
 					return node._compile(defs);
 				});
 
@@ -21737,17 +22022,17 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			ArrayNode.prototype.find = function (filter) {
+			ArrayNode.prototype.find = function(filter) {
 				var results = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					results.push(this);
 				}
 
 				// search in all nodes
 				var nodes = this.nodes;
-				for (var r = 0, rows = nodes.length; r < rows; r++) {
+				for(var r = 0, rows = nodes.length; r < rows; r++) {
 					results = results.concat(nodes[r].find(filter));
 				}
 
@@ -21772,7 +22057,7 @@
 				var s = '\\begin{' + type + '}';
 
 				this.nodes.forEach(function(node) {
-					if (node.nodes) {
+					if(node.nodes) {
 						s += node.nodes.map(function(childNode) {
 							return childNode.toTex();
 						}).join('&');
@@ -21790,8 +22075,8 @@
 
 			module.exports = ArrayNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 146 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -21814,14 +22099,14 @@
 			 * @param {Node} expr         The expression defining the symbol
 			 */
 			function AssignmentNode(name, expr) {
-				if (!(this instanceof AssignmentNode)) {
+				if(!(this instanceof AssignmentNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				// validate input
-				if (!isString(name))          throw new TypeError('String expected for parameter "name"');
-				if (!(expr instanceof Node))  throw new TypeError('Node expected for parameter "expr"');
-				if (name in keywords)         throw new Error('Illegal symbol name, "'  + name +  '" is a reserved keyword');
+				if(!isString(name))          throw new TypeError('String expected for parameter "name"');
+				if(!(expr instanceof Node))  throw new TypeError('Node expected for parameter "expr"');
+				if(name in keywords)         throw new Error('Illegal symbol name, "' + name + '" is a reserved keyword');
 
 				this.name = name;
 				this.expr = expr;
@@ -21838,7 +22123,7 @@
 			 *                          expression
 			 * @private
 			 */
-			AssignmentNode.prototype._compile = function (defs) {
+			AssignmentNode.prototype._compile = function(defs) {
 				return 'scope["' + this.name + '"] = ' + this.expr._compile(defs) + '';
 			};
 
@@ -21847,11 +22132,11 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			AssignmentNode.prototype.find = function (filter) {
+			AssignmentNode.prototype.find = function(filter) {
 				var nodes = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					nodes.push(this);
 				}
 
@@ -21875,7 +22160,7 @@
 			 */
 			AssignmentNode.prototype.toTex = function() {
 				var brace;
-				if (this.expr instanceof ArrayNode) {
+				if(this.expr instanceof ArrayNode) {
 					brace = ['\\mathbf{', '}'];
 				}
 				return latex.addBraces(latex.toSymbol(this.name), brace) + '=' +
@@ -21884,7 +22169,8 @@
 
 			module.exports = AssignmentNode;
 
-			/***/ },
+			/***/
+		},
 		/* 147 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -21900,7 +22186,7 @@
 			 * Holds a set with nodes
 			 */
 			function BlockNode() {
-				if (!(this instanceof BlockNode)) {
+				if(!(this instanceof BlockNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
@@ -21917,12 +22203,12 @@
 			 * @param {Node} expr
 			 * @param {Boolean} [visible=true]
 			 */
-			BlockNode.prototype.add = function (expr, visible) {
-				if (visible === undefined) visible = true;
+			BlockNode.prototype.add = function(expr, visible) {
+				if(visible === undefined) visible = true;
 
 				// validate input
-				if (!(expr instanceof Node))  throw new TypeError('Node expected for parameter "expr"');
-				if (!isBoolean(visible))      throw new TypeError('Boolean expected for parameter "visible"');
+				if(!(expr instanceof Node))  throw new TypeError('Node expected for parameter "expr"');
+				if(!isBoolean(visible))      throw new TypeError('Boolean expected for parameter "visible"');
 
 				var index = this.params.length;
 				this.params[index] = {
@@ -21939,11 +22225,11 @@
 			 * @return {String} js
 			 * @private
 			 */
-			BlockNode.prototype._compile = function (defs) {
+			BlockNode.prototype._compile = function(defs) {
 				defs.ResultSet = ResultSet;
-				var params = this.params.map(function (param) {
+				var params = this.params.map(function(param) {
 					var js = param.node._compile(defs);
-					if (param.visible) {
+					if(param.visible) {
 						return 'results.push(' + js + ');';
 					}
 					else {
@@ -21963,17 +22249,17 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			BlockNode.prototype.find = function (filter) {
+			BlockNode.prototype.find = function(filter) {
 				var nodes = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					nodes.push(this);
 				}
 
 				// search in parameters
 				var params = this.params;
-				for (var i = 0, len = params.length; i < len; i++) {
+				for(var i = 0, len = params.length; i < len; i++) {
 					nodes = nodes.concat(params[i].node.find(filter));
 				}
 
@@ -21986,7 +22272,7 @@
 			 * @override
 			 */
 			BlockNode.prototype.toString = function() {
-				return this.params.map(function (param) {
+				return this.params.map(function(param) {
 					return param.node.toString() + (param.visible ? '' : ';');
 				}).join('\n');
 			};
@@ -21996,15 +22282,15 @@
 			 * @return {String} str
 			 */
 			BlockNode.prototype.toTex = function() {
-				return this.params.map(function (param) {
+				return this.params.map(function(param) {
 					return param.node.toTex() + (param.visible ? '' : ';');
 				}).join('\n');
 			};
 
 			module.exports = BlockNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 148 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -22030,13 +22316,13 @@
 			 * @constructor ConditionalNode
 			 * @extends {Node}
 			 */
-			function ConditionalNode (condition, trueExpr, falseExpr) {
-				if (!(this instanceof ConditionalNode)) {
+			function ConditionalNode(condition, trueExpr, falseExpr) {
+				if(!(this instanceof ConditionalNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
-				if (!(condition instanceof Node)) throw new TypeError('Parameter condition must be a Node');
-				if (!(trueExpr instanceof Node))  throw new TypeError('Parameter trueExpr must be a Node');
-				if (!(falseExpr instanceof Node)) throw new TypeError('Parameter falseExpr must be a Node');
+				if(!(condition instanceof Node)) throw new TypeError('Parameter condition must be a Node');
+				if(!(trueExpr instanceof Node))  throw new TypeError('Parameter trueExpr must be a Node');
+				if(!(falseExpr instanceof Node)) throw new TypeError('Parameter falseExpr must be a Node');
 
 				this.condition = condition;
 				this.trueExpr = trueExpr;
@@ -22061,24 +22347,24 @@
 				 * @param {*} condition
 				 * @returns {boolean} true if condition is true or non-zero, else false
 				 */
-				defs.testCondition = function (condition) {
-					if (isNumber(condition) || isBoolean(condition) || isString(condition)) {
+				defs.testCondition = function(condition) {
+					if(isNumber(condition) || isBoolean(condition) || isString(condition)) {
 						return condition ? true : false;
 					}
 
-					if (condition instanceof BigNumber) {
+					if(condition instanceof BigNumber) {
 						return condition.isZero() ? false : true;
 					}
 
-					if (condition instanceof Complex) {
+					if(condition instanceof Complex) {
 						return (condition.re || condition.im) ? true : false;
 					}
 
-					if (condition instanceof Unit) {
+					if(condition instanceof Unit) {
 						return condition.value ? true : false;
 					}
 
-					if (condition === null || condition === undefined) {
+					if(condition === null || condition === undefined) {
 						return false;
 					}
 
@@ -22086,10 +22372,10 @@
 				};
 
 				return (
-					'testCondition(' + this.condition._compile(defs) + ') ? ' +
-					'( ' + this.trueExpr._compile(defs) + ') : ' +
-					'( ' + this.falseExpr._compile(defs) + ')'
-					);
+				'testCondition(' + this.condition._compile(defs) + ') ? ' +
+				'( ' + this.trueExpr._compile(defs) + ') : ' +
+				'( ' + this.falseExpr._compile(defs) + ')'
+				);
 			};
 
 			/**
@@ -22097,11 +22383,11 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			ConditionalNode.prototype.find = function (filter) {
+			ConditionalNode.prototype.find = function(filter) {
 				var nodes = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					nodes.push(this);
 				}
 
@@ -22148,8 +22434,8 @@
 
 			module.exports = ConditionalNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 149 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -22191,15 +22477,15 @@
 			 * @extends {Node}
 			 */
 			function ConstantNode(value, valueType) {
-				if (!(this instanceof ConstantNode)) {
+				if(!(this instanceof ConstantNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
-				if (valueType) {
-					if (!isString(valueType)) {
+				if(valueType) {
+					if(!isString(valueType)) {
 						throw new TypeError('String expected for parameter "valueType"');
 					}
-					if (!isString(value)){
+					if(!isString(value)) {
 						throw new TypeError('String expected for parameter "value"');
 					}
 
@@ -22212,7 +22498,7 @@
 					this.valueType = type(value);
 				}
 
-				if (!SUPPORTED_TYPES[this.valueType]) {
+				if(!SUPPORTED_TYPES[this.valueType]) {
 					throw new TypeError('Unsupported type of value "' + this.valueType + '"');
 				}
 			}
@@ -22237,15 +22523,15 @@
 			 * @return {String} js
 			 * @private
 			 */
-			ConstantNode.prototype._compile = function (defs) {
-				switch (this.valueType) {
+			ConstantNode.prototype._compile = function(defs) {
+				switch(this.valueType) {
 					case 'number':
-						if (defs.math.config().number === 'bignumber') {
+						if(defs.math.config().number === 'bignumber') {
 							return 'math.bignumber("' + this.value + '")';
 						}
 						else {
 							// remove leading zeros like '003.2' which are not allowed by JavaScript
-							return this.value.replace(/^(0*)[0-9]/, function (match, zeros) {
+							return this.value.replace(/^(0*)[0-9]/, function(match, zeros) {
 								return match.substring(zeros.length);
 							});
 						}
@@ -22273,7 +22559,7 @@
 			 * @return {String} str
 			 */
 			ConstantNode.prototype.toString = function() {
-				switch (this.valueType) {
+				switch(this.valueType) {
 					case 'string':
 						return '"' + this.value + '"';
 
@@ -22289,13 +22575,13 @@
 			ConstantNode.prototype.toTex = function() {
 				var value = this.value,
 					index;
-				switch (this.valueType) {
+				switch(this.valueType) {
 					case 'string':
 						return '\\text{' + value + '}';
 
 					case 'number':
 						index = value.toLowerCase().indexOf('e');
-						if (index !== -1) {
+						if(index !== -1) {
 							return value.substring(0, index) + ' \\cdot 10^{' +
 								value.substring(index + 1) + '}';
 						}
@@ -22308,8 +22594,8 @@
 
 			module.exports = ConstantNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 150 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -22331,15 +22617,15 @@
 			 * @param {Node} expr             The function expression
 			 */
 			function FunctionAssignmentNode(name, args, expr) {
-				if (!(this instanceof FunctionAssignmentNode)) {
+				if(!(this instanceof FunctionAssignmentNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				// validate input
-				if (!isString(name)) throw new TypeError('String expected for parameter "name"');
-				if (!isArray(args) || !args.every(isString))  throw new TypeError('Array containing strings expected for parameter "args"');
-				if (!(expr instanceof Node)) throw new TypeError('Node expected for parameter "expr"');
-				if (name in keywords) throw new Error('Illegal function name, "'  + name +  '" is a reserved keyword');
+				if(!isString(name)) throw new TypeError('String expected for parameter "name"');
+				if(!isArray(args) || !args.every(isString))  throw new TypeError('Array containing strings expected for parameter "args"');
+				if(!(expr instanceof Node)) throw new TypeError('Node expected for parameter "expr"');
+				if(name in keywords) throw new Error('Illegal function name, "' + name + '" is a reserved keyword');
 
 				this.name = name;
 				this.args = args;
@@ -22358,17 +22644,17 @@
 			 * @return {String} js
 			 * @private
 			 */
-			FunctionAssignmentNode.prototype._compile = function (defs) {
+			FunctionAssignmentNode.prototype._compile = function(defs) {
 				return 'scope["' + this.name + '"] = ' +
 					'  (function (scope) {' +
 					'    scope = Object.create(scope); ' +
 					'    var fn = function ' + this.name + '(' + this.args.join(',') + ') {' +
 					'      if (arguments.length != ' + this.args.length + ') {' +
-					// TODO: use util.error.ArgumentsError here
-					// TODO: test arguments error
+						// TODO: use util.error.ArgumentsError here
+						// TODO: test arguments error
 					'        throw new SyntaxError("Wrong number of arguments in function ' + this.name + ' (" + arguments.length + " provided, ' + this.args.length + ' expected)");' +
 					'      }' +
-					this.args.map(function (variable, index) {
+					this.args.map(function(variable, index) {
 						return 'scope["' + variable + '"] = arguments[' + index + '];';
 					}).join('') +
 					'      return ' + this.expr._compile(defs) + '' +
@@ -22383,11 +22669,11 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			FunctionAssignmentNode.prototype.find = function (filter) {
+			FunctionAssignmentNode.prototype.find = function(filter) {
 				var nodes = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					nodes.push(this);
 				}
 
@@ -22419,8 +22705,8 @@
 
 			module.exports = FunctionAssignmentNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 151 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -22445,14 +22731,14 @@
 			 * @param {Node} object
 			 * @param {Node[]} ranges
 			 */
-			function IndexNode (object, ranges) {
-				if (!(this instanceof IndexNode)) {
+			function IndexNode(object, ranges) {
+				if(!(this instanceof IndexNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				// validate input
-				if (!(object instanceof Node)) throw new TypeError('Node expected for parameter "object"');
-				if (!isArray(ranges) || !ranges.every(isNode)) {
+				if(!(object instanceof Node)) throw new TypeError('Node expected for parameter "object"');
+				if(!isArray(ranges) || !ranges.every(isNode)) {
 					throw new TypeError('Array containing Nodes expected for parameter "ranges"');
 				}
 
@@ -22472,7 +22758,7 @@
 			 * @return {String} js
 			 * @private
 			 */
-			IndexNode.prototype._compile = function (defs) {
+			IndexNode.prototype._compile = function(defs) {
 				return this.compileSubset(defs);
 			};
 
@@ -22497,18 +22783,18 @@
 					}
 				};
 				var someUseEnd = false;
-				var rangesUseEnd = this.ranges.map(function (range) {
+				var rangesUseEnd = this.ranges.map(function(range) {
 					var useEnd = range.find(filter).length > 0;
 					someUseEnd = useEnd ? useEnd : someUseEnd;
 					return useEnd;
 				});
 
 				// create a Range from start, step and end
-				defs.range = function (start, end, step) {
+				defs.range = function(start, end, step) {
 					return new Range(
-							start instanceof BigNumber ? start.toNumber() : start,
-							end instanceof BigNumber ? end.toNumber() : end,
-							step instanceof BigNumber ? step.toNumber() : step
+						start instanceof BigNumber ? start.toNumber() : start,
+						end instanceof BigNumber ? end.toNumber() : end,
+						step instanceof BigNumber ? step.toNumber() : step
 					);
 				};
 
@@ -22520,8 +22806,8 @@
 
 				var ranges = this.ranges.map(function(range, i) {
 					var useEnd = rangesUseEnd[i];
-					if (range instanceof RangeNode) {
-						if (useEnd) {
+					if(range instanceof RangeNode) {
+						if(useEnd) {
 							// resolve end and create range
 							return '(function (scope) {' +
 								'  scope = Object.create(scope); ' +
@@ -22543,7 +22829,7 @@
 						}
 					}
 					else {
-						if (useEnd) {
+						if(useEnd) {
 							// resolve the parameter 'end'
 							return '(function (scope) {' +
 								'  scope = Object.create(scope); ' +
@@ -22559,7 +22845,7 @@
 				});
 
 				// if some parameters use the 'end' parameter, we need to calculate the size
-				if (someUseEnd) {
+				if(someUseEnd) {
 					return '(function () {' +
 						'  var obj = ' + this.object._compile(defs) + ';' +
 						'  var size = math.size(obj).valueOf();' +
@@ -22584,11 +22870,11 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			IndexNode.prototype.find = function (filter) {
+			IndexNode.prototype.find = function(filter) {
 				var nodes = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					nodes.push(this);
 				}
 
@@ -22597,7 +22883,7 @@
 
 				// search in parameters
 				var ranges = this.ranges;
-				for (var i = 0, len = ranges.length; i < len; i++) {
+				for(var i = 0, len = ranges.length; i < len; i++) {
 					nodes = nodes.concat(ranges[i].find(filter));
 				}
 
@@ -22631,7 +22917,8 @@
 
 			module.exports = IndexNode;
 
-			/***/ },
+			/***/
+		},
 		/* 152 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -22652,8 +22939,8 @@
 			 * @param {String} fn       Function name, for example 'add'
 			 * @param {Node[]} params   Parameters
 			 */
-			function OperatorNode (op, fn, params) {
-				if (!(this instanceof OperatorNode)) {
+			function OperatorNode(op, fn, params) {
+				if(!(this instanceof OperatorNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
@@ -22675,12 +22962,12 @@
 			 * @return {String} js
 			 * @private
 			 */
-			OperatorNode.prototype._compile = function (defs) {
-				if (!(this.fn in defs.math)) {
+			OperatorNode.prototype._compile = function(defs) {
+				if(!(this.fn in defs.math)) {
 					throw new Error('Function ' + this.fn + ' missing in provided namespace "math"');
 				}
 
-				var params = this.params.map(function (param) {
+				var params = this.params.map(function(param) {
 					return param._compile(defs);
 				});
 				return 'math.' + this.fn + '(' + params.join(', ') + ')';
@@ -22691,18 +22978,18 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			OperatorNode.prototype.find = function (filter) {
+			OperatorNode.prototype.find = function(filter) {
 				var nodes = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					nodes.push(this);
 				}
 
 				// search in parameters
 				var params = this.params;
-				if (params) {
-					for (var i = 0, len = params.length; i < len; i++) {
+				if(params) {
+					for(var i = 0, len = params.length; i < len; i++) {
 						nodes = nodes.concat(params[i].find(filter));
 					}
 				}
@@ -22717,9 +23004,9 @@
 			OperatorNode.prototype.toString = function() {
 				var params = this.params;
 
-				switch (params.length) {
+				switch(params.length) {
 					case 1:
-						if (this.op == '-') {
+						if(this.op == '-') {
 							// special case: unary minus
 							return '-' + params[0].toString();
 						}
@@ -22730,11 +23017,11 @@
 
 					case 2: // for example '2+3'
 						var lhs = params[0].toString();
-						if (params[0] instanceof OperatorNode) {
+						if(params[0] instanceof OperatorNode) {
 							lhs = '(' + lhs + ')';
 						}
 						var rhs = params[1].toString();
-						if (params[1] instanceof OperatorNode) {
+						if(params[1] instanceof OperatorNode) {
 							rhs = '(' + rhs + ')';
 						}
 						return lhs + ' ' + this.op + ' ' + rhs;
@@ -22754,9 +23041,9 @@
 					lp = params[0],
 					rp = params[1];
 
-				switch (params.length) {
+				switch(params.length) {
 					case 1:
-						if (this.op === '-' || this.op === '+') {
+						if(this.op === '-' || this.op === '+') {
 							// special case: unary minus
 							return this.op + lp.toTex();
 						}
@@ -22771,7 +23058,7 @@
 							lop = '',
 							rop = '';
 
-						switch (this.op) {
+						switch(this.op) {
 							case '/':
 								lop = mop;
 								mop = '';
@@ -22779,22 +23066,22 @@
 								break;
 
 							case '*':
-								if (lp instanceof OperatorNode) {
-									if (lp.op === '+' || lp.op === '-') {
+								if(lp instanceof OperatorNode) {
+									if(lp.op === '+' || lp.op === '-') {
 										lhb = true;
 									}
 								}
 
-								if (rp instanceof OperatorNode) {
-									if (rp.op === '+' || rp.op === '-') {
+								if(rp instanceof OperatorNode) {
+									if(rp.op === '+' || rp.op === '-') {
 										rhb = true;
 									}
-									else if (rp.op === '*') {
+									else if(rp.op === '*') {
 										rhb = true;
 									}
 								}
 
-								if ((lp instanceof ConstantNode || lp instanceof OperatorNode) &&
+								if((lp instanceof ConstantNode || lp instanceof OperatorNode) &&
 									(rp instanceof ConstantNode || rp instanceof OperatorNode)) {
 									mop = ' \\cdot ';
 								}
@@ -22805,10 +23092,10 @@
 								break;
 
 							case '^':
-								if (lp instanceof OperatorNode || lp instanceof FunctionNode) {
+								if(lp instanceof OperatorNode || lp instanceof FunctionNode) {
 									lhb = true;
 								}
-								else if (lp instanceof SymbolNode) {
+								else if(lp instanceof SymbolNode) {
 									lhb = null;
 								}
 
@@ -22831,8 +23118,8 @@
 
 			module.exports = OperatorNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 153 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -22851,14 +23138,14 @@
 			 * @param {SymbolNode} symbol
 			 * @param {Node[]} params
 			 */
-			function FunctionNode (symbol, params) {
-				if (!(this instanceof FunctionNode)) {
+			function FunctionNode(symbol, params) {
+				if(!(this instanceof FunctionNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				// validate input
-				if (!(symbol instanceof Node)) throw new TypeError('SymbolNode expected for parameter "symbol"');
-				if (!isArray(params) || !params.every(isNode)) {
+				if(!(symbol instanceof Node)) throw new TypeError('SymbolNode expected for parameter "symbol"');
+				if(!isArray(params) || !params.every(isNode)) {
 					throw new TypeError('Array containing Nodes expected for parameter "params"');
 				}
 
@@ -22878,23 +23165,23 @@
 			 * @return {String} js
 			 * @private
 			 */
-			FunctionNode.prototype._compile = function (defs) {
+			FunctionNode.prototype._compile = function(defs) {
 				var fn = defs.math[this.symbol.name];
 				var isRaw = (typeof fn === 'function') && (fn.rawArgs == true);
 
 				// compile the parameters
-				var params = this.params.map(function (param) {
+				var params = this.params.map(function(param) {
 					return param._compile(defs);
 				});
 
-				if (isRaw) {
+				if(isRaw) {
 					// pass unevaluated parameters (nodes) to the function
 					var name = this.symbol.name;
 					var paramsName;
 					do {
 						paramsName = 'p' + Math.round(Math.random() * 10000);
 					}
-					while (paramsName in defs);
+					while(paramsName in defs);
 					defs[paramsName] = this.params;
 
 					return '("' + name + '" in scope ? ' +
@@ -22912,11 +23199,11 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			FunctionNode.prototype.find = function (filter) {
+			FunctionNode.prototype.find = function(filter) {
 				var nodes = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					nodes.push(this);
 				}
 
@@ -22925,7 +23212,7 @@
 
 				// search in parameters
 				var params = this.params;
-				for (var i = 0, len = params.length; i < len; i++) {
+				for(var i = 0, len = params.length; i < len; i++) {
 					nodes = nodes.concat(params[i].find(filter));
 				}
 
@@ -22951,8 +23238,8 @@
 
 			module.exports = FunctionNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 154 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -22968,21 +23255,20 @@
 			 * create a range
 			 * @param {Node[]} params           Array [start, end] or [start, end, step]
 			 */
-			function RangeNode (params) {
-				if (!(this instanceof RangeNode)) {
+			function RangeNode(params) {
+				if(!(this instanceof RangeNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				// validate inputs
-				if (!Array.isArray(params) ||
-					(params.length != 2 && params.length != 3) ||
-					!params.every(isNode)) {
+				if(!Array.isArray(params) ||
+					(params.length != 2 && params.length != 3) || !params.every(isNode)) {
 					throw new TypeError('Expected an Array containing 2 or 3 Nodes as parameter "params"');
 				}
 
 				this.start = params[0];  // included lower-bound
-				this.end   = params[1];  // included upper-bound
-				this.step  = params[2];  // optional step
+				this.end = params[1];  // included upper-bound
+				this.step = params[2];  // optional step
 			}
 
 			RangeNode.prototype = new Node();
@@ -22997,7 +23283,7 @@
 			 * @return {String} js
 			 * @private
 			 */
-			RangeNode.prototype._compile = function (defs) {
+			RangeNode.prototype._compile = function(defs) {
 				return 'math.range(' +
 					this.start._compile(defs) + ', ' +
 					this.end._compile(defs) +
@@ -23010,17 +23296,17 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			RangeNode.prototype.find = function (filter) {
+			RangeNode.prototype.find = function(filter) {
 				var nodes = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					nodes.push(this);
 				}
 
 				// search in parameters
 				nodes = nodes.concat(this.start.find(filter));
-				if (this.step) {
+				if(this.step) {
 					nodes = nodes.concat(this.step.find(filter));
 				}
 				nodes = nodes.concat(this.end.find(filter));
@@ -23035,7 +23321,7 @@
 			RangeNode.prototype.toString = function() {
 				// format the range like "start:step:end"
 				var str = this.start.toString();
-				if (this.step) {
+				if(this.step) {
 					str += ':' + this.step.toString();
 				}
 				str += ':' + this.end.toString();
@@ -23049,7 +23335,7 @@
 			 */
 			RangeNode.prototype.toTex = function() {
 				var str = this.start.toTex();
-				if (this.step) {
+				if(this.step) {
 					str += ':' + this.step.toTex();
 				}
 				str += ':' + this.end.toTex();
@@ -23059,8 +23345,8 @@
 
 			module.exports = RangeNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 155 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23080,12 +23366,12 @@
 			 * @extends {Node}
 			 */
 			function SymbolNode(name) {
-				if (!(this instanceof SymbolNode)) {
+				if(!(this instanceof SymbolNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
 				// validate input
-				if (!isString(name))  throw new TypeError('String expected for parameter "name"');
+				if(!isString(name))  throw new TypeError('String expected for parameter "name"');
 
 				this.name = name;
 			}
@@ -23102,20 +23388,20 @@
 			 * @return {String} js
 			 * @private
 			 */
-			SymbolNode.prototype._compile = function (defs) {
+			SymbolNode.prototype._compile = function(defs) {
 				// add a function to the definitions
 				defs['undef'] = undef;
 				defs['Unit'] = Unit;
 
-				if (this.name in defs.math) {
+				if(this.name in defs.math) {
 					return '("' + this.name + '" in scope ? scope["' + this.name + '"] : math["' + this.name + '"])';
 				}
 				else {
 					return '(' +
 						'"' + this.name + '" in scope ? scope["' + this.name + '"] : ' +
 						(Unit.isValuelessUnit(this.name) ?
-							'new Unit(null, "' + this.name + '")' :
-							'undef("' + this.name + '")') +
+						'new Unit(null, "' + this.name + '")' :
+						'undef("' + this.name + '")') +
 						')';
 				}
 			};
@@ -23124,7 +23410,7 @@
 			 * Throws an error 'Undefined symbol {name}'
 			 * @param {String} name
 			 */
-			function undef (name) {
+			function undef(name) {
 				throw new Error('Undefined symbol ' + name);
 			}
 
@@ -23148,8 +23434,8 @@
 
 			module.exports = SymbolNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 156 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23167,14 +23453,14 @@
 			 * @param {Node} expr                   The expression defining the symbol
 			 */
 			function UpdateNode(index, expr) {
-				if (!(this instanceof UpdateNode)) {
+				if(!(this instanceof UpdateNode)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 
-				if (!(index instanceof IndexNode)) {
+				if(!(index instanceof IndexNode)) {
 					throw new TypeError('Expected IndexNode for parameter "index"');
 				}
-				if (!(expr instanceof Node)) {
+				if(!(expr instanceof Node)) {
 					throw new TypeError('Expected Node for parameter "expr"');
 				}
 
@@ -23194,9 +23480,9 @@
 			 * @return {String} js
 			 * @private
 			 */
-			UpdateNode.prototype._compile = function (defs) {
+			UpdateNode.prototype._compile = function(defs) {
 				return 'scope["' + this.index.objectName() + '\"] = ' +
-					this.index.compileSubset(defs,  this.expr._compile(defs));
+					this.index.compileSubset(defs, this.expr._compile(defs));
 			};
 
 			/**
@@ -23204,11 +23490,11 @@
 			 * @param {Object} filter  See Node.find for a description of the filter options
 			 * @returns {Node[]} nodes
 			 */
-			UpdateNode.prototype.find = function (filter) {
+			UpdateNode.prototype.find = function(filter) {
 				var nodes = [];
 
 				// check itself
-				if (this.match(filter)) {
+				if(this.match(filter)) {
 					nodes.push(this);
 				}
 
@@ -23239,8 +23525,8 @@
 
 			module.exports = UpdateNode;
 
-
-			/***/ },
+			/***/
+		},
 		/* 157 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23252,7 +23538,7 @@
 			 * Node
 			 */
 			function Node() {
-				if (!(this instanceof Node)) {
+				if(!(this instanceof Node)) {
 					throw new SyntaxError('Constructor must be called with the new operator');
 				}
 			}
@@ -23262,9 +23548,9 @@
 			 * @return {*} result
 			 */
 				// TODO: cleanup deprecated code one day. Deprecated since version 0.19.0
-			Node.prototype.eval = function () {
+			Node.prototype.eval = function() {
 				throw new Error('Node.eval is deprecated. ' +
-					'Use Node.compile(math).eval([scope]) instead.');
+				'Use Node.compile(math).eval([scope]) instead.');
 			};
 
 			Node.prototype.type = 'Node';
@@ -23277,8 +23563,8 @@
 			 *                                  where scope is an optional object with
 			 *                                  variables.
 			 */
-			Node.prototype.compile = function (math) {
-				if (!(math instanceof Object)) {
+			Node.prototype.compile = function(math) {
+				if(!(math instanceof Object)) {
 					throw new TypeError('Object expected for parameter math');
 				}
 
@@ -23290,7 +23576,7 @@
 
 				var code = this._compile(defs);
 
-				var defsCode = Object.keys(defs).map(function (name) {
+				var defsCode = Object.keys(defs).map(function(name) {
 					return '    var ' + name + ' = defs["' + name + '"];';
 				});
 
@@ -23304,7 +23590,7 @@
 					'  }' +
 					'};';
 
-				var factory = new Function ('defs', factoryCode);
+				var factory = new Function('defs', factoryCode);
 				return factory(defs);
 			};
 
@@ -23316,7 +23602,7 @@
 			 * @return {String} js
 			 * @private
 			 */
-			Node.prototype._compile = function (defs) {
+			Node.prototype._compile = function(defs) {
 				throw new Error('Cannot compile a Node interface');
 			};
 
@@ -23336,7 +23622,7 @@
 			 *                                  {Object<String, String>} properties
 			 * @return {Node[]} nodes       An array with nodes matching given filter criteria
 			 */
-			Node.prototype.find = function (filter) {
+			Node.prototype.find = function(filter) {
 				return this.match(filter) ? [this] : [];
 			};
 
@@ -23347,19 +23633,19 @@
 			 *                              {Object<String, *>} properties
 			 * @return {Boolean} matches    True if there is a match
 			 */
-			Node.prototype.match = function (filter) {
+			Node.prototype.match = function(filter) {
 				var match = true;
 
-				if (filter) {
-					if (filter.type && !(this instanceof filter.type)) {
+				if(filter) {
+					if(filter.type && !(this instanceof filter.type)) {
 						match = false;
 					}
 
 					var properties = filter.properties;
-					if (match && properties) {
-						for (var prop in properties) {
-							if (properties.hasOwnProperty(prop)) {
-								if (this[prop] !== properties[prop]) {
+					if(match && properties) {
+						for(var prop in properties) {
+							if(properties.hasOwnProperty(prop)) {
+								if(this[prop] !== properties[prop]) {
 									match = false;
 									break;
 								}
@@ -23401,10 +23687,10 @@
 			 * Throws an error when the scope contains an illegal symbol.
 			 * @param {Object} scope
 			 */
-			function _validateScope (scope) {
-				for (var symbol in scope) {
-					if (scope.hasOwnProperty(symbol)) {
-						if (symbol in keywords) {
+			function _validateScope(scope) {
+				for(var symbol in scope) {
+					if(scope.hasOwnProperty(symbol)) {
+						if(symbol in keywords) {
 							throw new Error('Scope contains an illegal symbol, "' + symbol + '" is a reserved keyword');
 						}
 					}
@@ -23421,11 +23707,11 @@
 			function _transform(math) {
 				var transformed = Object.create(math);
 
-				for (var name in math) {
-					if (math.hasOwnProperty(name)) {
+				for(var name in math) {
+					if(math.hasOwnProperty(name)) {
 						var fn = math[name];
 						var transform = fn && fn.transform;
-						if (transform) {
+						if(transform) {
 							transformed[name] = transform;
 						}
 					}
@@ -23436,8 +23722,8 @@
 
 			module.exports = Node;
 
-
-			/***/ },
+			/***/
+		},
 		/* 158 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23449,16 +23735,16 @@
 			 * @param {Error} err
 			 * @returns {Error} Returns the transformed error
 			 */
-			exports.transform = function (err) {
-				if (err instanceof IndexError) {
+			exports.transform = function(err) {
+				if(err instanceof IndexError) {
 					return new IndexError(err.index + 1, err.min + 1, err.max + 1);
 				}
 
 				return err;
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 159 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23473,8 +23759,8 @@
 				return (value instanceof Boolean) || (typeof value == 'boolean');
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 160 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23528,28 +23814,28 @@
 			 * @return {String} str
 			 */
 			exports.format = function(value, options) {
-				if (number.isNumber(value)) {
+				if(number.isNumber(value)) {
 					return number.format(value, options);
 				}
 
-				if (value instanceof BigNumber) {
+				if(value instanceof BigNumber) {
 					return bignumber.format(value, options);
 				}
 
-				if (Array.isArray(value)) {
+				if(Array.isArray(value)) {
 					return formatArray(value, options);
 				}
 
-				if (exports.isString(value)) {
+				if(exports.isString(value)) {
 					return '"' + value + '"';
 				}
 
-				if (typeof value === 'function') {
+				if(typeof value === 'function') {
 					return value.syntax ? value.syntax + '' : 'function';
 				}
 
-				if (value instanceof Object) {
-					if (typeof value.format === 'function') {
+				if(value instanceof Object) {
+					if(typeof value.format === 'function') {
 						return value.format(options);
 					}
 					else {
@@ -23570,12 +23856,12 @@
 			 *                                                options.
 			 * @returns {String} str
 			 */
-			function formatArray (array, options) {
-				if (Array.isArray(array)) {
+			function formatArray(array, options) {
+				if(Array.isArray(array)) {
 					var str = '[';
 					var len = array.length;
-					for (var i = 0; i < len; i++) {
-						if (i != 0) {
+					for(var i = 0; i < len; i++) {
+						if(i != 0) {
 							str += ', ';
 						}
 						str += formatArray(array[i], options);
@@ -23588,8 +23874,8 @@
 				}
 			}
 
-
-			/***/ },
+			/***/
+		},
 		/* 161 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23609,8 +23895,8 @@
 				'seealso': ['exp']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 162 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23627,8 +23913,8 @@
 				'seealso': ['true']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 163 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23647,8 +23933,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 164 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23666,8 +23952,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 165 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23685,8 +23971,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 166 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23704,8 +23990,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 167 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23723,8 +24009,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 168 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23742,8 +24028,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 169 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23761,8 +24047,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 170 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23779,8 +24065,8 @@
 				'seealso': ['true', 'false']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 171 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23798,8 +24084,8 @@
 				'seealso': ['tau']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 172 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23816,8 +24102,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 173 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23835,8 +24121,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 174 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23854,8 +24140,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 175 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23873,8 +24159,8 @@
 				'seealso': ['pi']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 176 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23891,8 +24177,8 @@
 				'seealso': ['false']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 177 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23909,8 +24195,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 178 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -23919,7 +24205,7 @@
 			// NOTE: distribution is NOT added to math.distribution but returned by the factory function
 			// TODO: rethink math.distribution
 
-			module.exports = function (math) {
+			module.exports = function(math) {
 				var Matrix = __webpack_require__(9);
 				var array = __webpack_require__(137);
 				var collection = __webpack_require__(13);
@@ -23949,7 +24235,7 @@
 				 *                        `pickRandom(array)`
 				 */
 				function distribution(name) {
-					if (!distributions.hasOwnProperty(name))
+					if(!distributions.hasOwnProperty(name))
 						throw new Error('Unknown distribution ' + name);
 
 					var args = Array.prototype.slice.call(arguments, 1),
@@ -23962,20 +24248,22 @@
 
 							random: function(arg1, arg2, arg3) {
 								var size, min, max;
-								if (arguments.length > 3) {
+								if(arguments.length > 3) {
 									throw new math.error.ArgumentsError('random', arguments.length, 0, 3);
 
 									// `random(max)` or `random(size)`
-								} else if (arguments.length === 1) {
-									if (isCollection(arg1)) {
+								}
+								else if(arguments.length === 1) {
+									if(isCollection(arg1)) {
 										size = arg1;
 									}
 									else {
 										max = arg1;
 									}
 									// `random(min, max)` or `random(size, max)`
-								} else if (arguments.length === 2) {
-									if (isCollection(arg1)) {
+								}
+								else if(arguments.length === 2) {
+									if(isCollection(arg1)) {
 										size = arg1;
 										max = arg2;
 									}
@@ -23984,7 +24272,8 @@
 										max = arg2;
 									}
 									// `random(size, min, max)`
-								} else {
+								}
+								else {
 									size = arg1;
 									min = arg2;
 									max = arg3;
@@ -23992,9 +24281,9 @@
 
 								// TODO: validate type of min, max, and size
 
-								if (max === undefined) max = 1;
-								if (min === undefined) min = 0;
-								if (size !== undefined) {
+								if(max === undefined) max = 1;
+								if(min === undefined) min = 0;
+								if(size !== undefined) {
 									var res = _randomDataForMatrix(size.valueOf(), min, max, _random);
 									return (size instanceof Matrix) ? new Matrix(res) : res;
 								}
@@ -24003,20 +24292,20 @@
 
 							randomInt: function(arg1, arg2, arg3) {
 								var size, min, max;
-								if (arguments.length > 3 || arguments.length < 1)
+								if(arguments.length > 3 || arguments.length < 1)
 									throw new math.error.ArgumentsError('randomInt', arguments.length, 1, 3);
 
 								// `random(max)` or `random(size)`
-								else if (arguments.length === 1)
-									if (isCollection(arg1)) {
+								else if(arguments.length === 1)
+									if(isCollection(arg1)) {
 										size = arg1;
 									}
 									else {
 										max = arg1;
 									}
 								// `randomInt(min, max)` or `randomInt(size, max)`
-								else if (arguments.length === 2) {
-									if (isCollection(arg1)) {
+								else if(arguments.length === 2) {
+									if(isCollection(arg1)) {
 										size = arg1;
 										max = arg2;
 									}
@@ -24025,7 +24314,8 @@
 										max = arg2;
 									}
 									// `randomInt(size, min, max)`
-								} else {
+								}
+								else {
 									size = arg1;
 									min = arg2;
 									max = arg3;
@@ -24033,8 +24323,8 @@
 
 								// TODO: validate type of min, max, and size
 
-								if (min === undefined) min = 0;
-								if (size !== undefined) {
+								if(min === undefined) min = 0;
+								if(size !== undefined) {
 									var res = _randomDataForMatrix(size.valueOf(), min, max, _randomInt);
 									return (size instanceof Matrix) ? new Matrix(res) : res;
 								}
@@ -24042,17 +24332,17 @@
 							},
 
 							pickRandom: function(possibles) {
-								if (arguments.length !== 1) {
+								if(arguments.length !== 1) {
 									throw new math.error.ArgumentsError('pickRandom', arguments.length, 1);
 								}
-								if (possibles instanceof Matrix) {
+								if(possibles instanceof Matrix) {
 									possibles = possibles.valueOf(); // get Array
 								}
-								else if (!Array.isArray(possibles)) {
+								else if(!Array.isArray(possibles)) {
 									throw new math.error.UnsupportedTypeError('pickRandom', math['typeof'](possibles));
 								}
 
-								if (array.size(possibles).length > 1) {
+								if(array.size(possibles).length > 1) {
 									throw new Error('Only one dimensional vectors supported');
 								}
 
@@ -24075,11 +24365,12 @@
 							var data = [], length, i;
 							size = size.slice(0);
 
-							if (size.length > 1) {
-								for (i = 0, length = size.shift(); i < length; i++)
+							if(size.length > 1) {
+								for(i = 0, length = size.shift(); i < length; i++)
 									data.push(_randomDataForMatrix(size, min, max, randFunc));
-							} else {
-								for (i = 0, length = size.shift(); i < length; i++)
+							}
+							else {
+								for(i = 0, length = size.shift(); i < length; i++)
 									data.push(randFunc(min, max));
 							}
 
@@ -24109,10 +24400,10 @@
 								picked = -1;
 							// We reject values outside of the interval [0, 1]
 							// TODO: check if it is ok to do that?
-							while (picked < 0 || picked > 1) {
+							while(picked < 0 || picked > 1) {
 								u1 = Math.random();
 								u2 = Math.random();
-								picked = 1/6 * Math.pow(-2 * Math.log(u1), 0.5) * Math.cos(2 * Math.PI * u2) + 0.5;
+								picked = 1 / 6 * Math.pow(-2 * Math.log(u1), 0.5) * Math.cos(2 * Math.PI * u2) + 0.5;
 							}
 							return picked;
 						}
@@ -24122,8 +24413,8 @@
 				return distribution;
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 179 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24147,11 +24438,14 @@
 				"./typeof": 134,
 				"./typeof.js": 134
 			};
+
 			function webpackContext(req) {
 				return __webpack_require__(webpackContextResolve(req));
 			};
 			function webpackContextResolve(req) {
-				return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+				return map[req] || (function() {
+						throw new Error("Cannot find module '" + req + "'.")
+					}());
 			};
 			webpackContext.keys = function webpackContextKeys() {
 				return Object.keys(map);
@@ -24159,8 +24453,8 @@
 			webpackContext.resolve = webpackContextResolve;
 			module.exports = webpackContext;
 
-
-			/***/ },
+			/***/
+		},
 		/* 180 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24178,21 +24472,21 @@
 			exports.type = function(x) {
 				var type = typeof x;
 
-				if (type === 'object') {
-					if (x === null)           return 'null';
-					if (x instanceof Boolean) return 'boolean';
-					if (x instanceof Number)  return 'number';
-					if (x instanceof String)  return 'string';
-					if (Array.isArray(x))     return 'array';
-					if (x instanceof Date)    return 'date';
-					if (x instanceof RegExp)  return 'regexp';
+				if(type === 'object') {
+					if(x === null)           return 'null';
+					if(x instanceof Boolean) return 'boolean';
+					if(x instanceof Number)  return 'number';
+					if(x instanceof String)  return 'string';
+					if(Array.isArray(x))     return 'array';
+					if(x instanceof Date)    return 'date';
+					if(x instanceof RegExp)  return 'regexp';
 				}
 
 				return type;
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 181 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24210,8 +24504,8 @@
 				'seealso': ['sign']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 182 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24235,8 +24529,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 183 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24246,8 +24540,7 @@
 				'syntax': [
 					'ceil(x)'
 				],
-				'description':
-					'Round a value towards plus infinity. If x is complex, both real and imaginary part are rounded towards plus infinity.',
+				'description': 'Round a value towards plus infinity. If x is complex, both real and imaginary part are rounded towards plus infinity.',
 				'examples': [
 					'ceil(3.2)',
 					'ceil(3.8)',
@@ -24256,8 +24549,8 @@
 				'seealso': ['floor', 'fix', 'round']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 184 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24280,8 +24573,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 185 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24306,8 +24599,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 186 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24331,8 +24624,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 187 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24356,8 +24649,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 188 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24368,8 +24661,7 @@
 					'x .^ y',
 					'dotpow(x, y)'
 				],
-				'description':
-					'Calculates the power of x to y element wise.',
+				'description': 'Calculates the power of x to y element wise.',
 				'examples': [
 					'a = [1, 2, 3; 4, 5, 6]',
 					'a .^ 2'
@@ -24379,8 +24671,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 189 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24404,8 +24696,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 190 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24415,8 +24707,7 @@
 				'syntax': [
 					'fix(x)'
 				],
-				'description':
-					'Round a value towards zero. If x is complex, both real and imaginary part are rounded towards zero.',
+				'description': 'Round a value towards zero. If x is complex, both real and imaginary part are rounded towards zero.',
 				'examples': [
 					'fix(3.2)',
 					'fix(3.8)',
@@ -24426,8 +24717,8 @@
 				'seealso': ['ceil', 'floor', 'round']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 191 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24437,8 +24728,7 @@
 				'syntax': [
 					'floor(x)'
 				],
-				'description':
-					'Round a value towards minus infinity.If x is complex, both real and imaginary part are rounded towards minus infinity.',
+				'description': 'Round a value towards minus infinity.If x is complex, both real and imaginary part are rounded towards minus infinity.',
 				'examples': [
 					'floor(3.2)',
 					'floor(3.8)',
@@ -24447,8 +24737,8 @@
 				'seealso': ['ceil', 'fix', 'round']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 192 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24465,11 +24755,11 @@
 					'gcd(-4, 6)',
 					'gcd(25, 15, -10)'
 				],
-				'seealso': [ 'lcm', 'xgcd' ]
+				'seealso': ['lcm', 'xgcd']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 193 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24485,11 +24775,11 @@
 					'lcm(6, 21)',
 					'lcm(6, 21, 5)'
 				],
-				'seealso': [ 'gcd' ]
+				'seealso': ['gcd']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 194 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24517,7 +24807,8 @@
 				]
 			};
 
-			/***/ },
+			/***/
+		},
 		/* 195 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24541,8 +24832,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 196 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24554,8 +24845,7 @@
 					'x mod y',
 					'mod(x, y)'
 				],
-				'description':
-					'Calculates the modulus, the remainder of an integer division.',
+				'description': 'Calculates the modulus, the remainder of an integer division.',
 				'examples': [
 					'7 % 3',
 					'11 % 2',
@@ -24567,8 +24857,8 @@
 				'seealso': ['divide']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 197 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24592,8 +24882,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 198 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24618,8 +24908,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 199 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24630,18 +24920,17 @@
 					'x ^ y',
 					'pow(x, y)'
 				],
-				'description':
-					'Calculates the power of x to y, x^y.',
+				'description': 'Calculates the power of x to y, x^y.',
 				'examples': [
 					'2^3 = 8',
 					'2*2*2',
 					'1 + e ^ (pi * i)'
 				],
-				'seealso': [ 'multiply' ]
+				'seealso': ['multiply']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 200 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24652,8 +24941,7 @@
 					'round(x)',
 					'round(x, n)'
 				],
-				'description':
-					'round a value towards the nearest integer.If x is complex, both real and imaginary part are rounded towards the nearest integer. When n is specified, the value is rounded to n decimals.',
+				'description': 'round a value towards the nearest integer.If x is complex, both real and imaginary part are rounded towards the nearest integer. When n is specified, the value is rounded to n decimals.',
 				'examples': [
 					'round(3.2)',
 					'round(3.8)',
@@ -24665,8 +24953,8 @@
 				'seealso': ['ceil', 'floor', 'fix']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 201 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24676,8 +24964,7 @@
 				'syntax': [
 					'sign(x)'
 				],
-				'description':
-					'Compute the sign of a value. The sign of a value x is 1 when x>1, -1 when x<0, and 0 when x=0.',
+				'description': 'Compute the sign of a value. The sign of a value x is 1 when x>1, -1 when x<0, and 0 when x=0.',
 				'examples': [
 					'sign(3.5)',
 					'sign(-4.2)',
@@ -24688,8 +24975,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 202 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24699,8 +24986,7 @@
 				'syntax': [
 					'sqrt(x)'
 				],
-				'description':
-					'Compute the square root value. If x = y * y, then y is the square root of x.',
+				'description': 'Compute the square root value. If x = y * y, then y is the square root of x.',
 				'examples': [
 					'sqrt(25)',
 					'5 * 5',
@@ -24712,8 +24998,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 203 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24723,8 +25009,7 @@
 				'syntax': [
 					'square(x)'
 				],
-				'description':
-					'Compute the square of a value. The square of x is x * x.',
+				'description': 'Compute the square of a value. The square of x is x * x.',
 				'examples': [
 					'square(3)',
 					'sqrt(9)',
@@ -24739,8 +25024,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 204 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24764,8 +25049,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 205 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24776,8 +25061,7 @@
 					'-x',
 					'unaryMinus(x)'
 				],
-				'description':
-					'Inverse the sign of a value. Converts booleans and strings to numbers.',
+				'description': 'Inverse the sign of a value. Converts booleans and strings to numbers.',
 				'examples': [
 					'-4.5',
 					'-(-5.6)',
@@ -24788,8 +25072,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 206 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24800,8 +25084,7 @@
 					'+x',
 					'unaryPlus(x)'
 				],
-				'description':
-					'Converts booleans and strings to numbers.',
+				'description': 'Converts booleans and strings to numbers.',
 				'examples': [
 					'+true',
 					'+"2"'
@@ -24811,8 +25094,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 207 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24828,11 +25111,11 @@
 					'gcd(8, 12)',
 					'xgcd(36163, 21199)'
 				],
-				'seealso': [ 'gcd', 'lcm' ]
+				'seealso': ['gcd', 'lcm']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 208 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24842,8 +25125,7 @@
 				'syntax': [
 					'compare(x, y)'
 				],
-				'description':
-					'Compare two values. Returns 1 if x is larger than y, -1 if x is smaller than y, and 0 if x and y are equal.',
+				'description': 'Compare two values. Returns 1 if x is larger than y, -1 if x is smaller than y, and 0 if x and y are equal.',
 				'examples': [
 					'compare(2, 3)',
 					'compare(3, 2)',
@@ -24856,8 +25138,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 209 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24867,8 +25149,7 @@
 				'syntax': [
 					'deepEqual(x, y)'
 				],
-				'description':
-					'Check equality of two matrices element wise. Returns true if the size of both matrices is equal and when and each of the elements are equal.',
+				'description': 'Check equality of two matrices element wise. Returns true if the size of both matrices is equal and when and each of the elements are equal.',
 				'examples': [
 					'[1,3,4] == [1,3,4]',
 					'[1,3,4] == [1,3]'
@@ -24878,8 +25159,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 210 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24890,8 +25171,7 @@
 					'x == y',
 					'equal(x, y)'
 				],
-				'description':
-					'Check equality of two values. Returns true if the values are equal, and false if not.',
+				'description': 'Check equality of two values. Returns true if the values are equal, and false if not.',
 				'examples': [
 					'2+2 == 3',
 					'2+2 == 4',
@@ -24905,8 +25185,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 211 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24917,8 +25197,7 @@
 					'x > y',
 					'larger(x, y)'
 				],
-				'description':
-					'Check if value x is larger than y. Returns true if x is larger than y, and false if not.',
+				'description': 'Check if value x is larger than y. Returns true if x is larger than y, and false if not.',
 				'examples': [
 					'2 > 3',
 					'5 > 2*2',
@@ -24933,8 +25212,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 212 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24945,8 +25224,7 @@
 					'x >= y',
 					'largerEq(x, y)'
 				],
-				'description':
-					'Check if value x is larger or equal to y. Returns true if x is larger or equal to y, and false if not.',
+				'description': 'Check if value x is larger or equal to y. Returns true if x is larger or equal to y, and false if not.',
 				'examples': [
 					'2 > 1+1',
 					'2 >= 1+1',
@@ -24959,8 +25237,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 213 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24971,8 +25249,7 @@
 					'x < y',
 					'smaller(x, y)'
 				],
-				'description':
-					'Check if value x is smaller than value y. Returns true if x is smaller than y, and false if not.',
+				'description': 'Check if value x is smaller than value y. Returns true if x is smaller than y, and false if not.',
 				'examples': [
 					'2 < 3',
 					'5 < 2*2',
@@ -24986,8 +25263,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 214 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -24998,8 +25275,7 @@
 					'x <= y',
 					'smallerEq(x, y)'
 				],
-				'description':
-					'Check if value x is smaller or equal to value y. Returns true if x is smaller than y, and false if not.',
+				'description': 'Check if value x is smaller or equal to value y. Returns true if x is smaller than y, and false if not.',
 				'examples': [
 					'2 < 1+1',
 					'2 <= 1+1',
@@ -25012,8 +25288,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 215 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25024,8 +25300,7 @@
 					'x != y',
 					'unequal(x, y)'
 				],
-				'description':
-					'Check unequality of two values. Returns true if the values are unequal, and false if they are equal.',
+				'description': 'Check unequality of two values. Returns true if the values are unequal, and false if they are equal.',
 				'examples': [
 					'2+2 != 3',
 					'2+2 != 4',
@@ -25040,8 +25315,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 216 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25051,8 +25326,7 @@
 				'syntax': [
 					'arg(x)'
 				],
-				'description':
-					'Compute the argument of a complex value. If x = a+bi, the argument is computed as atan2(b, a).',
+				'description': 'Compute the argument of a complex value. If x = a+bi, the argument is computed as atan2(b, a).',
 				'examples': [
 					'arg(2 + 2i)',
 					'atan2(3, 2)',
@@ -25066,8 +25340,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 217 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25077,8 +25351,7 @@
 				'syntax': [
 					'conj(x)'
 				],
-				'description':
-					'Compute the complex conjugate of a complex value. If x = a+bi, the complex conjugate is a-bi.',
+				'description': 'Compute the complex conjugate of a complex value. If x = a+bi, the complex conjugate is a-bi.',
 				'examples': [
 					'conj(2 + 3i)',
 					'conj(2 - 3i)',
@@ -25092,8 +25365,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 218 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25118,8 +25391,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 219 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25144,8 +25417,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 220 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25155,8 +25428,7 @@
 				'syntax': [
 					'bignumber(x)'
 				],
-				'description':
-					'Create a big number from a number or string.',
+				'description': 'Create a big number from a number or string.',
 				'examples': [
 					'0.1 + 0.2',
 					'bignumber(0.1) + bignumber(0.2)',
@@ -25169,8 +25441,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 221 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25181,8 +25453,7 @@
 					'x',
 					'boolean(x)'
 				],
-				'description':
-					'Convert a string or number into a boolean.',
+				'description': 'Convert a string or number into a boolean.',
 				'examples': [
 					'boolean(0)',
 					'boolean(1)',
@@ -25196,8 +25467,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 222 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25209,8 +25480,7 @@
 					'complex(re, im)',
 					'complex(string)'
 				],
-				'description':
-					'Create a complex number.',
+				'description': 'Create a complex number.',
 				'examples': [
 					'complex()',
 					'complex(2, 3)',
@@ -25221,8 +25491,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 223 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25237,8 +25507,7 @@
 					'[start1:end1, start2:end2, ...]',
 					'[start1:step1:end1, start2:step2:end2, ...]'
 				],
-				'description':
-					'Create an index to get or replace a subset of a matrix',
+				'description': 'Create an index to get or replace a subset of a matrix',
 				'examples': [
 					'[]',
 					'[1, 2, 3]',
@@ -25252,8 +25521,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 224 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25266,8 +25535,7 @@
 					'matrix()',
 					'matrix([...])'
 				],
-				'description':
-					'Create a matrix.',
+				'description': 'Create a matrix.',
 				'examples': [
 					'[]',
 					'[1, 2, 3]',
@@ -25280,8 +25548,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 225 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25292,8 +25560,7 @@
 					'x',
 					'number(x)'
 				],
-				'description':
-					'Create a number or convert a string or boolean into a number.',
+				'description': 'Create a number or convert a string or boolean into a number.',
 				'examples': [
 					'2',
 					'2e3',
@@ -25309,8 +25576,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 226 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25321,8 +25588,7 @@
 					'"text"',
 					'string(x)'
 				],
-				'description':
-					'Create a string or convert a value to a string',
+				'description': 'Create a string or convert a value to a string',
 				'examples': [
 					'"Hello World!"',
 					'string(4.2)',
@@ -25333,8 +25599,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 227 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25346,8 +25612,7 @@
 					'unit(value, unit)',
 					'unit(string)'
 				],
-				'description':
-					'Create a unit.',
+				'description': 'Create a unit.',
 				'examples': [
 					'5.5 mm',
 					'3 inch',
@@ -25359,8 +25624,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 228 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25379,8 +25644,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 229 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25399,8 +25664,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 230 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25424,8 +25689,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 231 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25445,8 +25710,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 232 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25469,8 +25734,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 233 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25495,8 +25760,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 234 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25518,8 +25783,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 235 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25540,8 +25805,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 236 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25570,8 +25835,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 237 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25585,8 +25850,7 @@
 					'range(start, end, step)',
 					'range(string)'
 				],
-				'description':
-					'Create a range. Lower bound of the range is included, upper bound is excluded.',
+				'description': 'Create a range. Lower bound of the range is included, upper bound is excluded.',
 				'examples': [
 					'1:5',
 					'3:-1:-3',
@@ -25601,8 +25865,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 238 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25626,8 +25890,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 239 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25650,8 +25914,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 240 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25673,8 +25937,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 241 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25688,8 +25952,8 @@
 					'subset(value, [index], replacement)'
 				],
 				'description': 'Get or set a subset of a matrix or string. ' +
-					'Indexes are one-based. ' +
-					'Both the ranges lower-bound and upper-bound are included.',
+				'Indexes are one-based. ' +
+				'Both the ranges lower-bound and upper-bound are included.',
 				'examples': [
 					'd = [1, 2; 3, 4]',
 					'e = []',
@@ -25704,8 +25968,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 242 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25727,8 +25991,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 243 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25756,8 +26020,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 244 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25774,8 +26038,8 @@
 				'seealso': ['permutations', 'factorial']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 245 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25795,8 +26059,8 @@
 				'seealso': ['combinations', 'permutations']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 246 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25815,8 +26079,8 @@
 				'seealso': ['combinations', 'factorial']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 247 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25826,8 +26090,7 @@
 				'syntax': [
 					'pickRandom(array)'
 				],
-				'description':
-					'Pick a random entry from a given array.',
+				'description': 'Pick a random entry from a given array.',
 				'examples': [
 					'pickRandom(0:10)',
 					'pickRandom([1, 3, 1, 6])'
@@ -25835,8 +26098,8 @@
 				'seealso': ['random', 'randomInt']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 248 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25851,8 +26114,7 @@
 					'random(size, max)',
 					'random(size, min, max)'
 				],
-				'description':
-					'Return a random number.',
+				'description': 'Return a random number.',
 				'examples': [
 					'random()',
 					'random(10, 20)',
@@ -25861,8 +26123,8 @@
 				'seealso': ['pickRandom', 'randomInt']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 249 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25877,8 +26139,7 @@
 					'randInt(size, max)',
 					'randInt(size, min, max)'
 				],
-				'description':
-					'Return a random integer number',
+				'description': 'Return a random integer number',
 				'examples': [
 					'randInt()',
 					'randInt(10, 20)',
@@ -25887,7 +26148,8 @@
 				'seealso': ['pickRandom', 'random']
 			};
 
-			/***/ },
+			/***/
+		},
 		/* 250 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25919,8 +26181,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 251 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25951,8 +26213,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 252 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -25979,8 +26241,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 253 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26012,8 +26274,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 254 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26042,8 +26304,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 255 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26075,8 +26337,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 256 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26105,8 +26367,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 257 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26138,8 +26400,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 258 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26161,8 +26423,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 259 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26184,8 +26446,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 260 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26207,8 +26469,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 261 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26218,8 +26480,7 @@
 				'syntax': [
 					'atan2(y, x)'
 				],
-				'description':
-					'Computes the principal value of the arc tangent of y/x in radians.',
+				'description': 'Computes the principal value of the arc tangent of y/x in radians.',
 				'examples': [
 					'atan2(2, 2) / pi',
 					'angle = 60 deg in rad',
@@ -26234,8 +26495,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 262 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26260,8 +26521,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 263 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26282,8 +26543,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 264 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26305,8 +26566,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 265 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26328,8 +26589,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 266 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26351,8 +26612,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 267 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26374,8 +26635,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 268 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26397,8 +26658,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 269 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26420,8 +26681,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 270 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26446,8 +26707,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 271 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26467,8 +26728,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 272 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26492,8 +26753,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 273 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26514,8 +26775,8 @@
 				]
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 274 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26535,8 +26796,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 275 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26557,8 +26818,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 276 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26575,8 +26836,8 @@
 				'seealso': ['filter', 'forEach']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 277 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26595,8 +26856,8 @@
 				'seealso': ['sort', 'map', 'forEach']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 278 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26613,8 +26874,8 @@
 				'seealso': ['map', 'sort', 'filter']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 279 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26635,8 +26896,8 @@
 				'seealso': ['print']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 280 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26654,8 +26915,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 281 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26676,8 +26937,8 @@
 				'seealso': ['map', 'filter', 'forEach']
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 282 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26697,8 +26958,8 @@
 				'seealso': []
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 283 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26709,8 +26970,8 @@
 				end: true
 			};
 
-
-			/***/ },
+			/***/
+		},
 		/* 284 */
 		/***/ function(module, exports, __webpack_require__) {
 
@@ -26721,30 +26982,30 @@
 
 			// GREEK LETTERS
 			var greek = {
-				Alpha: 'A',     alpha: true,
-				Beta: 'B',      beta: true,
-				Gamma: true,    gamma: true,
-				Delta: true,    delta: true,
-				Epsilon: 'E',   epsilon: true,  varepsilon: true,
-				Zeta: 'Z',      zeta: true,
-				Eta: 'H',       eta: true,
-				Theta: true,    theta: true,    vartheta: true,
-				Iota: 'I',      iota: true,
-				Kappa: 'K',     kappa: true,    varkappa: true,
-				Lambda: true,   lambda: true,
-				Mu: 'M',        mu: true,
-				Nu: 'N',        nu: true,
-				Xi: true,       xi: true,
-				Omicron: 'O',   omicron: true,
-				Pi: true,       pi: true,       varpi: true,
-				Rho: 'P',       rho: true,      varrho: true,
-				Sigma: true,    sigma: true,    varsigma: true,
-				Tau: 'T',       tau: true,
-				Upsilon: true,  upsilon: true,
-				Phi: true,      phi: true,      varphi: true,
-				Chi: 'X',       chi: true,
-				Psi: true,      psi: true,
-				Omega: true,    omega: true
+				Alpha: 'A', alpha: true,
+				Beta: 'B', beta: true,
+				Gamma: true, gamma: true,
+				Delta: true, delta: true,
+				Epsilon: 'E', epsilon: true, varepsilon: true,
+				Zeta: 'Z', zeta: true,
+				Eta: 'H', eta: true,
+				Theta: true, theta: true, vartheta: true,
+				Iota: 'I', iota: true,
+				Kappa: 'K', kappa: true, varkappa: true,
+				Lambda: true, lambda: true,
+				Mu: 'M', mu: true,
+				Nu: 'N', nu: true,
+				Xi: true, xi: true,
+				Omicron: 'O', omicron: true,
+				Pi: true, pi: true, varpi: true,
+				Rho: 'P', rho: true, varrho: true,
+				Sigma: true, sigma: true, varsigma: true,
+				Tau: 'T', tau: true,
+				Upsilon: true, upsilon: true,
+				Phi: true, phi: true, varphi: true,
+				Chi: 'X', chi: true,
+				Psi: true, psi: true,
+				Omega: true, omega: true
 			};
 
 			var dots = {
@@ -26883,10 +27144,10 @@
 			function mapSymbols() {
 				var args = Array.prototype.slice.call(arguments),
 					obj;
-				for (var i = 0, len = args.length; i < len; i++) {
+				for(var i = 0, len = args.length; i < len; i++) {
 					obj = args[i];
-					for (var key in obj) {
-						if (obj.hasOwnProperty(key)) {
+					for(var key in obj) {
+						if(obj.hasOwnProperty(key)) {
 							symbols[key] = obj[key];
 						}
 					}
@@ -26914,22 +27175,22 @@
 
 			function latexToFn(arr) {
 				return function(value) {
-					if (typeof arr[value] === 'boolean') {
-						if (arr[value] === true) {
+					if(typeof arr[value] === 'boolean') {
+						if(arr[value] === true) {
 							value = '\\' + value;
 						}
 						else {
 							value = '\\mathrm{' + value + '}';
 						}
 					}
-					else if (typeof arr[value] === 'string') {
+					else if(typeof arr[value] === 'string') {
 						value = arr[value];
 					}
-					else if (typeof value === 'string') {
+					else if(typeof value === 'string') {
 						var index = value.indexOf('_');
-						if (index !== -1) {
+						if(index !== -1) {
 							value = exports.toSymbol(value.substring(0, index)) + '_{' +
-								exports.toSymbol(value.substring(index+1)) + '}';
+							exports.toSymbol(value.substring(index + 1)) + '}';
 						}
 					}
 
@@ -26954,7 +27215,7 @@
 				var _toUnit = latexToFn(units);
 
 				return function(value, notSpaced) {
-					if (exports.isUnit(value)) {
+					if(exports.isUnit(value)) {
 						return _toUnit(value);
 					}
 
@@ -26963,28 +27224,28 @@
 			}());
 
 			exports.addBraces = function(s, brace, type) {
-				if (brace === null) {
+				if(brace === null) {
 					return s;
 				}
 
 				var braces = ['', ''];
 				type = type || 'normal';
 
-				if (typeof brace === 'undefined' || brace === false) {
+				if(typeof brace === 'undefined' || brace === false) {
 					braces = ['{', '}'];
 				}
-				else if (brace === true) {
+				else if(brace === true) {
 					braces = ['(', ')'];
 					type = 'lr';
 				}
-				else if (Array.isArray(brace) && brace.length === 2) {
+				else if(Array.isArray(brace) && brace.length === 2) {
 					braces = brace;
 				}
 				else {
 					braces = [brace, brace];
 				}
 
-				switch (type) {
+				switch(type) {
 					case 'normal':
 					case false:
 						return braces[0] + s + braces[1];
@@ -27011,7 +27272,7 @@
 					suffix = '',
 					op = null;
 
-				switch (symbol.name) {
+				switch(symbol.name) {
 					// OPERATORS
 					case 'add':
 						op = '+';
@@ -27066,7 +27327,7 @@
 						break;
 
 					case 'permutations':
-						if (params.length === 1) {
+						if(params.length === 1) {
 							op = '!';
 						}
 						else {
@@ -27092,16 +27353,16 @@
 						brace = '\\|';
 						type = 'lr';
 
-						if (params.length === 2) {
+						if(params.length === 2) {
 							var tmp = params[1].toTex();
 
-							if (tmp === '\\text{inf}') {
+							if(tmp === '\\text{inf}') {
 								tmp = '\\infty';
 							}
-							else if (tmp === '\\text{-inf}') {
+							else if(tmp === '\\text{-inf}') {
 								tmp = '{- \\infty}';
 							}
-							else if (tmp === '\\text{fro}') {
+							else if(tmp === '\\text{fro}') {
 								tmp = 'F';
 							}
 
@@ -27124,7 +27385,7 @@
 						brace = ['\\lfloor', '\\rceil'];
 						type = 'lr';
 
-						if (params.length === 2) {
+						if(params.length === 2) {
 							suffix = '_' + exports.addBraces(params[1].toTex());
 							params = [params[0]];
 						}
@@ -27144,12 +27405,12 @@
 					// SPECIAL NOTATION
 					case 'log':
 						var base = 'e';
-						if (params.length === 2) {
+						if(params.length === 2) {
 							base = params[1].toTex();
 							func = '\\log_{' + base + '}';
 							params = [params[0]];
 						}
-						if (base === 'e') {
+						if(base === 'e') {
 							func = '\\ln';
 						}
 
@@ -27173,7 +27434,7 @@
 						break;
 
 					case 'det':
-						if (that.params[0] instanceof ArrayNode) {
+						if(that.params[0] instanceof ArrayNode) {
 							return that.params[0].toTex('vmatrix');
 						}
 
@@ -27186,7 +27447,7 @@
 						break;
 				}
 
-				if (op !== null) {
+				if(op !== null) {
 					brace = (op === '+' || op === '-');
 					texParams = (new OperatorNode(op, symbol.name, params)).toTex();
 				}
@@ -27194,12 +27455,12 @@
 					op = ', ';
 				}
 
-				if (brace === null && !exports.isCurlyFunction(symbol.name)) {
+				if(brace === null && !exports.isCurlyFunction(symbol.name)) {
 					brace = true;
 				}
 
 				texParams = texParams || params.map(function(param) {
-					return '{' + param.toTex() + '}'  ;
+					return '{' + param.toTex() + '}';
 				}).join(op);
 
 				return prefix + (showFunc ? func : '') +
@@ -27207,7 +27468,7 @@
 					suffix;
 			};
 
-
-			/***/ }
-		/******/ ])
+			/***/
+		}
+		/******/])
 })

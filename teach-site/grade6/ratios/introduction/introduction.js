@@ -1,6 +1,6 @@
 /**
-* Created by Trey on 8/22/2014.
-*/
+ * Created by Trey on 8/22/2014.
+ */
 
 /**
  * This program creates a drag and drop page that checks to make sure the answer is in the correct spot.
@@ -24,8 +24,8 @@ var ArrayShuffle = function(Element1, Element2, Element3, Element4, Element5, El
 	var RandomNum1 = "";
 	var RandomNum2 = "";
 	for(var i = 0; i < 6; i++) {
-		RandomNum1 = (Math.floor(Math.random()*RatioArray.length)+1)-1;
-		RandomNum2 = (Math.floor(Math.random()*ElementArray.length)+1)-1;
+		RandomNum1 = (Math.floor(Math.random() * RatioArray.length) + 1) - 1;
+		RandomNum2 = (Math.floor(Math.random() * ElementArray.length) + 1) - 1;
 
 		$(RatioArray[RandomNum1]).text(ElementArray[RandomNum2]);
 
@@ -42,10 +42,10 @@ var ArrayShuffle = function(Element1, Element2, Element3, Element4, Element5, El
  * @constructor
  */
 var Comparison = function(RatioSpot, DropSpot) {
-	return parseInt(RatioSpot.css('left'), 10) >= parseInt(DropSpot.css('left'), 10)-10 &&
-			parseInt(RatioSpot.css('left'), 10) <= parseInt(DropSpot.css('left'), 10)+parseInt(DropSpot.css('width'), 10) &&
-			parseInt(RatioSpot.css('top'), 10) >= parseInt(DropSpot.css('top'), 10)-10 &&
-			parseInt(RatioSpot.css('top'), 10) <= parseInt(DropSpot.css('top'), 10)+parseInt(DropSpot.css('height'), 10);
+	return parseInt(RatioSpot.css('left'), 10) >= parseInt(DropSpot.css('left'), 10) - 10 &&
+		parseInt(RatioSpot.css('left'), 10) <= parseInt(DropSpot.css('left'), 10) + parseInt(DropSpot.css('width'), 10) &&
+		parseInt(RatioSpot.css('top'), 10) >= parseInt(DropSpot.css('top'), 10) - 10 &&
+		parseInt(RatioSpot.css('top'), 10) <= parseInt(DropSpot.css('top'), 10) + parseInt(DropSpot.css('height'), 10);
 };
 $(document).ready(function() {
 	var Question = {};
@@ -60,7 +60,7 @@ $(document).ready(function() {
 	var RatioSpot2 = "";
 	var RatioSpot3 = "";
 	var RatioSpot4 = "";
-	var RatioSpot5= "";
+	var RatioSpot5 = "";
 	var RatioSpot6 = "";
 
 	/**
@@ -72,10 +72,10 @@ $(document).ready(function() {
 			Question[i]["prompt"] = "";
 		}
 
-		var ActionDVDs = Math.round(Math.random()*30)+1;
-		var ComedyDVDs = Math.round(Math.random()*30)+1;
-		var DocumentaryDVDs = Math.round(Math.random()*30)+1;
-		var TotalDVDs = ActionDVDs+ComedyDVDs+DocumentaryDVDs;
+		var ActionDVDs = Math.round(Math.random() * 30) + 1;
+		var ComedyDVDs = Math.round(Math.random() * 30) + 1;
+		var DocumentaryDVDs = Math.round(Math.random() * 30) + 1;
+		var TotalDVDs = ActionDVDs + ComedyDVDs + DocumentaryDVDs;
 
 		ArrayShuffle(ActionDVDs, ComedyDVDs, DocumentaryDVDs, TotalDVDs, TotalDVDs, TotalDVDs);
 
@@ -83,36 +83,35 @@ $(document).ready(function() {
 		$('#Question2').text("What is the ratio of action DVDs to the total amount of dvds?");
 		$('#Question3').text("What is the ratio of documentary DVDs to the total amount of dvds?");
 
-		Question[0].prompt = "Ms. Sherry loves to collect DVDs, she has "+ActionDVDs+" action DVDs, " +
-			ComedyDVDs+" comedy DVDs, and "+DocumentaryDVDs+" documentary dvds. " +
-			"Answer the questions by dragging the numbers to the appropriate spots.";
+		Question[0].prompt = "Ms. Sherry loves to collect DVDs, she has " + ActionDVDs + " action DVDs, " +
+		ComedyDVDs + " comedy DVDs, and " + DocumentaryDVDs + " documentary dvds. " +
+		"Answer the questions by dragging the numbers to the appropriate spots.";
 		Question[0]["ActionDVDs"] = ActionDVDs;
 		Question[0]["ComedyDVDs"] = ComedyDVDs;
 		Question[0]["DocumentaryDVDs"] = DocumentaryDVDs;
-		Question[0]["TotalDVDs"] = ActionDVDs+ComedyDVDs+DocumentaryDVDs;
+		Question[0]["TotalDVDs"] = ActionDVDs + ComedyDVDs + DocumentaryDVDs;
 
-		var ScienceFiction = Math.round(Math.random()*10)+5;
-		var Biographys = Math.round(Math.random()*10)+5;
-		var MysteryNovels = Math.round(Math.random()*10)+5;
+		var ScienceFiction = Math.round(Math.random() * 10) + 5;
+		var Biographys = Math.round(Math.random() * 10) + 5;
+		var MysteryNovels = Math.round(Math.random() * 10) + 5;
 
-		Question[1].prompt = "Mrs. Carroll loves to read books, she has "+ScienceFiction+" science fiction novels, " +
-			Biographys+" biographys, and "+MysteryNovels+" mystery novels. Answer the next questions by dragging and dropping " +
-			"the answers.";
+		Question[1].prompt = "Mrs. Carroll loves to read books, she has " + ScienceFiction + " science fiction novels, " +
+		Biographys + " biographys, and " + MysteryNovels + " mystery novels. Answer the next questions by dragging and dropping " +
+		"the answers.";
 		Question[1]["ScienceFiction"] = ScienceFiction;
 		Question[1]["Biographys"] = Biographys;
 		Question[1]["MysteryNovels"] = MysteryNovels;
-		Question[1]["TotalBooks"] = ScienceFiction+Biographys+MysteryNovels;
+		Question[1]["TotalBooks"] = ScienceFiction + Biographys + MysteryNovels;
 
-		var RockCDs = Math.round(Math.random()*20)+5;
-		var RapCDs = Math.round(Math.random()*20)+5;
-		var CountryCDs = Math.round(Math.random()*20)+5;
+		var RockCDs = Math.round(Math.random() * 20) + 5;
+		var RapCDs = Math.round(Math.random() * 20) + 5;
+		var CountryCDs = Math.round(Math.random() * 20) + 5;
 
-		Question[2].prompt = "Mr. Burr loves his music and he has made a decent collection of CDs including, "+RockCDs+" rock CDs, "+RapCDs+" rap CDs, " +
-			+CountryCDs+" country CDs. Answer the questions by dragging the numbers to the appropriate spots.";
+		Question[2].prompt = "Mr. Burr loves his music and he has made a decent collection of CDs including, " + RockCDs + " rock CDs, " + RapCDs + " rap CDs, " + +CountryCDs + " country CDs. Answer the questions by dragging the numbers to the appropriate spots.";
 		Question[2]["RockCDs"] = RockCDs;
 		Question[2]["RapCDs"] = RapCDs;
 		Question[2]["CountryCDs"] = CountryCDs;
-		Question[2]["TotalCDs"] = RockCDs+RapCDs+CountryCDs;
+		Question[2]["TotalCDs"] = RockCDs + RapCDs + CountryCDs;
 	};
 
 	generateJSON();
@@ -684,7 +683,8 @@ $(document).ready(function() {
 	});
 
 	/**
-	 * This function checks to make sure all of the  questions are equal to true, if so dynamically changes the page into a new problem.
+	 * This function checks to make sure all of the  questions are equal to true, if so dynamically changes the page
+	 * into a new problem.
 	 */
 	var checkAnswer = function() {
 		var Correct = $('#Correct');
@@ -769,7 +769,7 @@ $(document).ready(function() {
 		$('#Description').text(Question[CurrentQuestionSet].prompt);
 	};
 
-	$(document).on( {
+	$(document).on({
 		click: function() {
 			checkAnswer();
 			setTimeout(function() {

@@ -8,6 +8,7 @@
     font-size: 20px;
     color: orange;
 }
+
 #Final-Answer {
     position: absolute;
     top: 48%;
@@ -15,25 +16,31 @@
     font-size: 40px;
     display: none;
 }
+
 .Answer {
     position: absolute;
     font-size: 40px;
 }
+
 #Description {
     font-size: 20px;
 }
+
 #Correct {
     font-size: 30px;
 }
+
 a:hover {
     font-weight: bold;
 }
+
 .Factor-Multiple1 {
     position: absolute;
     top: 37%;
     left: 50%;
     font-size: 40px;
 }
+
 .Factor-Multiple2 {
     position: absolute;
     top: 37%;

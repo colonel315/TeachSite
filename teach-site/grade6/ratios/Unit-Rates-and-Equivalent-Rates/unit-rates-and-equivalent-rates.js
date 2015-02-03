@@ -45,11 +45,11 @@ $(document).ready(function() {
 		Question[2].otherAnswer = "seven";
 
 		QuestionFirstHalf[3].prompt = "You made 300 dollars over the course of 3 weeks. " +
-									"After 5 weeks of working how much money will you make?";
+		"After 5 weeks of working how much money will you make?";
 		Question[3].answer = "500";
 
 		QuestionFirstHalf[4].prompt = "Over the course of 3 weeks Mr. Burr assigned 12 assignment. " +
-									"After 5 weeks how many assignments will Mr. Burr assign?";
+		"After 5 weeks how many assignments will Mr. Burr assign?";
 		Question[4].answer = "20";
 		Question[4].otherAnswer = "twenty";
 
@@ -69,7 +69,8 @@ $(document).ready(function() {
 	 */
 	var checkAnswer = function() {
 		for(var i = 1; i <= 10; i++) {
-			var UsersAnswer = $('#userAns'+i).val(); //Changing the i into a string so that way I don't have to have many a if statements
+			var UsersAnswer = $('#userAns' + i).val(); //Changing the i into a string so that way I don't have to have
+		                                               // many a if statements
 			UsersAnswer = UsersAnswer.toLowerCase();
 			UsersAnswer = UsersAnswer.replace("$", "");
 			UsersAnswer = UsersAnswer.replace(/\s/g, "");
@@ -77,13 +78,13 @@ $(document).ready(function() {
 
 			var DisplayCorrect = "";
 
-			var RealAnswer = Question[i-1].answer;
+			var RealAnswer = Question[i - 1].answer;
 			RealAnswer = RealAnswer.toString();
 			RealAnswer = RealAnswer.toLowerCase();
 			RealAnswer = RealAnswer.replace("$", "");
 			RealAnswer = RealAnswer.replace(/\s/g, "");
 
-			if(i-1 === 0 || i-1 === 1 || i-1 === 2 || i-1 === 4) {
+			if(i - 1 === 0 || i - 1 === 1 || i - 1 === 2 || i - 1 === 4) {
 				var otherRealAnswer = Question[i - 1].otherAnswer;
 				otherRealAnswer = otherRealAnswer.toString();
 				otherRealAnswer = otherRealAnswer.toLowerCase();
@@ -92,21 +93,21 @@ $(document).ready(function() {
 			}
 
 			if(UsersAnswer === RealAnswer) {
-				DisplayCorrect = $('#correct'+i);
+				DisplayCorrect = $('#correct' + i);
 				DisplayCorrect.css("display", "block");
 				DisplayCorrect.css("background-color", "green");
 				DisplayCorrect.css("color", "white");
 				DisplayCorrect.text("You got this right!");
 			}
 			else if(UsersAnswer === otherRealAnswer) {
-				DisplayCorrect = $('#correct'+i);
+				DisplayCorrect = $('#correct' + i);
 				DisplayCorrect.css("display", "block");
 				DisplayCorrect.css("background-color", "green");
 				DisplayCorrect.css("color", "white");
 				DisplayCorrect.text("You got this right!");
 			}
 			else {
-				DisplayCorrect = $('#correct'+i);
+				DisplayCorrect = $('#correct' + i);
 				DisplayCorrect.css("display", "block");
 				DisplayCorrect.css("background-color", "blue");
 				DisplayCorrect.css("color", "white");

@@ -40,7 +40,7 @@ $(document).ready(function() {
 	 * Creates an empty JSON structure to store questions into.
 	 * @type {{}}
 	 */
-	var	Answers = {};
+	var Answers = {};
 
 	/**
 	 * Booleans Highlight1 and Highlight2 lets the program know whether or not a ratio is selected.
@@ -94,12 +94,12 @@ $(document).ready(function() {
 		var Divider = "";
 
 		for(i = 0; i < 6; i++) {
-			randomNumerator = Math.floor(Math.random()*10)+1;
-			randomDenomenator = Math.floor(Math.random()*10)+1;
+			randomNumerator = Math.floor(Math.random() * 10) + 1;
+			randomDenomenator = Math.floor(Math.random() * 10) + 1;
 			Divider = GreatestCommonFactor(randomNumerator, randomDenomenator);
 
-			Answers[i].Ratios = randomNumerator+":"+randomDenomenator;
-			Answers[i].SimplifiedRatios = randomNumerator/Divider+":"+randomDenomenator/Divider;
+			Answers[i].Ratios = randomNumerator + ":" + randomDenomenator;
+			Answers[i].SimplifiedRatios = randomNumerator / Divider + ":" + randomDenomenator / Divider;
 		}
 
 		var tempRatios = [];
@@ -112,17 +112,17 @@ $(document).ready(function() {
 		var randomNum = "";
 
 		for(i = 1; i <= 6; i++) {
-			randomNum = (Math.floor(Math.random()*tempRatios.length)+1)-1;
+			randomNum = (Math.floor(Math.random() * tempRatios.length) + 1) - 1;
 
-			$('#Ratio'+i).text(tempRatios[randomNum]);
+			$('#Ratio' + i).text(tempRatios[randomNum]);
 
 			tempRatios.splice(randomNum, 1);
 		}
 
 		for(i = 7; i <= 12; i++) {
-			randomNum = (Math.floor(Math.random()*tempSimplifiedRatios.length)+1)-1;
+			randomNum = (Math.floor(Math.random() * tempSimplifiedRatios.length) + 1) - 1;
 
-			$('#Ratio'+i).text(tempSimplifiedRatios[randomNum]);
+			$('#Ratio' + i).text(tempSimplifiedRatios[randomNum]);
 
 			tempSimplifiedRatios.splice(randomNum, 1);
 		}
@@ -233,7 +233,7 @@ $(document).ready(function() {
 	});
 
 	/*each of these when clicked will highlight blue, if one is already blue will transfer the blue to another ratio and make the previous
-	selected ratio black.*/
+	 selected ratio black.*/
 	Ratio1.on({
 		click: function() {
 			if(Highlight1) {

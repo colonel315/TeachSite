@@ -7,7 +7,7 @@
  * @constructor
  */
 var GreatestCommonFactor = function(Factor1, Factor2) {
-	var  GreatestCommonFactor = 1;
+	var GreatestCommonFactor = 1;
 
 	if(Factor1 < Factor2) {
 		var temp = Factor1;
@@ -38,18 +38,18 @@ var LeastCommonMultiple = function(Product1, Product2) {
 		Product2 = temp;
 	}
 
-	for(var i = Product1; i <= Product1*Product2; i+=Product1) {
+	for(var i = Product1; i <= Product1 * Product2; i += Product1) {
 		console.log("i = ", i);
-		for(var j = Product2; j <= i; j+=Product2) {
-			if(i%j === 0) {
+		for(var j = Product2; j <= i; j += Product2) {
+			if(i % j === 0) {
 				return i;
 			}
 		}
 	}
 };
 /**
- * This function will find a better deal based off of the value of the item, the weight and the type of measurement then returns the
- * product that is the better deal.
+ * This function will find a better deal based off of the value of the item, the weight and the type of measurement
+ * then returns the product that is the better deal.
  *
  * @param Item1Value
  * @param Weight1
@@ -124,7 +124,8 @@ var HighestDivide = function(divisor, dividend) {
 };
 
 /**
- * Another step for the standard algorithm for division. This takes in two values and subtracts them to return that value.
+ * Another step for the standard algorithm for division. This takes in two values and subtracts them to return that
+ * value.
  *
  * @param dividend
  * @param subtractor
@@ -202,7 +203,7 @@ var findFactors = function(product) {
 		}
 	}
 
-	if(product%Math.sqrt(product) === 0) {
+	if(product % Math.sqrt(product) === 0) {
 		Factors = $.grep(Factors, function(Element) {
 			return Element != Math.sqrt(product);
 		});

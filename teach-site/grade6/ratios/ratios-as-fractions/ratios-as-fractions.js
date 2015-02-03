@@ -11,10 +11,10 @@
  * @constructor
  */
 var Comparison = function(RatioFractionSpot, DropSpot) {
-	return parseInt(RatioFractionSpot.css('left'), 10) >= parseInt(DropSpot.css('left'), 10)-10 &&
-			parseInt(RatioFractionSpot.css('left'), 10) <= parseInt(DropSpot.css('left'), 10)+parseInt(DropSpot.css('width'), 10) &&
-			parseInt(RatioFractionSpot.css('top'), 10) >= parseInt(DropSpot.css('top'), 10)-10 &&
-			parseInt(RatioFractionSpot.css('top'), 10) <= parseInt(DropSpot.css('top'), 10)+parseInt(DropSpot.css('height'), 10);
+	return parseInt(RatioFractionSpot.css('left'), 10) >= parseInt(DropSpot.css('left'), 10) - 10 &&
+		parseInt(RatioFractionSpot.css('left'), 10) <= parseInt(DropSpot.css('left'), 10) + parseInt(DropSpot.css('width'), 10) &&
+		parseInt(RatioFractionSpot.css('top'), 10) >= parseInt(DropSpot.css('top'), 10) - 10 &&
+		parseInt(RatioFractionSpot.css('top'), 10) <= parseInt(DropSpot.css('top'), 10) + parseInt(DropSpot.css('height'), 10);
 };
 $(document).ready(function() {
 	/**
@@ -62,12 +62,12 @@ $(document).ready(function() {
 		var Divider = "";
 
 		for(i = 0; i < 6; i++) {
-			randomNumerator = Math.floor(Math.random()*50)+1;
-			randomDenomenator = Math.floor(Math.random()*50)+1;
+			randomNumerator = Math.floor(Math.random() * 50) + 1;
+			randomDenomenator = Math.floor(Math.random() * 50) + 1;
 			Divider = GreatestCommonFactor(randomNumerator, randomDenomenator);
 
-			Answers[i].Ratios = randomNumerator+":"+randomDenomenator;
-			Answers[i].Fractions = randomNumerator/Divider+"/"+randomDenomenator/Divider;
+			Answers[i].Ratios = randomNumerator + ":" + randomDenomenator;
+			Answers[i].Fractions = randomNumerator / Divider + "/" + randomDenomenator / Divider;
 		}
 
 		var tempRatios = [];
@@ -80,17 +80,17 @@ $(document).ready(function() {
 		var randomNum = "";
 
 		for(i = 1; i <= 6; i++) {
-			randomNum = (Math.floor(Math.random()*tempRatios.length)+1)-1;
+			randomNum = (Math.floor(Math.random() * tempRatios.length) + 1) - 1;
 
-			$('#RatioSpot'+i).text(tempRatios[randomNum]);
+			$('#RatioSpot' + i).text(tempRatios[randomNum]);
 
 			tempRatios.splice(randomNum, 1);
 		}
 
 		for(i = 1; i <= 6; i++) {
-			randomNum = (Math.floor(Math.random()*tempFractions.length)+1)-1;
+			randomNum = (Math.floor(Math.random() * tempFractions.length) + 1) - 1;
 
-			$('#FractionSpot'+i).text(tempFractions[randomNum]);
+			$('#FractionSpot' + i).text(tempFractions[randomNum]);
 
 			tempFractions.splice(randomNum, 1);
 		}
@@ -113,15 +113,15 @@ $(document).ready(function() {
 			}
 
 			for(j = 1; j <= 6; j++) {
-				Fractions = $('#FractionSpot'+j);
+				Fractions = $('#FractionSpot' + j);
 				if(Fractions.html() == Answers[i].Fractions) {
 					break;
 				}
 			}
 
-			for(j = 1; j <= 11; j+=2) {
+			for(j = 1; j <= 11; j += 2) {
 				if(Ratios.html() == Answers[i].Ratios && Fractions.html() == Answers[i].Fractions &&
-					Comparison(Ratios, $('#Drop-Spot'+j)) && Comparison(Fractions, $('#Drop-Spot'+(j+1)))) {
+					Comparison(Ratios, $('#Drop-Spot' + j)) && Comparison(Fractions, $('#Drop-Spot' + (j + 1)))) {
 					amountCorrect++;
 				}
 			}
@@ -258,7 +258,7 @@ $(document).ready(function() {
 		FractionSpot6.css('top', '80%').css('left', '70%');
 	};
 
-	$(document).on( {
+	$(document).on({
 		click: function() {
 			checkAnswer();
 		}

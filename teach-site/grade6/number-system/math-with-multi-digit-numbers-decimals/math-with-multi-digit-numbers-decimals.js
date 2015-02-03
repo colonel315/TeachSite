@@ -23,29 +23,29 @@ $(document).ready(function() {
 			randomNum2 = math.round(math.random(10, 100), 2);
 
 			if(i >= 6) {
-				ArithmeticProblem[i].prompt = randomNum1+" ÷ "+randomNum2;
-				ArithmeticProblem[i].answer = math.round(randomNum2/randomNum1, 2);
+				ArithmeticProblem[i].prompt = randomNum1 + " ÷ " + randomNum2;
+				ArithmeticProblem[i].answer = math.round(randomNum2 / randomNum1, 2);
 			}
 			else if(i >= 4) {
-				ArithmeticProblem[i].prompt = randomNum1+" x "+randomNum2;
-				ArithmeticProblem[i].answer = math.round(randomNum2*randomNum1, 2);
+				ArithmeticProblem[i].prompt = randomNum1 + " x " + randomNum2;
+				ArithmeticProblem[i].answer = math.round(randomNum2 * randomNum1, 2);
 			}
 			else if(i >= 2) {
-				ArithmeticProblem[i].prompt = randomNum1+" + "+randomNum2;
-				ArithmeticProblem[i].answer = math.round(randomNum2+randomNum1, 2);
+				ArithmeticProblem[i].prompt = randomNum1 + " + " + randomNum2;
+				ArithmeticProblem[i].answer = math.round(randomNum2 + randomNum1, 2);
 			}
 			else {
-				ArithmeticProblem[i].prompt = randomNum2+" - "+randomNum1;
-				ArithmeticProblem[i].answer = math.round(randomNum2-randomNum1, 2);
+				ArithmeticProblem[i].prompt = randomNum2 + " - " + randomNum1;
+				ArithmeticProblem[i].answer = math.round(randomNum2 - randomNum1, 2);
 			}
 		}
 	};
 
 	var checkAnswer = function() {
 		for(var i = 1; i <= 8; i++) {
-			var DisplayCorrect = $('#correct'+i);
+			var DisplayCorrect = $('#correct' + i);
 
-			if($('#userAns'+i).val() == ArithmeticProblem[i-1].answer) {
+			if($('#userAns' + i).val() == ArithmeticProblem[i - 1].answer) {
 				DisplayCorrect.css("display", "block");
 				DisplayCorrect.css("background-color", "green");
 				DisplayCorrect.css("color", "white");

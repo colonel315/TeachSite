@@ -2,35 +2,40 @@
   font-size: 16px;
   text-align: center;
   color: #fff;
-  color: rgba(255,255,255,.75);
+  color: rgba(255, 255, 255, .75);
   background-color: #cb4b16;
   border-radius: 0;
 }
+
 .jumbotron h1 {
   margin-bottom: 15px;
   font-weight: 300;
   letter-spacing: -1px;
   color: #fff;
 }
+
 .jumbotron .small {
   font-size: .9em;
 }
+
 .jumbotron iframe {
-  width: 90px!important;
-  height: 20px!important;
+  width: 90px !important;
+  height: 20px !important;
   border: none;
   overflow: hidden;
   margin: 2px;
 }
+
 .jumbotron p a,
 .jumbotron-links a {
   font-weight: 500;
   color: #fff;
   transition: all .1s ease-in-out;
 }
+
 .jumbotron p a:hover,
 .jumbotron-links a:hover {
-  text-shadow: 0 0 10px rgba(255,255,255,.55);
+  text-shadow: 0 0 10px rgba(255, 255, 255, .55);
 }
 
 .jumbotron-links {
@@ -39,13 +44,14 @@
   list-style: none;
   font-size: 14px;
 }
+
 .jumbotron-links li {
   display: inline;
 }
+
 .jumbotron-links li + li {
   margin-left: 20px;
 }
-
 
 .btn-outline {
   margin-top: 15px;
@@ -56,7 +62,7 @@
   color: #fff;
   background-color: transparent;
   border-color: #fff;
-  border-color: rgba(255,255,255,.5);
+  border-color: rgba(255, 255, 255, .5);
   transition: all .1s ease-in-out;
 }
 
@@ -70,7 +76,6 @@
 .container {
   max-width: 680px;
 }
-
 
 h1,
 h2 {
