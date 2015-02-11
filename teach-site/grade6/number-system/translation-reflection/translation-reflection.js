@@ -14,6 +14,26 @@
 
 var Grid = {};
 
+Grid.Boot = function(game){};
+
+Grid.Boot.prototype = {
+	preload: function() {
+		//  Load loading bar image
+		this.load.image('loading-bar', 'loading_bar.png');
+	},
+
+	create: function(){
+		// set scale options
+		this.input.maxPointers = 1;
+		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+		this.scale.pageAlignHorizontally = true;
+		this.scale.pageAlignVertically = true;
+		this.scale.setScreenSize(true);
+		// start the Preloader state
+		this.state.start('Preload');
+	}
+};
+
 Grid.Preloader = function(game) {
 	Grid.GRID_WIDTH = 800;
 	Grid.GRID_HEIGHT = 600;
@@ -21,6 +41,11 @@ Grid.Preloader = function(game) {
 
 Grid.Preloader.prototype = {
 	preload: function() {
+		this.stage.background = '#B4D9E7';
+
+		//this.preloadBar = this.add.sprite('loading-bar', Grid.GRID_WIDTH/2 - 100, Grid.GRID_HEIGHT/2 - 50);
+		//this.load.setPreloadSprite(this.preloadBar);
+
 		//  Load any needed images
 		this.load.image('player', 'teach-character.png');
 		this.load.image('background', 'coordinate-grid.png');
@@ -85,7 +110,9 @@ Grid.Game = function(game) {
 
 Grid.Game.prototype = {
 	create: function() {
-		//  Start physics engine
+		this.stage.background = "#B4D9E7";
+
+		  //Start physics engine
 		//this.physics.startSystem (Phaser.Physics.ARCADE);
 
 		this.add.sprite(0, 0, 'background');

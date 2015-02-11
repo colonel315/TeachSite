@@ -42,10 +42,14 @@ var ArrayShuffle = function(Element1, Element2, Element3, Element4, Element5, El
  * @constructor
  */
 var Comparison = function(RatioSpot, DropSpot) {
-	return parseInt(RatioSpot.css('left'), 10) >= parseInt(DropSpot.css('left'), 10) - 10 &&
-		parseInt(RatioSpot.css('left'), 10) <= parseInt(DropSpot.css('left'), 10) + parseInt(DropSpot.css('width'), 10) &&
-		parseInt(RatioSpot.css('top'), 10) >= parseInt(DropSpot.css('top'), 10) - 10 &&
-		parseInt(RatioSpot.css('top'), 10) <= parseInt(DropSpot.css('top'), 10) + parseInt(DropSpot.css('height'), 10);
+	var ratioSpotLeft = RatioSpot.position().left;
+	var ratioSpotTop = RatioSpot.position().top;
+
+	var dropSpotLeft = DropSpot.position().left;
+	var dropSpotTop = DropSpot.position().top;
+
+	return ratioSpotLeft >= dropSpotLeft &&	ratioSpotLeft <= dropSpotLeft + DropSpot.width() &&
+			ratioSpotTop >= dropSpotTop && ratioSpotTop <= dropSpotTop + DropSpot.height();
 };
 $(document).ready(function() {
 	var Question = {};
@@ -150,7 +154,7 @@ $(document).ready(function() {
 			'originalLeft': RatioSpot1.css('left'),
 			'originalTop': RatioSpot1.css('top')
 		});
-		console.log("Got to line 145");
+
 		//checks to see if the answers are in the correct spot for RatioSpot1
 		RatioSpot1.mouseup(function() {
 			question = Question[CurrentQuestionSet];
@@ -674,12 +678,13 @@ $(document).ready(function() {
 				}
 			}
 		});
-		DropSpot1.droppable({});
-		DropSpot2.droppable({});
-		DropSpot3.droppable({});
-		DropSpot4.droppable({});
-		DropSpot5.droppable({});
-		DropSpot6.droppable({});
+
+		DropSpot1.droppable();
+		DropSpot2.droppable();
+		DropSpot3.droppable();
+		DropSpot4.droppable();
+		DropSpot5.droppable();
+		DropSpot6.droppable();
 	});
 
 	/**
@@ -740,13 +745,6 @@ $(document).ready(function() {
 		Question2D = false;
 		Question3N = false;
 		Question3D = false;
-
-		console.log("Question1N = ", Question1N);
-		console.log("Question1D = ", Question1D);
-		console.log("Question2N = ", Question2N);
-		console.log("Question2D = ", Question2D);
-		console.log("Question3N = ", Question3N);
-		console.log("Question3D = ", Question3D);
 
 		var Question1 = $('#Question1');
 		var Question2 = $('#Question2');

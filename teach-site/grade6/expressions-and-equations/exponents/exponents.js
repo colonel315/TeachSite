@@ -60,7 +60,7 @@ $(document).ready(function() {
 
 					for(var i = 0; i < this._exponent; i++) {
 						if(i < this._exponent - 1) {
-							expression += this._randomBase + " + ";
+							expression += this._randomBase + " * ";
 						}
 						else {
 							expression += this._randomBase;
@@ -110,7 +110,7 @@ $(document).ready(function() {
 			var userAns = $('#userAns').val();
 			userAns = userAns.replace(/\s/g, "");
 			userAns = userAns.toString();
-			
+
 			var gotCorrect;
 
 			switch(this._questionType) {
