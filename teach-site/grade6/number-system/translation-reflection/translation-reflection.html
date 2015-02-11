@@ -93,11 +93,10 @@
 			(function() {
 				var game = new Phaser.Game(1300, 650, Phaser.AUTO, 'game');
 
-				game.state.add('Boot', Grid.Boot);
 				game.state.add('Preload', Grid.Preloader);
 				game.state.add('Game', Grid.Game);
 
-				game.state.start('Boot');
+				game.state.start('Preload');
 			})();
 		</script>
 	</body>
