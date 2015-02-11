@@ -25,6 +25,10 @@ Grid.Preloader.prototype = {
 		this.load.image('player', 'teach-character.png');
 		this.load.image('background', 'coordinate-grid.png');
 		this.load.image('transparentPoint', 'transparent-point.png');
+
+		//  Load sprite sheets
+		this.load.spriteSheet('enter-button', 'enter_button', 150, 75);
+		this.load.spriteSheet('reflect-button', 'enter_button', 150, 75);
 	},
 
 	create: function() {
@@ -121,11 +125,39 @@ Grid.Game.prototype = {
 		}
 
 		this._reflectKey = this.input.keyboard.addKey(Phaser.Keyboard.R);
+		this.add.button(850, 400, 'reflect-button', this.reflectCharacter, this, 1, 2, 0);
 
 		this._checkKey = this.input.keyboard.addKey(Phaser.Keyboard.ENTER);
 		this._checkKey.onDown.add(this.checkQuestion, this);
+		this.add.button(860, 600, 'enter-button', this.checkQuestion, this, 1, 2, 0);
 
 		Grid.Question.generateQuestion(this);
+	},
+
+	reflectCharacter: function() {
+		this._player.scale.y *= -1; //  flip character
+
+		if(Grid._headUp) {  //  if head is up
+			this._player.y -= 50;   //  move character up 50 pixels
+
+			Grid._headUp = false;   //  head is not up anymore
+
+			Grid._distanceBottom = (Grid.GRID_HEIGHT - (this._player.y + 15));
+		}
+		else {  //  if head is down
+			this._player.y += 50;   //  move character down 50 pixels
+
+			Grid._headUp = true;    //  head is now up
+
+			Grid._distanceBottom = (Grid.GRID_HEIGHT - (this._player.y - 35));
+		}
+
+		Grid._keyDown = false;  //  key is not down anymore
+
+		Grid._distanceRight = (Grid.GRID_WIDTH - (this._player.x + 5));
+		Grid._distanceLeft = (Grid.GRID_WIDTH - Grid._distanceRight);
+
+		Grid._distanceTop = (Grid.GRID_HEIGHT - Grid._distanceBottom);
 	},
 
 	moveCharacter: function(point) {
