@@ -27,8 +27,8 @@ Grid.Preloader.prototype = {
 		this.load.image('transparentPoint', 'transparent-point.png');
 
 		//  Load sprite sheets
-		this.load.spriteSheet('enter-button', 'enter_button', 150, 75);
-		this.load.spriteSheet('reflect-button', 'enter_button', 150, 75);
+		this.load.spritesheet('enter-button', 'enter_button.png', 150, 75);
+		this.load.spritesheet('reflect-button', 'reflect_button.png', 150, 75);
 	},
 
 	create: function() {
@@ -129,7 +129,7 @@ Grid.Game.prototype = {
 
 		this._checkKey = this.input.keyboard.addKey(Phaser.Keyboard.ENTER);
 		this._checkKey.onDown.add(this.checkQuestion, this);
-		this.add.button(860, 600, 'enter-button', this.checkQuestion, this, 1, 2, 0);
+		this.add.button(850, 475, 'enter-button', this.checkQuestion, this, 1, 2, 0);
 
 		Grid.Question.generateQuestion(this);
 	},
