@@ -1,3 +1,11 @@
+.page-header {
+    border-bottom: 5px solid #eee
+}
+
+.h1 {
+    color: blue
+}
+
 #myNavBar {
     background: blue;
 }
