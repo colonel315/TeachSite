@@ -30,8 +30,8 @@ $(document).ready(function() {
 		createTable: function() {
 			this._randomMultipleX = FunctionQuestion.Utilities.randomNumber(2, 5);
 
-			this._randomCoeffecient = FunctionQuestion.Utilities.randomNumber(0, 4);
-			this._randomConstant = FunctionQuestion.Utilities.randomNumber(0, 10);
+			this._randomCoeffecient = FunctionQuestion.Utilities.randomNumber(1, 4);
+			this._randomConstant = FunctionQuestion.Utilities.randomNumber(1, 10);
 
 			for(var i = 1; i <= 5; i++) {
 				$('#x' + i).text(i * this._randomMultipleX);
